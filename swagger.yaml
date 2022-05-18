@@ -1,0 +1,277 @@
+swagger: '2.0'
+info:
+  description: >- 
+    A very cool reservation system
+  version: 1.0.0
+  title: Reservation Bear
+host: api.reservation-bear.de
+basePath: /v1
+tags:
+  - name: restaurant
+    description: Restaurants
+  - name: table
+    description: Tables
+  - name: reservation
+    description: Reservations
+schemes:
+  - https
+paths:
+  /restaurant:
+    get:
+      tags:
+        - restaurant
+      summary: get all restaurants
+      description: ''
+      operationId: getRestaurants
+      produces:
+        - application/json
+      parameters:
+      - name: "filter"
+        in: "query"
+        description: "some filters"
+        required: false
+        type: "string"
+        format: "string"
+      responses:
+        '200':
+          description: All different restaurants
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Restaurant'
+  /restaurant/{restaurantId}:
+    get:
+      tags:
+        - restaurant
+      summary: Get specific restaurant
+      description: 'AAAAAAA'
+      operationId: getRestaurant
+      parameters:
+      - name: "restaurantId"
+        in: "path"
+        description: "ID of restaurant to return"
+        required: true
+        type: "string"
+        format: "string"
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The restaurant
+          schema:
+            $ref: '#/definitions/Restaurant'
+            
+  /restaurant/{restaurantId}/tables:
+    get:
+      tags:
+        - restaurant
+      summary: get all tables in restaurant
+      description: 'halllo'
+      parameters:
+      - name: "restaurantId"
+        in: "path"
+        description: "ID of restaurant to return"
+        required: true
+        type: "string"
+      - name: "from"
+        in: "query"
+        description: "Availability from"
+        required: false
+        type: "string"
+      - name: "to"
+        in: "query"
+        description: "Availability to"
+        required: false
+        type: "string"
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The restaurant
+          schema:
+            $ref: '#/definitions/Table'
+  /restaurant/{restaurantId}/timeslots:
+    get:
+      tags:
+        - restaurant
+      summary: get timeslot infos
+      description: 'halllo'
+      parameters:
+      - name: "restaurantId"
+        in: "path"
+        description: "ID of restaurant to return"
+        required: true
+        type: "string"
+      - name: "date"
+        in: "query"
+        description: "date"
+        required: true
+        type: "string"
+        format: "datetime"
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The restaurant
+          schema:
+            $ref: '#/definitions/Table' 
+  /table/{tableId}:
+    get:
+      tags:
+        - table
+      summary: get specific table
+      description: 'halllo'
+      operationId: getTable
+      parameters:
+      - name: "tableId"
+        in: "path"
+        description: "ID of restaurant to return"
+        required: true
+        type: "string"
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The restaurant
+          schema:
+            $ref: '#/definitions/Table'
+  /reservation:
+    post:
+      tags:
+        - reservation
+      summary: create a reservation
+      description: 'halllo'
+      operationId: createReservation
+      parameters:
+      - name: "reservation"
+        in: "body"
+        description: "The reservation info"
+        required: true
+        schema:
+          $ref: '#/definitions/Reservation' 
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The restaurant
+          schema:
+            $ref: '#/definitions/Reservation'
+  /reservation/{id}:
+    get:
+      tags:
+        - reservation
+      summary: get a reservation
+      description: 'halllo'
+      operationId: getReservation
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "the reservation id"
+        required: true
+        type: "string"
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The restaurant
+          schema:
+            $ref: '#/definitions/Reservation'
+    put:
+      tags:
+        - reservation
+      summary: confirm a reservation
+      description: 'halllo'
+      operationId: putReservation
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "the reservation id"
+        required: true
+        type: "string"
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The restaurant
+          schema:
+            $ref: '#/definitions/Reservation' 
+    delete:
+      tags:
+        - reservation
+      summary: delete a reservation
+      description: 'halllo'
+      operationId: deleteReservation
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "the reservation id"
+        required: true
+        type: "string"
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The restaurant
+          schema:
+            $ref: '#/definitions/Reservation'
+    /reservation/{id}/ics:
+      get:
+        tags:
+          - reservation
+        summary: get a reservation
+        description: 'halllo'
+        operationId: getReservation
+        parameters:
+        - name: "id"
+          in: "path"
+          description: "the reservation id"
+          required: true
+          type: "string"
+        produces:
+          - application/json
+        responses:
+          '200':
+            description: ICS DATEI
+            type: "string"
+definitions:
+  Restaurant:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+      details:
+        type: string
+    xml:
+      name: Restaurant
+  Table:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+      availability:
+        type: string
+    xml:
+      name: Table
+  Reservation:
+    type: object
+    properties:
+      tableId:
+        type: integer
+        format: int64
+      from:
+        type: string
+        format: datetime
+      to:
+        type: string
+        format: datetime
+      userName:
+        type: string
+      userEmail:
+        type: string
+    xml:
+      name: Reservation
+externalDocs:
+  description: WIKI
+  url: https://wiki.itsblue.de
