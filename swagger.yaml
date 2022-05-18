@@ -13,6 +13,8 @@ tags:
     description: Tables
   - name: reservation
     description: Reservations
+  - name: timeslot
+    description: Timeslot
 schemes:
   - https
 paths:
@@ -93,7 +95,9 @@ paths:
         '200':
           description: "all the tables in the restaurant"
           schema:
-            $ref: '#/definitions/Table'
+            type: "array"
+            items:
+              $ref: '#/definitions/Table'
   /restaurant/{id}/timeslots:
     get:
       tags:
@@ -119,8 +123,9 @@ paths:
         '200':
           description: "the timeslots?"
           schema:
-            type: string
-            format: string
+            type: array
+            items:
+              $ref: '#/definitions/Timeslot'
   /table/{id}:
     get:
       tags:
@@ -284,14 +289,7 @@ definitions:
       timeslots:
         type: array
         items:
-          type: object
-          properties:
-            from:
-              type: string
-              format: date-time
-            to:
-              type: string
-              format: date-time  
+          $ref: '#/definitions/Timeslot'
   
     xml:
       name: Restaurant
@@ -314,8 +312,9 @@ definitions:
           y:
             type: integer
       availability:
-        type: string
-        format: date-time
+        type: array
+        items:
+          $ref: '#/definitions/Timeslot'
     xml:
       name: Table
   Reservation:
@@ -327,12 +326,8 @@ definitions:
       tableId:
         type: string
         format: uuid
-      from:
-        type: string
-        format: date-time
-      to:
-        type: string
-        format: date-time
+      times:
+        $ref: '#/definitions/Timeslot'
       userName:
         type: string
         format: string
@@ -341,6 +336,15 @@ definitions:
         format: email
     xml:
       name: Reservation
+  Timeslot:
+    type: object
+    properties:
+      from:
+        type: string
+        format: date-time
+      to:
+        type: string
+        format: date-time
 externalDocs:
   description: wiki
   url: https://wiki.itsblue.de
