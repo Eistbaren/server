@@ -3,7 +3,7 @@ info:
   description: >- 
     A very cool reservation system
   version: 1.0.0
-  title: Reservation Bear
+  title: "Reservation Bear"
 host: api.reservation-bear.de
 basePath: /v1
 tags:
@@ -20,132 +20,139 @@ paths:
     get:
       tags:
         - restaurant
-      summary: get all restaurants
-      description: ''
+      summary: "get and search restaurants"
+      description: ""
       operationId: getRestaurants
       produces:
         - application/json
       parameters:
       - name: "filter"
-        in: "query"
+        in: query
         description: "some filters"
         required: false
-        type: "string"
-        format: "string"
+        type: string
+        format: string
       responses:
         '200':
-          description: All different restaurants
+          description: "all different restaurants"
           schema:
             type: array
             items:
               $ref: '#/definitions/Restaurant'
-  /restaurant/{restaurantId}:
+  /restaurant/{id}:
     get:
       tags:
         - restaurant
-      summary: Get specific restaurant
-      description: 'AAAAAAA'
+      summary: "get specific restaurant"
+      description: ""
       operationId: getRestaurant
       parameters:
-      - name: "restaurantId"
-        in: "path"
-        description: "ID of restaurant to return"
+      - name: "id"
+        in: path
+        description: "id of the restaurant"
         required: true
-        type: "string"
-        format: "string"
+        type: string
+        format: uuid
       produces:
         - application/json
       responses:
         '200':
-          description: The restaurant
+          description: "the restaurant"
           schema:
             $ref: '#/definitions/Restaurant'
             
-  /restaurant/{restaurantId}/tables:
+  /restaurant/{id}/tables:
     get:
       tags:
         - restaurant
-      summary: get all tables in restaurant
-      description: 'halllo'
+      summary: "get all tables in the restaurant"
+      description: ""
+      operationId: getRestaurantTables
       parameters:
-      - name: "restaurantId"
-        in: "path"
-        description: "ID of restaurant to return"
+      - name: "id"
+        in: path
+        description: "id of the restaurant"
         required: true
-        type: "string"
+        type: string
+        format: uuid
       - name: "from"
-        in: "query"
-        description: "Availability from"
+        in: query
+        description: "availability from"
         required: false
-        type: "string"
+        type: string
+        format: date-time
       - name: "to"
-        in: "query"
-        description: "Availability to"
+        in: query
+        description: "availability to"
         required: false
-        type: "string"
+        type: string
+        format: date-time
       produces:
         - application/json
       responses:
         '200':
-          description: The restaurant
+          description: "all the tables in the restaurant"
           schema:
             $ref: '#/definitions/Table'
-  /restaurant/{restaurantId}/timeslots:
+  /restaurant/{id}/timeslots:
     get:
       tags:
         - restaurant
-      summary: get timeslot infos
-      description: 'halllo'
+      summary: "get timeslot infos"
+      description: ""
+      operationId: getRestaurantTimeslots
       parameters:
-      - name: "restaurantId"
-        in: "path"
-        description: "ID of restaurant to return"
+      - name: "id"
+        in: path
+        description: "id of the restaurant"
         required: true
-        type: "string"
+        type: string
       - name: "date"
-        in: "query"
-        description: "date"
+        in: query
+        description: "some date"
         required: true
-        type: "string"
-        format: "datetime"
+        type: string
+        format: date-time
       produces:
         - application/json
       responses:
         '200':
-          description: The restaurant
+          description: "the timeslots?"
           schema:
-            $ref: '#/definitions/Table' 
-  /table/{tableId}:
+            type: string
+            format: string
+  /table/{id}:
     get:
       tags:
         - table
-      summary: get specific table
-      description: 'halllo'
+      summary: "get specific table"
+      description: ""
       operationId: getTable
       parameters:
-      - name: "tableId"
-        in: "path"
-        description: "ID of restaurant to return"
+      - name: "id"
+        in: path
+        description: "id of the restaurant"
         required: true
-        type: "string"
+        type: string
+        format: uuid
       produces:
         - application/json
       responses:
         '200':
-          description: The restaurant
+          description: "the table"
           schema:
             $ref: '#/definitions/Table'
   /reservation:
     post:
       tags:
         - reservation
-      summary: create a reservation
-      description: 'halllo'
+      summary: "create a reservation"
+      description: ""
       operationId: createReservation
       parameters:
       - name: "reservation"
-        in: "body"
-        description: "The reservation info"
+        in: body
+        description: "the reservation info"
         required: true
         schema:
           $ref: '#/definitions/Reservation' 
@@ -153,86 +160,92 @@ paths:
         - application/json
       responses:
         '200':
-          description: The restaurant
+          description: "the newly created reservation"
           schema:
             $ref: '#/definitions/Reservation'
   /reservation/{id}:
     get:
       tags:
         - reservation
-      summary: get a reservation
-      description: 'halllo'
+      summary: "get a reservation"
+      description: ""
       operationId: getReservation
       parameters:
       - name: "id"
-        in: "path"
+        in: path
         description: "the reservation id"
         required: true
-        type: "string"
+        type: string
+        format: string
       produces:
         - application/json
       responses:
         '200':
-          description: The restaurant
+          description: "the reservation"
           schema:
             $ref: '#/definitions/Reservation'
     put:
       tags:
         - reservation
-      summary: confirm a reservation
-      description: 'halllo'
+      summary: "confirm a reservation"
+      description: ""
       operationId: putReservation
       parameters:
       - name: "id"
-        in: "path"
+        in: path
         description: "the reservation id"
         required: true
-        type: "string"
+        type: string
+      - name: "accept"
+        in: body
+        description: "acceptance of the reservation"
+        required: true
+        schema:
+          type: boolean
       produces:
         - application/json
       responses:
         '200':
-          description: The restaurant
+          description: "the reservation"
           schema:
             $ref: '#/definitions/Reservation' 
     delete:
       tags:
         - reservation
-      summary: delete a reservation
-      description: 'halllo'
+      summary: "delete a reservation"
+      description: ""
       operationId: deleteReservation
       parameters:
       - name: "id"
-        in: "path"
+        in: path
         description: "the reservation id"
         required: true
-        type: "string"
+        type: string
       produces:
         - application/json
       responses:
         '200':
-          description: The restaurant
+          description: "the deleted reservation"
           schema:
             $ref: '#/definitions/Reservation'
-    /reservation/{id}/ics:
-      get:
-        tags:
-          - reservation
-        summary: get a reservation
-        description: 'halllo'
-        operationId: getReservation
-        parameters:
-        - name: "id"
-          in: "path"
-          description: "the reservation id"
-          required: true
-          type: "string"
-        produces:
-          - application/json
-        responses:
-          '200':
-            description: ICS DATEI
-            type: "string"
+  /reservation/{id}/ics:
+    get:
+      tags:
+        - reservation
+      summary: "get a reservation ics file"
+      description: ""
+      operationId: getReservationIcs
+      parameters:
+      - name: "id"
+        in: path
+        description: "the reservation id"
+        required: true
+        type: string
+      responses:
+        '200':
+          description: "ics file"
+          schema:
+            type: file
 definitions:
   Restaurant:
     type: object
@@ -240,8 +253,46 @@ definitions:
       id:
         type: string
         format: uuid
-      details:
+      description:
         type: string
+        format: string
+      price:
+        type: integer
+        minimum: 1
+        maximum: 3
+      rating:
+        type: integer
+        minimum: 1
+        maximum: 5
+      location:
+        type: object
+        properties:
+          lat:
+            type: number
+            format: double
+          lon:
+            type: number
+            format: double
+      size:
+        description: "the size for the layout"
+        type: object
+        properties:
+          x:
+            type: integer
+          y:
+            type: integer
+      timeslots:
+        type: array
+        items:
+          type: object
+          properties:
+            from:
+              type: string
+              format: date-time
+            to:
+              type: string
+              format: date-time  
+  
     xml:
       name: Restaurant
   Table:
@@ -250,28 +301,46 @@ definitions:
       id:
         type: string
         format: uuid
+      restaurantId:
+        type: string
+        format: uuid
+      places:
+        type: integer
+      coordinates:
+        type: object
+        properties:
+          x:
+            type: integer
+          y:
+            type: integer
       availability:
         type: string
+        format: date-time
     xml:
       name: Table
   Reservation:
     type: object
     properties:
+      id:
+        type: string
+        format: uuid
       tableId:
-        type: integer
-        format: int64
+        type: string
+        format: uuid
       from:
         type: string
-        format: datetime
+        format: date-time
       to:
         type: string
-        format: datetime
+        format: date-time
       userName:
         type: string
+        format: string
       userEmail:
         type: string
+        format: email
     xml:
       name: Reservation
 externalDocs:
-  description: WIKI
+  description: wiki
   url: https://wiki.itsblue.de
