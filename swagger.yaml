@@ -32,7 +32,9 @@ paths:
         in: query
         description: "some filters"
         required: false
-        type: string
+        type: array
+        items:
+          type: string
         format: string
       responses:
         '200':
