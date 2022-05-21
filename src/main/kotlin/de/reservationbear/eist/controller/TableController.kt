@@ -1,12 +1,16 @@
 package de.reservationbear.eist.controller
 
 import de.reservationbear.eist.annotation.WorkInProgress
+import de.reservationbear.eist.mockmodels.Table
+import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
+
+/**
+ * REST-Controller for the table entity
+ */
 @RestController
-class TableController {
+class TableController() {
 
     /**
      * Returns a table, specified by the id
@@ -15,9 +19,8 @@ class TableController {
      * @return          ResponseEntity with status and body with JSON
      */
     @WorkInProgress("Mock")
-    @GetMapping(value = ["/taböe/{id}"])
-    fun getTableById(@PathVariable(name = "id") id: Int): ResponseEntity<*>? {
-        return ResponseEntity.ok<Any>("Table")
+    @GetMapping(value = ["/table/{id}"], produces = ["application/json"])
+    fun getTable(@PathVariable("id") id: java.util.UUID): ResponseEntity<Table> {
+        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
-
 }
