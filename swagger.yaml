@@ -5,7 +5,7 @@ info:
   version: 1.0.0
   title: "Reservation Bear"
 host: api.reservation-bear.de
-basePath: /v1
+basePath: /
 tags:
   - name: restaurant
     description: Restaurants
@@ -28,14 +28,12 @@ paths:
       produces:
         - application/json
       parameters:
-      - name: "filter"
+      - name: "filters"
         in: query
-        description: "some filters"
+        description: "filters for seaching restaurants"
         required: false
-        type: array
-        items:
-          type: string
-        format: string
+        type: string
+        format: dict
       responses:
         '200':
           description: "all different restaurants"
@@ -79,18 +77,6 @@ paths:
         required: true
         type: string
         format: uuid
-      - name: "from"
-        in: query
-        description: "availability from"
-        required: false
-        type: string
-        format: date-time
-      - name: "to"
-        in: query
-        description: "availability to"
-        required: false
-        type: string
-        format: date-time
       produces:
         - application/json
       responses:
@@ -115,19 +101,26 @@ paths:
         type: string
       - name: "date"
         in: query
-        description: "some date"
+        description: "date of reservation"
         required: true
-        type: string
-        format: date-time
+        type: integer
+        format: unix-timestamp
       produces:
         - application/json
       responses:
         '200':
-          description: "the timeslots?"
+          description: "all the timeslots"
           schema:
             type: array
             items:
-              $ref: '#/definitions/Timeslot'
+              type: object
+              properties:
+                reservationId:
+                  description: "null when not reserved"
+                  type: string
+                  format: uuid
+                timeslot:
+                  $ref: '#/definitions/Timeslot'
   /table/{id}:
     get:
       tags:
@@ -281,7 +274,7 @@ definitions:
             type: number
             format: double
       size:
-        description: "the size for the layout"
+        description: "size of the room"
         type: object
         properties:
           x:
@@ -306,7 +299,8 @@ definitions:
         format: uuid
       seats:
         type: integer
-      coordinates:
+      location:
+        description: "position in the room"
         type: object
         properties:
           x:
@@ -325,9 +319,11 @@ definitions:
       id:
         type: string
         format: uuid
-      tableId:
-        type: string
-        format: uuid
+      tables:
+        type: array
+        items:
+          type: string
+          format: uuid
       times:
         $ref: '#/definitions/Timeslot'
       userName:
@@ -342,11 +338,11 @@ definitions:
     type: object
     properties:
       from:
-        type: string
-        format: date-time
+        type: integer
+        format: unix-timestamp
       to:
-        type: string
-        format: date-time
+        type: integer
+        format: unix-timestamp
 externalDocs:
   description: wiki
   url: https://wiki.itsblue.de
