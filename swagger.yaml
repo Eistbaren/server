@@ -13,8 +13,6 @@ tags:
     description: Tables
   - name: reservation
     description: Reservations
-  - name: timeslot
-    description: Timeslot
 schemes:
   - https
 paths:
@@ -32,15 +30,24 @@ paths:
         in: query
         description: "filters for seaching restaurants"
         required: false
-        type: string
-        format: dict
+        type: array
+        items:
+          type: string
+          format: special
+      - { name: "currentPage", in: query, type: integer }
+      - { name: "pageSize", in: query, type: integer}
       responses:
         '200':
           description: "all different restaurants"
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Restaurant'
+            allOf:
+              - $ref: "#/definitions/Paginated"
+              - type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/definitions/Restaurant'
   /restaurant/{id}:
     get:
       tags:
@@ -62,7 +69,38 @@ paths:
           description: "the restaurant"
           schema:
             $ref: '#/definitions/Restaurant'
-            
+
+  /restaurant/{id}/comments:
+    get:
+      tags:
+        - restaurant
+      summary: "get comments of a restaurant"
+      description: ""
+      operationId: getRestaurantComments
+      parameters:
+      - name: "id"
+        in: path
+        description: "id of the restaurant"
+        required: true
+        type: string
+        format: uuid
+      - { name: "currentPage", in: query, type: integer }
+      - { name: "pageSize", in: query, type: integer}
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: "the comments"
+          schema:
+            allOf:
+              - $ref: "#/definitions/Paginated"
+              - type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/definitions/Comment'
+
   /restaurant/{id}/tables:
     get:
       tags:
@@ -77,15 +115,23 @@ paths:
         required: true
         type: string
         format: uuid
+      - { name: "currentPage", in: query, type: integer }
+      - { name: "pageSize", in: query, type: integer}
       produces:
         - application/json
       responses:
         '200':
           description: "all the tables in the restaurant"
           schema:
-            type: "array"
-            items:
-              $ref: '#/definitions/Table'
+            allOf:
+              - $ref: "#/definitions/Paginated"
+              - type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/definitions/Table'
+
   /restaurant/{id}/timeslots:
     get:
       tags:
@@ -101,26 +147,36 @@ paths:
         type: string
       - name: "date"
         in: query
-        description: "date of reservation"
+        description: "date of the timeslots"
         required: true
         type: integer
         format: unix-timestamp
+      - { name: "currentPage", in: query, type: integer }
+      - { name: "pageSize", in: query, type: integer}
       produces:
         - application/json
       responses:
         '200':
-          description: "all the timeslots"
+          description: "all the available timeslots with the reserved table ids"
           schema:
-            type: array
-            items:
-              type: object
-              properties:
-                reservationId:
-                  description: "null when not reserved"
-                  type: string
-                  format: uuid
-                timeslot:
-                  $ref: '#/definitions/Timeslot'
+            allOf:
+              - $ref: "#/definitions/Paginated"
+              - type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          reservedTables:
+                            description: "ids of the reserved tables of the timeslot, can be empty if no tables are reserved"
+                            type: string
+                            format: uuid
+                          timeslot:
+                            $ref: '#/definitions/Timeslot'
+
   /table/{id}:
     get:
       tags:
@@ -142,6 +198,8 @@ paths:
           description: "the table"
           schema:
             $ref: '#/definitions/Table'
+
+
   /reservation:
     post:
       tags:
@@ -163,6 +221,7 @@ paths:
           description: "the newly created reservation"
           schema:
             $ref: '#/definitions/Reservation'
+
   /reservation/{id}:
     get:
       tags:
@@ -196,12 +255,16 @@ paths:
         description: "the reservation id"
         required: true
         type: string
-      - name: "accept"
+      - name: "confirmationToken"
         in: body
-        description: "acceptance of the reservation"
+        description: "Token to confirm the reservation(distributed in the reminder email)"
         required: true
         schema:
-          type: boolean
+          type: object
+          properties:
+            confirmationToken:
+              type: string
+              format: token
       produces:
         - application/json
       responses:
@@ -228,6 +291,7 @@ paths:
           description: "the deleted reservation"
           schema:
             $ref: '#/definitions/Reservation'
+
   /reservation/{id}/ics:
     get:
       tags:
@@ -235,6 +299,8 @@ paths:
       summary: "get a reservation ics file"
       description: ""
       operationId: getReservationIcs
+      produces:
+      - text/calendar
       parameters:
       - name: "id"
         in: path
@@ -246,6 +312,9 @@ paths:
           description: "ics file"
           schema:
             type: file
+            format: ics
+
+
 definitions:
   Restaurant:
     type: object
@@ -253,17 +322,29 @@ definitions:
       id:
         type: string
         format: uuid
-      description:
+      # == Functional requirements start ==
+      images:
+        type: array
+        items:
+          type: string
+          format: uri
+      website:
         type: string
-        format: string
-      price:
+        format: uri
+      openingHours:
+        type: array
+        items:
+          $ref: '#/definitions/Timeslot'
+      averageRating:
+        type: number
+        format: double
+        minimum: 1
+        maximum: 5
+      # == Functional requirements end ==
+      priceCategory:
         type: integer
         minimum: 1
         maximum: 3
-      rating:
-        type: integer
-        minimum: 1
-        maximum: 5
       location:
         type: object
         properties:
@@ -273,19 +354,21 @@ definitions:
           lon:
             type: number
             format: double
-      size:
-        description: "size of the room"
+      floorPlan:
         type: object
         properties:
-          x:
-            type: integer
-          y:
-            type: integer
-      timeslots:
-        type: array
-        items:
-          $ref: '#/definitions/Timeslot'
-  
+          image:
+            description: "image of the floor plan of the restaurant without tables"
+            type: string
+            format: uri
+          size:
+            description: "size of the floor plan"
+            type: object
+            properties:
+              width:
+                type: integer
+              height:
+                type: integer
     xml:
       name: Restaurant
   Table:
@@ -299,18 +382,28 @@ definitions:
         format: uuid
       seats:
         type: integer
-      location:
-        description: "position in the room"
+      floorPlan:
+        description: "position on the floor plan"
         type: object
         properties:
-          x:
-            type: integer
-          y:
-            type: integer
-      availability:
-        type: array
-        items:
-          $ref: '#/definitions/Timeslot'
+          position:
+            type: object
+            properties:
+              x:
+                type: integer
+              y:
+                type: integer
+          size:
+            type: object
+            properties:
+              x:
+                type: integer
+              y:
+                type: integer
+          image: 
+            type: string
+            format: uri
+            
     xml:
       name: Table
   Reservation:
@@ -324,8 +417,10 @@ definitions:
         items:
           type: string
           format: uuid
-      times:
-        $ref: '#/definitions/Timeslot'
+      time:
+        allOf:
+        - description: "the summed up timeslots"
+        - $ref: '#/definitions/Timeslot'
       userName:
         type: string
         format: string
@@ -343,6 +438,29 @@ definitions:
       to:
         type: integer
         format: unix-timestamp
+  Comment:
+    type: object
+    properties:
+      rating:
+        type: integer
+        minimum: 1
+        maximum: 5
+      comment:
+        type: string
+      name: 
+        type: string
+  Paginated:
+      type: object
+      properties:
+        totalPages:
+          type: number
+        currentPage: 
+          type: number
+        pageSize:
+          type: number
+        results: 
+          type: array
+          items: {}
 externalDocs:
   description: wiki
   url: https://wiki.itsblue.de
