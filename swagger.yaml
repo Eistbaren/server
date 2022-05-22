@@ -243,7 +243,7 @@ paths:
           description: "the reservation"
           schema:
             $ref: '#/definitions/Reservation'
-    put:
+    patch:
       tags:
         - reservation
       summary: "confirm a reservation"
@@ -256,15 +256,20 @@ paths:
         required: true
         type: string
       - name: "confirmationToken"
-        in: body
+        in: query
         description: "Token to confirm the reservation(distributed in the reminder email)"
+        required: true
+        type: string
+        format: token
+      - name: "body"
+        in: body
         required: true
         schema:
           type: object
           properties:
-            confirmationToken:
-              type: string
-              format: token
+            confirmed:
+              type: boolean
+        
       produces:
         - application/json
       responses:
@@ -272,6 +277,7 @@ paths:
           description: "the reservation"
           schema:
             $ref: '#/definitions/Reservation' 
+            
     delete:
       tags:
         - reservation
@@ -427,6 +433,8 @@ definitions:
       userEmail:
         type: string
         format: email
+      confirmed:
+        type: boolean
     xml:
       name: Reservation
   Timeslot:
