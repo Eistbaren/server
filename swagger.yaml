@@ -2,8 +2,10 @@ swagger: '2.0'
 info:
   description: >- 
     A very cool reservation system
+
+    Visit us at: [https://reservation-bear.de](https://reservation-bear.de)
   version: 1.0.0
-  title: "Reservation Bear"
+  title: "Reservation Bear API"
 host: api.reservation-bear.de
 basePath: /
 tags:
@@ -48,7 +50,7 @@ paths:
       - { name: "pageSize", in: query, type: integer }
       responses:
         '200':
-          description: "all different restaurants"
+          description: "all the restaurants matching the filters"
           schema:
             allOf:
               - $ref: "#/definitions/Paginated"
@@ -100,7 +102,7 @@ paths:
         - application/json
       responses:
         '200':
-          description: "the comments"
+          description: "the comments of the restaurant"
           schema:
             allOf:
               - $ref: "#/definitions/Paginated"
@@ -146,7 +148,7 @@ paths:
     get:
       tags:
         - restaurant
-      summary: "get timeslot infos"
+      summary: "get timeslots of the restaurant"
       description: ""
       operationId: getRestaurantTimeslots
       parameters:
@@ -167,7 +169,7 @@ paths:
         - application/json
       responses:
         '200':
-          description: "all the available timeslots with the reserved table ids"
+          description: "all available timeslots with reserved table ids"
           schema:
             allOf:
               - $ref: "#/definitions/Paginated"
@@ -176,16 +178,16 @@ paths:
                   results:
                     type: array
                     items:
-                      type: array
-                      items:
-                        type: object
-                        properties:
-                          reservedTables:
-                            description: "ids of the reserved tables of the timeslot, can be empty if no tables are reserved"
+                      type: object
+                      properties:
+                        timeslot:
+                          $ref: '#/definitions/Timeslot'
+                        reservedTables:
+                          description: "ids of the reserved tables of the timeslot, can be empty if no tables are reserved"
+                          type: array
+                          items:
                             type: string
                             format: uuid
-                          timeslot:
-                            $ref: '#/definitions/Timeslot'
 
   /table/{id}:
     get:
@@ -267,7 +269,7 @@ paths:
         type: string
       - name: "confirmationToken"
         in: query
-        description: "Token to confirm the reservation(distributed in the reminder email)"
+        description: "token to confirm the reservation(distributed in the reminder email)"
         required: true
         type: string
         format: token
@@ -279,7 +281,6 @@ paths:
           properties:
             confirmed:
               type: boolean
-        
       produces:
         - application/json
       responses:
