@@ -28,14 +28,24 @@ paths:
       parameters:
       - name: "filters"
         in: query
-        description: "filters for seaching restaurants"
+        description: >-
+          filters for seaching restaurants
+          query: string, query for seaching restaurants
+          type: string, type of restaurant e.g. Italian
+          priceCategory: integer (1-3)
+          location: array[lat, lon]
+          radius: integer, radius around the location to search
+          averageRating: integer (1-5)
+          timeFrom: unix-timestamp
+          timeTo: unix-timestamp
+          numberVisitors: integer
         required: false
         type: array
         items:
           type: string
           format: special
       - { name: "currentPage", in: query, type: integer }
-      - { name: "pageSize", in: query, type: integer}
+      - { name: "pageSize", in: query, type: integer }
       responses:
         '200':
           description: "all different restaurants"
@@ -85,7 +95,7 @@ paths:
         type: string
         format: uuid
       - { name: "currentPage", in: query, type: integer }
-      - { name: "pageSize", in: query, type: integer}
+      - { name: "pageSize", in: query, type: integer }
       produces:
         - application/json
       responses:
@@ -116,7 +126,7 @@ paths:
         type: string
         format: uuid
       - { name: "currentPage", in: query, type: integer }
-      - { name: "pageSize", in: query, type: integer}
+      - { name: "pageSize", in: query, type: integer }
       produces:
         - application/json
       responses:
@@ -152,7 +162,7 @@ paths:
         type: integer
         format: unix-timestamp
       - { name: "currentPage", in: query, type: integer }
-      - { name: "pageSize", in: query, type: integer}
+      - { name: "pageSize", in: query, type: integer }
       produces:
         - application/json
       responses:
