@@ -469,6 +469,3 @@ definitions:
         results: 
           type: array
           items: {}
-externalDocs:
-  description: wiki
-  url: https://wiki.itsblue.de
