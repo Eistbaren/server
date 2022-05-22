@@ -64,7 +64,7 @@ paths:
     get:
       tags:
         - restaurant
-      summary: "get specific restaurant"
+      summary: "get a specific restaurant"
       description: ""
       operationId: getRestaurant
       parameters:
