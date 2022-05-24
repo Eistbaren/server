@@ -2,7 +2,8 @@ swagger: '2.0'
 info:
   description: >- 
     The documentation of the REST api of Reservation Bear.
-    A reference implementation is available on [github](https://github.com/Eistbaren/frontend)
+    
+    A reference implementation is available on [Github](https://github.com/Eistbaren/frontend)
 
   version: 1.0.0
   title: "Reservation Bear API"
