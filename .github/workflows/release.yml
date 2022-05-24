@@ -7,7 +7,7 @@ on:
 
 permissions:
   # write required for contents to create release
-  contens: write
+  contents: write
   packages: write
 
 jobs:
