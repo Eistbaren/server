@@ -94,7 +94,7 @@ paths:
           schema:
             $ref: '#/definitions/Restaurant'
 
-  /restaurant/{id}/comments:
+  /restaurant/{id}/comment:
     get:
       tags:
         - restaurant
@@ -125,7 +125,7 @@ paths:
                     items:
                       $ref: '#/definitions/Comment'
 
-  /restaurant/{id}/tables:
+  /restaurant/{id}/table:
     get:
       tags:
         - restaurant
@@ -156,7 +156,7 @@ paths:
                     items:
                       $ref: '#/definitions/Table'
 
-  /restaurant/{id}/timeslots:
+  /restaurant/{id}/timeslot:
     get:
       tags:
         - restaurant
