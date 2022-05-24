@@ -1,5 +1,7 @@
+version: "3"
 services:
   reservation-bear:
     build:
       context: .
-    
+    ports: 
+      - "8080:8080" 
