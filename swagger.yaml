@@ -418,7 +418,7 @@ definitions:
         type: array
         items:
           type: string
-          format: uri
+          format: uuid
       website:
         type: string
         format: uri
@@ -449,7 +449,7 @@ definitions:
           image:
             description: "image of the floor plan of the restaurant without tables"
             type: string
-            format: uri
+            format: uuid
           size:
             description: "size of the floor plan"
             type: object
@@ -492,7 +492,7 @@ definitions:
                 type: integer
           image: 
             type: string
-            format: uri
+            format: uuid
             
     xml:
       name: Table
