@@ -377,13 +377,34 @@ paths:
         description: "the reservation id"
         required: true
         type: string
+        format: uuid
       responses:
         '200':
-          description: "ics file"
+          description: "an ics file which contains the reservation"
           schema:
             type: file
             format: ics
 
+  /image/{id}:
+    get:
+      summary: "get an image by its id"
+      produces:
+        - application/image
+      parameters:
+        - name: "id"
+          in: path
+          description: "the image id"
+          required: true
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: "the requested image file"
+          schema:
+            type: file
+            format: image
+      
+      
 
 definitions:
   Restaurant:
