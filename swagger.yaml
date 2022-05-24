@@ -1,11 +1,12 @@
 swagger: '2.0'
 info:
   description: >- 
-    A very cool reservation system
+    The documentation of the REST api of Reservation Bear.
+    A reference implementation is available on [github](https://github.com/Eistbaren/frontend)
 
-    Visit us at: [https://reservation-bear.de](https://reservation-bear.de)
   version: 1.0.0
   title: "Reservation Bear API"
+
 host: api.reservation-bear.de
 basePath: /
 tags:
@@ -15,6 +16,7 @@ tags:
     description: Tables
   - name: reservation
     description: Reservations
+
 schemes:
   - https
 paths:
@@ -22,7 +24,7 @@ paths:
     get:
       tags:
         - restaurant
-      summary: "get and search restaurants"
+      summary: "get and filter restaurants"
       description: ""
       operationId: getRestaurants
       produces:
@@ -31,16 +33,25 @@ paths:
       - name: "filters"
         in: query
         description: >-
-          filters for seaching restaurants
-          query: string, query for seaching restaurants
-          type: string, type of restaurant e.g. Italian
-          priceCategory: integer (1-3)
-          location: array[lat, lon]
-          radius: integer, radius around the location to search
-          averageRating: integer (1-5)
-          timeFrom: unix-timestamp
-          timeTo: unix-timestamp
-          numberVisitors: integer
+          available filters:
+
+          **query**: *string*, query for seaching restaurants
+
+          **type**: *string*, type of restaurant e.g. Italian
+
+          **priceCategory**: *integer (1-3)*
+
+          **location**: *array[lat, lon]*
+
+          **radius**: *integer*, radius around the location to search
+
+          **averageRating**: *integer (1-5)*
+
+          **timeFrom**: *unix-timestamp*
+
+          **timeTo**: *unix-timestamp*
+
+          **numberVisitors**: *integer*
         required: false
         type: array
         items:
@@ -50,7 +61,8 @@ paths:
       - { name: "pageSize", in: query, type: integer }
       responses:
         '200':
-          description: "all the restaurants matching the filters"
+          description: "detailed information about all restaurants matching the filters"
+
           schema:
             allOf:
               - $ref: "#/definitions/Paginated"
@@ -64,7 +76,7 @@ paths:
     get:
       tags:
         - restaurant
-      summary: "get a specific restaurant"
+      summary: "get detailed information about a restaurant"
       description: ""
       operationId: getRestaurant
       parameters:
@@ -78,7 +90,7 @@ paths:
         - application/json
       responses:
         '200':
-          description: "the restaurant"
+          description: "detailed information about the restaurant"
           schema:
             $ref: '#/definitions/Restaurant'
 
@@ -86,7 +98,7 @@ paths:
     get:
       tags:
         - restaurant
-      summary: "get comments of a restaurant"
+      summary: "get user- comments and reviews of a restaurant"
       description: ""
       operationId: getRestaurantComments
       parameters:
@@ -102,7 +114,7 @@ paths:
         - application/json
       responses:
         '200':
-          description: "the comments of the restaurant"
+          description: "user comments- and reviews of the restaurant"
           schema:
             allOf:
               - $ref: "#/definitions/Paginated"
@@ -117,7 +129,7 @@ paths:
     get:
       tags:
         - restaurant
-      summary: "get all tables in the restaurant"
+      summary: "get all tables and their position in a restaurant"
       description: ""
       operationId: getRestaurantTables
       parameters:
@@ -133,7 +145,7 @@ paths:
         - application/json
       responses:
         '200':
-          description: "all the tables in the restaurant"
+          description: "all tables in the restaurant"
           schema:
             allOf:
               - $ref: "#/definitions/Paginated"
@@ -148,7 +160,7 @@ paths:
     get:
       tags:
         - restaurant
-      summary: "get timeslots of the restaurant"
+      summary: "get reservable timeslots of a restaurant"
       description: ""
       operationId: getRestaurantTimeslots
       parameters:
@@ -169,7 +181,49 @@ paths:
         - application/json
       responses:
         '200':
-          description: "all available timeslots with reserved table ids"
+          description: "all reservable time ranges (aka timeslots) on the given day. Reflects the opening times of the restaurant"
+          schema:
+            allOf:
+              - $ref: "#/definitions/Paginated"
+              - type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/definitions/Timeslot'
+
+  /restaurant/{id}/reservation:
+    get:
+      tags:
+        - restaurant
+      summary: "get reserved tables of a restaurant"
+      description: ""
+      operationId: getRestaurantReservations
+      parameters:
+      - name: "id"
+        in: path
+        description: "id of the restaurant"
+        required: true
+        type: string
+      - name: "from"
+        in: query
+        description: "beginning of the first timeslot"
+        required: true
+        type: integer
+        format: unix-timestamp
+      - name: "to"
+        in: query
+        description: "ending of the last timeslot"
+        required: true
+        type: integer
+        format: unix-timestamp
+      - { name: "currentPage", in: query, type: integer }
+      - { name: "pageSize", in: query, type: integer }
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: "all timeslots within the given range. In addition to that, every timeslot contains a list of tables which are reserved during the timeslot."
           schema:
             allOf:
               - $ref: "#/definitions/Paginated"
@@ -183,23 +237,22 @@ paths:
                         timeslot:
                           $ref: '#/definitions/Timeslot'
                         reservedTables:
-                          description: "ids of the reserved tables of the timeslot, can be empty if no tables are reserved"
+                          description: "ids of the reserved tables of the timeslot"
                           type: array
                           items:
                             type: string
                             format: uuid
-
   /table/{id}:
     get:
       tags:
         - table
-      summary: "get specific table"
+      summary: "get detailed information about a table"
       description: ""
       operationId: getTable
       parameters:
       - name: "id"
         in: path
-        description: "id of the restaurant"
+        description: "detailed informatin about the table"
         required: true
         type: string
         format: uuid
@@ -222,15 +275,15 @@ paths:
       parameters:
       - name: "reservation"
         in: body
-        description: "the reservation info"
+        description: "detailed information about the reservation"
         required: true
         schema:
-          $ref: '#/definitions/Reservation' 
+          $ref: '#/definitions/ReservationCreationRequest'
       produces:
         - application/json
       responses:
         '200':
-          description: "the newly created reservation"
+          description: "detailed information about the new reservation"
           schema:
             $ref: '#/definitions/Reservation'
 
@@ -238,7 +291,7 @@ paths:
     get:
       tags:
         - reservation
-      summary: "get a reservation"
+      summary: "get detailed information about a reservation"
       description: ""
       operationId: getReservation
       parameters:
@@ -252,7 +305,7 @@ paths:
         - application/json
       responses:
         '200':
-          description: "the reservation"
+          description: "detailed information about the reservation"
           schema:
             $ref: '#/definitions/Reservation'
     patch:
@@ -269,7 +322,7 @@ paths:
         type: string
       - name: "confirmationToken"
         in: query
-        description: "token to confirm the reservation(distributed in the reminder email)"
+        description: "token to confirm the reservation (distributed in the reminder email)"
         required: true
         type: string
         format: token
@@ -285,7 +338,7 @@ paths:
         - application/json
       responses:
         '200':
-          description: "the reservation"
+          description: "detailed information about the reservation"
           schema:
             $ref: '#/definitions/Reservation' 
             
@@ -349,9 +402,7 @@ definitions:
         type: string
         format: uri
       openingHours:
-        type: array
-        items:
-          $ref: '#/definitions/Timeslot'
+        $ref: '#/definitions/Timeslot'
       averageRating:
         type: number
         format: double
@@ -388,6 +439,7 @@ definitions:
                 type: integer
     xml:
       name: Restaurant
+
   Table:
     type: object
     properties:
@@ -423,6 +475,7 @@ definitions:
             
     xml:
       name: Table
+
   Reservation:
     type: object
     properties:
@@ -448,6 +501,28 @@ definitions:
         type: boolean
     xml:
       name: Reservation
+
+  ReservationCreationRequest:
+    type: object
+    properties:
+      tables:
+        type: array
+        items:
+          type: string
+          format: uuid
+      time:
+        allOf:
+        - description: "the summed up timeslots"
+        - $ref: '#/definitions/Timeslot'
+      userName:
+        type: string
+        format: string
+      userEmail:
+        type: string
+        format: email
+    xml:
+      name: ReservationCreationRequest
+
   Timeslot:
     type: object
     properties:
@@ -457,6 +532,7 @@ definitions:
       to:
         type: integer
         format: unix-timestamp
+
   Comment:
     type: object
     properties:
@@ -468,6 +544,7 @@ definitions:
         type: string
       name: 
         type: string
+
   Paginated:
       type: object
       properties:
