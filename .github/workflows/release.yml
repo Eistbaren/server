@@ -1,4 +1,4 @@
-name: "Build release"
+name: "Build and push release docker image"
 
 on:
   push:
@@ -42,13 +42,9 @@ jobs:
   tagged-release:
     name: "Tagged Release"
     runs-on: "ubuntu-latest"
-    needs: push_to_registry
+    needs: docker
 
     steps:
-      # ...
-      - name: "Build & test"
-        run: |
-          echo "done!"
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
