@@ -15,7 +15,5 @@ data class Comment(
     @field:JsonProperty("comment") val comment: String? = null,
 
     @field:JsonProperty("name") val name: String? = null
-) {
-
-}
+)
 

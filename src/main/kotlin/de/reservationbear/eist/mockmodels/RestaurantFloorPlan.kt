@@ -13,7 +13,5 @@ data class RestaurantFloorPlan(
     @field:JsonProperty("image") val image: java.net.URI? = null,
 
     @field:JsonProperty("size") val propertySize: RestaurantFloorPlanSize? = null
-) {
-
-}
+)
 

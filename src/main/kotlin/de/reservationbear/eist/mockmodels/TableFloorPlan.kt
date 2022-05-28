@@ -14,7 +14,5 @@ data class TableFloorPlan(
     @field:JsonProperty("size") val propertySize: TableFloorPlanPosition? = null,
 
     @field:JsonProperty("image") val image: java.net.URI? = null
-) {
-
-}
+)
 

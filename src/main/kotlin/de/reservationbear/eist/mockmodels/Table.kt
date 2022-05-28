@@ -18,7 +18,5 @@ data class Table(
     @field:JsonProperty("seats") val seats: Int? = null,
 
     @field:JsonProperty("floorPlan") val floorPlan: TableFloorPlan? = null
-) {
-
-}
+)
 

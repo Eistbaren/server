@@ -9,7 +9,5 @@ import com.fasterxml.jackson.annotation.JsonProperty
 data class InlineObject(
 
     @field:JsonProperty("confirmationToken") val confirmationToken: String? = null
-) {
-
-}
+)
 

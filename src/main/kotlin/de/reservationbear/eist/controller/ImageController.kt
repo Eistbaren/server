@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*
  * REST-Controller for the Images
  */
 @RestController
-class ImageController() {
+class ImageController {
 
 
     /**

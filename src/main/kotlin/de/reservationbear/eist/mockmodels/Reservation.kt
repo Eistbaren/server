@@ -22,7 +22,5 @@ data class Reservation(
     @field:JsonProperty("userName") val userName: String? = null,
 
     @field:JsonProperty("userEmail") val userEmail: String? = null
-) {
-
-}
+)
 

@@ -13,7 +13,5 @@ data class InlineResponse2004Results(
     @field:JsonProperty("timeslot") val timeslot: Timeslot? = null,
 
     @field:JsonProperty("reservedTables") val reservedTables: List<UUID>? = null
-) {
-
-}
+)
 

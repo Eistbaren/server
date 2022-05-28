@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*
  * REST-Controller for the reservation entity
  */
 @RestController
-class ReservationController() {
+class ReservationController {
 
     /**
      * Returns a reservation, specified by the id

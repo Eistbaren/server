@@ -12,7 +12,5 @@ data class TableFloorPlanPosition(
     @field:JsonProperty("x") val x: Int? = null,
 
     @field:JsonProperty("y") val y: Int? = null
-) {
-
-}
+)
 

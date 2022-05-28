@@ -12,7 +12,5 @@ data class InlineResponse200(
     @field:JsonProperty("Paginated") val paginated: Paginated? = null,
 
     @field:JsonProperty("results") val results: List<Restaurant>? = null
-) {
-
-}
+)
 

@@ -12,7 +12,5 @@ data class InlineResponse2004(
     @field:JsonProperty("Paginated") val paginated: Paginated? = null,
 
     @field:JsonProperty("results") val results: List<InlineResponse2004Results>? = null
-) {
-
-}
+)
 
