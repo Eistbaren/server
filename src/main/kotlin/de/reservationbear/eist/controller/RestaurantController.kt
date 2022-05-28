@@ -1,9 +1,6 @@
 package de.reservationbear.eist.controller
 
-import de.reservationbear.eist.mockmodels.InlineResponse200
-import de.reservationbear.eist.mockmodels.InlineResponse2001
-import de.reservationbear.eist.mockmodels.InlineResponse2002
-import de.reservationbear.eist.mockmodels.InlineResponse2003
+import de.reservationbear.eist.mockmodels.*
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -23,7 +20,10 @@ class RestaurantController {
      * @param pageSize          size of one page
      * @return                  ResponseEntity with status and body with JSON
      */
-    @GetMapping(value = ["/restaurant"], produces = ["application/json"])
+    @GetMapping(
+        value = ["/restaurant"],
+        produces = ["application/json"]
+    )
     fun getRestaurants(
         @RequestParam(value = "filters", required = false) filters: List<String>?,
         @RequestParam(value = "currentPage", required = false) currentPage: Int?,
@@ -40,12 +40,39 @@ class RestaurantController {
      * @param pageSize          size of one page
      * @return                  ResponseEntity with status and body with JSON
      */
-    @GetMapping(value = ["/restaurant/{id}/tables"], produces = ["application/json"])
+    @GetMapping(
+        value = ["/restaurant/{id}/tables"],
+        produces = ["application/json"]
+    )
     fun getRestaurantTables(
         @PathVariable("id") id: java.util.UUID,
         @RequestParam(value = "currentPage", required = false) currentPage: Int?,
         @RequestParam(value = "pageSize", required = false) pageSize: Int?
     ): ResponseEntity<InlineResponse2002> {
+        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    }
+
+    /**
+     * Returns a list of reservation paginated by the id restaurant
+     *
+     * @param id                id of the restaurant
+     * @param from              defines the lower border of the interval the returned reservations lays in
+     * @param to                defines the upper border of the interval the returned reservations lays in
+     * @param currentPage       page to load
+     * @param pageSize          size of one page
+     * @return                  ResponseEntity with status and body with JSON
+     */
+    @GetMapping(
+        value = ["/restaurant/{id}/reservation"],
+        produces = ["application/json"]
+    )
+    fun getRestaurantReservations(
+        @PathVariable("id") id: String,
+        @RequestParam(value = "from", required = true) from: Int,
+        @RequestParam(value = "to", required = true) to: Int,
+        @RequestParam(value = "currentPage", required = false) currentPage: Int?,
+        @RequestParam(value = "pageSize", required = false) pageSize: Int?
+    ): ResponseEntity<InlineResponse2004> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 
@@ -57,7 +84,10 @@ class RestaurantController {
      * @param pageSize          size of one page
      * @return                  ResponseEntity with status and body with JSON
      */
-    @GetMapping(value = ["/restaurant/{id}/timeslots"], produces = ["application/json"])
+    @GetMapping(
+        value = ["/restaurant/{id}/timeslots"],
+        produces = ["application/json"]
+    )
     fun getRestaurantTimeslots(
         @PathVariable("id") id: String,
         @RequestParam(value = "date", required = true) date: Int,
@@ -75,7 +105,10 @@ class RestaurantController {
      * @param pageSize          size of one page
      * @return                  ResponseEntity with status and body with JSON
      */
-    @GetMapping(value = ["/restaurant/{id}/comments"], produces = ["application/json"])
+    @GetMapping(
+        value = ["/restaurant/{id}/comments"],
+        produces = ["application/json"]
+    )
     fun getRestaurantComments(
         @PathVariable("id") id: java.util.UUID,
         @RequestParam(value = "currentPage", required = false) currentPage: Int?,

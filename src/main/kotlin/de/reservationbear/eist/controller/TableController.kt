@@ -19,7 +19,10 @@ class TableController() {
      * @return          ResponseEntity with status and body with JSON
      */
     @WorkInProgress("Mock")
-    @GetMapping(value = ["/table/{id}"], produces = ["application/json"])
+    @GetMapping(
+        value = ["/table/{id}"],
+        produces = ["application/json"]
+    )
     fun getTable(@PathVariable("id") id: java.util.UUID): ResponseEntity<Table> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
