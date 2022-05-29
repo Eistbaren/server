@@ -1,13 +1,14 @@
 package de.reservationbear.eist
 
-import de.reservationbear.eist.db.entities.Comment
-import de.reservationbear.eist.db.repositories.CommentRepository
-import de.reservationbear.eist.db.services.CommentService
+import de.reservationbear.eist.db.service.RestaurantService
+import org.springframework.data.domain.PageRequest
+import org.springframework.data.domain.Pageable
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 
+
 @RestController
-class HelloController(val service: CommentService) {
+class HelloController(val service: RestaurantService) {
     @GetMapping("sayHello")
     fun sayHello(): String {
         return "Hello World!"
@@ -15,6 +16,12 @@ class HelloController(val service: CommentService) {
 
     @GetMapping("DB-TEST")
     fun db(): String {
-        return service.findComments().toString();
+        val paging: Pageable = PageRequest.of(0, 50)
+        val res = service.getPageOfRestaurants(paging)
+        val sb: StringBuilder = StringBuilder()
+        for (restaurant in res.content)
+            sb.append(restaurant.id.toString() + " " + restaurant.name + " " + restaurant.website)
+
+        return sb.toString()
     }
 }
