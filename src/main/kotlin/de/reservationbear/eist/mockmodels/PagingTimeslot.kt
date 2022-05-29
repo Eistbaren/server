@@ -7,12 +7,10 @@ import com.fasterxml.jackson.annotation.JsonProperty
  * @param paginated 
  * @param results 
  */
-data class PagingTimeslot(
+data class InlineResponse2003(
 
     @field:JsonProperty("Paginated") val paginated: Paginated? = null,
 
-    @field:JsonProperty("results") val results: List<TimeslotsFromTable>? = null
-) {
-
-}
+    @field:JsonProperty("results") val results: List<List<Any>>? = null
+)
 

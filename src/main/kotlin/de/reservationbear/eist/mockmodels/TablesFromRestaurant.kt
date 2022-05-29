@@ -12,7 +12,5 @@ data class TablesFromRestaurant(
     @field:JsonProperty("Paginated") val paginated: Paginated? = null,
 
     @field:JsonProperty("results") val results: List<Table>? = null
-) {
-
-}
+)
 

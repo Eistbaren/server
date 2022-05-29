@@ -13,7 +13,5 @@ data class TimeslotsFromTable(
     @field:JsonProperty("timeslot") val timeslot: Timeslot? = null,
 
     @field:JsonProperty("reservedTables") val reservedTables: List<UUID>? = null
-) {
-
-}
+)
 

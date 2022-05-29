@@ -12,7 +12,5 @@ data class Timeslot(
     @field:JsonProperty("from") val from: Int? = null,
 
     @field:JsonProperty("to") val to: Int? = null
-) {
-
-}
+)
 

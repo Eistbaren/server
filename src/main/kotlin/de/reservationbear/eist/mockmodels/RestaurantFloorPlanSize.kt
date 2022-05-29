@@ -12,7 +12,5 @@ data class RestaurantFloorPlanSize(
     @field:JsonProperty("width") val width: Int? = null,
 
     @field:JsonProperty("height") val height: Int? = null
-) {
-
-}
+)
 

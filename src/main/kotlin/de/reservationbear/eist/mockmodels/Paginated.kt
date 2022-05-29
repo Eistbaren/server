@@ -17,7 +17,5 @@ data class Paginated(
     @field:JsonProperty("pageSize") val pageSize: java.math.BigDecimal? = null,
 
     @field:JsonProperty("results") val results: List<Any>? = null
-) {
-
-}
+)
 

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*
  * REST-Controller for the table entity
  */
 @RestController
-class TableController() {
+class TableController {
 
     /**
      * Returns a table, specified by the id

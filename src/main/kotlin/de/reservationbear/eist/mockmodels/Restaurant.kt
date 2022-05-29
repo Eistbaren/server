@@ -31,7 +31,5 @@ data class Restaurant(
     @field:JsonProperty("location") val location: RestaurantLocation? = null,
 
     @field:JsonProperty("floorPlan") val floorPlan: RestaurantFloorPlan? = null
-) {
-
-}
+)
 
