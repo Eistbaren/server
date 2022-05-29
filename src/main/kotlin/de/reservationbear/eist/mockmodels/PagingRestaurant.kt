@@ -1,5 +1,6 @@
 package de.reservationbear.eist.mockmodels
 
+
 import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
@@ -7,11 +8,11 @@ import com.fasterxml.jackson.annotation.JsonProperty
  * @param paginated 
  * @param results 
  */
-data class InlineResponse2002(
+data class PagingRestaurant(
 
     @field:JsonProperty("Paginated") val paginated: Paginated? = null,
 
-    @field:JsonProperty("results") val results: List<Table>? = null
+    @field:JsonProperty("results") val results: List<Comment>? = null
 ) {
 
 }

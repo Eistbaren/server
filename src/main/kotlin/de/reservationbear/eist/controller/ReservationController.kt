@@ -1,6 +1,6 @@
 package de.reservationbear.eist.controller
 
-import de.reservationbear.eist.mockmodels.InlineObject
+import de.reservationbear.eist.mockmodels.ConfirmationToken
 import de.reservationbear.eist.mockmodels.Reservation
 import de.reservationbear.eist.mockmodels.ReservationCreationRequest
 import org.springframework.http.HttpStatus
@@ -57,7 +57,7 @@ class ReservationController() {
     )
     fun patchReservation(
         @PathVariable("id") id: String,
-        @RequestParam(value = "confirmationToken", required = true) confirmationToken: InlineObject,
+        @RequestParam(value = "confirmationToken", required = true) confirmationToken: ConfirmationToken,
         @RequestBody confirmed: Boolean
     ): ResponseEntity<Reservation> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)

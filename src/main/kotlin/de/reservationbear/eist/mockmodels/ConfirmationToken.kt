@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
  *
  * @param confirmationToken
  */
-data class InlineObject(
+data class ConfirmationToken(
 
     @field:JsonProperty("confirmationToken") val confirmationToken: String? = null
 ) {

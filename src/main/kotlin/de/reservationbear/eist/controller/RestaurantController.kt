@@ -28,7 +28,7 @@ class RestaurantController {
         @RequestParam(value = "filters", required = false) filters: List<String>?,
         @RequestParam(value = "currentPage", required = false) currentPage: Int?,
         @RequestParam(value = "pageSize", required = false) pageSize: Int?
-    ): ResponseEntity<InlineResponse200> {
+    ): ResponseEntity<Paging> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 
@@ -48,7 +48,7 @@ class RestaurantController {
         @PathVariable("id") id: java.util.UUID,
         @RequestParam(value = "currentPage", required = false) currentPage: Int?,
         @RequestParam(value = "pageSize", required = false) pageSize: Int?
-    ): ResponseEntity<InlineResponse2002> {
+    ): ResponseEntity<TablesFromRestaurant> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 
@@ -72,7 +72,7 @@ class RestaurantController {
         @RequestParam(value = "to", required = true) to: Int,
         @RequestParam(value = "currentPage", required = false) currentPage: Int?,
         @RequestParam(value = "pageSize", required = false) pageSize: Int?
-    ): ResponseEntity<InlineResponse2004> {
+    ): ResponseEntity<PagingTimeslot> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 
@@ -93,7 +93,7 @@ class RestaurantController {
         @RequestParam(value = "date", required = true) date: Int,
         @RequestParam(value = "currentPage", required = false) currentPage: Int?,
         @RequestParam(value = "pageSize", required = false) pageSize: Int?
-    ): ResponseEntity<InlineResponse2003> {
+    ): ResponseEntity<PagingTimeslot> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 
@@ -113,7 +113,7 @@ class RestaurantController {
         @PathVariable("id") id: java.util.UUID,
         @RequestParam(value = "currentPage", required = false) currentPage: Int?,
         @RequestParam(value = "pageSize", required = false) pageSize: Int?
-    ): ResponseEntity<InlineResponse2001> {
+    ): ResponseEntity<PagingRestaurant> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 }

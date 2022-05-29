@@ -8,7 +8,7 @@ import java.util.*
  * @param timeslot 
  * @param reservedTables ids of the reserved tables of the timeslot
  */
-data class InlineResponse2004Results(
+data class TimeslotsFromTable(
 
     @field:JsonProperty("timeslot") val timeslot: Timeslot? = null,
 
