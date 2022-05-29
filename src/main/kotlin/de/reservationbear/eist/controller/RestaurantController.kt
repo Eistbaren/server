@@ -1,9 +1,15 @@
 package de.reservationbear.eist.controller
 
-import de.reservationbear.eist.mockmodels.*
+import de.reservationbear.eist.mockmodels.Paging
+import de.reservationbear.eist.mockmodels.PagingRestaurant
+import de.reservationbear.eist.mockmodels.PagingTimeslot
+import de.reservationbear.eist.mockmodels.TablesFromRestaurant
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.RestController
 
 /**
  * REST-Controller for the restaurant entity

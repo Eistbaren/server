@@ -3,10 +3,10 @@ package de.reservationbear.eist.mockmodels
 import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
- * 
- * @param rating 
- * @param comment 
- * @param name 
+ *
+ * @param rating
+ * @param comment
+ * @param name
  */
 data class Comment(
 

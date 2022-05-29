@@ -1,6 +1,7 @@
 package de.reservationbear.eist.mockmodels
 
 import com.fasterxml.jackson.annotation.JsonProperty
+
 /**
  *
  * @param totalPages

@@ -7,5 +7,5 @@ package de.reservationbear.eist.annotation
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION)
 @MustBeDocumented
 annotation class WorkInProgress(
-        val message: String
+    val message: String
 )

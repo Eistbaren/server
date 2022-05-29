@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import java.util.*
 
 /**
- * 
- * @param timeslot 
+ *
+ * @param timeslot
  * @param reservedTables ids of the reserved tables of the timeslot
  */
 data class TimeslotsFromTable(

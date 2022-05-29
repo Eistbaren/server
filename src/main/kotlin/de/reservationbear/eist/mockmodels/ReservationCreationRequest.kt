@@ -4,11 +4,11 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import java.util.*
 
 /**
- * 
- * @param tables 
- * @param time 
- * @param userName 
- * @param userEmail 
+ *
+ * @param tables
+ * @param time
+ * @param userName
+ * @param userEmail
  */
 data class ReservationCreationRequest(
 
