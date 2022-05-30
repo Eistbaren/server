@@ -27,8 +27,7 @@ jobs:
           export COMMIT_EMAIL=$(git log -n 1 --pretty=format:%ae)
           echo "COMMIT_EMAIL=$COMMIT_EMAIL" >> $GITHUB_ENV
 
-          export COMMIT_MESSAGE=$(git log -1 --pretty=%B)
-          echo "COMMIT_MESSAGE=$COMMIT_MESSAGE" >> $GITHUB_ENV
+          git log -1 --pretty=%B > ../COMMIT_MESSAGE
           cd ..
 
           echo "SSH_AUTH_SOCK=/tmp/ssh_agent.sock" >> $GITHUB_ENV
@@ -58,5 +57,5 @@ jobs:
           git config user.name "$COMMIT_USER"
           git config user.email "$COMMIT_EMAIL"
           git add --all -f
-          git diff-index --quiet HEAD || git commit -a -m "$COMMIT_MESSAGE"
+          git diff-index --quiet HEAD || git commit -a -F ../COMMIT_MESSAGE
           git push
