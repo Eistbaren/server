@@ -1,0 +1,62 @@
+name: "Push to bitbucket"
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  pushToBitbucket:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone backend repo
+        uses: actions/checkout@v3
+        with:
+          repository: ${{ github.repository }}
+          path: github
+          submodules: true
+      
+      - name: Prepare environment
+        run: |
+          cd github
+          export COMMIT_USER=$(git log -n 1 --pretty=format:%an)
+          echo "COMMIT_USER=$COMMIT_USER" >> $GITHUB_ENV
+
+          export COMMIT_EMAIL=$(git log -n 1 --pretty=format:%ae)
+          echo "COMMIT_EMAIL=$COMMIT_EMAIL" >> $GITHUB_ENV
+
+          export COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+          echo "COMMIT_MESSAGE=$COMMIT_MESSAGE" >> $GITHUB_ENV
+          cd ..
+
+          echo "SSH_AUTH_SOCK=/tmp/ssh_agent.sock" >> $GITHUB_ENV
+          export GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" 
+          echo "GIT_SSH_COMMAND=$GIT_SSH_COMMAND" >> $GITHUB_ENV
+
+      - name: Setup SSH Key
+        run: |
+          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+          ssh-add - <<< "${{ secrets.BITBUCKET_SSH_KEY }}"
+
+      - name: Clone bitbucket repo
+        run: |
+          git clone ssh://git@bitbucket.ase.in.tum.de:7999/EIST22T02/eist22t02-eistbaeren27.git bitbucket
+
+      - name: Move .git folder from bitbucket to github repo
+        run: |
+          rm -rf ./github/.git
+          cp -r ./bitbucket/.git ./github
+
+      - name: Commit and push bitbucket repo
+        run: |
+          # Go into github, because we copied the bitbucket .git folder,
+          # so technically it's now the bitbucket repo :)
+          cd github
+
+          git config user.name "$COMMIT_USER"
+          git config user.email "$COMMIT_EMAIL"
+          git add --all -f
+          git diff-index --quiet HEAD || git commit -a -m "$COMMIT_MESSAGE"
+          git push
