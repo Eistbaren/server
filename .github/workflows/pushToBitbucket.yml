@@ -3,7 +3,7 @@ name: "Push to bitbucket"
 on:
   push:
     # Just for testing, will be changed to main!!
-    branches: [workflow/pushToBitbucket]
+    branches: [main]
 
 permissions:
   contents: read
