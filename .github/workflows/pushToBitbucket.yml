@@ -31,6 +31,7 @@ jobs:
 
       - name: Get properties of last commit
         run: |
+          cd github
           export COMMIT_USER=$(git log -n 1 --pretty=format:%an)
           echo "COMMIT_USER=$COMMIT_USER" >> $GITHUB_ENV
 
@@ -39,6 +40,7 @@ jobs:
 
           export COMMIT_MESSAGE=$(git log -1 --pretty=%B)
           echo "COMMIT_MESSAGE=$COMMIT_MESSAGE" >> $GITHUB_ENV
+          cd ..
 
       - name: Setup SSH Key
         env:
