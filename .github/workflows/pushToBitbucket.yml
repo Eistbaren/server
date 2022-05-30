@@ -6,7 +6,7 @@ on:
     branches: [workflow/pushToBitbucket]
 
 permissions:
-  contens: read
+  contents: read
 
 jobs:
   pushToBitbucket:
