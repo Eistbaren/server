@@ -13,4 +13,5 @@
   </a>
 </p>
 
-Client of the reservation-bear. 🐻‍❄️
+Server of the Reservation-Bear. 🐻‍❄️  
+Hosted at [api.reservation-bear.de](https://api.reservation-bear.de).
