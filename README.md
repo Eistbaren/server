@@ -1,5 +1,5 @@
 <h1 align="center">
-  Reservation-bear client
+  Reservation-Bear server
 </h1>
 <p align="center">
   <a href="https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Eistbaren/backend&amp;utm_campaign=Badge_Grade">
