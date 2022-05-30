@@ -19,17 +19,7 @@ jobs:
           path: github
           submodules: true
       
-      - name: Clone bitbucket repo
-        uses: actions/checkout@v3
-        with:
-          repository: "ssh://git@bitbucket.ase.in.tum.de:7999/EIST22T02/eist22t02-eistbaeren27.git"
-          path: bitbucket
-          # The ssh-key belongs to Dorians account
-          ssh-key: ${{ secrets.BITBUCKET_SSH_KEY }}
-          ssh-strict: false
-          submodules: true
-
-      - name: Get properties of last commit
+      - name: Prepare environment
         run: |
           cd github
           export COMMIT_USER=$(git log -n 1 --pretty=format:%an)
@@ -42,12 +32,17 @@ jobs:
           echo "COMMIT_MESSAGE=$COMMIT_MESSAGE" >> $GITHUB_ENV
           cd ..
 
+          echo "SSH_AUTH_SOCK=/tmp/ssh_agent.sock" >> $GITHUB_ENV
+
       - name: Setup SSH Key
-        env:
-          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: |
           ssh-agent -a $SSH_AUTH_SOCK > /dev/null
           ssh-add - <<< "${{ secrets.BITBUCKET_SSH_KEY }}"
+
+      - name: Clone bitbucket repo
+        run: |
+          export GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" 
+          git clone ssh://git@bitbucket.ase.in.tum.de:7999/EIST22T02/eist22t02-eistbaeren27.git bitbucket
 
       - name: Move .git folder from bitbucket to github repo
         run: |
