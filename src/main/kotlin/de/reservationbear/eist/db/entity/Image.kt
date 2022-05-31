@@ -5,6 +5,9 @@ import java.util.*
 import javax.persistence.Entity
 import javax.persistence.Id
 
+/**
+ * Represents a image to a url
+ */
 @Entity
 class Image(
     @Id

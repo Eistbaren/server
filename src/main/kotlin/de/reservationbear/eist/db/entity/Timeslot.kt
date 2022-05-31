@@ -9,6 +9,9 @@ import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
 
+/**
+ * Represents an open timeslot of a restaurant
+ */
 @Entity
 class Timeslot(
     @Id

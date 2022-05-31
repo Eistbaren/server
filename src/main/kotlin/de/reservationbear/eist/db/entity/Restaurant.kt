@@ -7,6 +7,9 @@ import java.net.URI
 import java.util.*
 import javax.persistence.*
 
+/**
+ * Represents a restaurant
+ */
 @Entity
 class Restaurant(
     @Id

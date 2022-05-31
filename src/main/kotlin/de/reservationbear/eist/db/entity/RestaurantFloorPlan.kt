@@ -6,6 +6,9 @@ import org.hibernate.annotations.Type
 import java.util.*
 import javax.persistence.*
 
+/**
+ * Represents the floor plan of a restaurant
+ */
 @Entity
 class RestaurantFloorPlan(
     @Id

@@ -7,6 +7,9 @@ import java.sql.Timestamp
 import java.util.*
 import javax.persistence.*
 
+/**
+ * Represents a reservation of at least one table at a restaurant
+ */
 @Entity
 class Reservation(
     @Id

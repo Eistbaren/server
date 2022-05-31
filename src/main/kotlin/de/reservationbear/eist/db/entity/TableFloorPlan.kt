@@ -6,6 +6,9 @@ import org.hibernate.annotations.Type
 import java.util.*
 import javax.persistence.*
 
+/**
+ * Represents the seat plan of a table
+ */
 @Entity
 class TableFloorPlan(
     @Id
@@ -21,5 +24,5 @@ class TableFloorPlan(
     @ManyToOne
     val image: Image? = null,
     @OneToOne
-    val propertySize: RestaurantFloorPlanSize? = null
+    val propertySize: TableFloorPlanPosition? = null
 )

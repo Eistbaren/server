@@ -9,6 +9,9 @@ import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
 
+/**
+ * Represents the (lat/lon) location of a restaurant
+ */
 @Entity
 class RestaurantLocation(
     @Id

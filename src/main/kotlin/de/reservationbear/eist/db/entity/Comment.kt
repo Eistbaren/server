@@ -8,6 +8,9 @@ import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
 
+/**
+ * Represents a comment/ short review of a restaurant
+ */
 @Entity
 class Comment (
     @Id

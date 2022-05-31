@@ -9,6 +9,9 @@ import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
 
+/**
+ * Represents the size of a floor plan of a restaurant
+ */
 @Entity
 class RestaurantFloorPlanSize(
     @Id

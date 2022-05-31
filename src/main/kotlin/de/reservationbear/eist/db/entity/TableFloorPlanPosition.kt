@@ -9,6 +9,9 @@ import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
 
+/**
+ * Represents the position of the table on the restaurant floor plan
+ */
 @Entity
 class TableFloorPlanPosition(
     @Id

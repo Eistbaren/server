@@ -6,6 +6,9 @@ import org.hibernate.annotations.Type
 import java.util.*
 import javax.persistence.*
 
+/**
+ * Represents a table at a specific restaurant
+ */
 @Entity
 @Table(name = "restaurant_table")
 class RestaurantTable(
