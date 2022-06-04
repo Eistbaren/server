@@ -1,18 +1,23 @@
 package de.reservationbear.eist.controller
 
+import de.reservationbear.eist.controller.responsewrapper.ReservationResponseWrapper
+import de.reservationbear.eist.controller.responsewrapper.TimeslotWrapper
+import de.reservationbear.eist.db.entity.Reservation
+import de.reservationbear.eist.exceptions.ApiException
 import de.reservationbear.eist.mockmodels.ConfirmationToken
-import de.reservationbear.eist.mockmodels.Reservation
-import de.reservationbear.eist.mockmodels.ReservationCreationRequest
+import de.reservationbear.eist.service.ReservationService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 
 import org.springframework.web.bind.annotation.*
+import java.util.*
 
 /**
  * REST-Controller for the reservation entity
  */
 @RestController
-class ReservationController {
+@RequestMapping(value = ["/api"])
+class ReservationController(val reservationService: ReservationService) {
 
     /**
      * Returns a reservation, specified by the id
@@ -24,8 +29,23 @@ class ReservationController {
         value = ["/reservation/{id}"],
         produces = ["application/json"]
     )
-    fun getReservation(@PathVariable("id") id: String): ResponseEntity<Reservation> {
-        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    fun getReservation(@PathVariable("id") id: String): ResponseEntity<ReservationResponseWrapper> {
+        val reservation: Reservation
+        try {
+            reservation = reservationService.getReservation(UUID.fromString(id))
+        } catch (e: Exception) {
+            throw e.message?.let { ApiException(it, 500) }!!
+        }
+        return ResponseEntity.ok(
+            ReservationResponseWrapper(
+                reservation.id,
+                reservation.restaurantTables?.map { tables -> tables.id }?.toList(),
+                TimeslotWrapper(reservation.reservationFrom, reservation.reservationTo),
+                reservation.userName,
+                reservation.userEmail,
+                reservation.confirmed
+            )
+        )
     }
 
     /**
@@ -38,9 +58,24 @@ class ReservationController {
         value = ["/reservation"],
         produces = ["application/json"]
     )
-    fun createReservation(@RequestBody reservation: ReservationCreationRequest):
-            ResponseEntity<Reservation> {
-        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    fun createReservation(@RequestBody reservation: Reservation):
+            ResponseEntity<ReservationResponseWrapper> {
+        
+        reservation.confirmed = false
+        
+        reservationService.saveReservation(reservation)
+        val insertedReservation: Reservation = reservation.id?.let { reservationService.getReservation(it) }!!
+        
+        return ResponseEntity.ok(
+            ReservationResponseWrapper(
+                insertedReservation.id,
+                insertedReservation.restaurantTables?.map { tables -> tables.id }?.toList(),
+                TimeslotWrapper(insertedReservation.reservationFrom, insertedReservation.reservationTo),
+                insertedReservation.userName,
+                insertedReservation.userEmail,
+                insertedReservation.confirmed
+            )
+        )
     }
 
     /**
@@ -59,8 +94,21 @@ class ReservationController {
         @PathVariable("id") id: String,
         @RequestParam(value = "confirmationToken", required = true) confirmationToken: ConfirmationToken,
         @RequestBody confirmed: Boolean
-    ): ResponseEntity<Reservation> {
-        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    ): ResponseEntity<ReservationResponseWrapper> {
+        val patchedReservation: Reservation = id.let { reservationService.getReservation(UUID.fromString(id)) }
+        patchedReservation.confirmed = confirmed
+        reservationService.saveReservation(patchedReservation)
+        
+        return ResponseEntity.ok(
+            ReservationResponseWrapper(
+                patchedReservation.id,
+                patchedReservation.restaurantTables?.map { tables -> tables.id }?.toList(),
+                TimeslotWrapper(patchedReservation.reservationFrom, patchedReservation.reservationTo),
+                patchedReservation.userName,
+                patchedReservation.userEmail,
+                patchedReservation.confirmed
+            )
+        )
     }
 
     /**
@@ -73,8 +121,20 @@ class ReservationController {
         value = ["/reservation/{id}"],
         produces = ["application/json"]
     )
-    fun deleteReservation(@PathVariable("id") id: String): ResponseEntity<Reservation> {
-        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    fun deleteReservation(@PathVariable("id") id: String): ResponseEntity<ReservationResponseWrapper> {
+        val removedReservation: Reservation = id.let { reservationService.getReservation(UUID.fromString(id)) }
+        reservationService.deleteReservation(UUID.fromString(id))
+
+        return ResponseEntity.ok(
+            ReservationResponseWrapper(
+                removedReservation.id,
+                removedReservation.restaurantTables?.map { tables -> tables.id }?.toList(),
+                TimeslotWrapper(removedReservation.reservationFrom, removedReservation.reservationTo),
+                removedReservation.userName,
+                removedReservation.userEmail,
+                removedReservation.confirmed
+            )
+        )
     }
 
     /**

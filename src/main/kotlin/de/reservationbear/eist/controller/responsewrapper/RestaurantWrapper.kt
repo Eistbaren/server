@@ -1,7 +1,11 @@
-package de.reservationbear.eist.mockmodels
+package de.reservationbear.eist.controller.responsewrapper
 
 import com.fasterxml.jackson.annotation.JsonProperty
+import de.reservationbear.eist.db.entity.RestaurantFloorPlan
+import de.reservationbear.eist.db.entity.RestaurantLocation
+import de.reservationbear.eist.db.entity.Timeslot
 import java.net.URI
+import java.util.*
 
 /**
  *
@@ -14,15 +18,15 @@ import java.net.URI
  * @param location
  * @param floorPlan
  */
-data class Restaurant(
+data class RestaurantWrapper(
 
-    @field:JsonProperty("id") val id: java.util.UUID? = null,
+    @field:JsonProperty("id") val id: UUID? = null,
 
-    @field:JsonProperty("images") val images: List<URI>? = null,
+    @field:JsonProperty("images") val images: List<UUID>? = null,
 
     @field:JsonProperty("website") val website: URI? = null,
 
-    @field:JsonProperty("openingHours") val openingHours: List<Timeslot>? = null,
+    @field:JsonProperty("openingHours") val openingHours: MutableList<Timeslot>? = null,
 
     @field:JsonProperty("averageRating") val averageRating: Double? = null,
 
