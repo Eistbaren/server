@@ -1,4 +1,6 @@
 package de.reservationbear.eist.db.entity
+
+import lombok.Data
 import org.hibernate.annotations.ColumnDefault
 import org.hibernate.annotations.GenericGenerator
 import org.hibernate.annotations.Type
@@ -11,8 +13,8 @@ import javax.persistence.Id
 /**
  * Represents a comment/ short review of a restaurant
  */
-@Entity
-class Comment (
+@Entity(name = "comments")
+class Comment(
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
