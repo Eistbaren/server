@@ -23,7 +23,7 @@ class Timeslot(
     @Column(name = "ID", updatable = false, nullable = false)
     @ColumnDefault("random_uuid()")
     @Type(type = "uuid-char")
-    val id: UUID? = null,
-    val timeslotFrom: Int? = null,
-    val timeslotTo: Int? = null
+    val id: UUID,
+    val timeslotFrom: Int,
+    val timeslotTo: Int
 )
