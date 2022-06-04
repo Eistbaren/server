@@ -24,6 +24,6 @@ class RestaurantFloorPlanSize(
     @ColumnDefault("random_uuid()")
     @Type(type = "uuid-char")
     val id: UUID,
-    val width: Int? = null,
-    val height: Int? = null
+    val width: Int,
+    val height: Int
 )

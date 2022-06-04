@@ -24,5 +24,5 @@ class RestaurantFloorPlan(
     @ManyToOne
     val image: Image? = null,
     @OneToOne
-    val propertySize: RestaurantFloorPlanSize? = null
+    val propertySize: RestaurantFloorPlanSize
 )

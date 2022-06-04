@@ -25,7 +25,7 @@ class Comment(
     @ColumnDefault("random_uuid()")
     @Type(type = "uuid-char")
     val id: UUID? = null,
-    val rating: Int? = null,
-    val comment: String? = null,
-    val name: String? = null
+    val rating: Int,
+    val comment: String,
+    val name: String
 )

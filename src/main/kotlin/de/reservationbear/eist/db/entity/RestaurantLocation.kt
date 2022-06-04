@@ -24,6 +24,6 @@ class RestaurantLocation(
     @ColumnDefault("random_uuid()")
     @Type(type = "uuid-char")
     val id: UUID,
-    val lat: Double? = null,
-    val lon: Double? = null
+    val lat: Double,
+    val lon: Double
 )

@@ -24,9 +24,9 @@ class Reservation(
     val id: UUID? = null,
     @OneToMany
     val restaurantTables: Set<RestaurantTable>? = null,
-    val reservationFrom: Timestamp? = null,
-    val reservationTo: Timestamp? = null,
-    val userName: String? = null,
-    val userEmail: String? = null,
+    val reservationFrom: Timestamp,
+    val reservationTo: Timestamp,
+    val userName: String,
+    val userEmail: String,
     var confirmed: Boolean
 )
