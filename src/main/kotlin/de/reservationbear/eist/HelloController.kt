@@ -11,7 +11,7 @@ import java.util.*
 
 
 @RestController
-class HelloController(val service: RestaurantService) {
+class HelloController {
     @GetMapping("sayHello")
     fun sayHello(): String {
         return "Hello World!"
