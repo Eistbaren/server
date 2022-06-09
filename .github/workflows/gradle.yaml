@@ -1,16 +1,15 @@
 name: Run gradle tests
 
 on:
-  pull_request_target:
-    types: [labeled]
+  pull_request:
+    [main]
 
 # https://stackoverflow.com/questions/67344181/how-to-use-github-actions-bot-for-testing-gradle-java
 
 jobs:
   test:
-    name: GradleTest
+    name: Gradle Test
     runs-on: ubuntu-latest
-    if: contains(github.event.pull_request.labels.*.name, 'STAGING')
 
     steps:
       - name: checkout
