@@ -8,9 +8,9 @@ import java.util.*
  * @param timeslots
  * @param reservedTables
  */
-data class TimeslotTableWrapper(
+data class TimeslotTableMapper(
 
-    @field:JsonProperty("timeslot") val timeslots: TimeslotWrapper? = null,
+    @field:JsonProperty("timeslot") val timeslots: TimeslotMapper? = null,
 
     @field:JsonProperty("reservedTables") val reservedTables: List<UUID?>? = null
 )

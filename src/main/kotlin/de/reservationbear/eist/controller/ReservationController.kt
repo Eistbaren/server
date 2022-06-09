@@ -1,7 +1,7 @@
 package de.reservationbear.eist.controller
 
-import de.reservationbear.eist.controller.responsewrapper.ReservationResponseWrapper
-import de.reservationbear.eist.controller.responsewrapper.TimeslotWrapper
+import de.reservationbear.eist.controller.responsewrapper.ReservationResponseMapper
+import de.reservationbear.eist.controller.responsewrapper.TimeslotMapper
 import de.reservationbear.eist.db.entity.Reservation
 import de.reservationbear.eist.exceptions.ApiException
 import de.reservationbear.eist.mockmodels.ConfirmationToken
@@ -29,7 +29,7 @@ class ReservationController(val reservationService: ReservationService) {
         value = ["/reservation/{id}"],
         produces = ["application/json"]
     )
-    fun getReservation(@PathVariable("id") id: String): ResponseEntity<ReservationResponseWrapper> {
+    fun getReservation(@PathVariable("id") id: String): ResponseEntity<ReservationResponseMapper> {
         val reservation: Reservation
         try {
             reservation = reservationService.getReservation(UUID.fromString(id))
@@ -37,10 +37,10 @@ class ReservationController(val reservationService: ReservationService) {
             throw e.message?.let { ApiException(it, 500) }!!
         }
         return ResponseEntity.ok(
-            ReservationResponseWrapper(
+            ReservationResponseMapper(
                 reservation.id,
                 reservation.restaurantTables?.map { tables -> tables.id }?.toList(),
-                TimeslotWrapper(reservation.reservationFrom, reservation.reservationTo),
+                TimeslotMapper(reservation.reservationFrom, reservation.reservationTo),
                 reservation.userName,
                 reservation.userEmail,
                 reservation.confirmed
@@ -59,7 +59,7 @@ class ReservationController(val reservationService: ReservationService) {
         produces = ["application/json"]
     )
     fun createReservation(@RequestBody reservation: Reservation):
-            ResponseEntity<ReservationResponseWrapper> {
+            ResponseEntity<ReservationResponseMapper> {
         
         reservation.confirmed = false
         
@@ -67,10 +67,10 @@ class ReservationController(val reservationService: ReservationService) {
         val insertedReservation: Reservation = reservation.id?.let { reservationService.getReservation(it) }!!
         
         return ResponseEntity.ok(
-            ReservationResponseWrapper(
+            ReservationResponseMapper(
                 insertedReservation.id,
                 insertedReservation.restaurantTables?.map { tables -> tables.id }?.toList(),
-                TimeslotWrapper(insertedReservation.reservationFrom, insertedReservation.reservationTo),
+                TimeslotMapper(insertedReservation.reservationFrom, insertedReservation.reservationTo),
                 insertedReservation.userName,
                 insertedReservation.userEmail,
                 insertedReservation.confirmed
@@ -94,16 +94,16 @@ class ReservationController(val reservationService: ReservationService) {
         @PathVariable("id") id: String,
         @RequestParam(value = "confirmationToken", required = true) confirmationToken: ConfirmationToken,
         @RequestBody confirmed: Boolean
-    ): ResponseEntity<ReservationResponseWrapper> {
+    ): ResponseEntity<ReservationResponseMapper> {
         val patchedReservation: Reservation = id.let { reservationService.getReservation(UUID.fromString(id)) }
         patchedReservation.confirmed = confirmed
         reservationService.saveReservation(patchedReservation)
         
         return ResponseEntity.ok(
-            ReservationResponseWrapper(
+            ReservationResponseMapper(
                 patchedReservation.id,
                 patchedReservation.restaurantTables?.map { tables -> tables.id }?.toList(),
-                TimeslotWrapper(patchedReservation.reservationFrom, patchedReservation.reservationTo),
+                TimeslotMapper(patchedReservation.reservationFrom, patchedReservation.reservationTo),
                 patchedReservation.userName,
                 patchedReservation.userEmail,
                 patchedReservation.confirmed
@@ -121,15 +121,15 @@ class ReservationController(val reservationService: ReservationService) {
         value = ["/reservation/{id}"],
         produces = ["application/json"]
     )
-    fun deleteReservation(@PathVariable("id") id: String): ResponseEntity<ReservationResponseWrapper> {
+    fun deleteReservation(@PathVariable("id") id: String): ResponseEntity<ReservationResponseMapper> {
         val removedReservation: Reservation = id.let { reservationService.getReservation(UUID.fromString(id)) }
         reservationService.deleteReservation(UUID.fromString(id))
 
         return ResponseEntity.ok(
-            ReservationResponseWrapper(
+            ReservationResponseMapper(
                 removedReservation.id,
                 removedReservation.restaurantTables?.map { tables -> tables.id }?.toList(),
-                TimeslotWrapper(removedReservation.reservationFrom, removedReservation.reservationTo),
+                TimeslotMapper(removedReservation.reservationFrom, removedReservation.reservationTo),
                 removedReservation.userName,
                 removedReservation.userEmail,
                 removedReservation.confirmed

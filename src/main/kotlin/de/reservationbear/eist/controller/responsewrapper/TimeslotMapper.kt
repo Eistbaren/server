@@ -8,7 +8,7 @@ import java.sql.Timestamp
  * @param from
  * @param to
  */
-data class TimeslotWrapper(
+data class TimeslotMapper(
 
     @field:JsonProperty("from") val from: Timestamp? = null,
 

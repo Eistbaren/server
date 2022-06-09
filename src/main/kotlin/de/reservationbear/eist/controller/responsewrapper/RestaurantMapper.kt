@@ -18,7 +18,7 @@ import java.util.*
  * @param location
  * @param floorPlan
  */
-data class RestaurantWrapper(
+data class RestaurantMapper(
 
     @field:JsonProperty("id") val id: UUID? = null,
 

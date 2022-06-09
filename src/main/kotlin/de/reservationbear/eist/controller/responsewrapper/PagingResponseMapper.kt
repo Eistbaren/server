@@ -12,7 +12,7 @@ import java.math.BigDecimal
  * @param pageSize
  * @param results
  */
-data class PagingResponseWrapper(
+data class PagingResponseMapper(
 
     @field:JsonProperty("totalPages") val totalPages: BigDecimal? = null,
 

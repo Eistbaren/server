@@ -1,9 +1,9 @@
 package de.reservationbear.eist.controller
 
-import de.reservationbear.eist.controller.responsewrapper.PagingResponseWrapper
-import de.reservationbear.eist.controller.responsewrapper.RestaurantWrapper
-import de.reservationbear.eist.controller.responsewrapper.TimeslotTableWrapper
-import de.reservationbear.eist.controller.responsewrapper.TimeslotWrapper
+import de.reservationbear.eist.controller.responsewrapper.PagingResponseMapper
+import de.reservationbear.eist.controller.responsewrapper.RestaurantMapper
+import de.reservationbear.eist.controller.responsewrapper.TimeslotTableMapper
+import de.reservationbear.eist.controller.responsewrapper.TimeslotMapper
 import de.reservationbear.eist.db.entity.Comment
 import de.reservationbear.eist.db.entity.Reservation
 import de.reservationbear.eist.db.entity.Restaurant
@@ -43,18 +43,18 @@ class RestaurantController(val restaurantService: RestaurantService) {
         @RequestParam(value = "filters", defaultValue = "") filters: List<String>,
         @RequestParam(value = "currentPage", defaultValue = "0") currentPage: Int,
         @RequestParam(value = "pageSize", defaultValue = "50") pageSize: Int
-    ): ResponseEntity<PagingResponseWrapper> {
+    ): ResponseEntity<PagingResponseMapper> {
 
         val restaurants: Page<Restaurant> =
             restaurantService.getPageOfRestaurants(PageRequest.of(currentPage, pageSize))
 
         return ResponseEntity.ok(
-            PagingResponseWrapper(
+            PagingResponseMapper(
                 BigDecimal(restaurants.totalPages),
                 BigDecimal(currentPage),
                 BigDecimal(pageSize),
                 restaurants.get().map { restaurant ->
-                    RestaurantWrapper(
+                    RestaurantMapper(
                         restaurant.id,
                         restaurant.images?.map { image -> image.id },
                         restaurant.website,
@@ -85,7 +85,7 @@ class RestaurantController(val restaurantService: RestaurantService) {
         @PathVariable("id") id: UUID,
         @RequestParam(value = "currentPage", defaultValue = "0") currentPage: Int,
         @RequestParam(value = "pageSize", defaultValue = "50") pageSize: Int
-    ): ResponseEntity<PagingResponseWrapper> {
+    ): ResponseEntity<PagingResponseMapper> {
 
         //TODO Add missing service
 
@@ -112,7 +112,7 @@ class RestaurantController(val restaurantService: RestaurantService) {
         @RequestParam(value = "to", required = true) to: Timestamp,
         @RequestParam(value = "currentPage", defaultValue = "0") currentPage: Int,
         @RequestParam(value = "pageSize", defaultValue = "50") pageSize: Int
-    ): ResponseEntity<PagingResponseWrapper> {
+    ): ResponseEntity<PagingResponseMapper> {
 
         val reservations: Page<Reservation?>? = restaurantService.findReservationsInTimeframeOfRestaurant(
             UUID.fromString(id),
@@ -127,8 +127,8 @@ class RestaurantController(val restaurantService: RestaurantService) {
                     ?.restaurantTables
                     ?.map { table -> table.id }
                     ?.let {
-                        TimeslotTableWrapper(
-                            TimeslotWrapper(
+                        TimeslotTableMapper(
+                            TimeslotMapper(
                                 reservation.reservationFrom,
                                 reservation.reservationTo
                             ),
@@ -136,7 +136,7 @@ class RestaurantController(val restaurantService: RestaurantService) {
                         )
                     }
             }?.let {
-                PagingResponseWrapper(
+                PagingResponseMapper(
                     BigDecimal(reservations.totalPages),
                     BigDecimal(currentPage),
                     BigDecimal(pageSize),
@@ -163,7 +163,7 @@ class RestaurantController(val restaurantService: RestaurantService) {
         @RequestParam(value = "date", required = true) date: Int,
         @RequestParam(value = "currentPage", defaultValue = "0") currentPage: Int,
         @RequestParam(value = "pageSize", defaultValue = "50") pageSize: Int
-    ): ResponseEntity<TimeslotWrapper> {
+    ): ResponseEntity<TimeslotMapper> {
 
         //TODO Implement Service
 
@@ -186,7 +186,7 @@ class RestaurantController(val restaurantService: RestaurantService) {
         @PathVariable("id") id: String,
         @RequestParam(value = "currentPage", defaultValue = "0") currentPage: Int,
         @RequestParam(value = "pageSize", defaultValue = "50") pageSize: Int
-    ): ResponseEntity<PagingResponseWrapper> {
+    ): ResponseEntity<PagingResponseMapper> {
 
         val comments: Page<Comment?>? = restaurantService.getPageOfRestaurantComments(
             UUID.fromString(id),
@@ -194,7 +194,7 @@ class RestaurantController(val restaurantService: RestaurantService) {
         )
 
         return ResponseEntity.ok(
-            PagingResponseWrapper(
+            PagingResponseMapper(
                 BigDecimal(comments?.totalPages ?: 0),
                 BigDecimal(currentPage),
                 BigDecimal(pageSize),

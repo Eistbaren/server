@@ -12,13 +12,13 @@ import java.util.*
  * @param userEmail
  * @param confirmed
  */
-data class ReservationResponseWrapper(
+data class ReservationResponseMapper(
 
     @field:JsonProperty("id") val id: UUID? = null,
 
     @field:JsonProperty("tables") val tables: List<UUID?>? = null,
 
-    @field:JsonProperty("time") val time: TimeslotWrapper? = null,
+    @field:JsonProperty("time") val time: TimeslotMapper? = null,
 
     @field:JsonProperty("userName") val userName: String? = null,
 
