@@ -1,11 +1,10 @@
 package de.reservationbear.eist.controller
 
-import de.reservationbear.eist.controller.responsewrapper.ReservationResponseMapper
-import de.reservationbear.eist.controller.responsewrapper.TimeslotMapper
+import de.reservationbear.eist.controller.responseMapper.ReservationResponseMapper
+import de.reservationbear.eist.controller.responseMapper.TimeslotMapper
 import de.reservationbear.eist.db.entity.Reservation
 import de.reservationbear.eist.exceptions.ApiException
-import de.reservationbear.eist.mockmodels.ConfirmationToken
-import de.reservationbear.eist.service.ReservationService
+import de.reservationbear.eist.db.service.ReservationService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 
@@ -92,7 +91,7 @@ class ReservationController(val reservationService: ReservationService) {
     )
     fun patchReservation(
         @PathVariable("id") id: String,
-        @RequestParam(value = "confirmationToken", required = true) confirmationToken: ConfirmationToken,
+        @RequestParam(value = "confirmationToken", required = true) confirmationToken: String,
         @RequestBody confirmed: Boolean
     ): ResponseEntity<ReservationResponseMapper> {
         val patchedReservation: Reservation = id.let { reservationService.getReservation(UUID.fromString(id)) }

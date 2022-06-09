@@ -1,14 +1,11 @@
 package de.reservationbear.eist.controller
 
-import de.reservationbear.eist.controller.responsewrapper.PagingResponseMapper
-import de.reservationbear.eist.controller.responsewrapper.RestaurantMapper
-import de.reservationbear.eist.controller.responsewrapper.TimeslotTableMapper
-import de.reservationbear.eist.controller.responsewrapper.TimeslotMapper
+import de.reservationbear.eist.controller.responseMapper.*
 import de.reservationbear.eist.db.entity.Comment
 import de.reservationbear.eist.db.entity.Reservation
 import de.reservationbear.eist.db.entity.Restaurant
 import de.reservationbear.eist.db.entity.Timeslot
-import de.reservationbear.eist.service.RestaurantService
+import de.reservationbear.eist.db.service.RestaurantService
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
 import org.springframework.http.HttpStatus
@@ -127,7 +124,7 @@ class RestaurantController(val restaurantService: RestaurantService) {
                     ?.restaurantTables
                     ?.map { table -> table.id }
                     ?.let {
-                        TimeslotTableMapper(
+                        RestaurantTableMapper(
                             TimeslotMapper(
                                 reservation.reservationFrom,
                                 reservation.reservationTo

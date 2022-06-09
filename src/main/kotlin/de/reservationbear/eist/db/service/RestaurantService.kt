@@ -1,4 +1,4 @@
-package de.reservationbear.eist.service
+package de.reservationbear.eist.db.service
 
 import de.reservationbear.eist.db.entity.Comment
 import de.reservationbear.eist.db.entity.Reservation

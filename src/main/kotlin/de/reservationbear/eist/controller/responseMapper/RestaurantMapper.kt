@@ -1,4 +1,4 @@
-package de.reservationbear.eist.controller.responsewrapper
+package de.reservationbear.eist.controller.responseMapper
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import de.reservationbear.eist.db.entity.RestaurantFloorPlan
