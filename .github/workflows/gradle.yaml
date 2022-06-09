@@ -2,7 +2,7 @@ name: Run gradle tests
 
 on:
   pull_request:
-    [main]
+    [opened, edited]
 
 # https://stackoverflow.com/questions/67344181/how-to-use-github-actions-bot-for-testing-gradle-java
 
