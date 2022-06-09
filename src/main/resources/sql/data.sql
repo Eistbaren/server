@@ -57,8 +57,8 @@ values ('069f72db-2157-43de-8e88-21661b518200', '069f72db-2157-43de-8e88-21661b5
 
 insert into reservation(ID, CONFIRMED, RESERVATION_FROM, RESERVATION_TO, USER_EMAIL, USER_NAME)
 values ('069f72db-2157-43de-8e88-21661b518201', false,
-        parsedatetime('08-06-2022 13:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
-        parsedatetime('08-06-2022 13:30:00.000', 'dd-MM-yyyy hh:mm:ss.SS'), 'jonas.ladner@tum.de',
+        parsedatetime('10-06-2022 13:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('10-06-2022 13:30:00.000', 'dd-MM-yyyy hh:mm:ss.SS'), 'jonas.ladner@tum.de',
         'LadnerJonas');
 insert into RESTAURANT_RESERVATIONS (RESTAURANT_ID, RESERVATIONS_ID)
 values ('069f72db-2157-43de-8e88-21661b518200', '069f72db-2157-43de-8e88-21661b518201');
