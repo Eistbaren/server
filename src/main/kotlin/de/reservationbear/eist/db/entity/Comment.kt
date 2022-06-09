@@ -1,6 +1,7 @@
 package de.reservationbear.eist.db.entity
 
 import lombok.Data
+import com.fasterxml.jackson.annotation.JsonIgnore
 import org.hibernate.annotations.ColumnDefault
 import org.hibernate.annotations.GenericGenerator
 import org.hibernate.annotations.Type
@@ -24,8 +25,9 @@ class Comment(
     @Column(name = "ID", updatable = false, nullable = false)
     @ColumnDefault("random_uuid()")
     @Type(type = "uuid-char")
+    @JsonIgnore
     val id: UUID? = null,
-    val rating: Int,
-    val comment: String,
-    val name: String
+    val rating: Int? = null,
+    val comment: String? = null,
+    val name: String? = null
 )

@@ -10,6 +10,7 @@ import java.sql.Timestamp
 import java.util.*
 
 
+
 @RestController
 class HelloController(val service: RestaurantService) {
     @GetMapping("sayHello")
@@ -27,7 +28,7 @@ class HelloController(val service: RestaurantService) {
 
         return sb.toString()
     }
-
+    
     @GetMapping("DB-TEST-2")
     fun db2(): String {
         val paging: Pageable = PageRequest.of(0, 15)
