@@ -1,6 +1,10 @@
 insert into restaurant (id, name, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, FLOOR_PLAN_ID, LOCATION_ID)
 values ('069f72db-2157-43de-8e88-21661b518200', 'Mensa Garching', 5.0, 2, 'hunger.tum.sexy', null, null);
 
+insert into restaurant_table(id, seats, restaurant_id)
+values ('069f72db-2157-43de-8e88-21661b518201', 3, '069f72db-2157-43de-8e88-21661b518200');
+
+
 insert into comments (id, rating, comment, name)
 values ('069f72db-2157-43de-8e88-21661b518201', 1, 'Super DB', 'DB-Admin');
 insert into comments (id, rating, comment, name)
@@ -52,7 +56,9 @@ insert into RESTAURANT_COMMENTS (RESTAURANT_ID, COMMENTS_ID)
 values ('069f72db-2157-43de-8e88-21661b518200', '069f72db-2157-43de-8e88-21661b518212');
 
 insert into reservation(ID, CONFIRMED, RESERVATION_FROM, RESERVATION_TO, USER_EMAIL, USER_NAME)
-values ('069f72db-2157-43de-8e88-21661b518201', false, parsedatetime('08-06-2022 13:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'), parsedatetime('08-06-2022 13:30:00.000', 'dd-MM-yyyy hh:mm:ss.SS'), 'jonas.ladner@tum.de',
+values ('069f72db-2157-43de-8e88-21661b518201', false,
+        parsedatetime('08-06-2022 13:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('08-06-2022 13:30:00.000', 'dd-MM-yyyy hh:mm:ss.SS'), 'jonas.ladner@tum.de',
         'LadnerJonas');
 insert into RESTAURANT_RESERVATIONS (RESTAURANT_ID, RESERVATIONS_ID)
 values ('069f72db-2157-43de-8e88-21661b518200', '069f72db-2157-43de-8e88-21661b518201');

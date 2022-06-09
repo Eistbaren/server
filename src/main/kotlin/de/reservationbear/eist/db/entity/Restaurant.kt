@@ -34,7 +34,7 @@ class Restaurant(
     val location: RestaurantLocation? = null,
     @OneToOne
     val floorPlan: RestaurantFloorPlan? = null,
-    @OneToMany
+    @OneToMany(mappedBy = "restaurant")
     val restaurantTables: Set<RestaurantTable>? = null,
     @OneToMany
     val comments: Set<Comment>? = null,

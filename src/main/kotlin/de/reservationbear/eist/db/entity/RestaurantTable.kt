@@ -24,5 +24,8 @@ class RestaurantTable(
     val id: UUID,
     val seats: Int,
     @OneToOne
-    val floorPlan: TableFloorPlan? = null
+    val floorPlan: TableFloorPlan? = null,
+    @ManyToOne
+    @JoinColumn(name = "restaurant_id")
+    val restaurant: Restaurant
 )
