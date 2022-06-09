@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v3
 
       - name: Setup JDK 17
@@ -21,11 +21,11 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
 
-      - name: Test
+      - name: Run tests
         run: ./gradlew test --tests "*"
 
       - name: Upload aritfacts
         uses: actions/upload-artifact@v3
         with:
-          name: Package
-          path: build/libs
+          name: build
+          path: build
