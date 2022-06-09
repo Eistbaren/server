@@ -26,8 +26,8 @@ class Comment(
     @ColumnDefault("random_uuid()")
     @Type(type = "uuid-char")
     @JsonIgnore
-    val id: UUID? = null,
-    val rating: Int? = null,
-    val comment: String? = null,
+    val id: UUID,
+    val rating: Int,
+    val comment: String,
     val name: String? = null
 )
