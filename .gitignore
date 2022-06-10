@@ -35,3 +35,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+## react build files ##
+/src/main/resources/static/dist
