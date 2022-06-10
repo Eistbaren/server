@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import java.util.*
 
 /**
- *
+ * Mapper for Reservation Response - Maps the return into a compliant schema to the API guideline
  * @param id
  * @param tables
  * @param time
