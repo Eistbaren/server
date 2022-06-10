@@ -9,6 +9,7 @@ import java.util.*
 
 /**
  * Mapper for the Restaurant Object - Maps the return into a compliant schema to the API guideline
+ *
  * @param id
  * @param images
  * @param website

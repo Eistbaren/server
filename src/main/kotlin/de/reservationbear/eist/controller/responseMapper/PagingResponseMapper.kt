@@ -5,6 +5,7 @@ import java.math.BigDecimal
 
 /**
  * Mapper for Paging Responses - Maps the return into a compliant schema to the API guideline
+ *
  * @param totalPages
  * @param currentPage
  * @param pageSize

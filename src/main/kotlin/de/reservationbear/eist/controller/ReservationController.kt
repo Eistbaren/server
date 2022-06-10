@@ -3,11 +3,10 @@ package de.reservationbear.eist.controller
 import de.reservationbear.eist.controller.responseMapper.ReservationResponseMapper
 import de.reservationbear.eist.controller.responseMapper.TimeslotMapper
 import de.reservationbear.eist.db.entity.Reservation
-import de.reservationbear.eist.exceptions.ApiException
 import de.reservationbear.eist.db.service.ReservationService
+import de.reservationbear.eist.exceptions.ApiException
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
-
 import org.springframework.web.bind.annotation.*
 import java.util.*
 
@@ -59,12 +58,12 @@ class ReservationController(val reservationService: ReservationService) {
     )
     fun createReservation(@RequestBody reservation: Reservation):
             ResponseEntity<ReservationResponseMapper> {
-        
+
         reservation.confirmed = false
-        
+
         reservationService.saveReservation(reservation)
         val insertedReservation: Reservation = reservation.id?.let { reservationService.getReservation(it) }!!
-        
+
         return ResponseEntity.ok(
             ReservationResponseMapper(
                 insertedReservation.id,
@@ -97,7 +96,7 @@ class ReservationController(val reservationService: ReservationService) {
         val patchedReservation: Reservation = id.let { reservationService.getReservation(UUID.fromString(id)) }
         patchedReservation.confirmed = confirmed
         reservationService.saveReservation(patchedReservation)
-        
+
         return ResponseEntity.ok(
             ReservationResponseMapper(
                 patchedReservation.id,

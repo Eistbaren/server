@@ -5,6 +5,7 @@ import java.sql.Timestamp
 
 /**
  * Mapper for Timeslot Object - Maps the return into a compliant schema to the API guideline
+ *
  * @param from
  * @param to
  */

@@ -1,6 +1,9 @@
 package de.reservationbear.eist.controller
 
-import de.reservationbear.eist.controller.responseMapper.*
+import de.reservationbear.eist.controller.responseMapper.PagingResponseMapper
+import de.reservationbear.eist.controller.responseMapper.RestaurantMapper
+import de.reservationbear.eist.controller.responseMapper.RestaurantTableMapper
+import de.reservationbear.eist.controller.responseMapper.TimeslotMapper
 import de.reservationbear.eist.db.entity.Comment
 import de.reservationbear.eist.db.entity.Reservation
 import de.reservationbear.eist.db.entity.Restaurant
@@ -14,7 +17,6 @@ import org.springframework.web.bind.annotation.*
 import java.math.BigDecimal
 import java.sql.Timestamp
 import java.util.*
-import kotlin.collections.ArrayList
 
 /**
  * REST-Controller for the restaurant entity
