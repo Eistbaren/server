@@ -23,21 +23,21 @@ class Restaurant(
     @Type(type = "uuid-char")
     val id: UUID,
     val name: String,
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     val images: Set<Image>? = null,
     val website: URI? = null,
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     val openingHours: Set<Timeslot>? = null,
     val averageRating: Double,
     val priceCategory: Int,
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     val location: RestaurantLocation? = null,
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     val floorPlan: RestaurantFloorPlan? = null,
-    @OneToMany(mappedBy = "restaurant")
+    @OneToMany(fetch = FetchType.EAGER)
     val restaurantTables: Set<RestaurantTable>? = null,
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     val comments: Set<Comment>? = null,
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     val reservations: Set<Reservation>? = null
 )
