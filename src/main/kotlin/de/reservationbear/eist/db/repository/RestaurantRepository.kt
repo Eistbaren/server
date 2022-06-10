@@ -21,11 +21,13 @@ interface RestaurantRepository : JpaRepository<Restaurant, UUID> {
      * @return a page of comments
      */
     @Query(
-        value = "SELECT COMMENT.* FROM RESTAURANT " +
-                "JOIN RESTAURANT_COMMENTS USING (RESTAURANT_ID) JOIN COMMENT USING (COMMENTS_ID) " +
-                "WHERE RESTAURANT_ID = ?1",
-        countQuery = "SELECT count(COMMENT.*) FROM RESTAURANT JOIN RESTAURANT_COMMENTS USING (RESTAURANT_ID) JOIN COMMENT USING (COMMENTS_ID) WHERE RESTAURANT_ID = ?1",
-        nativeQuery = true
+        value = "SELECT r.comments " +
+                "FROM Restaurant r " +
+                "WHERE r.id = ?1",
+
+        countQuery = "SELECT count(r.comments.size) " +
+                "FROM Restaurant r " +
+                "WHERE r.id = ?1",
     )
     fun findCommentsOfRestaurant(uuid: UUID, pageable: Pageable?): Page<Comment?>?
 
@@ -38,13 +40,18 @@ interface RestaurantRepository : JpaRepository<Restaurant, UUID> {
      * @return all reservation of the restaurant in the given time frame
      */
     @Query(
-        value = "SELECT RESERVATION.* FROM RESTAURANT " +
-                "JOIN RESTAURANT_RESERVATIONS USING (RESTAURANT_ID) JOIN RESERVATION USING (RESERVATION_ID) " +
-                "WHERE RESTAURANT_ID = ?1 AND RESERVATION_FROM >= ?2 AND RESERVATION_TO <= ?3",
-        countQuery = "SELECT RESERVATION.* FROM RESTAURANT " +
-                "JOIN RESTAURANT_RESERVATIONS USING (RESTAURANT_ID) JOIN RESERVATION USING (RESERVATION_ID) " +
-                "WHERE RESTAURANT_ID = ?1 AND RESERVATION_FROM >= ?2 AND RESERVATION_TO <= ?3",
-        nativeQuery = true
+        value = "SELECT r.reservations " +
+                "FROM Restaurant r " +
+                "JOIN r.reservations rs " +
+                "WHERE r.id = ?1 " +
+                "AND rs.reservationFrom >= ?2 " +
+                "AND rs.reservationTo <= ?3",
+        countQuery = "SELECT count(r.reservations) " +
+                "FROM Restaurant r " +
+                "JOIN r.reservations rs " +
+                "WHERE r.id = ?1 " +
+                "AND rs.reservationFrom >= ?2 " +
+                "AND rs.reservationTo <= ?3",
     )
     fun findReservationsInTimeframeOfRestaurant(
         uuid: UUID,

@@ -1,4 +1,5 @@
 package de.reservationbear.eist.db.entity
+
 import com.fasterxml.jackson.annotation.JsonIgnore
 import org.hibernate.annotations.ColumnDefault
 import org.hibernate.annotations.GenericGenerator
@@ -12,8 +13,8 @@ import javax.persistence.Id
 /**
  * Represents a comment/ short review of a restaurant
  */
-@Entity
-class Comment (
+@Entity(name = "comments")
+class Comment(
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
@@ -24,8 +25,8 @@ class Comment (
     @ColumnDefault("random_uuid()")
     @Type(type = "uuid-char")
     @JsonIgnore
-    val id: UUID? = null,
-    val rating: Int? = null,
-    val comment: String? = null,
+    val id: UUID,
+    val rating: Int,
+    val comment: String,
     val name: String? = null
 )

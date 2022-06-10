@@ -5,7 +5,7 @@ info:
     
     A reference implementation is available on [Github](https://github.com/Eistbaren/frontend)
 
-  version: 1.0.0
+  version: 1.0.2
   title: "Reservation Bear API"
 
 host: api.reservation-bear.de
@@ -17,6 +17,8 @@ tags:
     description: Tables
   - name: reservation
     description: Reservations
+  - name: image
+    description: Images
 
 schemes:
   - https
@@ -388,6 +390,8 @@ paths:
 
   /image/{id}:
     get:
+      tags:
+        - image
       summary: "get an image by its id"
       produces:
         - application/image
@@ -415,6 +419,8 @@ definitions:
         type: string
         format: uuid
       # == Functional requirements start ==
+      name:
+        type: string
       images:
         type: array
         items:

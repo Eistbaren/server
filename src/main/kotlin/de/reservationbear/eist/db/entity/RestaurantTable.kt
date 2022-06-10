@@ -21,8 +21,11 @@ class RestaurantTable(
     @Column(name = "ID", updatable = false, nullable = false)
     @ColumnDefault("random_uuid()")
     @Type(type = "uuid-char")
-    val id: UUID? = null,
-    val seats: Int? = null,
+    val id: UUID,
+    val seats: Int,
     @OneToOne
-    val floorPlan: TableFloorPlan? = null
+    val floorPlan: TableFloorPlan? = null,
+    @ManyToOne
+    @JoinColumn(name = "restaurant_id")
+    val restaurant: Restaurant
 )

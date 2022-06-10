@@ -8,8 +8,8 @@ import de.reservationbear.eist.db.entity.Comment
 import de.reservationbear.eist.db.entity.Reservation
 import de.reservationbear.eist.db.entity.Restaurant
 import de.reservationbear.eist.db.entity.Timeslot
-import de.reservationbear.eist.db.service.RestaurantService
 import de.reservationbear.eist.exceptions.ApiException
+import de.reservationbear.eist.service.RestaurantService
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
 import org.springframework.http.HttpStatus

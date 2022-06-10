@@ -1,8 +1,8 @@
 package de.reservationbear.eist.controller
 
 import de.reservationbear.eist.db.entity.RestaurantTable
-import de.reservationbear.eist.db.service.TableService
 import de.reservationbear.eist.exceptions.ApiException
+import de.reservationbear.eist.service.TableService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable

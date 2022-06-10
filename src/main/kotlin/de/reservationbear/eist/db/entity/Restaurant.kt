@@ -21,20 +21,20 @@ class Restaurant(
     @Column(name = "ID", updatable = false, nullable = false)
     @ColumnDefault("random_uuid()")
     @Type(type = "uuid-char")
-    val id: UUID? = null,
-    val name: String? = null,
+    val id: UUID,
+    val name: String,
     @OneToMany
     val images: Set<Image>? = null,
     val website: URI? = null,
     @OneToMany
     val openingHours: Set<Timeslot>? = null,
-    val averageRating: Double? = null,
-    val priceCategory: Int? = null,
+    val averageRating: Double,
+    val priceCategory: Int,
     @OneToOne
     val location: RestaurantLocation? = null,
     @OneToOne
     val floorPlan: RestaurantFloorPlan? = null,
-    @OneToMany
+    @OneToMany(mappedBy = "restaurant")
     val restaurantTables: Set<RestaurantTable>? = null,
     @OneToMany
     val comments: Set<Comment>? = null,

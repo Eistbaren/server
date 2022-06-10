@@ -23,7 +23,7 @@ class TableFloorPlanPosition(
     @Column(name = "ID", updatable = false, nullable = false)
     @ColumnDefault("random_uuid()")
     @Type(type = "uuid-char")
-    val id: UUID? = null,
-    val x: Int? = null,
-    val y: Int? = null
+    val id: UUID,
+    val x: Int,
+    val y: Int
 )
