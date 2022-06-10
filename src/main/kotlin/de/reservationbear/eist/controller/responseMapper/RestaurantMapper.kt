@@ -37,4 +37,3 @@ data class RestaurantMapper(
 
     @field:JsonProperty("floorPlan") val floorPlan: RestaurantFloorPlan? = null
 )
-

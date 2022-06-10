@@ -15,4 +15,3 @@ data class TimeslotMapper(
 
     @field:JsonProperty("to") val to: Timestamp? = null
 )
-

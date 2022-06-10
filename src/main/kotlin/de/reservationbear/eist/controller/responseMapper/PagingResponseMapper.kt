@@ -21,4 +21,3 @@ data class PagingResponseMapper(
 
     @field:JsonProperty("results") val results: List<Any?>? = null
 )
-

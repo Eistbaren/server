@@ -27,4 +27,3 @@ data class ReservationResponseMapper(
 
     @field:JsonProperty("confirmed") val confirmed: Boolean? = null
 )
-
