@@ -59,9 +59,13 @@ class ReservationController(val reservationService: ReservationService) {
     fun createReservation(@RequestBody reservation: Reservation):
             ResponseEntity<ReservationResponseMapper> {
 
-        reservation.confirmed = false
+        try {
+            reservation.confirmed = false
+            reservationService.saveReservation(reservation)
+        } catch (e: Exception) {
+            throw e.message?.let { ApiException(it, 500) }!!
+        }
 
-        reservationService.saveReservation(reservation)
         val insertedReservation: Reservation = reservation.id?.let { reservationService.getReservation(it) }!!
 
         return ResponseEntity.ok(
@@ -93,9 +97,16 @@ class ReservationController(val reservationService: ReservationService) {
         @RequestParam(value = "confirmationToken", required = true) confirmationToken: String,
         @RequestBody confirmed: Boolean
     ): ResponseEntity<ReservationResponseMapper> {
-        val patchedReservation: Reservation = id.let { reservationService.getReservation(UUID.fromString(id)) }
-        patchedReservation.confirmed = confirmed
-        reservationService.saveReservation(patchedReservation)
+
+        val patchedReservation: Reservation
+
+        try {
+            patchedReservation = id.let { reservationService.getReservation(UUID.fromString(id)) }
+            patchedReservation.confirmed = confirmed
+            reservationService.saveReservation(patchedReservation)
+        } catch (e: Exception) {
+            throw e.message?.let { ApiException(it, 500) }!!
+        }
 
         return ResponseEntity.ok(
             ReservationResponseMapper(
@@ -120,8 +131,15 @@ class ReservationController(val reservationService: ReservationService) {
         produces = ["application/json"]
     )
     fun deleteReservation(@PathVariable("id") id: String): ResponseEntity<ReservationResponseMapper> {
-        val removedReservation: Reservation = id.let { reservationService.getReservation(UUID.fromString(id)) }
-        reservationService.deleteReservation(UUID.fromString(id))
+
+        val removedReservation: Reservation
+
+        try {
+            removedReservation = id.let { reservationService.getReservation(UUID.fromString(id)) }
+            reservationService.deleteReservation(UUID.fromString(id))
+        } catch (e: Exception) {
+            throw e.message?.let { ApiException(it, 500) }!!
+        }
 
         return ResponseEntity.ok(
             ReservationResponseMapper(
