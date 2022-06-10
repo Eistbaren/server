@@ -47,6 +47,9 @@ jobs:
         run: |
           rm -rf ./github/.git
           cp -r ./bitbucket/.git ./github
+          # We don't want to push the client as a submodule
+          rm -rf ./github/.gitmodules
+          rm -rf ./github/client/.git
 
       - name: Commit and push bitbucket repo
         run: |
