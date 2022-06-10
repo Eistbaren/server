@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*
 import java.math.BigDecimal
 import java.sql.Timestamp
 import java.util.*
+import java.util.stream.Collectors
 
 /**
  * REST-Controller for the restaurant entity
@@ -63,7 +64,7 @@ class RestaurantController(val restaurantService: RestaurantService) {
                         restaurant.id,
                         restaurant.images?.map { image -> image.id },
                         restaurant.website,
-                        restaurant.openingHours?.toList() as MutableList<Timeslot>,
+                        restaurant.openingHours?.toMutableList(),
                         restaurant.averageRating,
                         restaurant.priceCategory,
                         restaurant.location,
