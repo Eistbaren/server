@@ -43,7 +43,7 @@ interface RestaurantRepository : JpaRepository<Restaurant, UUID> {
         value = "SELECT r.reservations " +
                 "FROM Restaurant r " +
                 "JOIN r.reservations rs " +
-                "WHERE r.id = ?1 "+
+                "WHERE r.id = ?1 " +
                 "AND rs.reservationFrom >= ?2 " +
                 "AND rs.reservationTo <= ?3",
         countQuery = "SELECT count(r.reservations) " +

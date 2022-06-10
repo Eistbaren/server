@@ -21,8 +21,8 @@ class RestaurantFloorPlan(
     @ColumnDefault("random_uuid()")
     @Type(type = "uuid-char")
     val id: UUID,
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     val image: Image? = null,
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     val propertySize: RestaurantFloorPlanSize
 )

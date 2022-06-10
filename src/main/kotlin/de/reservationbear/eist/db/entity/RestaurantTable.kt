@@ -23,9 +23,9 @@ class RestaurantTable(
     @Type(type = "uuid-char")
     val id: UUID,
     val seats: Int,
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     val floorPlan: TableFloorPlan? = null,
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "restaurant_id")
     val restaurant: Restaurant
 )

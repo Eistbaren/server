@@ -17,7 +17,7 @@ jobs:
           repository: ${{ github.repository }}
           path: github
           submodules: true
-      
+
       - name: Prepare environment
         run: |
           cd github

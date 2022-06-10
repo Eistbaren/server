@@ -1,6 +1,5 @@
 package de.reservationbear.eist.db.entity
 
-import lombok.Data
 import com.fasterxml.jackson.annotation.JsonIgnore
 import org.hibernate.annotations.ColumnDefault
 import org.hibernate.annotations.GenericGenerator
