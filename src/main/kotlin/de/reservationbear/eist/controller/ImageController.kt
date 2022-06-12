@@ -8,15 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 /**
- * REST-Controller for the Images
+ * REST-Controller for the Images.
  */
 @RestController
 @RequestMapping(value = ["/api"])
 class ImageController {
 
-
     /**
-     * Returns an image, specified by the id
+     * Returns an image, specified by the id.
      *
      * @param id        id of the reservation
      * @return          ResponseEntity with status and body with the image ressorce

@@ -10,40 +10,14 @@ import org.springframework.web.bind.annotation.*
 import java.util.*
 
 /**
- * REST-Controller for the reservation entity
+ * REST-Controller for the reservation entity.
  */
 @RestController
 @RequestMapping(value = ["/api"])
 class ReservationController(val reservationService: ReservationService) {
 
     /**
-     * Returns a reservation, specified by the id
-     *
-     * @param id        id of the reservation
-     * @return          ResponseEntity with status and body with JSON
-     */
-    @GetMapping(
-        value = ["/reservation/{id}"],
-        produces = ["application/json"]
-    )
-    fun getReservation(@PathVariable("id") id: String): ResponseEntity<ReservationResponseMapper> {
-
-        val reservation: Reservation = reservationService.getReservation(UUID.fromString(id))
-
-        return ResponseEntity.ok(
-            ReservationResponseMapper(
-                reservation.id,
-                reservation.restaurantTables?.map { tables -> tables.id }?.toList(),
-                TimeslotMapper(reservation.reservationFrom, reservation.reservationTo),
-                reservation.userName,
-                reservation.userEmail,
-                reservation.confirmed
-            )
-        )
-    }
-
-    /**
-     * Creates a reservation and pass it to the reservation service
+     * Creates a reservation and pass it to the reservation service.
      *
      * @param reservation   Consumes JSON Object and creates a new reservation
      * @return              ResponseEntity with status and body with JSON
@@ -73,9 +47,36 @@ class ReservationController(val reservationService: ReservationService) {
     }
 
     /**
-     * Edits an existing reservation - is not allowed to create
+     * Returns a reservation, specified by the id.
      *
-     * @param id                Id of the reservation
+     * @param id        id of the reservation
+     * @return          ResponseEntity with status and body with JSON
+     */
+    @GetMapping(
+        value = ["/reservation/{id}"],
+        produces = ["application/json"]
+    )
+    fun getReservation(@PathVariable("id") id: UUID): ResponseEntity<ReservationResponseMapper> {
+
+        val reservation: Reservation = reservationService.getReservation(id)
+
+        return ResponseEntity.ok(
+            ReservationResponseMapper(
+                reservation.id,
+                reservation.restaurantTables?.map { tables -> tables.id }?.toList(),
+                TimeslotMapper(reservation.reservationFrom, reservation.reservationTo),
+                reservation.userName,
+                reservation.userEmail,
+                reservation.confirmed
+            )
+        )
+    }
+
+    /**
+     * When called, this endpoint patches the attribute "confirmed" on the reservation specified
+     * by the PathVariable id to the Boolean value in the RequestBody.
+     *
+     * @param id                id of the reservation
      * @param confirmationToken confirmationToken for the reservation
      * @param confirmed         Set to true when reservation is confirmed
      * @return                  ResponseEntity with status and body with JSON
@@ -85,12 +86,12 @@ class ReservationController(val reservationService: ReservationService) {
         produces = ["application/json"]
     )
     fun patchReservation(
-        @PathVariable("id") id: String,
+        @PathVariable("id") id: UUID,
         @RequestParam(value = "confirmationToken", required = true) confirmationToken: String,
         @RequestBody confirmed: Boolean
     ): ResponseEntity<ReservationResponseMapper> {
 
-        val patchedReservation: Reservation = reservationService.getReservation(UUID.fromString(id))
+        val patchedReservation: Reservation = reservationService.getReservation(id)
         patchedReservation.confirmed = confirmed
         reservationService.saveReservation(patchedReservation)
 
@@ -107,7 +108,7 @@ class ReservationController(val reservationService: ReservationService) {
     }
 
     /**
-     * Removes a reservation from the persistent layer
+     * Removes a reservation from the persistent layer.
      *
      * @param id            id of the reservation
      * @return              ResponseEntity with status and body with JSON
@@ -116,10 +117,10 @@ class ReservationController(val reservationService: ReservationService) {
         value = ["/reservation/{id}"],
         produces = ["application/json"]
     )
-    fun deleteReservation(@PathVariable("id") id: String): ResponseEntity<ReservationResponseMapper> {
+    fun deleteReservation(@PathVariable("id") id: UUID): ResponseEntity<ReservationResponseMapper> {
 
-        val removedReservation: Reservation = id.let { reservationService.getReservation(UUID.fromString(id)) }
-        reservationService.deleteReservation(UUID.fromString(id))
+        val removedReservation: Reservation = id.let { reservationService.getReservation(id) }
+        reservationService.deleteReservation(id)
 
         return ResponseEntity.ok(
             ReservationResponseMapper(
@@ -134,7 +135,7 @@ class ReservationController(val reservationService: ReservationService) {
     }
 
     /**
-     * Returns a reservation ics, specified by the id
+     * Returns a reservation ics, specified by the id.
      *
      * @param id        id of the reservation
      * @return          ResponseEntity with status and an ICS file
@@ -144,7 +145,7 @@ class ReservationController(val reservationService: ReservationService) {
         produces = ["text/calendar"]
     )
     fun getReservationIcs(
-        @PathVariable("id") id: String
+        @PathVariable("id") id: UUID
     ): ResponseEntity<org.springframework.core.io.Resource> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }

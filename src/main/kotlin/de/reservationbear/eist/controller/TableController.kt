@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RestController
 import java.util.*
 
 /**
- * REST-Controller for the table entity
+ * REST-Controller for the table entity.
  */
 @RestController
 @RequestMapping(value = ["/api"])
 class TableController(val tableService: TableService) {
 
     /**
-     * Returns a table, specified by the id
+     * Returns a table, specified by the id.
      *
      * @param id        id of the table
      * @return          ResponseEntity with status and body with JSON
