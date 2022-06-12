@@ -7,8 +7,6 @@ import de.reservationbear.eist.controller.responseMapper.TimeslotMapper
 import de.reservationbear.eist.db.entity.Comment
 import de.reservationbear.eist.db.entity.Reservation
 import de.reservationbear.eist.db.entity.Restaurant
-import de.reservationbear.eist.db.entity.Timeslot
-import de.reservationbear.eist.exceptions.ApiException
 import de.reservationbear.eist.service.RestaurantService
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
@@ -18,7 +16,6 @@ import org.springframework.web.bind.annotation.*
 import java.math.BigDecimal
 import java.sql.Timestamp
 import java.util.*
-import java.util.stream.Collectors
 
 /**
  * REST-Controller for the restaurant entity
@@ -46,13 +43,8 @@ class RestaurantController(val restaurantService: RestaurantService) {
         @RequestParam(value = "pageSize", defaultValue = "50") pageSize: Int
     ): ResponseEntity<PagingResponseMapper> {
 
-        val restaurants: Page<Restaurant>
-
-        try {
-            restaurants = restaurantService.getPageOfRestaurants(PageRequest.of(currentPage, pageSize))
-        } catch (e: Exception) {
-            throw e.message?.let { ApiException(it, 500) }!!
-        }
+        val restaurants: Page<Restaurant> =
+            restaurantService.getPageOfRestaurants(PageRequest.of(currentPage, pageSize))
 
         return ResponseEntity.ok(
             PagingResponseMapper(
@@ -120,18 +112,13 @@ class RestaurantController(val restaurantService: RestaurantService) {
         @RequestParam(value = "pageSize", defaultValue = "50") pageSize: Int
     ): ResponseEntity<PagingResponseMapper> {
 
-        val reservations: Page<Reservation?>?
-
-        try {
-            reservations = restaurantService.findReservationsInTimeframeOfRestaurant(
+        val reservations: Page<Reservation?>? =
+            restaurantService.findReservationsInTimeframeOfRestaurant(
                 UUID.fromString(id),
                 from,
                 to,
                 PageRequest.of(currentPage, pageSize)
             )
-        } catch (e: Exception) {
-            throw e.message?.let { ApiException(it, 500) }!!
-        }
 
         return ResponseEntity.ok(
             reservations?.map { reservation ->
@@ -200,16 +187,11 @@ class RestaurantController(val restaurantService: RestaurantService) {
         @RequestParam(value = "pageSize", defaultValue = "50") pageSize: Int
     ): ResponseEntity<PagingResponseMapper> {
 
-        val comments: Page<Comment?>?
+        val comments: Page<Comment?>? = restaurantService.getPageOfRestaurantComments(
+            UUID.fromString(id),
+            PageRequest.of(currentPage, pageSize)
+        )
 
-        try {
-            comments = restaurantService.getPageOfRestaurantComments(
-                UUID.fromString(id),
-                PageRequest.of(currentPage, pageSize)
-            )
-        } catch (e: Exception) {
-            throw e.message?.let { ApiException(it, 500) }!!
-        }
 
         return ResponseEntity.ok(
             PagingResponseMapper(
