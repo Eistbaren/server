@@ -1,7 +1,6 @@
 package de.reservationbear.eist.controller
 
 import de.reservationbear.eist.db.entity.RestaurantTable
-import de.reservationbear.eist.exceptions.ApiException
 import de.reservationbear.eist.service.TableService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -29,13 +28,7 @@ class TableController(val tableService: TableService) {
     )
     fun getTable(@PathVariable("id") id: UUID): ResponseEntity<RestaurantTable> {
 
-        val restaurantTable: RestaurantTable
-
-        try {
-            restaurantTable = tableService.getTable(id)
-        } catch (e: Exception) {
-            throw e.message?.let { ApiException(it, 500) }!!
-        }
+        val restaurantTable: RestaurantTable = tableService.getTable(id)
 
         return ResponseEntity.ok(restaurantTable)
     }
