@@ -5,10 +5,10 @@ info:
     
     A reference implementation is available on [Github](https://github.com/Eistbaren/frontend)
 
-  version: 1.0.2
+  version: 1.0.3
   title: "Reservation Bear API"
 
-host: api.reservation-bear.de
+host: api.reservation-bear.de/api
 basePath: /
 tags:
   - name: restaurant
