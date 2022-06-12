@@ -3,7 +3,6 @@ package de.reservationbear.eist.controller
 import de.reservationbear.eist.controller.responseMapper.ReservationResponseMapper
 import de.reservationbear.eist.controller.responseMapper.TimeslotMapper
 import de.reservationbear.eist.db.entity.Reservation
-import de.reservationbear.eist.exceptions.ApiException
 import de.reservationbear.eist.service.ReservationService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -28,12 +27,9 @@ class ReservationController(val reservationService: ReservationService) {
         produces = ["application/json"]
     )
     fun getReservation(@PathVariable("id") id: String): ResponseEntity<ReservationResponseMapper> {
-        val reservation: Reservation
-        try {
-            reservation = reservationService.getReservation(UUID.fromString(id))
-        } catch (e: Exception) {
-            throw e.message?.let { ApiException(it, 500) }!!
-        }
+
+        val reservation: Reservation = reservationService.getReservation(UUID.fromString(id))
+
         return ResponseEntity.ok(
             ReservationResponseMapper(
                 reservation.id,
@@ -59,12 +55,8 @@ class ReservationController(val reservationService: ReservationService) {
     fun createReservation(@RequestBody reservation: Reservation):
             ResponseEntity<ReservationResponseMapper> {
 
-        try {
-            reservation.confirmed = false
-            reservationService.saveReservation(reservation)
-        } catch (e: Exception) {
-            throw e.message?.let { ApiException(it, 500) }!!
-        }
+        reservation.confirmed = false
+        reservationService.saveReservation(reservation)
 
         val insertedReservation: Reservation = reservation.id?.let { reservationService.getReservation(it) }!!
 
@@ -98,15 +90,9 @@ class ReservationController(val reservationService: ReservationService) {
         @RequestBody confirmed: Boolean
     ): ResponseEntity<ReservationResponseMapper> {
 
-        val patchedReservation: Reservation
-
-        try {
-            patchedReservation = id.let { reservationService.getReservation(UUID.fromString(id)) }
-            patchedReservation.confirmed = confirmed
-            reservationService.saveReservation(patchedReservation)
-        } catch (e: Exception) {
-            throw e.message?.let { ApiException(it, 500) }!!
-        }
+        val patchedReservation: Reservation = reservationService.getReservation(UUID.fromString(id))
+        patchedReservation.confirmed = confirmed
+        reservationService.saveReservation(patchedReservation)
 
         return ResponseEntity.ok(
             ReservationResponseMapper(
@@ -132,14 +118,8 @@ class ReservationController(val reservationService: ReservationService) {
     )
     fun deleteReservation(@PathVariable("id") id: String): ResponseEntity<ReservationResponseMapper> {
 
-        val removedReservation: Reservation
-
-        try {
-            removedReservation = id.let { reservationService.getReservation(UUID.fromString(id)) }
-            reservationService.deleteReservation(UUID.fromString(id))
-        } catch (e: Exception) {
-            throw e.message?.let { ApiException(it, 500) }!!
-        }
+        val removedReservation: Reservation = id.let { reservationService.getReservation(UUID.fromString(id)) }
+        reservationService.deleteReservation(UUID.fromString(id))
 
         return ResponseEntity.ok(
             ReservationResponseMapper(
