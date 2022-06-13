@@ -25,7 +25,7 @@ interface RestaurantRepository : JpaRepository<Restaurant, UUID> {
                 "FROM Restaurant r " +
                 "WHERE r.id = ?1",
 
-        countQuery = "SELECT count(r.comments.size) " +
+        countQuery = "SELECT size(r.comments) " +
                 "FROM Restaurant r " +
                 "WHERE r.id = ?1",
     )
