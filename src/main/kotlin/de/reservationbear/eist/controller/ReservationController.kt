@@ -17,7 +17,33 @@ import java.util.*
 class ReservationController(val reservationService: ReservationService) {
 
     /**
-     * Creates a reservation and pass it to the reservation service.
+     * Returns a reservation, specified by the id
+     *
+     * @param id        id of the reservation
+     * @return          ResponseEntity with status and body with JSON
+     */
+    @GetMapping(
+        value = ["/reservation/{id}"],
+        produces = ["application/json"]
+    )
+    fun getReservation(@PathVariable("id") id: String): ResponseEntity<ReservationResponseMapper> {
+
+        val reservation: Reservation = reservationService.getReservation(UUID.fromString(id))
+
+        return ResponseEntity.ok(
+            ReservationResponseMapper(
+                reservation.id,
+                reservation.restaurantTables?.map { tables -> tables.id }?.toList(),
+                TimeslotMapper(reservation.reservationFrom, reservation.reservationTo),
+                reservation.userName,
+                reservation.userEmail,
+                reservation.confirmed
+            )
+        )
+    }
+
+    /**
+     * Creates a reservation and pass it to the reservation service
      *
      * @param reservation   Consumes JSON Object and creates a new reservation
      * @return              ResponseEntity with status and body with JSON
