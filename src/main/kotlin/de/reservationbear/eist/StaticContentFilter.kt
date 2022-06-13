@@ -7,7 +7,10 @@ import javax.servlet.*
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
-// Source: https://stackoverflow.com/questions/68178610/serve-static-folder-with-spring-boot-and-react-router
+/**
+ * Filtert jeden Request nach unserer Konfiguration
+ * Aufgebaut von: https://stackoverflow.com/questions/68178610/serve-static-folder-with-spring-boot-and-react-router
+ */
 @Component
 class StaticContentFilter : Filter {
     private val fileExtensions: List<String> = listOf(
@@ -28,34 +31,57 @@ class StaticContentFilter : Filter {
         "ico"
     )
 
+    /**
+     * Nimmt den ursprüngliche Anfrage und schickt diese durch unsere Filter
+     * @param request Die ursprüngliche Anfrage an den Server
+     * @param response Die Antwort des Servers
+     * @param filterChain Die standardmäßigen Filter von Spring Boot
+     */
     @Throws(IOException::class, ServletException::class)
-    override fun doFilter(request: ServletRequest?, response: ServletResponse?, chain: FilterChain?) {
-        (request as HttpServletRequest?)?.let {
-            (response as HttpServletResponse?)?.let { it1 ->
-                if (chain != null) {
-                    doFilterPrivate(
-                        it,
-                        it1, chain
+    override fun doFilter(request: ServletRequest?, response: ServletResponse?, filterChain: FilterChain?) {
+        (request as HttpServletRequest?)?.let { servletRequest ->
+            (response as HttpServletResponse?)?.let { servletResponse ->
+                if (filterChain != null) {
+                    doFilterReservationbear(
+                        servletRequest,
+                        servletResponse, filterChain
                     )
                 }
             }
         }
     }
 
+    /**
+     * Filtert die Serveranfrage
+     * @param request Die ursprüngliche Anfrage an den Server
+     * @param response Die Antwort des Servers
+     * @param filterChain Die standardmäßigen Filter von Spring Boot
+     */
     @Throws(IOException::class, ServletException::class)
-    private fun doFilterPrivate(request: HttpServletRequest, response: HttpServletResponse, chain: FilterChain) {
+    private fun doFilterReservationbear(
+        request: HttpServletRequest,
+        response: HttpServletResponse,
+        filterChain: FilterChain
+    ) {
         val path: String = request.servletPath
         val isApi = path.startsWith("/api")
         val isResourceFile = !isApi && fileExtensions.stream().anyMatch { s: CharSequence? -> path.contains(s!!) }
         if (isApi) {
-            chain.doFilter(request, response)
+            filterChain.doFilter(request, response)
         } else if (isResourceFile) {
             resourceToResponse("static/dist/$path", response)
-        } else {
+        }
+        // Handle '/'-case
+        else {
             resourceToResponse("static/dist/index.html", response)
         }
     }
 
+    /**
+     * Holt eine statische Ressource
+     * @param resourcePath Der Pfad zur gesuchten Ressource
+     * @param response Die Serverantwort
+     */
     @Throws(IOException::class)
     private fun resourceToResponse(resourcePath: String, response: HttpServletResponse) {
         val inputStream: InputStream? = Thread.currentThread()
