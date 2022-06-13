@@ -26,7 +26,9 @@ class ReservationController(val reservationService: ReservationService) {
         value = ["/reservation/{id}"],
         produces = ["application/json"]
     )
-    fun getReservation(@PathVariable("id") id: String): ResponseEntity<ReservationResponseMapper> {
+    fun getReservation(
+        @PathVariable("id") id: String
+    ): ResponseEntity<ReservationResponseMapper> {
 
         val reservation: Reservation = reservationService.getReservation(UUID.fromString(id))
 
@@ -52,8 +54,9 @@ class ReservationController(val reservationService: ReservationService) {
         value = ["/reservation"],
         produces = ["application/json"]
     )
-    fun createReservation(@RequestBody reservation: Reservation):
-            ResponseEntity<ReservationResponseMapper> {
+    fun createReservation(
+        @RequestBody reservation: Reservation
+    ): ResponseEntity<ReservationResponseMapper> {
 
         reservation.confirmed = false
         reservationService.saveReservation(reservation)
@@ -82,7 +85,9 @@ class ReservationController(val reservationService: ReservationService) {
         value = ["/reservation/{id}"],
         produces = ["application/json"]
     )
-    fun getReservation(@PathVariable("id") id: UUID): ResponseEntity<ReservationResponseMapper> {
+    fun getReservation(
+        @PathVariable("id") id: UUID
+    ): ResponseEntity<ReservationResponseMapper> {
 
         val reservation: Reservation = reservationService.getReservation(id)
 
@@ -143,7 +148,9 @@ class ReservationController(val reservationService: ReservationService) {
         value = ["/reservation/{id}"],
         produces = ["application/json"]
     )
-    fun deleteReservation(@PathVariable("id") id: UUID): ResponseEntity<ReservationResponseMapper> {
+    fun deleteReservation(
+        @PathVariable("id") id: UUID
+    ): ResponseEntity<ReservationResponseMapper> {
 
         val removedReservation: Reservation = id.let { reservationService.getReservation(id) }
         reservationService.deleteReservation(id)

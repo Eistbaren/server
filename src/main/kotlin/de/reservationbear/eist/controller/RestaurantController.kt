@@ -133,13 +133,13 @@ class RestaurantController(val restaurantService: RestaurantService) {
         produces = ["application/json"]
     )
     fun getRestaurantComments(
-        @PathVariable("id") id: String,
+        @PathVariable("id") id: UUID,
         @RequestParam(value = "currentPage", defaultValue = "0") currentPage: Int,
         @RequestParam(value = "pageSize", defaultValue = "50") pageSize: Int
     ): ResponseEntity<PagingResponseMapper> {
 
         val comments: Page<Comment?>? = restaurantService.getPageOfRestaurantComments(
-            UUID.fromString(id),
+            id,
             PageRequest.of(currentPage, pageSize)
         )
 
@@ -166,7 +166,7 @@ class RestaurantController(val restaurantService: RestaurantService) {
         produces = ["application/json"]
     )
     fun getRestaurantTimeslots(
-        @PathVariable("id") id: String,
+        @PathVariable("id") id: UUID,
         @RequestParam(value = "date", required = true) date: Int,
         @RequestParam(value = "currentPage", defaultValue = "0") currentPage: Int,
         @RequestParam(value = "pageSize", defaultValue = "50") pageSize: Int
@@ -192,7 +192,7 @@ class RestaurantController(val restaurantService: RestaurantService) {
         produces = ["application/json"]
     )
     fun getRestaurantReservations(
-        @PathVariable("id") id: String,
+        @PathVariable("id") id: UUID,
         @RequestParam(value = "from", required = true) from: Timestamp,
         @RequestParam(value = "to", required = true) to: Timestamp,
         @RequestParam(value = "currentPage", defaultValue = "0") currentPage: Int,
@@ -201,7 +201,7 @@ class RestaurantController(val restaurantService: RestaurantService) {
 
         val reservations: Page<Reservation?>? =
             restaurantService.findReservationsInTimeframeOfRestaurant(
-                UUID.fromString(id),
+                id,
                 from,
                 to,
                 PageRequest.of(currentPage, pageSize)
