@@ -25,7 +25,7 @@ interface RestaurantRepository : JpaRepository<Restaurant, UUID> {
                 "FROM Restaurant r " +
                 "WHERE r.id = ?1",
 
-        countQuery = "SELECT count(r.comments.size) " +
+        countQuery = "SELECT size(r.comments) " +
                 "FROM Restaurant r " +
                 "WHERE r.id = ?1",
     )
@@ -59,4 +59,21 @@ interface RestaurantRepository : JpaRepository<Restaurant, UUID> {
         to: Timestamp,
         pageable: Pageable?
     ): Page<Reservation?>?
+
+    /**
+     * Searches after the tables of a given restaurant
+     * @param uuid the uuid of the restaurant
+     * @param pageable access the database values in batches
+     * @return a page of tables
+     */
+    @Query(
+        value = "SELECT r.restaurantTables " +
+                "FROM Restaurant r " +
+                "WHERE r.id = ?1",
+
+        countQuery = "SELECT size(r.restaurantTables) " +
+                "FROM Restaurant r " +
+                "WHERE r.id = ?1",
+    )
+    fun findTablesOfRestaurant(uuid: UUID, pageable: Pageable?): Page<Comment?>?
 }
