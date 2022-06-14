@@ -67,7 +67,13 @@ class StaticContentFilter : Filter {
         val isApi = path.startsWith("/api")
         val isResourceFile = !isApi && fileExtensions.stream().anyMatch { s: CharSequence? -> path.contains(s!!) }
         if (isApi) {
-            filterChain.doFilter(request, response)
+            if (path == "/api" || path == "/api/") {
+                resourceToResponse("api/index.html", response)
+            } else if (path == "/api/swagger.yaml") {
+                resourceToResponse("api/swagger.yaml", response)
+            } else {
+                filterChain.doFilter(request, response)
+            }
         } else if (isResourceFile) {
             resourceToResponse("static/dist/$path", response)
         }
