@@ -16,7 +16,7 @@
 <script>
   window.onload = () => {
     window.ui = SwaggerUIBundle({
-      url: 'api.reservation-bear.de/swagger.yaml',
+      url: window.location.host === "localhost:8080" ? 'http://localhost:8080/api/swagger.yaml' : "https://"+window.location.host + '/api/swagger.yaml',
       dom_id: '#swagger-ui',
     });
   };
