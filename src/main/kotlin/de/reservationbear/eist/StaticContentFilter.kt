@@ -85,8 +85,8 @@ class StaticContentFilter : Filter {
 
     /**
      * Response with a static ressource. This bypasses the default static ressource handler
-     * @param resourcePath Der Pfad zur gesuchten Ressource
-     * @param response Die Serverantwort
+     * @param resourcePath the path to the requested ressource
+     * @param response the file / error response of the server
      */
     @Throws(IOException::class)
     private fun resourceToResponse(resourcePath: String, response: HttpServletResponse) {
