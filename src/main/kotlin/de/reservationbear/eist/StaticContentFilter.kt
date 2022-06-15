@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
 /**
- * Filtert jeden Request nach unserer Konfiguration
- * Aufgebaut von: https://stackoverflow.com/questions/68178610/serve-static-folder-with-spring-boot-and-react-router
+ * Filter every Request by our own configuration
+ * Build on: https://stackoverflow.com/questions/68178610/serve-static-folder-with-spring-boot-and-react-router
  */
 @Component
 class StaticContentFilter : Filter {
@@ -32,10 +32,10 @@ class StaticContentFilter : Filter {
     )
 
     /**
-     * Nimmt den ursprüngliche Anfrage und schickt diese durch unsere Filter
-     * @param request Die ursprüngliche Anfrage an den Server
-     * @param response Die Antwort des Servers
-     * @param filterChain Die standardmäßigen Filter von Spring Boot
+     * Takes the server request and returns a suitable response
+     * @param request the initial server request
+     * @param response the response to the client
+     * @param filterChain the default filter chain of spring boot
      */
     @Throws(IOException::class, ServletException::class)
     override fun doFilter(request: ServletRequest?, response: ServletResponse?, filterChain: FilterChain?) {
@@ -52,10 +52,10 @@ class StaticContentFilter : Filter {
     }
 
     /**
-     * Filtert die Serveranfrage
-     * @param request Die ursprüngliche Anfrage an den Server
-     * @param response Die Antwort des Servers
-     * @param filterChain Die standardmäßigen Filter von Spring Boot
+     * Applies our own filter configuration
+     * @param request the initial server request
+     * @param response the response to the client
+     * @param filterChain the default filter chain of spring boot
      */
     @Throws(IOException::class, ServletException::class)
     private fun doFilterReservationbear(
@@ -84,7 +84,7 @@ class StaticContentFilter : Filter {
     }
 
     /**
-     * Holt eine statische Ressource
+     * Response with a static ressource. This bypasses the default static ressource handler
      * @param resourcePath Der Pfad zur gesuchten Ressource
      * @param response Die Serverantwort
      */
@@ -94,7 +94,7 @@ class StaticContentFilter : Filter {
             .contextClassLoader
             .getResourceAsStream(resourcePath)
         if (inputStream == null) {
-            response.sendError(503, "Die Datei $resourcePath konnte nicht gefunden werden")
+            response.sendError(503, "The file $resourcePath could not be found.")
             return
         }
         inputStream.transferTo(response.outputStream)
