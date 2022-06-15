@@ -3,6 +3,7 @@ package de.reservationbear.eist.service
 import de.reservationbear.eist.db.entity.Comment
 import de.reservationbear.eist.db.entity.Reservation
 import de.reservationbear.eist.db.entity.Restaurant
+import de.reservationbear.eist.db.entity.RestaurantTable
 import de.reservationbear.eist.db.repository.RestaurantRepository
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
@@ -37,6 +38,15 @@ class RestaurantService(val db: RestaurantRepository) {
      */
     fun getPageOfRestaurantComments(uuid: UUID, pageable: Pageable): Page<Comment?>? =
         db.findCommentsOfRestaurant(uuid, pageable)
+
+    /**
+     * Search after a page of restaurant tables
+     * @param uuid uuid of the restaurant
+     * @param pageable the page of restaurant tables
+     * @return the page of restaurant tables
+     */
+    fun getPageOfRestaurantTables(uuid: UUID, pageable: Pageable): Page<RestaurantTable?>? =
+        db.findTablesOfRestaurant(uuid, pageable)
 
     /**
      * Find all reservation of a restaurant in a specific timeframe
