@@ -63,7 +63,7 @@ class StaticContentFilter : Filter {
         response: HttpServletResponse,
         filterChain: FilterChain
     ) {
-        val path: String = request.servletPath
+        var path: String = request.servletPath
         val isApi = path.startsWith("/api")
         val isResourceFile = !isApi && fileExtensions.stream().anyMatch { s: CharSequence? -> path.contains(s!!) }
         if (isApi) {
@@ -75,6 +75,8 @@ class StaticContentFilter : Filter {
                 filterChain.doFilter(request, response)
             }
         } else if (isResourceFile) {
+            if(path.startsWith('/'))
+                path = path.removePrefix("/")
             resourceToResponse("static/dist/$path", response)
         }
         // Handle '/'-case
