@@ -26,6 +26,7 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
+    implementation group: 'org.mnode.ical4j', name: 'ical4j', version: '4.0.0-beta1'
     //implementation("org.springframework.boot:spring-boot-starter-security")
     // testImplementation("org.springframework.security:spring-security-test")
     //implementation("org.springframework.boot:spring-boot-starter-data-jpa")
