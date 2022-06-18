@@ -1,6 +1,5 @@
 package de.reservationbear.eist.exceptionhandler
 
-import de.reservationbear.eist.confirmationmail.MailService
 import lombok.extern.slf4j.Slf4j
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
@@ -18,10 +17,7 @@ import javax.servlet.http.HttpServletResponse
 class DefaultExceptionHandler {
 
     //Manually implemented @Slf4j
-    companion object {
-        private val LOGGER = LoggerFactory
-            .getLogger(MailService::class.java)
-    }
+    private val log = LoggerFactory.getLogger(DefaultExceptionHandler::class.java)
 
     /**
      * handles JpaObjectRetrievalFailureExceptions (searched objects are not found in the persistent layers) -
@@ -46,7 +42,7 @@ class DefaultExceptionHandler {
      */
     @ExceptionHandler(value = [SQLException::class])
     fun onSQLException(ex: SQLException, response: HttpServletResponse) {
-        LOGGER.error("Error logging in: {}" + ex.message)
+        log.error("Error logging in: {}" + ex.message)
         response.sendError(HttpStatus.INTERNAL_SERVER_ERROR.value(), ex.message)
     }
 
