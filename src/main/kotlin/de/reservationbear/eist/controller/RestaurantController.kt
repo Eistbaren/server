@@ -7,6 +7,7 @@ import de.reservationbear.eist.controller.responseMapper.TimeslotMapper
 import de.reservationbear.eist.db.entity.Comment
 import de.reservationbear.eist.db.entity.Reservation
 import de.reservationbear.eist.db.entity.Restaurant
+import de.reservationbear.eist.db.entity.RestaurantTable
 import de.reservationbear.eist.service.RestaurantService
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
@@ -114,10 +115,18 @@ class RestaurantController(val restaurantService: RestaurantService) {
         @RequestParam(value = "currentPage", defaultValue = "0") currentPage: Int,
         @RequestParam(value = "pageSize", defaultValue = "50") pageSize: Int
     ): ResponseEntity<PagingResponseMapper> {
-
-        //TODO Add missing service
-
-        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+        val tables: Page<RestaurantTable?>? = restaurantService.getPageOfRestaurantTables(
+            id,
+            PageRequest.of(currentPage, pageSize)
+        )
+        return ResponseEntity.ok(
+            PagingResponseMapper(
+                BigDecimal(tables?.totalPages ?: 0),
+                BigDecimal(currentPage),
+                BigDecimal(pageSize),
+                tables?.toList()
+                )
+        )
     }
 
     /**

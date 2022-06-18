@@ -1,5 +1,6 @@
 package de.reservationbear.eist.controller
 
+import de.reservationbear.eist.controller.responseMapper.ConfirmationMapper
 import de.reservationbear.eist.controller.responseMapper.ReservationMapper
 import de.reservationbear.eist.controller.responseMapper.TimeslotMapper
 import de.reservationbear.eist.db.entity.Reservation
@@ -98,10 +99,10 @@ class ReservationController(val reservationService: ReservationService, val tabl
      * When called, this endpoint patches the attribute "confirmed" on the reservation specified
      * by the PathVariable id to the Boolean value in the RequestBody.
      *
-     * @param id                id of the reservation
-     * @param confirmationToken confirmationToken for the reservation
-     * @param confirmed         Set to true when reservation is confirmed
-     * @return                  ResponseEntity with status and body with JSON
+     * @param id                        id of the reservation
+     * @param confirmationToken         confirmationToken for the reservation
+     * @param confirmationMapper        Set to true when reservation is confirmed
+     * @return                          ResponseEntity with status and body with JSON
      */
     @PatchMapping(
         value = ["/reservation/{id}"],
@@ -110,11 +111,11 @@ class ReservationController(val reservationService: ReservationService, val tabl
     fun patchReservation(
         @PathVariable("id") id: UUID,
         @RequestParam(value = "confirmationToken", required = true) confirmationToken: String,
-        @RequestBody confirmed: Boolean
+        @RequestBody confirmationMapper: ConfirmationMapper
     ): ResponseEntity<ReservationMapper> {
 
         val patchedReservation: Reservation = reservationService.getReservation(id)
-        patchedReservation.confirmed = confirmed
+        patchedReservation.confirmed = confirmationMapper.confirmed
         reservationService.saveReservation(patchedReservation)
 
         return ResponseEntity.ok(
