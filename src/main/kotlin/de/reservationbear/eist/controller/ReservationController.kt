@@ -4,7 +4,12 @@ import de.reservationbear.eist.controller.responseMapper.ReservationResponseMapp
 import de.reservationbear.eist.controller.responseMapper.TimeslotMapper
 import de.reservationbear.eist.db.entity.Reservation
 import de.reservationbear.eist.service.ReservationService
-import org.springframework.http.HttpStatus
+import net.fortuna.ical4j.model.Calendar
+import net.fortuna.ical4j.model.component.VEvent
+import net.fortuna.ical4j.model.property.ProdId
+import net.fortuna.ical4j.util.RandomUidGenerator
+import org.springframework.core.io.ByteArrayResource
+import org.springframework.core.io.Resource
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import java.util.*
@@ -150,8 +155,25 @@ class ReservationController(val reservationService: ReservationService) {
         produces = ["text/calendar"]
     )
     fun getReservationIcs(
-        @PathVariable("id") id: UUID
-    ): ResponseEntity<org.springframework.core.io.Resource> {
-        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+        @PathVariable("id") id: String
+    ): ResponseEntity<Resource> {
+        val reservation: Reservation = id.let { reservationService.getReservation(UUID.fromString(id)) }
+
+        val calendarEvent = VEvent(
+            reservation.reservationFrom.toLocalDateTime(),
+            reservation.reservationTo.toLocalDateTime(),
+            "Reservation: " + reservation.restaurantTables?.first()?.restaurant?.name
+        )
+
+        val calendar = Calendar()
+            .withComponent(calendarEvent)
+            // add the from the specification required properties
+            .withProperty(RandomUidGenerator().generateUid())
+            .withProperty(ProdId("-//Eistbear Calender Event//iCal4j 1.0//EN"))
+            .withDefaults()
+
+        val calendarByte = calendar.toString().toByteArray()
+        val resource: Resource = ByteArrayResource(calendarByte)
+        return ResponseEntity.ok(resource)
     }
 }
