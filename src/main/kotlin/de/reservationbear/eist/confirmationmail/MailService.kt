@@ -1,7 +1,6 @@
 //Source: https://www.youtube.com/watch?v=QwQuro7ekvc
-package de.reservationbear.eist.service
+package de.reservationbear.eist.confirmationmail
 
-import de.reservationbear.eist.confirmationmail.MailSender
 import lombok.AllArgsConstructor
 import org.slf4j.LoggerFactory
 import org.springframework.mail.javamail.JavaMailSender
