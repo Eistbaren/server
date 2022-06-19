@@ -28,5 +28,6 @@ class Reservation(
     val reservationTo: Timestamp,
     val userName: String,
     val userEmail: String,
-    var confirmed: Boolean
+    var confirmed: Boolean,
+    var sendConfirmation: Boolean = false
 )

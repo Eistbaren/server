@@ -6,12 +6,13 @@ import org.springframework.stereotype.Service
 
 @Service
 @AllArgsConstructor
-class RegistrationMailPattern {
+class ConfirmationMailPattern {
+
     private val mailSender: MailSender? = null
 
     fun sendMail(mailAdresse: String, name: String, token: String) {
-        //No such endpoint - do we want to approve mail addresses?
-        val link = "http://localhost:8080/api/user/email?token=$token"
+        //Link for confirmation side
+        val link = "http://localhost:8080/$token"
         mailSender?.send(
             mailAdresse,
             buildEmail(name.split(" ")[0], link),
@@ -65,8 +66,8 @@ class RegistrationMailPattern {
     <tr>
       <td width="10" valign="middle"><br></td>
       <td style="font-family:Helvetica,Arial,sans-serif;font-size:19px;line-height:1.315789474;max-width:560px">
-            <p style="Margin:0 0 20px 0;font-size:19px;line-height:25px;color:#2e3440c">Hi $name,</p><p style="Margin:0 0 20px 0;font-size:19px;line-height:25px;color:#2e3440"> Danke für das Reservieren über unseren Service. Unten finden sie einen Link zum Bestätigen ihrer E-Mail-Adresse: </p><blockquote style="Margin:0 0 20px 0;border-left:10px solid #2e3440;padding:15px 0 0.1px 15px;font-size:19px;line-height:25px"><p style="Margin:0 0 20px 0;font-size:19px;line-height:25px;color:#2e3440c"> <a href="$link" style="color: #88c0d0">Hier Bestätigen</a> </p></blockquote>
-Wenn sie ihre E-Mail-Adresse über diesen Link bestätigt haben, werden sie einen Tag vor Ihrer Reservierung eine weitere Mail bekommen, wo Sie ihre Reservierung ein letztes Mal bestätigen müssen.
+            <p style="Margin:0 0 20px 0;font-size:19px;line-height:25px;color:#2e3440c">Hi $name,</p><p style="Margin:0 0 20px 0;font-size:19px;line-height:25px;color:#2e3440">in einem Tag ist es soweit! Nun müssen Sie nur noch die Reservierung ein letztes Mal unter folgendem Link bestätigen und Sie können ihr Essen morgen genießen!  </p><blockquote style="Margin:0 0 20px 0;border-left:10px solid #2e3440;padding:15px 0 0.1px 15px;font-size:19px;line-height:25px"><p style="Margin:0 0 20px 0;font-size:19px;line-height:25px;color:#2e3440c"> <a href="$link" style="color: #88c0d0">Hier Bestätigen</a> </p></blockquote>
+Vielen Dank für Ihr Vertrauen in Reservation-Bear. Bei Fragen oder Problemen wenden Sie sich jederzeit an unseren Support per Mail oder direkt per Telefon.
 <p>Einen schönen Tag wünscht Ihnen</p>        
 <p>Ihr Eistbären-Team</p>   
       </td>

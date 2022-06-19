@@ -8,6 +8,7 @@ import org.springframework.mail.javamail.MimeMessageHelper
 import org.springframework.scheduling.annotation.Async
 import org.springframework.stereotype.Service
 import javax.mail.MessagingException
+import kotlin.jvm.Throws
 
 @Service
 @AllArgsConstructor
@@ -20,6 +21,7 @@ class MailService : MailSender {
 
     private val mailSender: JavaMailSender? = null
 
+    @Throws(IllegalStateException::class)
     @Async
     override fun send(to: String?, email: String?, subject: String?) {
         try {
@@ -27,7 +29,7 @@ class MailService : MailSender {
             val helper = MimeMessageHelper(mimeMessage, "utf-8")
             helper.setText(email!!, true)
             helper.setTo(to!!)
-            helper.setSubject(subject?:"Info")
+            helper.setSubject(subject ?: "Info")
             helper.setFrom("reservation@reservation-bear.de")
             mailSender.send(mimeMessage)
         } catch (e: MessagingException) {

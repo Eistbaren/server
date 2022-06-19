@@ -3,6 +3,7 @@ package de.reservationbear.eist.service
 import de.reservationbear.eist.db.entity.Reservation
 import de.reservationbear.eist.db.repository.ReservationRepository
 import org.springframework.stereotype.Service
+import java.sql.Timestamp
 import java.util.*
 
 /**
@@ -46,5 +47,10 @@ class ReservationService(val db: ReservationRepository) {
         return res
     }
 
-    //TODO: fun getICS(uuid: UUID)
+    /**
+     * Returns all reservations where the confirmationMail has to send out
+     * @param to Timestamp of latest reservation that should be confirmed
+     * @return a list of reservations
+     */
+    fun getReservationsForConfirmation(to: Timestamp): List<Reservation>? = db.findAllReservations(to = to)
 }
