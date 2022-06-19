@@ -3,13 +3,15 @@ package de.reservationbear.eist.confirmationmail
 import de.reservationbear.eist.db.entity.Reservation
 import de.reservationbear.eist.service.ReservationService
 import org.slf4j.LoggerFactory
+import org.springframework.context.annotation.Configuration
+import org.springframework.scheduling.annotation.EnableScheduling
 import org.springframework.scheduling.annotation.Scheduled
-import org.springframework.stereotype.Service
 import java.sql.Timestamp
 import java.time.Instant
 import java.util.concurrent.TimeUnit
 
-@Service
+@Configuration
+@EnableScheduling
 class MailJob(val reservationService: ReservationService, val confirmationMailPattern: ConfirmationMailPattern) {
 
     companion object {
@@ -18,23 +20,22 @@ class MailJob(val reservationService: ReservationService, val confirmationMailPa
     }
 
     //All 15 minutes
-    @Scheduled(fixedRate = 60, timeUnit = TimeUnit.MINUTES)
+    @Scheduled(fixedRate = 10, timeUnit = TimeUnit.SECONDS)
     fun crawlDataBaseForSendingConfirmationMail() {
-        LOGGER.info("Database is crawled to send confirmation mails")
         val reservation: List<Reservation>? =
             reservationService.getReservationsForConfirmation(
                 Timestamp(Timestamp.from(Instant.now()).time + 60 * 24 * 1000)
             )
+        LOGGER.info("Database is crawled to send confirmation mails: ${reservation?.size?: 0} reservation/s where found")
         if (reservation != null) {
-            for (i in 0..reservation.size) {
-                val res = reservation[i]
+            for (element in reservation) {
                 try {
-                    confirmationMailPattern.sendMail(res.userEmail, res.userName, "1234")
-                    res.sendConfirmation = true
+                    confirmationMailPattern.sendMail(element.userEmail, element.userName, "1234")
+                    element.sendConfirmation = true
                 }catch (e: IllegalStateException) {
-                    res.sendConfirmation = false
+                    element.sendConfirmation = false
                 }
-                reservationService.saveReservation(res)
+                reservationService.saveReservation(element)
             }
         }
     }

@@ -1,23 +1,20 @@
 //Source: https://www.youtube.com/watch?v=QwQuro7ekvc
 package de.reservationbear.eist.confirmationmail
 
-import lombok.AllArgsConstructor
 import org.springframework.stereotype.Service
 
 @Service
-@AllArgsConstructor
-class ConfirmationMailPattern {
+class ConfirmationMailPattern(val mailSender: MailSender) {
 
-    private val mailSender: MailSender? = null
 
     fun sendMail(mailAdresse: String, name: String, token: String) {
         //Link for confirmation side
         val link = "http://localhost:8080/$token"
-        mailSender?.send(
+        mailSender.send(
             mailAdresse,
             buildEmail(name.split(" ")[0], link),
             "Bestätigung ihrer Mailadresse"
-        ) ?: throw RuntimeException("Error when injecting the MailSender")
+        )
     }
 
     private fun buildEmail(name: String, link: String): String {

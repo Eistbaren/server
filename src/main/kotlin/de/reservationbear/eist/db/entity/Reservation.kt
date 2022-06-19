@@ -29,5 +29,5 @@ class Reservation(
     val userName: String,
     val userEmail: String,
     var confirmed: Boolean,
-    var sendConfirmation: Boolean = false
+    var sendConfirmation: Boolean? = false
 )

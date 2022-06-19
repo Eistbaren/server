@@ -5,18 +5,16 @@ import lombok.AllArgsConstructor
 import org.springframework.stereotype.Service
 
 @Service
-@AllArgsConstructor
-class RegistrationMailPattern {
-    private val mailSender: MailSender? = null
+class RegistrationMailPattern(val mailSender: MailSender) {
 
     fun sendMail(mailAdresse: String, name: String, token: String) {
         //No such endpoint - do we want to approve mail addresses?
         val link = "http://localhost:8080/api/user/email?token=$token"
-        mailSender?.send(
+        mailSender.send(
             mailAdresse,
             buildEmail(name.split(" ")[0], link),
             "Bestätigung ihrer Mailadresse"
-        ) ?: throw RuntimeException("Error when injecting the MailSender")
+        )
     }
 
     private fun buildEmail(name: String, link: String): String {

@@ -12,20 +12,18 @@ import kotlin.jvm.Throws
 
 @Service
 @AllArgsConstructor
-class MailService : MailSender {
+class MailService(val mailSender: JavaMailSender) : MailSender {
 
     companion object {
         private val LOGGER = LoggerFactory
             .getLogger(MailService::class.java)
     }
 
-    private val mailSender: JavaMailSender? = null
-
     @Throws(IllegalStateException::class)
     @Async
     override fun send(to: String?, email: String?, subject: String?) {
         try {
-            val mimeMessage = mailSender!!.createMimeMessage()
+            val mimeMessage = mailSender.createMimeMessage()
             val helper = MimeMessageHelper(mimeMessage, "utf-8")
             helper.setText(email!!, true)
             helper.setTo(to!!)
