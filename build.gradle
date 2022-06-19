@@ -66,6 +66,7 @@ task copyReactBuildFiles {
         project.build
         from "client/build"
         into "src/main/resources/static/dist"
+        includeEmptyDirs true
     }
     group "npm"
 }
