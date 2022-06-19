@@ -17,7 +17,10 @@ import javax.servlet.http.HttpServletResponse
 class DefaultExceptionHandler {
 
     //Manually implemented @Slf4j
-    private val log = LoggerFactory.getLogger(DefaultExceptionHandler::class.java)
+    companion object {
+        private val LOGGER = LoggerFactory
+            .getLogger(DefaultExceptionHandler::class.java)
+    }
 
     /**
      * handles JpaObjectRetrievalFailureExceptions (searched objects are not found in the persistent layers) -
@@ -42,7 +45,7 @@ class DefaultExceptionHandler {
      */
     @ExceptionHandler(value = [SQLException::class])
     fun onSQLException(ex: SQLException, response: HttpServletResponse) {
-        log.error("Error logging in: {}" + ex.message)
+        LOGGER.error("Error logging in: {}" + ex.message)
         response.sendError(HttpStatus.INTERNAL_SERVER_ERROR.value(), ex.message)
     }
 
