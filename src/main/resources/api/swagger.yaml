@@ -8,7 +8,6 @@ info:
   version: 1.0.3
   title: "Reservation Bear API"
 
-host: api.reservation-bear.de
 basePath: /api/
 tags:
   - name: restaurant
@@ -20,8 +19,6 @@ tags:
   - name: image
     description: Images
 
-schemes:
-  - https
 paths:
   /restaurant:
     get:
