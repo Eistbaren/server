@@ -176,7 +176,7 @@ class RestaurantController(val restaurantService: RestaurantService) {
     )
     fun getRestaurantTimeslots(
         @PathVariable("id") id: UUID,
-        @RequestParam(value = "date", required = true) date: Int,
+        @RequestParam(value = "date", required = true) date: Long,
         @RequestParam(value = "currentPage", defaultValue = "0") currentPage: Int,
         @RequestParam(value = "pageSize", defaultValue = "50") pageSize: Int
     ): ResponseEntity<TimeslotMapper> {
@@ -202,8 +202,8 @@ class RestaurantController(val restaurantService: RestaurantService) {
     )
     fun getRestaurantReservations(
         @PathVariable("id") id: UUID,
-        @RequestParam(value = "from", required = true) from: Timestamp,
-        @RequestParam(value = "to", required = true) to: Timestamp,
+        @RequestParam(value = "from", required = true) from: Long,
+        @RequestParam(value = "to", required = true) to: Long,
         @RequestParam(value = "currentPage", defaultValue = "0") currentPage: Int,
         @RequestParam(value = "pageSize", defaultValue = "50") pageSize: Int
     ): ResponseEntity<PagingResponseMapper> {
@@ -211,8 +211,8 @@ class RestaurantController(val restaurantService: RestaurantService) {
         val reservations: Page<Reservation?>? =
             restaurantService.findReservationsInTimeframeOfRestaurant(
                 id,
-                from,
-                to,
+                Timestamp(from),
+                Timestamp(to),
                 PageRequest.of(currentPage, pageSize)
             )
 
