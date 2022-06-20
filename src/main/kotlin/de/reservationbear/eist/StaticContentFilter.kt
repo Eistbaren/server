@@ -66,6 +66,7 @@ class StaticContentFilter : Filter {
         var path: String = request.servletPath
         val isApi = path.startsWith("/api")
         val isResourceFile = !isApi && fileExtensions.stream().anyMatch { s: CharSequence? -> path.contains(s!!) }
+        val isH2Console = path.startsWith("/h2-console")
         if (isApi) {
             if (path == "/api" || path == "/api/") {
                 resourceToResponse("api/index.html", response)
@@ -74,8 +75,10 @@ class StaticContentFilter : Filter {
             } else {
                 filterChain.doFilter(request, response)
             }
+        } else if (isH2Console) {
+            filterChain.doFilter(request, response);
         } else if (isResourceFile) {
-            if(path.startsWith('/'))
+            if (path.startsWith('/'))
                 path = path.removePrefix("/")
             resourceToResponse("static/dist/$path", response)
         }
