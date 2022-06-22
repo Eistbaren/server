@@ -5,7 +5,7 @@ info:
     
     A reference implementation is available on [Github](https://github.com/Eistbaren/frontend)
 
-  version: 1.0.4
+  version: 1.0.5
   title: "Reservation Bear API"
 
 basePath: /api/
@@ -439,29 +439,9 @@ definitions:
         minimum: 1
         maximum: 3
       location:
-        type: object
-        properties:
-          lat:
-            type: number
-            format: double
-          lon:
-            type: number
-            format: double
-      floorPlan:
-        type: object
-        properties:
-          image:
-            description: "image of the floor plan of the restaurant without tables"
-            type: string
-            format: uuid
-          size:
-            description: "size of the floor plan"
-            type: object
-            properties:
-              width:
-                type: integer
-              height:
-                type: integer
+        $ref: '#/definitions/GeographicCoordinates'
+      floorPlan: 
+        $ref: '#/definitions/FloorPlan'
     xml:
       name: Restaurant
 
@@ -477,26 +457,7 @@ definitions:
       seats:
         type: integer
       floorPlan:
-        description: "position on the floor plan"
-        type: object
-        properties:
-          position:
-            type: object
-            properties:
-              x:
-                type: integer
-              y:
-                type: integer
-          size:
-            type: object
-            properties:
-              x:
-                type: integer
-              y:
-                type: integer
-          image: 
-            type: string
-            format: uuid
+        $ref: '#/definitions/TableOnFloorPlan'
             
     xml:
       name: Table
@@ -545,6 +506,7 @@ definitions:
       name: ReservationCreationRequest
 
   Timeslot:
+    description: "time range between two unix timestamps"
     type: object
     properties:
       from:
@@ -553,8 +515,61 @@ definitions:
       to:
         type: integer
         format: unix-timestamp
-
+        
+  FloorPlan:
+    description: "a floorplan consisting of a background image and a size"
+    type: object
+    properties:
+      image:
+        description: "image of the floor plan of the restaurant without tables"
+        type: string
+        format: uuid
+      size:
+        $ref: '#/definitions/Size'
+        
+  TableOnFloorPlan:
+    description: "the apperance of a table on the floorpan"
+    type: object
+    properties:
+      position:
+        $ref: '#/definitions/PixelCoordinates'
+      size:
+        $ref: '#/definitions/Size'
+      image: 
+        type: string
+        format: uuid
+  
+  Size:
+    description: "size in pixels" 
+    type: object
+    properties:
+      width:
+        type: integer
+      height:
+        type: integer
+        
+  GeographicCoordinates:
+    description: "geographic coordinates"
+    type: object
+    properties:
+      lat:
+        type: number
+        format: double
+      lon:
+        type: number
+        format: double
+        
+  PixelCoordinates:
+    description: "pixel coordinates on a canvas"
+    type: object
+    properties:
+      x:
+        type: integer
+      y:
+        type: integer
+        
   Comment:
+    description: "a comment about a restaurant written by a user"
     type: object
     properties:
       rating:
