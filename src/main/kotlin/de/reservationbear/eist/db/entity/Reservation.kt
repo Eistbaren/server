@@ -33,5 +33,12 @@ class Reservation(
     val reservationTo: Timestamp,
     val userName: String,
     val userEmail: String,
-    var confirmed: Boolean
+    var confirmed: Boolean,
+    @ManyToOne
+    @JoinTable(
+        name = "RESTAURANT_RESERVATIONS",
+        joinColumns = [JoinColumn(name = "reservations_ID")],
+        inverseJoinColumns = [JoinColumn(name = "restaurant_id")]
+    )
+    var restaurant: Restaurant? = null
 )

@@ -51,6 +51,8 @@ class ReservationController(val reservationService: ReservationService, val tabl
             false
         )
 
+        reservation.restaurant = reservation.restaurantTables?.stream()?.findFirst()?.get()?.restaurant;
+
         reservationService.saveReservation(reservation)
 
         val insertedReservation: Reservation = reservation.id?.let { reservationService.getReservation(it) }!!
