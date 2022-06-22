@@ -5,7 +5,7 @@ info:
     
     A reference implementation is available on [Github](https://github.com/Eistbaren/frontend)
 
-  version: 1.0.3
+  version: 1.0.4
   title: "Reservation Bear API"
 
 basePath: /api/
