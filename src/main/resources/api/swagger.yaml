@@ -513,9 +513,7 @@ definitions:
           type: string
           format: uuid
       time:
-        allOf:
-        - description: "the summed up timeslots"
-        - $ref: '#/definitions/Timeslot'
+        $ref: '#/definitions/Timeslot'
       userName:
         type: string
         format: string
@@ -536,9 +534,7 @@ definitions:
           type: string
           format: uuid
       time:
-        allOf:
-        - description: "the summed up timeslots"
-        - $ref: '#/definitions/Timeslot'
+        $ref: '#/definitions/Timeslot'
       userName:
         type: string
         format: string
