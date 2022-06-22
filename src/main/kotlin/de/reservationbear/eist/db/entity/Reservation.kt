@@ -22,7 +22,12 @@ class Reservation(
     @ColumnDefault("random_uuid()")
     @Type(type = "uuid-char")
     val id: UUID? = null,
-    @OneToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+        name = "RESERVATION_RESTAURANT_TABLES",
+        joinColumns = [JoinColumn(name = "Reservation.ID")],
+        inverseJoinColumns = [JoinColumn(name = "RestaurantTables.ID")]
+    )
     val restaurantTables: Set<RestaurantTable>? = null,
     val reservationFrom: Timestamp,
     val reservationTo: Timestamp,
