@@ -232,16 +232,8 @@ paths:
                   results:
                     type: array
                     items:
-                      type: object
-                      properties:
-                        timeslot:
-                          $ref: '#/definitions/Timeslot'
-                        reservedTables:
-                          description: "ids of the reserved tables of the timeslot"
-                          type: array
-                          items:
-                            type: string
-                            format: uuid
+                      $ref: '#/definitions/AnonymousReservation'
+
   /table/{id}:
     get:
       tags:
@@ -469,6 +461,7 @@ definitions:
         type: string
         format: uuid
       tables:
+        description: "ids of the reserved tables of the timeslot"
         type: array
         items:
           type: string
@@ -485,6 +478,19 @@ definitions:
         type: boolean
     xml:
       name: Reservation
+      
+  AnonymousReservation:
+    description: "A reservation with all personal data removed"
+    type: object
+    properties:
+      time:
+        $ref: '#/definitions/Timeslot'
+      tables:
+        description: "ids of the reserved tables of the timeslot"
+        type: array
+        items:
+          type: string
+          format: uuid
 
   ReservationCreationRequest:
     type: object
