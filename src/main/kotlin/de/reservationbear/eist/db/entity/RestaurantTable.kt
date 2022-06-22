@@ -22,10 +22,15 @@ class RestaurantTable(
     @ColumnDefault("random_uuid()")
     @Type(type = "uuid-char")
     val id: UUID,
+
     val seats: Int,
+
     @OneToOne(fetch = FetchType.EAGER)
     val floorPlan: TableFloorPlan? = null,
+
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "restaurantTables")
+    val reservation: Set<Reservation>,
+
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "restaurant_id")
     val restaurant: Restaurant
 )

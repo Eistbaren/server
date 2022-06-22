@@ -5,10 +5,7 @@ import org.hibernate.annotations.ColumnDefault
 import org.hibernate.annotations.GenericGenerator
 import org.hibernate.annotations.Type
 import java.util.*
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
+import javax.persistence.*
 
 /**
  * Represents a comment/ short review of a restaurant
@@ -26,7 +23,14 @@ class Comment(
     @Type(type = "uuid-char")
     @JsonIgnore
     val id: UUID,
+
     val rating: Int,
+
     val comment: String,
-    val name: String? = null
+
+    val name: String? = null,
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "RestaurantId")
+    val restaurant: Restaurant
 )
