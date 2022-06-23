@@ -3,7 +3,7 @@ FROM gradle:jdk17 as build
 WORKDIR /workspace
 COPY . .
 
-RUN gradle bootJar && gradle bootJar
+RUN gradle bootJar
 
 FROM openjdk:17-jdk-alpine
 
