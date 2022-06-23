@@ -1,601 +1,602 @@
-swagger: '2.0'
+openapi: 3.0.1
 info:
-  description: >- 
+  title: Reservation Bear API
+  description: |-
     The documentation of the REST api of Reservation Bear.
-    
     A reference implementation is available on [Github](https://github.com/Eistbaren/frontend)
-
   version: 1.0.5
-  title: "Reservation Bear API"
-
-basePath: /api/
+servers:
+- url: /api/
 tags:
-  - name: restaurant
-    description: Restaurants
-  - name: table
-    description: Tables
-  - name: reservation
-    description: Reservations
-  - name: image
-    description: Images
-
+- name: restaurant
+  description: Restaurants
+- name: table
+  description: Tables
+- name: reservation
+  description: Reservations
+- name: image
+  description: Images
 paths:
   /restaurant:
     get:
       tags:
-        - restaurant
-      summary: "get and filter restaurants"
-      description: ""
+      - restaurant
+      summary: get and filter restaurants
       operationId: getRestaurants
-      produces:
-        - application/json
       parameters:
-      - name: "filters"
+      - name: filters
         in: query
-        description: >-
-          available filters:
-
-          **query**: *string*, query for seaching restaurants
-
-          **type**: *string*, type of restaurant e.g. Italian
-
-          **priceCategory**: *integer (1-3)*
-
-          **location**: *array[lat, lon]*
-
-          **radius**: *integer*, radius around the location to search
-
-          **averageRating**: *integer (1-5)*
-
-          **timeFrom**: *unix-timestamp*
-
-          **timeTo**: *unix-timestamp*
-
+        description: |-
+          available filters: \
+          **query**: *string*, query for seaching restaurants \
+          **type**: *string*, type of restaurant e.g. Italian \
+          **priceCategory**: *integer (1-3)* \
+          **location**: *array[lat, lon]* \
+          **radius**: *integer*, radius around the location to search \
+          **averageRating**: *integer (1-5)* \
+          **timeFrom**: *unix-timestamp* \
+          **timeTo**: *unix-timestamp* \
           **numberVisitors**: *integer*
-        required: false
-        type: array
-        items:
-          type: string
-          format: special
-      - { name: "currentPage", in: query, type: integer }
-      - { name: "pageSize", in: query, type: integer }
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: special
+      - name: currentPage
+        in: query
+        schema:
+          type: integer
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
       responses:
-        '200':
-          description: "detailed information about all restaurants matching the filters"
-
-          schema:
-            allOf:
-              - $ref: "#/definitions/Paginated"
-              - type: object
-                properties:
-                  results:
-                    type: array
-                    items:
-                      $ref: '#/definitions/Restaurant'
+        200:
+          description: detailed information about all restaurants matching the filters
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/Paginated"
+                  - type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Restaurant'
   /restaurant/{id}:
     get:
       tags:
-        - restaurant
-      summary: "get detailed information about a restaurant"
-      description: ""
+      - restaurant
+      summary: get detailed information about a restaurant
       operationId: getRestaurant
       parameters:
-      - name: "id"
+      - name: id
         in: path
-        description: "id of the restaurant"
+        description: id of the restaurant
         required: true
-        type: string
-        format: uuid
-      produces:
-        - application/json
+        schema:
+          type: string
+          format: uuid
       responses:
-        '200':
-          description: "detailed information about the restaurant"
-          schema:
-            $ref: '#/definitions/Restaurant'
-
+        200:
+          description: detailed information about the restaurant
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Restaurant'
   /restaurant/{id}/comment:
     get:
       tags:
-        - restaurant
-      summary: "get user- comments and reviews of a restaurant"
-      description: ""
+      - restaurant
+      summary: get user- comments and reviews of a restaurant
       operationId: getRestaurantComments
       parameters:
-      - name: "id"
+      - name: id
         in: path
-        description: "id of the restaurant"
+        description: id of the restaurant
         required: true
-        type: string
-        format: uuid
-      - { name: "currentPage", in: query, type: integer }
-      - { name: "pageSize", in: query, type: integer }
-      produces:
-        - application/json
+        schema:
+          type: string
+          format: uuid
+      - name: currentPage
+        in: query
+        schema:
+          type: integer
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
       responses:
-        '200':
-          description: "user comments- and reviews of the restaurant"
-          schema:
-            allOf:
-              - $ref: "#/definitions/Paginated"
-              - type: object
-                properties:
-                  results:
-                    type: array
-                    items:
-                      $ref: '#/definitions/Comment'
-
+        200:
+          description: user comments- and reviews of the restaurant
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/Paginated"
+                  - type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Comment'
   /restaurant/{id}/table:
     get:
       tags:
-        - restaurant
-      summary: "get all tables and their position in a restaurant"
-      description: ""
+      - restaurant
+      summary: get all tables and their position in a restaurant
       operationId: getRestaurantTables
       parameters:
-      - name: "id"
+      - name: id
         in: path
-        description: "id of the restaurant"
+        description: id of the restaurant
         required: true
-        type: string
-        format: uuid
-      - { name: "currentPage", in: query, type: integer }
-      - { name: "pageSize", in: query, type: integer }
-      produces:
-        - application/json
+        schema:
+          type: string
+          format: uuid
+      - name: currentPage
+        in: query
+        schema:
+          type: integer
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
       responses:
-        '200':
-          description: "all tables in the restaurant"
-          schema:
-            allOf:
-              - $ref: "#/definitions/Paginated"
-              - type: object
-                properties:
-                  results:
-                    type: array
-                    items:
-                      $ref: '#/definitions/Table'
-
+        200:
+          description: all tables in the restaurant
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/Paginated"
+                  - type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Table'
   /restaurant/{id}/timeslot:
     get:
       tags:
-        - restaurant
-      summary: "get reservable timeslots of a restaurant"
-      description: ""
+      - restaurant
+      summary: get reservable timeslots of a restaurant
       operationId: getRestaurantTimeslots
       parameters:
-      - name: "id"
+      - name: id
         in: path
-        description: "id of the restaurant"
+        description: id of the restaurant
         required: true
-        type: string
-      - name: "date"
+        schema:
+          type: string
+      - name: date
         in: query
-        description: "date of the timeslots"
+        description: date of the timeslots
         required: true
-        type: integer
-        format: unix-timestamp
-      - { name: "currentPage", in: query, type: integer }
-      - { name: "pageSize", in: query, type: integer }
-      produces:
-        - application/json
+        schema:
+          type: integer
+          format: unix-timestamp
+      - name: currentPage
+        in: query
+        schema:
+          type: integer
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
       responses:
-        '200':
-          description: "all reservable time ranges (aka timeslots) on the given day. Reflects the opening times of the restaurant"
-          schema:
-            allOf:
-              - $ref: "#/definitions/Paginated"
-              - type: object
-                properties:
-                  results:
-                    type: array
-                    items:
-                      $ref: '#/definitions/Timeslot'
-
+        200:
+          description: all reservable time ranges (aka timeslots) on the given day.
+            Reflects the opening times of the restaurant
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/Paginated"
+                  - type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Timeslot'
   /restaurant/{id}/reservation:
     get:
       tags:
-        - restaurant
-      summary: "get reserved tables of a restaurant"
-      description: ""
+      - restaurant
+      summary: get reserved tables of a restaurant
       operationId: getRestaurantReservations
       parameters:
-      - name: "id"
+      - name: id
         in: path
-        description: "id of the restaurant"
+        description: id of the restaurant
         required: true
-        type: string
-      - name: "from"
+        schema:
+          type: string
+      - name: from
         in: query
-        description: "beginning of the first timeslot"
+        description: beginning of the first timeslot
         required: true
-        type: integer
-        format: unix-timestamp
-      - name: "to"
+        schema:
+          type: integer
+          format: unix-timestamp
+      - name: to
         in: query
-        description: "ending of the last timeslot"
+        description: ending of the last timeslot
         required: true
-        type: integer
-        format: unix-timestamp
-      - { name: "currentPage", in: query, type: integer }
-      - { name: "pageSize", in: query, type: integer }
-      produces:
-        - application/json
+        schema:
+          type: integer
+          format: unix-timestamp
+      - name: currentPage
+        in: query
+        schema:
+          type: integer
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
       responses:
-        '200':
-          description: "all timeslots within the given range. In addition to that, every timeslot contains a list of tables which are reserved during the timeslot."
-          schema:
-            allOf:
-              - $ref: "#/definitions/Paginated"
-              - type: object
-                properties:
-                  results:
-                    type: array
-                    items:
-                      $ref: '#/definitions/AnonymousReservation'
-
+        200:
+          description: all timeslots within the given range. In addition to that,
+            every timeslot contains a list of tables which are reserved during the
+            timeslot.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/Paginated"
+                  - type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/AnonymousReservation'
   /table/{id}:
     get:
       tags:
-        - table
-      summary: "get detailed information about a table"
-      description: ""
+      - table
+      summary: get detailed information about a table
       operationId: getTable
       parameters:
-      - name: "id"
+      - name: id
         in: path
-        description: "detailed informatin about the table"
+        description: detailed informatin about the table
         required: true
-        type: string
-        format: uuid
-      produces:
-        - application/json
+        schema:
+          type: string
+          format: uuid
       responses:
-        '200':
-          description: "the table"
-          schema:
-            $ref: '#/definitions/Table'
-
-
+        200:
+          description: the table
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Table'
   /reservation:
     post:
       tags:
-        - reservation
-      summary: "create a reservation"
-      description: ""
+      - reservation
+      summary: create a reservation
       operationId: createReservation
-      parameters:
-      - name: "reservation"
-        in: body
-        description: "detailed information about the reservation"
+      requestBody:
+        description: detailed information about the reservation
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/ReservationCreationRequest'
         required: true
-        schema:
-          $ref: '#/definitions/ReservationCreationRequest'
-      produces:
-        - application/json
       responses:
-        '200':
-          description: "detailed information about the new reservation"
-          schema:
-            $ref: '#/definitions/Reservation'
-
+        200:
+          description: detailed information about the new reservation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reservation'
+      x-codegen-request-body-name: reservation
   /reservation/{id}:
     get:
       tags:
-        - reservation
-      summary: "get detailed information about a reservation"
-      description: ""
+      - reservation
+      summary: get detailed information about a reservation
       operationId: getReservation
       parameters:
-      - name: "id"
+      - name: id
         in: path
-        description: "the reservation id"
-        required: true
-        type: string
-        format: string
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: "detailed information about the reservation"
-          schema:
-            $ref: '#/definitions/Reservation'
-    patch:
-      tags:
-        - reservation
-      summary: "confirm a reservation"
-      description: ""
-      operationId: putReservation
-      parameters:
-      - name: "id"
-        in: path
-        description: "the reservation id"
-        required: true
-        type: string
-      - name: "confirmationToken"
-        in: query
-        description: "token to confirm the reservation (distributed in the reminder email)"
-        required: true
-        type: string
-        format: token
-      - name: "body"
-        in: body
+        description: the reservation id
         required: true
         schema:
-          type: object
-          properties:
-            confirmed:
-              type: boolean
-      produces:
-        - application/json
+          type: string
+          format: string
       responses:
-        '200':
-          description: "detailed information about the reservation"
-          schema:
-            $ref: '#/definitions/Reservation' 
-            
+        200:
+          description: detailed information about the reservation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reservation'
     delete:
       tags:
-        - reservation
-      summary: "delete a reservation"
-      description: ""
+      - reservation
+      summary: delete a reservation
       operationId: deleteReservation
       parameters:
-      - name: "id"
+      - name: id
         in: path
-        description: "the reservation id"
+        description: the reservation id
         required: true
-        type: string
-      produces:
-        - application/json
+        schema:
+          type: string
       responses:
-        '200':
-          description: "the deleted reservation"
-          schema:
-            $ref: '#/definitions/Reservation'
-
+        200:
+          description: the deleted reservation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reservation'
+    patch:
+      tags:
+      - reservation
+      summary: confirm a reservation
+      operationId: putReservation
+      parameters:
+      - name: id
+        in: path
+        description: the reservation id
+        required: true
+        schema:
+          type: string
+      - name: confirmationToken
+        in: query
+        description: token to confirm the reservation (distributed in the reminder
+          email)
+        required: true
+        schema:
+          type: string
+          format: token
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: object
+              properties:
+                confirmed:
+                  type: boolean
+        required: true
+      responses:
+        200:
+          description: detailed information about the reservation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reservation'
+      x-codegen-request-body-name: body
   /reservation/{id}/ics:
     get:
       tags:
-        - reservation
-      summary: "get a reservation ics file"
-      description: ""
+      - reservation
+      summary: get a reservation ics file
       operationId: getReservationIcs
-      produces:
-      - text/calendar
       parameters:
-      - name: "id"
+      - name: id
         in: path
-        description: "the reservation id"
+        description: the reservation id
         required: true
-        type: string
-        format: uuid
+        schema:
+          type: string
+          format: uuid
       responses:
-        '200':
-          description: "an ics file which contains the reservation"
-          schema:
-            type: file
-            format: ics
-
+        200:
+          description: an ics file which contains the reservation
+          content:
+            text/calendar:
+              schema:
+                type: string
+                format: binary
   /image/{id}:
     get:
       tags:
-        - image
-      summary: "get an image by its id"
-      produces:
-        - application/image
+      - image
+      summary: get an image by its id
       parameters:
-        - name: "id"
-          in: path
-          description: "the image id"
-          required: true
+      - name: id
+        in: path
+        description: the image id
+        required: true
+        schema:
           type: string
           format: uuid
       responses:
-        '200':
-          description: "the requested image file"
-          schema:
-            type: file
-            format: image
-      
-      
-
-definitions:
-  Restaurant:
-    type: object
-    properties:
-      id:
-        type: string
-        format: uuid
-      # == Functional requirements start ==
-      name:
-        type: string
-      images:
-        type: array
-        items:
-          type: string
-          format: uuid
-      website:
-        type: string
-        format: uri
-      openingHours:
-        $ref: '#/definitions/Timeslot'
-      averageRating:
-        type: number
-        format: double
-        minimum: 1
-        maximum: 5
-      # == Functional requirements end ==
-      priceCategory:
-        type: integer
-        minimum: 1
-        maximum: 3
-      location:
-        $ref: '#/definitions/GeographicCoordinates'
-      floorPlan: 
-        $ref: '#/definitions/FloorPlan'
-    xml:
-      name: Restaurant
-
-  Table:
-    type: object
-    properties:
-      id:
-        type: string
-        format: uuid
-      restaurantId:
-        type: string
-        format: uuid
-      seats:
-        type: integer
-      floorPlan:
-        $ref: '#/definitions/TableOnFloorPlan'
-            
-    xml:
-      name: Table
-
-  Reservation:
-    type: object
-    properties:
-      id:
-        type: string
-        format: uuid
-      tables:
-        description: "ids of the reserved tables of the timeslot"
-        type: array
-        items:
-          type: string
-          format: uuid
-      time:
-        $ref: '#/definitions/Timeslot'
-      userName:
-        type: string
-        format: string
-      userEmail:
-        type: string
-        format: email
-      confirmed:
-        type: boolean
-    xml:
-      name: Reservation
-      
-  AnonymousReservation:
-    description: "A reservation with all personal data removed"
-    type: object
-    properties:
-      time:
-        $ref: '#/definitions/Timeslot'
-      tables:
-        description: "ids of the reserved tables of the timeslot"
-        type: array
-        items:
-          type: string
-          format: uuid
-
-  ReservationCreationRequest:
-    type: object
-    properties:
-      tables:
-        type: array
-        items:
-          type: string
-          format: uuid
-      time:
-        $ref: '#/definitions/Timeslot'
-      userName:
-        type: string
-        format: string
-      userEmail:
-        type: string
-        format: email
-    xml:
-      name: ReservationCreationRequest
-
-  Timeslot:
-    description: "time range between two unix timestamps"
-    type: object
-    properties:
-      from:
-        type: integer
-        format: unix-timestamp
-      to:
-        type: integer
-        format: unix-timestamp
-        
-  FloorPlan:
-    description: "a floorplan consisting of a background image and a size"
-    type: object
-    properties:
-      image:
-        description: "image of the floor plan of the restaurant without tables"
-        type: string
-        format: uuid
-      size:
-        $ref: '#/definitions/Size'
-        
-  TableOnFloorPlan:
-    description: "the apperance of a table on the floorpan"
-    type: object
-    properties:
-      position:
-        $ref: '#/definitions/PixelCoordinates'
-      size:
-        $ref: '#/definitions/Size'
-      image: 
-        type: string
-        format: uuid
-  
-  Size:
-    description: "size in pixels" 
-    type: object
-    properties:
-      width:
-        type: integer
-      height:
-        type: integer
-        
-  GeographicCoordinates:
-    description: "geographic coordinates"
-    type: object
-    properties:
-      lat:
-        type: number
-        format: double
-      lon:
-        type: number
-        format: double
-        
-  PixelCoordinates:
-    description: "pixel coordinates on a canvas"
-    type: object
-    properties:
-      x:
-        type: integer
-      y:
-        type: integer
-        
-  Comment:
-    description: "a comment about a restaurant written by a user"
-    type: object
-    properties:
-      rating:
-        type: integer
-        minimum: 1
-        maximum: 5
-      comment:
-        type: string
-      name: 
-        type: string
-
-  Paginated:
+        200:
+          description: the requested image file
+          content:
+            application/image:
+              schema:
+                type: string
+                format: binary
+components:
+  schemas:
+    Restaurant:
       type: object
       properties:
-        totalPages:
-          type: number
-        currentPage: 
-          type: number
-        pageSize:
-          type: number
-        results: 
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        images:
           type: array
-          items: {}
+          items:
+            type: string
+            format: uuid
+        website:
+          type: string
+          format: uri
+        openingHours:
+          $ref: '#/components/schemas/Timeslot'
+        averageRating:
+          maximum: 5
+          minimum: 1
+          type: number
+          format: double
+        priceCategory:
+          maximum: 3
+          minimum: 1
+          type: integer
+        location:
+          $ref: '#/components/schemas/GeographicCoordinates'
+        floorPlan:
+          $ref: '#/components/schemas/FloorPlan'
+      xml:
+        name: Restaurant
+    Table:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        restaurantId:
+          type: string
+          format: uuid
+        seats:
+          type: integer
+        floorPlan:
+          $ref: '#/components/schemas/TableOnFloorPlan'
+      xml:
+        name: Table
+    Reservation:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        tables:
+          type: array
+          description: ids of the reserved tables of the timeslot
+          items:
+            type: string
+            format: uuid
+        time:
+          $ref: '#/components/schemas/Timeslot'
+        userName:
+          type: string
+          format: string
+        userEmail:
+          type: string
+          format: email
+        confirmed:
+          type: boolean
+      xml:
+        name: Reservation
+    AnonymousReservation:
+      type: object
+      properties:
+        time:
+          $ref: '#/components/schemas/Timeslot'
+        tables:
+          type: array
+          description: ids of the reserved tables of the timeslot
+          items:
+            type: string
+            format: uuid
+      description: A reservation with all personal data removed
+    ReservationCreationRequest:
+      type: object
+      properties:
+        tables:
+          type: array
+          items:
+            type: string
+            format: uuid
+        time:
+          $ref: '#/components/schemas/Timeslot'
+        userName:
+          type: string
+          format: string
+        userEmail:
+          type: string
+          format: email
+      xml:
+        name: ReservationCreationRequest
+    Timeslot:
+      type: object
+      properties:
+        from:
+          type: integer
+          format: unix-timestamp
+        to:
+          type: integer
+          format: unix-timestamp
+      description: time range between two unix timestamps
+    FloorPlan:
+      type: object
+      properties:
+        image:
+          type: string
+          description: image of the floor plan of the restaurant without tables
+          format: uuid
+        size:
+          $ref: '#/components/schemas/Size'
+      description: a floorplan consisting of a background image and a size
+    TableOnFloorPlan:
+      type: object
+      properties:
+        position:
+          $ref: '#/components/schemas/PixelCoordinates'
+        size:
+          $ref: '#/components/schemas/Size'
+        image:
+          type: string
+          format: uuid
+      description: the apperance of a table on the floorpan
+    Size:
+      type: object
+      properties:
+        width:
+          type: integer
+        height:
+          type: integer
+      description: size in pixels
+    GeographicCoordinates:
+      type: object
+      properties:
+        lat:
+          type: number
+          format: double
+        lon:
+          type: number
+          format: double
+      description: geographic coordinates
+    PixelCoordinates:
+      type: object
+      properties:
+        x:
+          type: integer
+        y:
+          type: integer
+      description: pixel coordinates on a canvas
+    Comment:
+      type: object
+      properties:
+        rating:
+          maximum: 5
+          minimum: 1
+          type: integer
+        comment:
+          type: string
+        name:
+          type: string
+      description: a comment about a restaurant written by a user
+    Paginated:
+        type: object
+        properties:
+          totalPages:
+            type: number
+          currentPage: 
+            type: number
+          pageSize:
+            type: number
+          results: 
+            type: array
+            items: {}
