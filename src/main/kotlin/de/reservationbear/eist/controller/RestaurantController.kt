@@ -11,11 +11,12 @@ import de.reservationbear.eist.db.entity.RestaurantTable
 import de.reservationbear.eist.service.RestaurantService
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
-import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import java.math.BigDecimal
 import java.sql.Timestamp
+import java.time.Instant
+import java.time.LocalDateTime
 import java.util.*
 
 /**
@@ -125,7 +126,7 @@ class RestaurantController(val restaurantService: RestaurantService) {
                 BigDecimal(currentPage),
                 BigDecimal(pageSize),
                 tables?.toList()
-                )
+            )
         )
     }
 
@@ -179,11 +180,31 @@ class RestaurantController(val restaurantService: RestaurantService) {
         @RequestParam(value = "date", required = true) date: Long,
         @RequestParam(value = "currentPage", defaultValue = "0") currentPage: Int,
         @RequestParam(value = "pageSize", defaultValue = "50") pageSize: Int
-    ): ResponseEntity<TimeslotMapper> {
+    ): ResponseEntity<PagingResponseMapper> {
 
-        //TODO Implement Service
+        val singleDay = 1000 * 60 * 60 * 24
 
-        return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+        val timeslots = restaurantService.findOpeningHoursInTimeFrameOfRestaurant(
+            id, Timestamp.valueOf(
+                LocalDateTime.ofInstant(
+                    Instant.ofEpochMilli(date * 1000),
+                    TimeZone.getDefault().toZoneId()
+                )
+            ), Timestamp.valueOf(
+                LocalDateTime.ofInstant(
+                    Instant.ofEpochMilli(date * 1000 + singleDay),
+                    TimeZone.getDefault().toZoneId()
+                )
+            ), PageRequest.of(currentPage, pageSize)
+        )
+
+        return ResponseEntity.ok(
+            PagingResponseMapper(
+                BigDecimal(timeslots?.totalPages ?: 0),
+                BigDecimal(currentPage),
+                BigDecimal(pageSize), timeslots?.toList() ?: ArrayList<Comment?>()
+            )
+        )
     }
 
     /**

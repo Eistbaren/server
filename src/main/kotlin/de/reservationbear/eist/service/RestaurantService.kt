@@ -1,9 +1,6 @@
 package de.reservationbear.eist.service
 
-import de.reservationbear.eist.db.entity.Comment
-import de.reservationbear.eist.db.entity.Reservation
-import de.reservationbear.eist.db.entity.Restaurant
-import de.reservationbear.eist.db.entity.RestaurantTable
+import de.reservationbear.eist.db.entity.*
 import de.reservationbear.eist.db.repository.RestaurantRepository
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
@@ -61,4 +58,18 @@ class RestaurantService(val db: RestaurantRepository) {
         to: Timestamp,
         pageable: Pageable
     ): Page<Reservation?>? = db.findReservationsInTimeframeOfRestaurant(uuid, from, to, pageable)
+
+    /**
+     * Find all timeslots of a restaurant in a specific timeframe
+     * @param uuid uuid of the restaurant
+     * @param from the start of the timeframe
+     * @param to the end of the timeframe
+     * @param pageable
+     */
+    fun findOpeningHoursInTimeFrameOfRestaurant(
+        uuid: UUID,
+        from: Timestamp,
+        to: Timestamp,
+        pageable: Pageable
+    ): Page<Timeslot?>? = db.findTimeslotsInTimeframeOfRestaurant(uuid, from, to, pageable)
 }

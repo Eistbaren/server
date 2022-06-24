@@ -1,9 +1,6 @@
 package de.reservationbear.eist.db.repository
 
-import de.reservationbear.eist.db.entity.Comment
-import de.reservationbear.eist.db.entity.Reservation
-import de.reservationbear.eist.db.entity.Restaurant
-import de.reservationbear.eist.db.entity.RestaurantTable
+import de.reservationbear.eist.db.entity.*
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.jpa.repository.JpaRepository
@@ -77,4 +74,34 @@ interface RestaurantRepository : JpaRepository<Restaurant, UUID> {
                 "WHERE r.restaurant.id = ?1",
     )
     fun findTablesOfRestaurant(uuid: UUID, pageable: Pageable?): Page<RestaurantTable?>?
+
+    /**
+     * Searches after the opening hours of a given restaurant
+     * @param uuid the uuid of the restaurant
+     * @param fromDay the start of the day to query
+     * @param fromDay the end of the day to query (normally the next day)
+     * @param pageable access the database values in batches
+     * @return a page of tables
+     */
+    @Query(
+        value = "SELECT r.openingHours " +
+                "FROM Restaurant r " +
+                "JOIN r.openingHours oh " +
+                "WHERE r.id = ?1 " +
+                "AND oh.timeslotFrom >= ?2 " +
+                "AND oh.timeslotTo <= ?3",
+
+        countQuery = "SELECT size(r.openingHours) " +
+                "FROM Restaurant r " +
+                "JOIN r.openingHours oh " +
+                "WHERE r.id = ?1 " +
+                "AND oh.timeslotFrom >= ?2 " +
+                "AND oh.timeslotTo <= ?3",
+    )
+    fun findTimeslotsInTimeframeOfRestaurant(
+        uuid: UUID,
+        fromDay: Timestamp,
+        toDay: Timestamp,
+        pageable: Pageable?
+    ): Page<Timeslot?>?
 }
