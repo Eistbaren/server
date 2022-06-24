@@ -91,19 +91,23 @@ class ReservationController(val reservationService: ReservationService) {
     ): ResponseEntity<ReservationResponseMapper> {
 
         val patchedReservation: Reservation = reservationService.getReservation(UUID.fromString(id))
-        patchedReservation.confirmed = confirmed
-        reservationService.saveReservation(patchedReservation)
+        if (patchedReservation.confirmationToken == null || patchedReservation.confirmationToken.toString() != confirmationToken) {
+            return ResponseEntity.badRequest().build()
+        } else {
+            patchedReservation.confirmed = confirmed
+            reservationService.saveReservation(patchedReservation)
 
-        return ResponseEntity.ok(
-            ReservationResponseMapper(
-                patchedReservation.id,
-                patchedReservation.restaurantTables?.map { tables -> tables.id }?.toList(),
-                TimeslotMapper(patchedReservation.reservationFrom, patchedReservation.reservationTo),
-                patchedReservation.userName,
-                patchedReservation.userEmail,
-                patchedReservation.confirmed
+            return ResponseEntity.ok(
+                ReservationResponseMapper(
+                    patchedReservation.id,
+                    patchedReservation.restaurantTables?.map { tables -> tables.id }?.toList(),
+                    TimeslotMapper(patchedReservation.reservationFrom, patchedReservation.reservationTo),
+                    patchedReservation.userName,
+                    patchedReservation.userEmail,
+                    patchedReservation.confirmed
+                )
             )
-        )
+        }
     }
 
     /**

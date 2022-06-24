@@ -8,6 +8,7 @@ import org.springframework.scheduling.annotation.EnableScheduling
 import org.springframework.scheduling.annotation.Scheduled
 import java.sql.Timestamp
 import java.time.Instant
+import java.util.*
 import java.util.concurrent.TimeUnit
 
 @Configuration
@@ -30,7 +31,9 @@ class MailJob(val reservationService: ReservationService, val confirmationMailPa
         if (reservation != null) {
             for (element in reservation) {
                 try {
-                    confirmationMailPattern.sendMail(element.userEmail, element.userName, "1234")
+                    val confirmationToken: UUID? = UUID.randomUUID()
+                    confirmationMailPattern.sendMail(element.userEmail, element.userName, confirmationToken.toString())
+                    element.confirmationToken = confirmationToken
                     element.sendConfirmation = true
                 }catch (e: IllegalStateException) {
                     element.sendConfirmation = false
