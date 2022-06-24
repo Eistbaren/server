@@ -68,13 +68,13 @@ interface RestaurantRepository : JpaRepository<Restaurant, UUID> {
      * @return a page of tables
      */
     @Query(
-        value = "SELECT r.restaurantTables " +
-                "FROM Restaurant r " +
-                "WHERE r.id = ?1",
+        value = "SELECT r " +
+                "FROM RestaurantTable r " +
+                "WHERE r.restaurant.id = ?1",
 
-        countQuery = "SELECT size(r.restaurantTables) " +
-                "FROM Restaurant r " +
-                "WHERE r.id = ?1",
+        countQuery = "SELECT r.id " +
+                "FROM RestaurantTable r " +
+                "WHERE r.restaurant.id = ?1",
     )
     fun findTablesOfRestaurant(uuid: UUID, pageable: Pageable?): Page<RestaurantTable?>?
 }
