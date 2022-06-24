@@ -283,7 +283,7 @@ paths:
       requestBody:
         description: detailed information about the reservation
         content:
-          '*/*':
+          application/json:
             schema:
               $ref: '#/components/schemas/ReservationCreationRequest'
         required: true
@@ -357,7 +357,7 @@ paths:
           format: token
       requestBody:
         content:
-          '*/*':
+          application/json:
             schema:
               type: object
               properties:
