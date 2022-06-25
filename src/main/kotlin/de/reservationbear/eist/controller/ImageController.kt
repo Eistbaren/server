@@ -24,8 +24,8 @@ class ImageController(val imageService: ImageService) {
     /**
      * Returns an image, specified by the id
      *
-     * @param uuid        id of the reservation
-     * @return          ResponseEntity with status and body with the image ressorce
+     * @param uuid id of the reservation
+     * @return ResponseEntity with status and body with the image ressorce
      */
     @GetMapping(
         value = ["/image/{id}"],
@@ -36,7 +36,8 @@ class ImageController(val imageService: ImageService) {
         val image = imageService.getImage(uuid) ?: return ResponseEntity.notFound().build()
 
         val systemResource: URL =
-            ClassLoader.getSystemResource(image.imageURL) ?: return ResponseEntity.notFound().build()
+            ClassLoader.getSystemResource(image.imageURL.removePrefix("/serverFile/"))
+                ?: return ResponseEntity.notFound().build()
         val imagePath: Path = Path.of(systemResource.toURI())
         val imageResource = ByteArrayResource(Files.readAllBytes(imagePath))
 
