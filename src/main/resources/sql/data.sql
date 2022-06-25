@@ -64,6 +64,10 @@ insert into RESTAURANT_RESERVATIONS (RESTAURANT_ID, RESERVATIONS_ID)
 values ('069f72db-2157-43de-8e88-21661b518200', '069f72db-2157-43de-8e88-21661b518201');
 insert into RESERVATION_RESTAURANT_TABLES(RESERVATION_ID, RESTAURANT_TABLES_ID) values('069f72db-2157-43de-8e88-21661b518201','069f72db-2157-43de-8e88-21661b518201');
 
+insert into IMAGE (ID, IMAGEURL) values('069f72db-2157-43de-8e88-21661b518200','/serverFile/restaurantImages/table4-1.png');
+insert into IMAGE (ID, IMAGEURL) values('069f72db-2157-43de-8e88-21661b518201','/serverFile/restaurantImages/table4-2.png');
+insert into IMAGE (ID, IMAGEURL) values('069f72db-2157-43de-8e88-21661b518202','/serverFile/restaurantImages/table8-1.png');
+
 // https://www.mockaroo.com/
 insert into restaurant (NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
 values ('Cronin-Hagenes', 2, 2, 'www.tum.de');
