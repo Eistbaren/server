@@ -4,14 +4,18 @@ package de.reservationbear.eist.confirmationmail
 import de.reservationbear.eist.service.ReservationService
 import lombok.AllArgsConstructor
 import org.slf4j.LoggerFactory
+import org.springframework.core.io.ByteArrayResource
+import org.springframework.core.io.InputStreamResource
 import org.springframework.mail.javamail.JavaMailSender
 import org.springframework.mail.javamail.MimeMessageHelper
 import org.springframework.scheduling.annotation.Async
 import org.springframework.stereotype.Service
 import java.util.*
 import javax.mail.MessagingException
-import kotlin.jvm.Throws
 
+/**
+ * Mailservice for building and sending mails
+ */
 @Service
 @AllArgsConstructor
 class MailService(val mailSender: JavaMailSender, val reservationService: ReservationService) : MailSender {
@@ -39,7 +43,7 @@ class MailService(val mailSender: JavaMailSender, val reservationService: Reserv
             helper.setSubject(subject ?: "Info")
             helper.setFrom("reservation@reservation-bear.de")
             //if(reservationUUID != null) {
-            //    helper.addAttachment("Test", reservationService.getICSResource(reservationUUID).file)
+            //    helper.addAttachment("Test", reservationService.getICSResource(reservationUUID))
             //}
             mailSender.send(mimeMessage)
         } catch (e: MessagingException) {

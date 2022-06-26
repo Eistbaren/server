@@ -24,7 +24,7 @@ class Reservation(
     @Type(type = "uuid-char")
     val id: UUID? = null,
     @OneToMany(fetch = FetchType.EAGER)
-    val restaurantTables: Set<RestaurantTable>? = null,
+    var restaurantTables: Set<RestaurantTable>? = null,
     val reservationFrom: Timestamp,
     val reservationTo: Timestamp,
     val userName: String,

@@ -60,13 +60,27 @@ class ReservationService(val db: ReservationRepository) {
      */
     fun getReservationsForConfirmation(to: Timestamp): List<Reservation>? = db.findAllReservations(Timestamp.from(java.time.Instant.now()), to)
 
-    fun getICSResource(id: UUID): Resource {
+    /**
+     * Returns a resource (ICS File) from the reservation with the given id
+     *
+     * @param id id of the reservation
+     * @return ICS-Resource
+     */
+    fun getICSResource(id: UUID): ByteArrayResource {
         val reservation: Reservation = getReservation(id)
+
+        //Null restaurantTables to prevent error
+        if(reservation.restaurantTables?.isEmpty() == true){
+            reservation.restaurantTables = null
+        }
 
         val calendarEvent = VEvent(
             reservation.reservationFrom.toLocalDateTime(),
             reservation.reservationTo.toLocalDateTime(),
-            "Reservation: " + reservation.restaurantTables?.first()?.restaurant?.name
+            "Reservation: " + reservation.restaurantTables
+                ?.first()
+                ?.restaurant
+                ?.name
         )
 
         val calendar = Calendar()
