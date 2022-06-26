@@ -25,7 +25,7 @@ class Restaurant(
     @Type(type = "uuid-char")
     val id: UUID,
     val name: String,
-    @OneToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     val images: Set<Image>? = null,
     val website: URI? = null,
     @OneToMany(fetch = FetchType.EAGER)
