@@ -53,6 +53,7 @@ class RestaurantController(val restaurantService: RestaurantService) {
                 restaurants.get().map { restaurant ->
                     RestaurantMapper(
                         restaurant.id,
+                        restaurant.name,
                         restaurant.images?.map { image -> image.id },
                         restaurant.website,
                         restaurant.openingHours?.toMutableList(),
@@ -85,6 +86,7 @@ class RestaurantController(val restaurantService: RestaurantService) {
         return ResponseEntity.ok(
             RestaurantMapper(
                 restaurant.id,
+                restaurant.name,
                 restaurant.images?.map { image -> image.id },
                 restaurant.website,
                 restaurant.openingHours?.toMutableList(),
@@ -123,11 +125,14 @@ class RestaurantController(val restaurantService: RestaurantService) {
                 BigDecimal(currentPage),
                 BigDecimal(pageSize),
                 tables
-                    ?.map { table -> TableMapper(
-                        table?.id,
-                        table?.restaurant?.id,
-                        table?.seats,
-                        table?.floorPlan)}
+                    ?.map { table ->
+                        TableMapper(
+                            table?.id,
+                            table?.restaurant?.id,
+                            table?.seats,
+                            table?.floorPlan
+                        )
+                    }
                     ?.toList()
             )
         )

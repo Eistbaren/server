@@ -23,6 +23,8 @@ data class RestaurantMapper(
 
     @field:JsonProperty("id") val id: UUID? = null,
 
+    @field:JsonProperty("name") val name: String? = null,
+
     @field:JsonProperty("images") val images: List<UUID>? = null,
 
     @field:JsonProperty("website") val website: URI? = null,
