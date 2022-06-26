@@ -77,10 +77,11 @@ class ReservationService(val db: ReservationRepository) {
         val calendarEvent = VEvent(
             reservation.reservationFrom.toLocalDateTime(),
             reservation.reservationTo.toLocalDateTime(),
-            "Reservation: " + reservation.restaurantTables
+            "Reservation: " + ((reservation.restaurantTables
                 ?.first()
                 ?.restaurant
-                ?.name
+                ?.name)
+                ?: "no restaurant selected")
         )
 
         val calendar = Calendar()
