@@ -28,8 +28,8 @@ class Restaurant(
     @OneToMany(fetch = FetchType.EAGER)
     val images: Set<Image>? = null,
     val website: URI? = null,
-    @OneToMany(fetch = FetchType.EAGER)
-    val openingHours: Set<Timeslot>? = null,
+    @OneToOne(fetch = FetchType.EAGER)
+    val openingHours: Timeslot? = null,
     val averageRating: Double,
     val priceCategory: Int,
     @OneToOne(fetch = FetchType.EAGER)

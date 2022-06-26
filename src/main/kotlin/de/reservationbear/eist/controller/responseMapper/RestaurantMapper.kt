@@ -29,7 +29,7 @@ data class RestaurantMapper(
 
     @field:JsonProperty("website") val website: URI? = null,
 
-    @field:JsonProperty("openingHours") val openingHours: MutableList<Timeslot>? = null,
+    @field:JsonProperty("openingHours") val openingHours: OpeningHourMapper? = null,
 
     @field:JsonProperty("averageRating") val averageRating: Double? = null,
 
