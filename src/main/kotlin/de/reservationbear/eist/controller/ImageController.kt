@@ -3,6 +3,7 @@ package de.reservationbear.eist.controller
 import de.reservationbear.eist.service.ImageService
 import org.springframework.core.io.ByteArrayResource
 import org.springframework.core.io.Resource
+import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -28,7 +29,7 @@ class ImageController(val imageService: ImageService) {
      */
     @GetMapping(
         value = ["/image/{id}"],
-        produces = ["application/image"]
+        produces = [MediaType.IMAGE_PNG_VALUE]
     )
     fun imageIdGet(@PathVariable("id") uuid: java.util.UUID):
             ResponseEntity<Resource> {
