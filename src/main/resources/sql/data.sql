@@ -71,22 +71,24 @@ insert into RESTAURANT_OPENING_HOURS
 values ('069f72db-2157-43de-8e88-21661b518200', 'dcceb799-0147-42b1-8ed7-5e6addec8ad3');
 
 insert into IMAGE (ID, IMAGEURL)
-values ('069f72db-2157-43de-8e88-21661b518200', '/serverFile/restaurantImages/floorplan/table4-1.png');
+values ('069f72db-2157-43de-8e88-21661b518100', '/serverFile/serverImages/corporateIdentity/logo.png');
 insert into IMAGE (ID, IMAGEURL)
-values ('069f72db-2157-43de-8e88-21661b518201', '/serverFile/restaurantImages/floorplan/table4-2.png');
+values ('069f72db-2157-43de-8e88-21661b518200', '/serverFile/serverImages/floorplan/table4-1.png');
 insert into IMAGE (ID, IMAGEURL)
-values ('069f72db-2157-43de-8e88-21661b518202', '/serverFile/restaurantImages/floorplan/table8-1.png');
+values ('069f72db-2157-43de-8e88-21661b518201', '/serverFile/serverImages/floorplan/table4-2.png');
+insert into IMAGE (ID, IMAGEURL)
+values ('069f72db-2157-43de-8e88-21661b518202', '/serverFile/serverImages/floorplan/table8-1.png');
 
 insert into IMAGE (ID, IMAGEURL)
-values ('069f72db-2157-43de-8e88-21661b518300', '/serverFile/restaurantImages/restaurant/mensa-außen-1.png');
+values ('069f72db-2157-43de-8e88-21661b518300', '/serverFile/serverImages/restaurant/mensa-außen-1.png');
 insert into IMAGE (ID, IMAGEURL)
-values ('069f72db-2157-43de-8e88-21661b518301', '/serverFile/restaurantImages/restaurant/mensa-außen-2.png');
+values ('069f72db-2157-43de-8e88-21661b518301', '/serverFile/serverImages/restaurant/mensa-außen-2.png');
 insert into IMAGE (ID, IMAGEURL)
-values ('069f72db-2157-43de-8e88-21661b518302', '/serverFile/restaurantImages/restaurant/mensa-außen-3.png');
+values ('069f72db-2157-43de-8e88-21661b518302', '/serverFile/serverImages/restaurant/mensa-außen-3.png');
 insert into IMAGE (ID, IMAGEURL)
-values ('069f72db-2157-43de-8e88-21661b518303', '/serverFile/restaurantImages/restaurant/mensa-innen-1.png');
+values ('069f72db-2157-43de-8e88-21661b518303', '/serverFile/serverImages/restaurant/mensa-innen-1.png');
 insert into IMAGE (ID, IMAGEURL)
-values ('069f72db-2157-43de-8e88-21661b518304', '/serverFile/restaurantImages/restaurant/mensa-innen-2.png');
+values ('069f72db-2157-43de-8e88-21661b518304', '/serverFile/serverImages/restaurant/mensa-innen-2.png');
 
 insert into RESTAURANT_IMAGES (RESTAURANT_ID, IMAGES_ID)
 values ('069f72db-2157-43de-8e88-21661b518200', '069f72db-2157-43de-8e88-21661b518300');
