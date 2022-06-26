@@ -1,5 +1,7 @@
-package de.reservationbear.eist.confirmationmail
+package de.reservationbear.eist.job
 
+import de.reservationbear.eist.confirmationmail.ConfirmationMailPattern
+import de.reservationbear.eist.service.MailService
 import de.reservationbear.eist.db.entity.Reservation
 import de.reservationbear.eist.service.ReservationService
 import org.slf4j.LoggerFactory
