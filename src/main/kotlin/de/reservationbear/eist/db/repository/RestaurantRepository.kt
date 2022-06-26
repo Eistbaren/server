@@ -3,6 +3,7 @@ package de.reservationbear.eist.db.repository
 import de.reservationbear.eist.db.entity.Comment
 import de.reservationbear.eist.db.entity.Reservation
 import de.reservationbear.eist.db.entity.Restaurant
+import de.reservationbear.eist.db.entity.RestaurantTable
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.jpa.repository.JpaRepository
@@ -67,13 +68,13 @@ interface RestaurantRepository : JpaRepository<Restaurant, UUID> {
      * @return a page of tables
      */
     @Query(
-        value = "SELECT r.restaurantTables " +
-                "FROM Restaurant r " +
-                "WHERE r.id = ?1",
+        value = "SELECT r " +
+                "FROM RestaurantTable r " +
+                "WHERE r.restaurant.id = ?1",
 
-        countQuery = "SELECT size(r.restaurantTables) " +
-                "FROM Restaurant r " +
-                "WHERE r.id = ?1",
+        countQuery = "SELECT r.id " +
+                "FROM RestaurantTable r " +
+                "WHERE r.restaurant.id = ?1",
     )
-    fun findTablesOfRestaurant(uuid: UUID, pageable: Pageable?): Page<Comment?>?
+    fun findTablesOfRestaurant(uuid: UUID, pageable: Pageable?): Page<RestaurantTable?>?
 }

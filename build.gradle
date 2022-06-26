@@ -28,8 +28,9 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok")
     //SPRING Mail Dependencies
     implementation 'org.springframework.boot:spring-boot-starter-mail:2.6.4'
+    implementation group: 'org.mnode.ical4j', name: 'ical4j', version: '4.0.0-beta1'
     //implementation("org.springframework.boot:spring-boot-starter-security")
-    // testImplementation("org.springframework.security:spring-security-test")
+    //testImplementation("org.springframework.security:spring-security-test")
     //implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation 'org.awaitility:awaitility:3.1.2'
 }
@@ -59,19 +60,18 @@ task submodulesUpdate(type: Exec) {
     group 'Build Setup'
 }
 
-npmInstall.dependsOn submodulesUpdate
+nodeSetup.dependsOn submodulesUpdate
 
-task copyReactBuildFiles {
+task copyReactBuildFiles(type: Copy) {
     description "Copies the build files from react to the desired location"
     dependsOn npm_run_build
-    copy {
-        project.build
-        from "client/build"
-        into "src/main/resources/static/dist"
-    }
+    from "client/build"
+    into "src/main/resources/static/dist"
+    includeEmptyDirs true
     group "npm"
 }
 
+compileKotlin.dependsOn copyReactBuildFiles
 processResources.dependsOn copyReactBuildFiles
 
 clean.delete << file("client/node_modules")
