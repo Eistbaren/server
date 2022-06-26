@@ -2,6 +2,12 @@ package de.reservationbear.eist.service
 
 import de.reservationbear.eist.db.entity.Reservation
 import de.reservationbear.eist.db.repository.ReservationRepository
+import net.fortuna.ical4j.model.Calendar
+import net.fortuna.ical4j.model.component.VEvent
+import net.fortuna.ical4j.model.property.ProdId
+import net.fortuna.ical4j.util.RandomUidGenerator
+import org.springframework.core.io.ByteArrayResource
+import org.springframework.core.io.Resource
 import org.springframework.stereotype.Service
 import java.sql.Timestamp
 import java.util.*
@@ -52,5 +58,25 @@ class ReservationService(val db: ReservationRepository) {
      * @param to Timestamp of latest reservation that should be confirmed
      * @return a list of reservations
      */
-    fun getReservationsForConfirmation(to: Timestamp): List<Reservation>? = db.findAllReservations(to = to)
+    fun getReservationsForConfirmation(to: Timestamp): List<Reservation>? = db.findAllReservations(Timestamp.from(java.time.Instant.now()), to)
+
+    fun getICSResource(id: UUID): Resource {
+        val reservation: Reservation = getReservation(id)
+
+        val calendarEvent = VEvent(
+            reservation.reservationFrom.toLocalDateTime(),
+            reservation.reservationTo.toLocalDateTime(),
+            "Reservation: " + reservation.restaurantTables?.first()?.restaurant?.name
+        )
+
+        val calendar = Calendar()
+            .withComponent(calendarEvent)
+            // add the from the specification required properties
+            .withProperty(RandomUidGenerator().generateUid())
+            .withProperty(ProdId("-//Eistbear Calender Event//iCal4j 1.0//EN"))
+            .withDefaults()
+
+        val calendarByte = calendar.toString().toByteArray()
+        return ByteArrayResource(calendarByte)
+    }
 }

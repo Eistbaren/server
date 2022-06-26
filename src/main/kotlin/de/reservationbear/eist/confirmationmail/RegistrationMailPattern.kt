@@ -1,22 +1,39 @@
 //Source: https://www.youtube.com/watch?v=QwQuro7ekvc
 package de.reservationbear.eist.confirmationmail
 
-import lombok.AllArgsConstructor
 import org.springframework.stereotype.Service
 
+/**
+ * Pattern for sending a registration mail
+ */
 @Service
 class RegistrationMailPattern(val mailSender: MailSender) {
 
-    fun sendMail(mailAdresse: String, name: String, token: String) {
+    /**
+     * Method that calls the mailSender.send method to send the mail
+     *
+     * @param mailAddress   Address for Mail
+     * @param name          name of the recipient
+     * @param token         token for confirm a reservation
+     */
+    fun sendMail(mailAddress: String, name: String, token: String) {
         //No such endpoint - do we want to approve mail addresses?
         val link = "http://localhost:8080/api/user/email?token=$token"
         mailSender.send(
-            mailAdresse,
+            mailAddress,
             buildEmail(name.split(" ")[0], link),
-            "Bestätigung ihrer Mailadresse"
+            "Confirmation of your mail address",
+            null
         )
     }
 
+    /**
+     * Mail text that will be sent (HTML Mail)
+     *
+     * @param name name of the recipient
+     * @param link link for the reservation
+     * @return
+     */
     private fun buildEmail(name: String, link: String): String {
         return """
             <div style="font-family:Helvetica,Arial,sans-serif;font-size:16px;margin:0;color:#0b0c0c">
@@ -63,10 +80,10 @@ class RegistrationMailPattern(val mailSender: MailSender) {
     <tr>
       <td width="10" valign="middle"><br></td>
       <td style="font-family:Helvetica,Arial,sans-serif;font-size:19px;line-height:1.315789474;max-width:560px">
-            <p style="Margin:0 0 20px 0;font-size:19px;line-height:25px;color:#2e3440c">Hi $name,</p><p style="Margin:0 0 20px 0;font-size:19px;line-height:25px;color:#2e3440"> Danke für das Reservieren über unseren Service. Unten finden sie einen Link zum Bestätigen ihrer E-Mail-Adresse: </p><blockquote style="Margin:0 0 20px 0;border-left:10px solid #2e3440;padding:15px 0 0.1px 15px;font-size:19px;line-height:25px"><p style="Margin:0 0 20px 0;font-size:19px;line-height:25px;color:#2e3440c"> <a href="$link" style="color: #88c0d0">Hier Bestätigen</a> </p></blockquote>
-Wenn sie ihre E-Mail-Adresse über diesen Link bestätigt haben, werden sie einen Tag vor Ihrer Reservierung eine weitere Mail bekommen, wo Sie ihre Reservierung ein letztes Mal bestätigen müssen.
-<p>Einen schönen Tag wünscht Ihnen</p>        
-<p>Ihr Eistbären-Team</p>   
+            <p style="Margin:0 0 20px 0;font-size:19px;line-height:25px;color:#2e3440c">Hi $name,</p><p style="Margin:0 0 20px 0;font-size:19px;line-height:25px;color:#2e3440"> Thank you for booking through our service. Below you will find a link to confirm your email address: </p><blockquote style="Margin:0 0 20px 0;border-left:10px solid #2e3440;padding:15px 0 0.1px 15px;font-size:19px;line-height:25px"><p style="Margin:0 0 20px 0;font-size:19px;line-height:25px;color:#2e3440c"> <a href="$link" style="color: #88c0d0">Click here for confirmation</a> </p></blockquote>
+Once you have confirmed your email address via this link, you will receive another email one day before your reservation where you have to confirm your reservation one last time.
+<p>Have a nice day</p>        
+<p>Your Eistbären team</p>   
       </td>
       <td width="10" valign="middle"><br></td>
     </tr>

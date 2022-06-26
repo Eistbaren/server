@@ -2,21 +2,39 @@
 package de.reservationbear.eist.confirmationmail
 
 import org.springframework.stereotype.Service
+import java.util.*
 
+/**
+ * Pattern for sending a confirmation mail for reservation
+ */
 @Service
 class ConfirmationMailPattern(val mailSender: MailSender) {
 
-
-    fun sendMail(mailAdresse: String, name: String, token: String) {
+    /**
+     * Method that calls the mailSender.send method to send the mail
+     *
+     * @param mailAddress   Address for Mail
+     * @param name          name of the recipient
+     * @param token         token for confirm a reservation
+     */
+    fun sendMail(mailAddress: String, name: String, token: String, uuid: UUID?) {
         //Link for confirmation side
         val link = "http://localhost:8080/$token"
         mailSender.send(
-            mailAdresse,
+            mailAddress,
             buildEmail(name.split(" ")[0], link),
-            "Bestätigung ihrer Mailadresse"
+            "Confirmation of your reservation",
+            uuid
         )
     }
 
+    /**
+     * Mail text that will be sent (HTML Mail)
+     *
+     * @param name name of the recipient
+     * @param link link for the reservation
+     * @return
+     */
     private fun buildEmail(name: String, link: String): String {
         return """
             <div style="font-family:Helvetica,Arial,sans-serif;font-size:16px;margin:0;color:#0b0c0c">
@@ -63,10 +81,10 @@ class ConfirmationMailPattern(val mailSender: MailSender) {
     <tr>
       <td width="10" valign="middle"><br></td>
       <td style="font-family:Helvetica,Arial,sans-serif;font-size:19px;line-height:1.315789474;max-width:560px">
-            <p style="Margin:0 0 20px 0;font-size:19px;line-height:25px;color:#2e3440c">Hi $name,</p><p style="Margin:0 0 20px 0;font-size:19px;line-height:25px;color:#2e3440">in einem Tag ist es soweit! Nun müssen Sie nur noch die Reservierung ein letztes Mal unter folgendem Link bestätigen und Sie können ihr Essen morgen genießen!  </p><blockquote style="Margin:0 0 20px 0;border-left:10px solid #2e3440;padding:15px 0 0.1px 15px;font-size:19px;line-height:25px"><p style="Margin:0 0 20px 0;font-size:19px;line-height:25px;color:#2e3440c"> <a href="$link" style="color: #88c0d0">Hier Bestätigen</a> </p></blockquote>
-Vielen Dank für Ihr Vertrauen in Reservation-Bear. Bei Fragen oder Problemen wenden Sie sich jederzeit an unseren Support per Mail oder direkt per Telefon.
-<p>Einen schönen Tag wünscht Ihnen</p>        
-<p>Ihr Eistbären-Team</p>   
+            <p style="Margin:0 0 20px 0;font-size:19px;line-height:25px;color:#2e3440c">Hi $name,</p><p style="Margin:0 0 20px 0;font-size:19px;line-height:25px;color:#2e3440">in one day it will be time! Now you just have to confirm the reservation one last time at the following link and you can enjoy your meal tomorrow!</p><blockquote style="Margin:0 0 20px 0;border-left:10px solid #2e3440;padding:15px 0 0.1px 15px;font-size:19px;line-height:25px"><p style="Margin:0 0 20px 0;font-size:19px;line-height:25px;color:#2e3440c"> <a href="$link" style="color: #88c0d0">Click here for confirmation</a> </p></blockquote>
+Thank you for your trust in Reservation Bear. If you have any questions or problems, please contact our support team at any time by e-mail or directly by telephone.
+<p>Have a nice day</p>        
+<p>Your Eistbären team</p>   
       </td>
       <td width="10" valign="middle"><br></td>
     </tr>

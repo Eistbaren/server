@@ -27,7 +27,9 @@ interface ReservationRepository : JpaRepository<Reservation, UUID> {
         value = "SELECT r " +
                 "FROM Reservation r " +
                 "WHERE r.confirmed <> true " +
+                "AND r.reservationFrom > ?1 " +
+                "AND r.reservationFrom <= ?2 " +
                 "AND r.sendConfirmation <> true ",
     )
-    fun findAllReservations(from: Timestamp = Timestamp.from(now()), to: Timestamp): List<Reservation>?
+    fun findAllReservations(from: Timestamp, to: Timestamp): List<Reservation>?
 }
