@@ -411,7 +411,7 @@ paths:
         200:
           description: the requested image file
           content:
-            application/image:
+            image/png:
               schema:
                 type: string
                 format: binary
