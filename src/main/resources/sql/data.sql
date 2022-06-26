@@ -102,14 +102,22 @@ insert into RESTAURANT_IMAGES (RESTAURANT_ID, IMAGES_ID)
 values ('069f72db-2157-43de-8e88-21661b518200', '069f72db-2157-43de-8e88-21661b518304');
 
 // https://www.mockaroo.com/
-insert into restaurant (NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
-values ('Cronin-Hagenes', 2, 2, 'www.tum.de');
-insert into restaurant (NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
-values ('Schultz, Abshire and Yost', 3, 3, 'www.tum.de');
-insert into restaurant (NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
-values ('Ferry-Steuber', 4, 1, 'www.tum.de');
-insert into restaurant (NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
-values ('Balistreri-Quigley', 5, 2, 'www.google.de');
+insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
+values ('069f72db-2157-43de-8e88-21661b518201', 'Cronin-Hagenes', 2, 2, 'www.tum.de');
+
+insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
+values ('069f72db-2157-43de-8e88-21661b518202', 'Schultz, Abshire and Yost', 3, 3, 'www.tum.de');
+insert into RESTAURANT_IMAGES (RESTAURANT_ID, IMAGES_ID)
+values ('069f72db-2157-43de-8e88-21661b518202', '069f72db-2157-43de-8e88-21661b518302');
+
+insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
+values ('069f72db-2157-43de-8e88-21661b518203', 'Ferry-Steuber', 4, 1, 'www.tum.de');
+insert into RESTAURANT_IMAGES (RESTAURANT_ID, IMAGES_ID)
+values ('069f72db-2157-43de-8e88-21661b518203', '069f72db-2157-43de-8e88-21661b518303');
+insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
+values ('069f72db-2157-43de-8e88-21661b518204', 'Balistreri-Quigley', 5, 2, 'www.google.de');
+insert into RESTAURANT_IMAGES (RESTAURANT_ID, IMAGES_ID)
+values ('069f72db-2157-43de-8e88-21661b518204', '069f72db-2157-43de-8e88-21661b518304');
 insert into restaurant (NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
 values ('Friesen-Brakus', 1, 3, 'www.google.de');
 insert into restaurant (NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
