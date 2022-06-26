@@ -4,8 +4,6 @@ package de.reservationbear.eist.confirmationmail
 import de.reservationbear.eist.service.ReservationService
 import lombok.AllArgsConstructor
 import org.slf4j.LoggerFactory
-import org.springframework.core.io.ByteArrayResource
-import org.springframework.core.io.InputStreamResource
 import org.springframework.mail.javamail.JavaMailSender
 import org.springframework.mail.javamail.MimeMessageHelper
 import org.springframework.scheduling.annotation.Async
@@ -37,14 +35,14 @@ class MailService(val mailSender: JavaMailSender, val reservationService: Reserv
     override fun send(to: String?, email: String?, subject: String?, reservationUUID: UUID?) {
         try {
             val mimeMessage = mailSender.createMimeMessage()
-            val helper = MimeMessageHelper(mimeMessage, "utf-8")
+            val helper = MimeMessageHelper(mimeMessage, true,"utf-8")
             helper.setText(email!!, true)
             helper.setTo(to!!)
             helper.setSubject(subject ?: "Info")
             helper.setFrom("reservation@reservation-bear.de")
-            //if(reservationUUID != null) {
-            //    helper.addAttachment("Test", reservationService.getICSResource(reservationUUID))
-            //}
+            if(reservationUUID != null) {
+                helper.addAttachment("reservation.ics", reservationService.getICSResource(reservationUUID))
+            }
             mailSender.send(mimeMessage)
         } catch (e: MessagingException) {
             LOGGER.error("Failed to send email", e)
