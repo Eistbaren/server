@@ -13,7 +13,7 @@ import java.util.*
  * @param userEmail
  * @param confirmed
  */
-data class ReservationResponseMapper(
+data class ReservationMapper(
 
     @field:JsonProperty("id") val id: UUID? = null,
 

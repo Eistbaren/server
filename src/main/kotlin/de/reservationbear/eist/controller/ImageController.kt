@@ -14,15 +14,14 @@ import java.nio.file.Path
 
 
 /**
- * REST-Controller for the Images
+ * REST-Controller for the Images.
  */
 @RestController
 @RequestMapping(value = ["/api"])
 class ImageController(val imageService: ImageService) {
 
-
     /**
-     * Returns an image, specified by the id
+     * Returns an image, specified by the id.
      *
      * @param uuid id of the reservation
      * @return ResponseEntity with status and body with the image ressorce
