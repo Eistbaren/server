@@ -62,14 +62,42 @@ values ('069f72db-2157-43de-8e88-21661b518201', false,
         'LadnerJonas');
 insert into RESTAURANT_RESERVATIONS (RESTAURANT_ID, RESERVATIONS_ID)
 values ('069f72db-2157-43de-8e88-21661b518200', '069f72db-2157-43de-8e88-21661b518201');
-insert into RESERVATION_RESTAURANT_TABLES(RESERVATION_ID, RESTAURANT_TABLES_ID) values('069f72db-2157-43de-8e88-21661b518201','069f72db-2157-43de-8e88-21661b518201');
+insert into RESERVATION_RESTAURANT_TABLES(RESERVATION_ID, RESTAURANT_TABLES_ID)
+values ('069f72db-2157-43de-8e88-21661b518201', '069f72db-2157-43de-8e88-21661b518201');
 
-INSERT INTO TIMESLOT values ('dcceb799-0147-42b1-8ed7-5e6addec8ad3',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP());
-insert into RESTAURANT_OPENING_HOURS values ('069f72db-2157-43de-8e88-21661b518200','dcceb799-0147-42b1-8ed7-5e6addec8ad3');
+INSERT INTO TIMESLOT
+values ('dcceb799-0147-42b1-8ed7-5e6addec8ad3', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
+insert into RESTAURANT_OPENING_HOURS
+values ('069f72db-2157-43de-8e88-21661b518200', 'dcceb799-0147-42b1-8ed7-5e6addec8ad3');
 
-insert into IMAGE (ID, IMAGEURL) values('069f72db-2157-43de-8e88-21661b518200','/serverFile/restaurantImages/table4-1.png');
-insert into IMAGE (ID, IMAGEURL) values('069f72db-2157-43de-8e88-21661b518201','/serverFile/restaurantImages/table4-2.png');
-insert into IMAGE (ID, IMAGEURL) values('069f72db-2157-43de-8e88-21661b518202','/serverFile/restaurantImages/table8-1.png');
+insert into IMAGE (ID, IMAGEURL)
+values ('069f72db-2157-43de-8e88-21661b518200', '/serverFile/restaurantImages/floorplan/table4-1.png');
+insert into IMAGE (ID, IMAGEURL)
+values ('069f72db-2157-43de-8e88-21661b518201', '/serverFile/restaurantImages/floorplan/table4-2.png');
+insert into IMAGE (ID, IMAGEURL)
+values ('069f72db-2157-43de-8e88-21661b518202', '/serverFile/restaurantImages/floorplan/table8-1.png');
+
+insert into IMAGE (ID, IMAGEURL)
+values ('069f72db-2157-43de-8e88-21661b518300', '/serverFile/restaurantImages/restaurant/mensa-außen-1.png');
+insert into IMAGE (ID, IMAGEURL)
+values ('069f72db-2157-43de-8e88-21661b518301', '/serverFile/restaurantImages/restaurant/mensa-außen-2.png');
+insert into IMAGE (ID, IMAGEURL)
+values ('069f72db-2157-43de-8e88-21661b518302', '/serverFile/restaurantImages/restaurant/mensa-außen-3.png');
+insert into IMAGE (ID, IMAGEURL)
+values ('069f72db-2157-43de-8e88-21661b518303', '/serverFile/restaurantImages/restaurant/mensa-innen-1.png');
+insert into IMAGE (ID, IMAGEURL)
+values ('069f72db-2157-43de-8e88-21661b518304', '/serverFile/restaurantImages/restaurant/mensa-innen-2.png');
+
+insert into RESTAURANT_IMAGES (RESTAURANT_ID, IMAGES_ID)
+values ('069f72db-2157-43de-8e88-21661b518200', '069f72db-2157-43de-8e88-21661b518300');
+insert into RESTAURANT_IMAGES (RESTAURANT_ID, IMAGES_ID)
+values ('069f72db-2157-43de-8e88-21661b518200', '069f72db-2157-43de-8e88-21661b518301');
+insert into RESTAURANT_IMAGES (RESTAURANT_ID, IMAGES_ID)
+values ('069f72db-2157-43de-8e88-21661b518200', '069f72db-2157-43de-8e88-21661b518302');
+insert into RESTAURANT_IMAGES (RESTAURANT_ID, IMAGES_ID)
+values ('069f72db-2157-43de-8e88-21661b518200', '069f72db-2157-43de-8e88-21661b518303');
+insert into RESTAURANT_IMAGES (RESTAURANT_ID, IMAGES_ID)
+values ('069f72db-2157-43de-8e88-21661b518200', '069f72db-2157-43de-8e88-21661b518304');
 
 // https://www.mockaroo.com/
 insert into restaurant (NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
