@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import java.io.InputStream
 import java.net.URL
 import java.nio.file.Files
 import java.nio.file.Path
+import javax.servlet.http.HttpServletResponse
 
 
 /**
@@ -31,16 +33,16 @@ class ImageController(val imageService: ImageService) {
         value = ["/image/{id}"],
         produces = [MediaType.IMAGE_PNG_VALUE]
     )
-    fun imageIdGet(@PathVariable("id") uuid: java.util.UUID):
-            ResponseEntity<Resource> {
-        val image = imageService.getImage(uuid) ?: return ResponseEntity.notFound().build()
-
-        val systemResource: URL =
-            ClassLoader.getSystemResource(image.imageURL.removePrefix("/serverFile/"))
-                ?: return ResponseEntity.notFound().build()
-        val imagePath: Path = Path.of(systemResource.toURI())
-        val imageResource = ByteArrayResource(Files.readAllBytes(imagePath))
-
-        return ResponseEntity.ok(imageResource)
+    fun imageIdGet(@PathVariable("id") uuid: java.util.UUID, response: HttpServletResponse) {
+        val image = imageService.getImage(uuid) ?: return
+        val inputStream: InputStream? = Thread.currentThread()
+            .contextClassLoader
+            .getResourceAsStream(image.imageURL.removePrefix("/serverFile/"))
+        if (inputStream == null) {
+            response.sendError(503, "The file ${image.imageURL} could not be found.")
+            return
+        }
+        response.contentType = "image/png";
+        inputStream.transferTo(response.outputStream)
     }
 }
