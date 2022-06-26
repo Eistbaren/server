@@ -25,5 +25,5 @@ class Image(
     @ColumnDefault("random_uuid()")
     @Type(type = "uuid-char")
     val id: UUID,
-    val imageURL: URL
+    val imageURL: String
 )

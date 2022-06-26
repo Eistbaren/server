@@ -7,6 +7,7 @@ import org.springframework.orm.jpa.JpaObjectRetrievalFailureException
 import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.ExceptionHandler
 import java.sql.SQLException
+import javax.persistence.EntityNotFoundException
 import javax.servlet.http.HttpServletResponse
 
 /**
@@ -23,7 +24,7 @@ class DefaultExceptionHandler {
     }
 
     /**
-     * handles JpaObjectRetrievalFailureExceptions (searched objects are not found in the persistent layers) -
+     * handles JpaObjectRetrievalFailureExceptions (searched objects are not found in the persistent layer) -
      * params gets injected by Spring Boot. When an JpaObjectRetrievalFailureException occurs the method
      * will catch it and returns the errorcode and message in the json-response.
      *
@@ -32,6 +33,18 @@ class DefaultExceptionHandler {
      */
     @ExceptionHandler(value = [JpaObjectRetrievalFailureException::class])
     fun onApiException(ex: JpaObjectRetrievalFailureException, response: HttpServletResponse): Unit =
+        response.sendError(HttpStatus.BAD_REQUEST.value(), ex.message)
+
+    /**
+     * handles EntityNotFoundExceptions (searched objects are not found in the persistent layer) -
+     * params gets injected by Spring Boot. When an EntityNotFoundExceptions occurs the method
+     * will catch it and returns the errorcode and message in the json-response.
+     *
+     * @param ex EntityNotFoundExceptions injected by SpringBoot
+     * @param response HttpServletResponse from the request that triggered an exception
+     */
+    @ExceptionHandler(value = [EntityNotFoundException::class])
+    fun onApiException(ex: EntityNotFoundException, response: HttpServletResponse): Unit =
         response.sendError(HttpStatus.BAD_REQUEST.value(), ex.message)
 
     /**

@@ -15,5 +15,5 @@ class ImageService(val db: ImageRepository) {
      * @param uuid uuid of the image
      * @return the image object
      */
-    fun getImage(uuid: UUID): Image = db.getById(uuid)
+    fun getImage(uuid: UUID): Image? = db.getById(uuid)
 }
