@@ -1,9 +1,6 @@
 package de.reservationbear.eist.controller
 
-import de.reservationbear.eist.controller.responseMapper.PagingResponseMapper
-import de.reservationbear.eist.controller.responseMapper.RestaurantMapper
-import de.reservationbear.eist.controller.responseMapper.RestaurantTableMapper
-import de.reservationbear.eist.controller.responseMapper.TimeslotMapper
+import de.reservationbear.eist.controller.responseMapper.*
 import de.reservationbear.eist.db.entity.Comment
 import de.reservationbear.eist.db.entity.Reservation
 import de.reservationbear.eist.db.entity.Restaurant
@@ -125,7 +122,13 @@ class RestaurantController(val restaurantService: RestaurantService) {
                 BigDecimal(tables?.totalPages ?: 0),
                 BigDecimal(currentPage),
                 BigDecimal(pageSize),
-                tables?.toList()
+                tables
+                    ?.map { table -> TableMapper(
+                        table?.id,
+                        table?.restaurant?.id,
+                        table?.seats,
+                        table?.floorPlan)}
+                    ?.toList()
             )
         )
     }

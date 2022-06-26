@@ -69,7 +69,7 @@ interface RestaurantRepository : JpaRepository<Restaurant, UUID> {
                 "FROM RestaurantTable r " +
                 "WHERE r.restaurant.id = ?1",
 
-        countQuery = "SELECT r.id " +
+        countQuery = "SELECT r " +
                 "FROM RestaurantTable r " +
                 "WHERE r.restaurant.id = ?1",
     )

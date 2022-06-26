@@ -1,5 +1,6 @@
 package de.reservationbear.eist.controller
 
+import de.reservationbear.eist.controller.responseMapper.TableMapper
 import de.reservationbear.eist.db.entity.RestaurantTable
 import de.reservationbear.eist.service.TableService
 import org.springframework.http.ResponseEntity
@@ -26,10 +27,17 @@ class TableController(val tableService: TableService) {
         value = ["/table/{id}"],
         produces = ["application/json"]
     )
-    fun getTable(@PathVariable("id") id: UUID): ResponseEntity<RestaurantTable> {
+    fun getTable(@PathVariable("id") id: UUID): ResponseEntity<TableMapper> {
 
         val restaurantTable: RestaurantTable = tableService.getTable(id)
 
-        return ResponseEntity.ok(restaurantTable)
+        return ResponseEntity.ok(
+            TableMapper(
+                restaurantTable.id,
+                restaurantTable.restaurant.id,
+                restaurantTable.seats,
+                restaurantTable.floorPlan
+            )
+        )
     }
 }
