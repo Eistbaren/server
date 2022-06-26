@@ -3,7 +3,6 @@ package de.reservationbear.eist.controller.responseMapper
 import com.fasterxml.jackson.annotation.JsonProperty
 import de.reservationbear.eist.db.entity.RestaurantFloorPlan
 import de.reservationbear.eist.db.entity.RestaurantLocation
-import de.reservationbear.eist.db.entity.Timeslot
 import java.net.URI
 import java.util.*
 
@@ -29,7 +28,7 @@ data class RestaurantMapper(
 
     @field:JsonProperty("website") val website: URI? = null,
 
-    @field:JsonProperty("openingHours") val openingHours: OpeningHourMapper? = null,
+    @field:JsonProperty("openingHours") val openingHours: OpeningHoursMapper? = null,
 
     @field:JsonProperty("averageRating") val averageRating: Double? = null,
 

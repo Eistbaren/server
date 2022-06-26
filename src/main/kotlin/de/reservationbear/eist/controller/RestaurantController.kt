@@ -12,8 +12,6 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import java.math.BigDecimal
 import java.sql.Timestamp
-import java.time.Instant
-import java.time.LocalDateTime
 import java.util.*
 
 /**
@@ -57,11 +55,11 @@ class RestaurantController(val restaurantService: RestaurantService) {
                         restaurant.images?.map { image -> image.id },
                         restaurant.website,
                         restaurant.openingHours?.timeslotTo?.let {
-                            OpeningHourMapper(
+                            OpeningHoursMapper(
                                 restaurant.openingHours.timeslotFrom,
                                 it
                             )
-                        } ?: OpeningHourMapper(0, 0),
+                        } ?: OpeningHoursMapper(0, 0),
                         restaurant.averageRating,
                         restaurant.priceCategory,
                         restaurant.location,
@@ -95,11 +93,11 @@ class RestaurantController(val restaurantService: RestaurantService) {
                 restaurant.images?.map { image -> image.id },
                 restaurant.website,
                 restaurant.openingHours?.timeslotTo?.let {
-                    OpeningHourMapper(
+                    OpeningHoursMapper(
                         restaurant.openingHours.timeslotFrom,
                         it
                     )
-                } ?: OpeningHourMapper(0, 0),
+                } ?: OpeningHoursMapper(0, 0),
                 restaurant.averageRating,
                 restaurant.priceCategory,
                 restaurant.location,
