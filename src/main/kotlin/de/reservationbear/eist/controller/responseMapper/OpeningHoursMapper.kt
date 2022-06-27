@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
  * @param to
  */
 class OpeningHoursMapper(
-    @field:JsonProperty("from") val from: Int,
+    @field:JsonProperty("from") val from: Long,
 
-    @field:JsonProperty("to") val to: Int
+    @field:JsonProperty("to") val to: Long
 )
