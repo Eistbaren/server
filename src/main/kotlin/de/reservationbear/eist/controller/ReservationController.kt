@@ -51,7 +51,9 @@ class ReservationController(val reservationService: ReservationService, val tabl
             false
         )
 
-        reservation.restaurant = reservation.restaurantTables?.stream()?.findFirst()?.get()?.restaurant;
+        if(reservation.restaurantTables?.isEmpty() == false){
+            reservation.restaurant = reservation.restaurantTables.stream().findFirst().get().restaurant
+        }
 
         reservationService.saveReservation(reservation)
 
