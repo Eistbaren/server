@@ -35,7 +35,7 @@ data class RestaurantMapper(
 
     @field:JsonProperty("priceCategory") val priceCategory: Int? = null,
 
-    @field:JsonProperty("location") val location: RestaurantLocation? = null,
+    @field:JsonProperty("location") val location: RestaurantLocationMapper? = null,
 
     @field:JsonProperty("floorPlan") val floorPlan: RestaurantFloorPlan? = null
 )
