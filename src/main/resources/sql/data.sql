@@ -5,7 +5,7 @@ insert into RESTAURANT_LOCATION(ID, LAT, LON, RESTAURANT_ID)
 values ('069f72db-2157-43de-8e88-21661b518200', 48.267873, 11.672376, '069f72db-2157-43de-8e88-21661b518200');
 
 INSERT INTO TIMESLOT
-values ('069f72db-2157-43de-8e98-21661b518200', 0,0, '069f72db-2157-43de-8e88-21661b518200');
+values ('069f72db-2157-43de-8e98-21661b518200', parsedatetime('10-06-2022 13:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'), parsedatetime('10-06-2022 13:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'), '069f72db-2157-43de-8e88-21661b518200');
 
 insert into restaurant_table(id, seats, restaurant_id)
 values ('069f72db-2157-43de-8e88-21661b518201', 3, '069f72db-2157-43de-8e88-21661b518200');
