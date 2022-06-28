@@ -1,5 +1,8 @@
 package de.reservationbear.eist.db.entity
 
+import com.fasterxml.jackson.annotation.JsonBackReference
+import com.fasterxml.jackson.annotation.JsonIgnore
+import com.fasterxml.jackson.annotation.JsonManagedReference
 import org.hibernate.annotations.ColumnDefault
 import org.hibernate.annotations.GenericGenerator
 import org.hibernate.annotations.Type
@@ -27,5 +30,6 @@ class RestaurantTable(
     val floorPlan: TableFloorPlan? = null,
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "restaurant_id")
+    @JsonBackReference(value = "restaurantTablesRestaurant")
     val restaurant: Restaurant
 )

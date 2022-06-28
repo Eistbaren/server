@@ -4,7 +4,7 @@ info:
   description: |-
     The documentation of the REST api of Reservation Bear.
     A reference implementation is available on [Github](https://github.com/Eistbaren/client)
-  version: 1.1.0
+  version: 1.1.1
 servers:
 - url: /api/
 tags:
@@ -159,49 +159,6 @@ paths:
                         type: array
                         items:
                           $ref: '#/components/schemas/Table'
-  /restaurant/{id}/timeslot:
-    get:
-      tags:
-      - restaurant
-      summary: get reservable timeslots of a restaurant
-      operationId: getRestaurantTimeslots
-      parameters:
-      - name: id
-        in: path
-        description: id of the restaurant
-        required: true
-        schema:
-          type: string
-      - name: date
-        in: query
-        description: date of the timeslots
-        required: true
-        schema:
-          type: integer
-          format: unix-timestamp
-      - name: currentPage
-        in: query
-        schema:
-          type: integer
-      - name: pageSize
-        in: query
-        schema:
-          type: integer
-      responses:
-        200:
-          description: all reservable time ranges (aka timeslots) on the given day.
-            Reflects the opening times of the restaurant
-          content:
-            application/json:
-              schema:
-                allOf:
-                  - $ref: "#/components/schemas/Paginated"
-                  - type: object
-                    properties:
-                      results:
-                        type: array
-                        items:
-                          $ref: '#/components/schemas/Timeslot'
   /restaurant/{id}/reservation:
     get:
       tags:
@@ -411,7 +368,7 @@ paths:
         200:
           description: the requested image file
           content:
-            application/image:
+            image/png:
               schema:
                 type: string
                 format: binary
@@ -593,10 +550,10 @@ components:
         properties:
           totalPages:
             type: number
-          currentPage: 
+          currentPage:
             type: number
           pageSize:
             type: number
-          results: 
+          results:
             type: array
             items: {}

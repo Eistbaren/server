@@ -1,68 +1,63 @@
 package de.reservationbear.eist.controller
 
-import de.reservationbear.eist.controller.responseMapper.ReservationResponseMapper
+import de.reservationbear.eist.controller.responseMapper.ConfirmationMapper
+import de.reservationbear.eist.controller.responseMapper.ReservationMapper
 import de.reservationbear.eist.controller.responseMapper.TimeslotMapper
 import de.reservationbear.eist.db.entity.Reservation
+import de.reservationbear.eist.exceptionhandler.ApiException
 import de.reservationbear.eist.service.ReservationService
 import org.springframework.core.io.Resource
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import java.util.*
-
+import java.util.stream.Collectors
 
 /**
  * REST-Controller for the reservation entity
  */
 @RestController
 @RequestMapping(value = ["/api"])
-class ReservationController(val reservationService: ReservationService) {
-
-    /**
-     * Returns a reservation, specified by the id
-     *
-     * @param id        id of the reservation
-     * @return          ResponseEntity with status and body with JSON
-     */
-    @GetMapping(
-        value = ["/reservation/{id}"],
-        produces = ["application/json"]
-    )
-    fun getReservation(@PathVariable("id") id: String): ResponseEntity<ReservationResponseMapper> {
-
-        val reservation: Reservation = reservationService.getReservation(UUID.fromString(id))
-
-        return ResponseEntity.ok(
-            ReservationResponseMapper(
-                reservation.id,
-                reservation.restaurantTables?.map { tables -> tables.id }?.toList(),
-                TimeslotMapper(reservation.reservationFrom, reservation.reservationTo),
-                reservation.userName,
-                reservation.userEmail,
-                reservation.confirmed
-            )
-        )
-    }
+class ReservationController(val reservationService: ReservationService, val tableService: TableService) {
 
     /**
      * Creates a reservation and pass it to the reservation service
      *
-     * @param reservation   Consumes JSON Object and creates a new reservation
-     * @return              ResponseEntity with status and body with JSON
+     * @param reservationMapper     Consumes JSON Object and creates a new reservation
+     * @return                      ResponseEntity with status and body with JSON
      */
     @PostMapping(
         value = ["/reservation"],
         produces = ["application/json"]
     )
-    fun createReservation(@RequestBody reservation: Reservation):
-            ResponseEntity<ReservationResponseMapper> {
+    fun createReservation(
+        @RequestBody reservationMapper: ReservationMapper
+    ): ResponseEntity<ReservationMapper> {
 
-        reservation.confirmed = false
+        val reservation = Reservation(
+            null,
+            reservationMapper.tables?.stream()
+                ?.map { t -> tableService.getTable(t!!) }
+                ?.collect(Collectors.toSet())
+                ?.toSet(),
+            reservationMapper.time!!.from!!,
+            reservationMapper.time.to!!,
+            reservationMapper.userName!!,
+            reservationMapper.userEmail!!,
+            false
+        )
+
+        if (reservation.restaurantTables != null && reservation.restaurantTables.isNotEmpty()) {
+            reservation.restaurant = reservation.restaurantTables.stream().findFirst().get().restaurant
+        } else {
+           throw ApiException("Tablelist cannot be null or error",401)
+        }
+
         reservationService.saveReservation(reservation)
 
         val insertedReservation: Reservation = reservation.id?.let { reservationService.getReservation(it) }!!
 
         return ResponseEntity.ok(
-            ReservationResponseMapper(
+            ReservationMapper(
                 insertedReservation.id,
                 insertedReservation.restaurantTables?.map { tables -> tables.id }?.toList(),
                 TimeslotMapper(insertedReservation.reservationFrom, insertedReservation.reservationTo),
@@ -86,20 +81,20 @@ class ReservationController(val reservationService: ReservationService) {
         produces = ["application/json"]
     )
     fun patchReservation(
-        @PathVariable("id") id: String,
+        @PathVariable("id") id: UUID,
         @RequestParam(value = "confirmationToken", required = true) confirmationToken: String,
-        @RequestBody confirmed: Boolean
-    ): ResponseEntity<ReservationResponseMapper> {
+        @RequestBody confirmationMapper: ConfirmationMapper
+    ): ResponseEntity<ReservationMapper> {
 
-        val patchedReservation: Reservation = reservationService.getReservation(UUID.fromString(id))
+        val patchedReservation: Reservation = reservationService.getReservation(id)
         if (patchedReservation.confirmationToken == null || patchedReservation.confirmationToken.toString() != confirmationToken) {
             return ResponseEntity.badRequest().build()
         } else {
-            patchedReservation.confirmed = confirmed
+            patchedReservation.confirmed = confirmationMapper.confirmed
             reservationService.saveReservation(patchedReservation)
 
             return ResponseEntity.ok(
-                ReservationResponseMapper(
+                ReservationMapper(
                     patchedReservation.id,
                     patchedReservation.restaurantTables?.map { tables -> tables.id }?.toList(),
                     TimeslotMapper(patchedReservation.reservationFrom, patchedReservation.reservationTo),
@@ -112,7 +107,7 @@ class ReservationController(val reservationService: ReservationService) {
     }
 
     /**
-     * Removes a reservation from the persistent layer
+     * Removes a reservation from the persistent layer.
      *
      * @param id            id of the reservation
      * @return              ResponseEntity with status and body with JSON
@@ -121,13 +116,15 @@ class ReservationController(val reservationService: ReservationService) {
         value = ["/reservation/{id}"],
         produces = ["application/json"]
     )
-    fun deleteReservation(@PathVariable("id") id: String): ResponseEntity<ReservationResponseMapper> {
+    fun deleteReservation(
+        @PathVariable("id") id: UUID
+    ): ResponseEntity<ReservationMapper> {
 
-        val removedReservation: Reservation = id.let { reservationService.getReservation(UUID.fromString(id)) }
-        reservationService.deleteReservation(UUID.fromString(id))
+        val removedReservation: Reservation = id.let { reservationService.getReservation(id) }
+        reservationService.deleteReservation(id)
 
         return ResponseEntity.ok(
-            ReservationResponseMapper(
+            ReservationMapper(
                 removedReservation.id,
                 removedReservation.restaurantTables?.map { tables -> tables.id }?.toList(),
                 TimeslotMapper(removedReservation.reservationFrom, removedReservation.reservationTo),

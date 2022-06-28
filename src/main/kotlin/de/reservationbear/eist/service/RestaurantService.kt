@@ -1,9 +1,6 @@
 package de.reservationbear.eist.service
 
-import de.reservationbear.eist.db.entity.Comment
-import de.reservationbear.eist.db.entity.Reservation
-import de.reservationbear.eist.db.entity.Restaurant
-import de.reservationbear.eist.db.entity.RestaurantTable
+import de.reservationbear.eist.db.entity.*
 import de.reservationbear.eist.db.repository.RestaurantRepository
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable

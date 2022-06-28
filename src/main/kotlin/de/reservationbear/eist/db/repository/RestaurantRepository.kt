@@ -1,9 +1,6 @@
 package de.reservationbear.eist.db.repository
 
-import de.reservationbear.eist.db.entity.Comment
-import de.reservationbear.eist.db.entity.Reservation
-import de.reservationbear.eist.db.entity.Restaurant
-import de.reservationbear.eist.db.entity.RestaurantTable
+import de.reservationbear.eist.db.entity.*
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.jpa.repository.JpaRepository
@@ -72,7 +69,7 @@ interface RestaurantRepository : JpaRepository<Restaurant, UUID> {
                 "FROM RestaurantTable r " +
                 "WHERE r.restaurant.id = ?1",
 
-        countQuery = "SELECT r.id " +
+        countQuery = "SELECT r " +
                 "FROM RestaurantTable r " +
                 "WHERE r.restaurant.id = ?1",
     )

@@ -3,6 +3,7 @@ package de.reservationbear.eist.db.entity
 import org.hibernate.annotations.ColumnDefault
 import org.hibernate.annotations.GenericGenerator
 import org.hibernate.annotations.Type
+import java.sql.Timestamp
 import java.util.*
 import javax.persistence.Column
 import javax.persistence.Entity
@@ -24,6 +25,6 @@ class Timeslot(
     @ColumnDefault("random_uuid()")
     @Type(type = "uuid-char")
     val id: UUID,
-    val timeslotFrom: Int,
-    val timeslotTo: Int
+    val timeslotFrom: Long,
+    val timeslotTo: Long
 )
