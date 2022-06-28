@@ -1,5 +1,6 @@
 package de.reservationbear.eist.db.entity
 
+import com.fasterxml.jackson.annotation.JsonManagedReference
 import org.hibernate.annotations.ColumnDefault
 import org.hibernate.annotations.GenericGenerator
 import org.hibernate.annotations.Type
@@ -24,8 +25,14 @@ class TableFloorPlan(
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "imageId")
+    @JsonManagedReference
     val image: Image? = null,
 
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "tableFloorPlan")
+    @JsonManagedReference
+    val propertySize: TableFloorPlanPosition? = null,
+
     @OneToOne(fetch = FetchType.EAGER)
-    val propertySize: TableFloorPlanPosition? = null
+    @JoinColumn(name = "restaurantTableId")
+    val restaurantTable: RestaurantTable
 )

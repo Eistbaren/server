@@ -1,5 +1,6 @@
 package de.reservationbear.eist.db.entity
 
+import com.fasterxml.jackson.annotation.JsonBackReference
 import com.fasterxml.jackson.annotation.JsonIgnore
 import org.hibernate.annotations.ColumnDefault
 import org.hibernate.annotations.GenericGenerator
@@ -31,7 +32,7 @@ class Comment(
     val name: String? = null,
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "RestaurantId")
-    @JsonIgnore
+    @JoinColumn(name = "restaurantId")
+    @JsonBackReference
     val restaurant: Restaurant
 )

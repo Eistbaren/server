@@ -1,5 +1,6 @@
 package de.reservationbear.eist.db.entity
 
+import com.fasterxml.jackson.annotation.JsonBackReference
 import org.hibernate.annotations.ColumnDefault
 import org.hibernate.annotations.GenericGenerator
 import org.hibernate.annotations.Type
@@ -27,5 +28,7 @@ class RestaurantLocation(
     val lon: Double,
 
     @OneToOne
+    @JoinColumn(name = "restaurantId")
+    @JsonBackReference
     val restaurant: Restaurant
 )

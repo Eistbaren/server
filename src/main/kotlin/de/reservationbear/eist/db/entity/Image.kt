@@ -1,5 +1,6 @@
 package de.reservationbear.eist.db.entity
 
+import com.fasterxml.jackson.annotation.JsonBackReference
 import org.hibernate.annotations.ColumnDefault
 import org.hibernate.annotations.GenericGenerator
 import org.hibernate.annotations.Type
@@ -25,6 +26,7 @@ class Image(
     val imageURL: String,
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "image")
+    @JsonBackReference
     val tableFloorPlans: Set<TableFloorPlan>,
 
     @ManyToMany(fetch = FetchType.EAGER, mappedBy = "images")

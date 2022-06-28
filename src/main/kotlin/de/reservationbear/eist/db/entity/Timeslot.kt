@@ -1,5 +1,6 @@
 package de.reservationbear.eist.db.entity
 
+import com.fasterxml.jackson.annotation.JsonBackReference
 import org.hibernate.annotations.ColumnDefault
 import org.hibernate.annotations.GenericGenerator
 import org.hibernate.annotations.Type
@@ -25,9 +26,10 @@ class Timeslot(
 
     val timeslotFrom: Long,
     
-    val timeslotTo: Long
+    val timeslotTo: Long,
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "RestaurantId")
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "restaurantId")
+    @JsonBackReference
     val restaurant: Restaurant
 )

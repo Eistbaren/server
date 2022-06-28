@@ -36,17 +36,20 @@ class Restaurant(
 
     val website: URI? = null,
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "restaurant")
-    val openingHours: Set<Timeslot>? = null,
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "restaurant")
+    @JsonManagedReference
+    val openingHours: Timeslot? = null,
 
     val averageRating: Double,
 
     val priceCategory: Int,
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "restaurant")
+    @JsonManagedReference
     val location: RestaurantLocation? = null,
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "restaurant")
+    @JsonManagedReference
     val floorPlan: RestaurantFloorPlan? = null,
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "restaurant")
@@ -54,5 +57,6 @@ class Restaurant(
     val restaurantTables: Set<RestaurantTable>? = null,
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "restaurant")
+    @JsonManagedReference
     val comments: Set<Comment>? = null,
 )
