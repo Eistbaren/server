@@ -204,8 +204,8 @@ class RestaurantController(val restaurantService: RestaurantService) {
         val reservations: Page<Reservation?>? =
             restaurantService.findReservationsInTimeframeOfRestaurant(
                 id,
-                Timestamp(from),
-                Timestamp(to),
+                Timestamp(from * 1000),
+                Timestamp(to * 1000),
                 PageRequest.of(currentPage, pageSize)
             )
 
@@ -217,8 +217,8 @@ class RestaurantController(val restaurantService: RestaurantService) {
                     ?.let {
                         RestaurantTableMapper(
                             TimeslotMapper(
-                                reservation.reservationFrom,
-                                reservation.reservationTo
+                                reservation.reservationFrom.time / 1000,
+                                reservation.reservationTo.time / 1000
                             ),
                             it.toList()
                         )

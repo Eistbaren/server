@@ -15,6 +15,7 @@ import org.springframework.core.io.ByteArrayResource
 import org.springframework.core.io.Resource
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import java.sql.Timestamp
 import java.util.*
 import java.util.stream.Collectors
 
@@ -45,8 +46,8 @@ class ReservationController(val reservationService: ReservationService, val tabl
                 ?.map { t -> tableService.getTable(t!!) }
                 ?.collect(Collectors.toSet())
                 ?.toSet(),
-            reservationMapper.time!!.from!!,
-            reservationMapper.time.to!!,
+            Timestamp(reservationMapper.time!!.from!! * 1000),
+            Timestamp(reservationMapper.time.to!! * 100),
             reservationMapper.userName!!,
             reservationMapper.userEmail!!,
             false
@@ -66,7 +67,7 @@ class ReservationController(val reservationService: ReservationService, val tabl
             ReservationMapper(
                 insertedReservation.id,
                 insertedReservation.restaurantTables?.map { tables -> tables.id }?.toList(),
-                TimeslotMapper(insertedReservation.reservationFrom, insertedReservation.reservationTo),
+                TimeslotMapper(insertedReservation.reservationFrom.time / 1000, insertedReservation.reservationTo.time / 1000),
                 insertedReservation.userName,
                 insertedReservation.userEmail,
                 insertedReservation.confirmed
@@ -94,7 +95,7 @@ class ReservationController(val reservationService: ReservationService, val tabl
             ReservationMapper(
                 reservation.id,
                 reservation.restaurantTables?.map { tables -> tables.id }?.toList(),
-                TimeslotMapper(reservation.reservationFrom, reservation.reservationTo),
+                TimeslotMapper(reservation.reservationFrom.time / 1000, reservation.reservationTo.time / 1000),
                 reservation.userName,
                 reservation.userEmail,
                 reservation.confirmed
@@ -129,7 +130,7 @@ class ReservationController(val reservationService: ReservationService, val tabl
             ReservationMapper(
                 patchedReservation.id,
                 patchedReservation.restaurantTables?.map { tables -> tables.id }?.toList(),
-                TimeslotMapper(patchedReservation.reservationFrom, patchedReservation.reservationTo),
+                TimeslotMapper(patchedReservation.reservationFrom.time / 1000, patchedReservation.reservationTo.time /1000),
                 patchedReservation.userName,
                 patchedReservation.userEmail,
                 patchedReservation.confirmed
@@ -158,7 +159,7 @@ class ReservationController(val reservationService: ReservationService, val tabl
             ReservationMapper(
                 removedReservation.id,
                 removedReservation.restaurantTables?.map { tables -> tables.id }?.toList(),
-                TimeslotMapper(removedReservation.reservationFrom, removedReservation.reservationTo),
+                TimeslotMapper(removedReservation.reservationFrom.time / 1000, removedReservation.reservationTo.time / 1000),
                 removedReservation.userName,
                 removedReservation.userEmail,
                 removedReservation.confirmed
