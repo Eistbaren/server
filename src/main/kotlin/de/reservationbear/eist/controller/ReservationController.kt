@@ -5,6 +5,7 @@ import de.reservationbear.eist.controller.responseMapper.ReservationMapper
 import de.reservationbear.eist.controller.responseMapper.TimeslotMapper
 import de.reservationbear.eist.db.entity.Reservation
 import de.reservationbear.eist.exceptionhandler.ApiException
+import de.reservationbear.eist.service.MailService
 import de.reservationbear.eist.service.ReservationService
 import de.reservationbear.eist.service.TableService
 import org.springframework.core.io.Resource
@@ -18,7 +19,11 @@ import java.util.stream.Collectors
  */
 @RestController
 @RequestMapping(value = ["/api"])
-class ReservationController(val reservationService: ReservationService, val tableService: TableService) {
+class ReservationController(
+    val reservationService: ReservationService,
+    val tableService: TableService,
+    val mailService: MailService
+) {
 
     /**
      * Creates a reservation and pass it to the reservation service
@@ -47,15 +52,21 @@ class ReservationController(val reservationService: ReservationService, val tabl
             false
         )
 
-        if (reservation.restaurantTables != null && reservation.restaurantTables.isNotEmpty()) {
-            reservation.restaurant = reservation.restaurantTables.stream().findFirst().get().restaurant
+        if (reservation.restaurantTables != null && reservation.restaurantTables!!.isNotEmpty()) {
+            reservation.restaurant = reservation.restaurantTables!!.stream().findFirst().get().restaurant
         } else {
-           throw ApiException("Tablelist cannot be null or error",401)
+            throw ApiException("Tablelist cannot be null or error", 401)
         }
 
         reservationService.saveReservation(reservation)
 
         val insertedReservation: Reservation = reservation.id?.let { reservationService.getReservation(it) }!!
+
+        mailService.sendRegistrationMail(
+            insertedReservation.userEmail,
+            insertedReservation.userName,
+            insertedReservation.id!!
+        )
 
         return ResponseEntity.ok(
             ReservationMapper(
@@ -82,28 +93,22 @@ class ReservationController(val reservationService: ReservationService, val tabl
     )
     fun patchReservation(
         @PathVariable("id") id: UUID,
-        @RequestParam(value = "confirmationToken", required = true) confirmationToken: String,
+        @RequestParam(value = "confirmationToken", required = true) confirmationToken: UUID,
         @RequestBody confirmationMapper: ConfirmationMapper
     ): ResponseEntity<ReservationMapper> {
 
-        val patchedReservation: Reservation = reservationService.getReservation(id)
-        if (patchedReservation.confirmationToken == null || patchedReservation.confirmationToken.toString() != confirmationToken) {
-            return ResponseEntity.badRequest().build()
-        } else {
-            patchedReservation.confirmed = confirmationMapper.confirmed
-            reservationService.saveReservation(patchedReservation)
+        val patchedReservation: Reservation = reservationService.confirmReservation(id, confirmationToken)
 
-            return ResponseEntity.ok(
-                ReservationMapper(
-                    patchedReservation.id,
-                    patchedReservation.restaurantTables?.map { tables -> tables.id }?.toList(),
-                    TimeslotMapper(patchedReservation.reservationFrom, patchedReservation.reservationTo),
-                    patchedReservation.userName,
-                    patchedReservation.userEmail,
-                    patchedReservation.confirmed
-                )
+        return ResponseEntity.ok(
+            ReservationMapper(
+                patchedReservation.id,
+                patchedReservation.restaurantTables?.map { tables -> tables.id }?.toList(),
+                TimeslotMapper(patchedReservation.reservationFrom, patchedReservation.reservationTo),
+                patchedReservation.userName,
+                patchedReservation.userEmail,
+                patchedReservation.confirmed
             )
-        }
+        )
     }
 
     /**
@@ -120,8 +125,7 @@ class ReservationController(val reservationService: ReservationService, val tabl
         @PathVariable("id") id: UUID
     ): ResponseEntity<ReservationMapper> {
 
-        val removedReservation: Reservation = id.let { reservationService.getReservation(id) }
-        reservationService.deleteReservation(id)
+        val removedReservation: Reservation = reservationService.deleteReservation(id)
 
         return ResponseEntity.ok(
             ReservationMapper(

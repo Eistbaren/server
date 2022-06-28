@@ -2,6 +2,7 @@
 package de.reservationbear.eist.confirmationmail
 
 import org.springframework.stereotype.Service
+import java.util.*
 
 /**
  * Pattern for sending a registration mail
@@ -12,13 +13,13 @@ class RegistrationMailPattern(val mailSender: MailSender) {
     /**
      * Method that calls the mailSender.send method to send the mail
      *
-     * @param mailAddress   Address for Mail
-     * @param name          name of the recipient
-     * @param token         token for confirm a reservation
+     * @param mailAddress       Address for Mail
+     * @param name              name of the recipient
+     * @param reservationId     id from the reservation
      */
-    fun sendMail(mailAddress: String, name: String, token: String) {
+    fun sendMail(mailAddress: String, name: String, reservationId: UUID) {
         //No such endpoint - do we want to approve mail addresses?
-        val link = "http://localhost:8080/api/user/email?token=$token"
+        val link = "http://localhost:8080/api/reservation/${reservationId}/"
         mailSender.send(
             mailAddress,
             buildEmail(name.split(" ")[0], link),

@@ -29,7 +29,7 @@ class Reservation(
         joinColumns = [JoinColumn(name = "Reservation.ID")],
         inverseJoinColumns = [JoinColumn(name = "RestaurantTables.ID")]
     )
-    val restaurantTables: Set<RestaurantTable>? = null,
+    var restaurantTables: Set<RestaurantTable>? = null,
     val reservationFrom: Timestamp,
     val reservationTo: Timestamp,
     val userName: String,

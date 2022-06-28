@@ -1,52 +1,46 @@
-//Source: https://www.youtube.com/watch?v=QwQuro7ekvc
 package de.reservationbear.eist.service
 
-import de.reservationbear.eist.confirmationmail.MailSender
-import lombok.AllArgsConstructor
-import org.slf4j.LoggerFactory
-import org.springframework.mail.javamail.JavaMailSender
-import org.springframework.mail.javamail.MimeMessageHelper
-import org.springframework.scheduling.annotation.Async
+import de.reservationbear.eist.confirmationmail.ConfirmationMailPattern
+import de.reservationbear.eist.confirmationmail.RegistrationMailPattern
 import org.springframework.stereotype.Service
 import java.util.*
-import javax.mail.MessagingException
 
 /**
- * Mailservice for building and sending mails
+ * Mailservice with methods for sending different mails
  */
 @Service
-@AllArgsConstructor
-class MailService(val mailSender: JavaMailSender, val reservationService: ReservationService) : MailSender {
+class MailService(val confirmationMailPattern: ConfirmationMailPattern, val registrationMailPattern: RegistrationMailPattern) {
 
-    companion object {
-        private val LOGGER = LoggerFactory
-            .getLogger(MailService::class.java)
+
+    /**
+     * Sends the registration mail - should be called after a successful registration
+     *
+     * @param userEmail         mail address from the user
+     * @param userName          name of the user
+     * @param reservationId     id of the corresponding reservation
+     */
+    fun sendRegistrationMail(userEmail: String, userName: String, reservationId: UUID, ){
+        registrationMailPattern.sendMail(
+            userEmail,
+            userName,
+            reservationId
+        )
     }
 
     /**
-     * method to sending mails
+     * Sends the confirmation mail
      *
-     * @param to        Address for Mail
-     * @param email     E-Mail text
-     * @param subject   title of mail
+     * @param userEmail         mail address from the user
+     * @param userName          name of the user
+     * @param reservationId     id of the corresponding reservation
+     * @param confirmationToken confirmation token for confirming the mail
      */
-    @Throws(IllegalStateException::class)
-    @Async
-    override fun send(to: String?, email: String?, subject: String?, reservationUUID: UUID?) {
-        try {
-            val mimeMessage = mailSender.createMimeMessage()
-            val helper = MimeMessageHelper(mimeMessage, true,"utf-8")
-            helper.setText(email!!, true)
-            helper.setTo(to!!)
-            helper.setSubject(subject ?: "Info")
-            helper.setFrom("reservation@reservation-bear.de")
-            if(reservationUUID != null) {
-                helper.addAttachment("reservation.ics", reservationService.getICSResource(reservationUUID))
-            }
-            mailSender.send(mimeMessage)
-        } catch (e: MessagingException) {
-            LOGGER.error("Failed to send email", e)
-            throw IllegalStateException("Failed to send email")
-        }
+    fun sendConfirmationMail(userEmail: String, userName: String, reservationId: UUID, confirmationToken: UUID){
+        confirmationMailPattern.sendMail(
+            userEmail,
+            userName,
+            confirmationToken,
+            reservationId
+        )
     }
 }
