@@ -59,7 +59,7 @@ class RestaurantController(val restaurantService: RestaurantService) {
                         restaurant.openingHours?.toMutableList(),
                         restaurant.averageRating,
                         restaurant.priceCategory,
-                        restaurant.location?.let { RestaurantLocationMapper(it.lat, restaurant.location.lon) } ?: RestaurantLocationMapper(0.0,0.0),
+                        RestaurantLocationMapper(restaurant.location?.lon ?: 0.0, restaurant.location?.lon ?: 0.0),
                         restaurant.floorPlan
                     )
                 }.toList()
@@ -92,7 +92,7 @@ class RestaurantController(val restaurantService: RestaurantService) {
                 restaurant.openingHours?.toMutableList(),
                 restaurant.averageRating,
                 restaurant.priceCategory,
-                restaurant.location?.let { RestaurantLocationMapper(it.lat, restaurant.location.lon) } ?: RestaurantLocationMapper(0.0,0.0),
+                RestaurantLocationMapper(restaurant.location?.lon ?: 0.0, restaurant.location?.lon ?: 0.0),
                 restaurant.floorPlan
             )
         )

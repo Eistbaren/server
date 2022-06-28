@@ -5,7 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty
 /**
  * Mapper for reservation location
  *
- * @param confirmed
+ * @param let
+ * @param lon
  */
 
 class RestaurantLocationMapper(
