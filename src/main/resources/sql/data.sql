@@ -1,8 +1,11 @@
 insert into RESTAURANT_LOCATION(ID, LAT, LON)
 values ('069f72db-2157-43de-8e88-21661b518200', 48.267873, 11.672376);
 
-insert into restaurant (id, name, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, FLOOR_PLAN_ID, LOCATION_ID)
-values ('069f72db-2157-43de-8e88-21661b518200', 'Mensa Garching', 5.0, 2, 'hunger.tum.sexy', null,
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518200', DATEDIFF('SECOND', DATE '1970-01-01', CURRENT_DATE()) + 60 * 60 * 17,
+        DATEDIFF('SECOND', DATE '1970-01-01', CURRENT_DATE()) + 60 * 60 * 17);
+insert into restaurant (id, name, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, FLOOR_PLAN_ID, LOCATION_ID, OPENING_HOURS_ID)
+values ('069f72db-2157-43de-8e88-21661b518200', 'Mensa Garching', 5.0, 2, 'hunger.tum.sexy', null, '069f72db-2157-43de-8e88-21661b518200',
         '069f72db-2157-43de-8e88-21661b518200');
 
 insert into restaurant_table(id, seats, restaurant_id)
@@ -68,11 +71,6 @@ insert into RESTAURANT_RESERVATIONS (RESTAURANT_ID, RESERVATIONS_ID)
 values ('069f72db-2157-43de-8e88-21661b518200', '069f72db-2157-43de-8e88-21661b518201');
 insert into RESERVATION_RESTAURANT_TABLES(RESERVATION_ID, RESTAURANT_TABLES_ID)
 values ('069f72db-2157-43de-8e88-21661b518201', '069f72db-2157-43de-8e88-21661b518201');
-
-INSERT INTO TIMESLOT
-values ('dcceb799-0147-42b1-8ed7-5e6addec8ad3', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
-insert into RESTAURANT_OPENING_HOURS
-values ('069f72db-2157-43de-8e88-21661b518200', 'dcceb799-0147-42b1-8ed7-5e6addec8ad3');
 
 insert into IMAGE (ID, IMAGEURL)
 values ('069f72db-2157-43de-8e88-21661b518100', '/serverFile/serverImages/corporateIdentity/logo.png');
