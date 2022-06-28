@@ -1,8 +1,11 @@
+insert into RESTAURANT_LOCATION(ID, LAT, LON)
+values ('069f72db-2157-43de-8e88-21661b518200', 48.267873, 11.672376);
+
 INSERT INTO TIMESLOT
 values ('069f72db-2157-43de-8e88-21661b518200', DATEDIFF('SECOND', DATE '1970-01-01', CURRENT_DATE()) + 60 * 60 * 17,
         DATEDIFF('SECOND', DATE '1970-01-01', CURRENT_DATE()) + 60 * 60 * 17);
 insert into restaurant (id, name, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, FLOOR_PLAN_ID, LOCATION_ID, OPENING_HOURS_ID)
-values ('069f72db-2157-43de-8e88-21661b518200', 'Mensa Garching', 5.0, 2, 'hunger.tum.sexy', null, null,
+values ('069f72db-2157-43de-8e88-21661b518200', 'Mensa Garching', 5.0, 2, 'hunger.tum.sexy', null, '069f72db-2157-43de-8e88-21661b518200',
         '069f72db-2157-43de-8e88-21661b518200');
 
 insert into restaurant_table(id, seats, restaurant_id)
@@ -104,21 +107,34 @@ values ('069f72db-2157-43de-8e88-21661b518200', '069f72db-2157-43de-8e88-21661b5
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
 values ('069f72db-2157-43de-8e88-21661b518201', 'Cronin-Hagenes', 2, 2, 'www.tum.de');
 
-insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
-values ('069f72db-2157-43de-8e88-21661b518202', 'Schultz, Abshire and Yost', 3, 3, 'www.tum.de');
+insert into RESTAURANT_LOCATION(ID, LAT, LON)
+values ('069f72db-2157-43de-8e88-21661b518202', 48.147154, 11.586124);
+insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, LOCATION_ID)
+values ('069f72db-2157-43de-8e88-21661b518202', 'Schultz, Abshire and Yost', 3, 3, 'www.tum.de',
+        '069f72db-2157-43de-8e88-21661b518202');
 insert into RESTAURANT_IMAGES (RESTAURANT_ID, IMAGES_ID)
 values ('069f72db-2157-43de-8e88-21661b518202', '069f72db-2157-43de-8e88-21661b518302');
 
-insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
-values ('069f72db-2157-43de-8e88-21661b518203', 'Ferry-Steuber', 4, 1, 'www.tum.de');
+insert into RESTAURANT_LOCATION(ID, LAT, LON)
+values ('069f72db-2157-43de-8e88-21661b518203', 48.168154, 11.576124);
+insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, LOCATION_ID)
+values ('069f72db-2157-43de-8e88-21661b518203', 'Ferry-Steuber', 4, 1, 'www.tum.de',
+        '069f72db-2157-43de-8e88-21661b518203');
 insert into RESTAURANT_IMAGES (RESTAURANT_ID, IMAGES_ID)
 values ('069f72db-2157-43de-8e88-21661b518203', '069f72db-2157-43de-8e88-21661b518303');
-insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
-values ('069f72db-2157-43de-8e88-21661b518204', 'Balistreri-Quigley', 5, 2, 'www.google.de');
+
+insert into RESTAURANT_LOCATION(ID, LAT, LON)
+values ('069f72db-2157-43de-8e88-21661b518204', 48.157154, 11.556124);
+insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, LOCATION_ID)
+values ('069f72db-2157-43de-8e88-21661b518204', 'Balistreri-Quigley', 5, 2, 'www.google.de',
+        '069f72db-2157-43de-8e88-21661b518204');
 insert into RESTAURANT_IMAGES (RESTAURANT_ID, IMAGES_ID)
 values ('069f72db-2157-43de-8e88-21661b518204', '069f72db-2157-43de-8e88-21661b518304');
-insert into restaurant (NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
-values ('Friesen-Brakus', 1, 3, 'www.google.de');
+
+insert into RESTAURANT_LOCATION(ID, LAT, LON)
+values ('069f72db-2157-43de-8e88-21661b518205', 48.167154, 11.550124);
+insert into restaurant (NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, LOCATION_ID)
+values ('Friesen-Brakus', 1, 3, 'www.google.de', '069f72db-2157-43de-8e88-21661b518205');
 insert into restaurant (NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
 values ('Haley Inc', 2, 1, 'www.duckduckgo.com');
 insert into restaurant (NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
