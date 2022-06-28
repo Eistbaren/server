@@ -62,7 +62,7 @@ class RestaurantController(val restaurantService: RestaurantService) {
                         } ?: OpeningHoursMapper(0, 0),
                         restaurant.averageRating,
                         restaurant.priceCategory,
-                        restaurant.location,
+                        RestaurantLocationMapper(restaurant.location?.lon ?: 0.0, restaurant.location?.lon ?: 0.0),
                         restaurant.floorPlan
                     )
                 }.toList()
@@ -100,7 +100,7 @@ class RestaurantController(val restaurantService: RestaurantService) {
                 } ?: OpeningHoursMapper(0, 0),
                 restaurant.averageRating,
                 restaurant.priceCategory,
-                restaurant.location,
+                RestaurantLocationMapper(restaurant.location?.lon ?: 0.0, restaurant.location?.lon ?: 0.0),
                 restaurant.floorPlan
             )
         )
