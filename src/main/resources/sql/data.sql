@@ -1,5 +1,9 @@
-insert into restaurant (id, name, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, FLOOR_PLAN_ID, LOCATION_ID)
-values ('069f72db-2157-43de-8e88-21661b518200', 'Mensa Garching', 5.0, 2, 'hunger.tum.sexy', null, null);
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518200', DATEDIFF('SECOND', DATE '1970-01-01', CURRENT_DATE()) + 60 * 60 * 17,
+        DATEDIFF('SECOND', DATE '1970-01-01', CURRENT_DATE()) + 60 * 60 * 17);
+insert into restaurant (id, name, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, FLOOR_PLAN_ID, LOCATION_ID, OPENING_HOURS_ID)
+values ('069f72db-2157-43de-8e88-21661b518200', 'Mensa Garching', 5.0, 2, 'hunger.tum.sexy', null, null,
+        '069f72db-2157-43de-8e88-21661b518200');
 
 insert into restaurant_table(id, seats, restaurant_id)
 values ('069f72db-2157-43de-8e88-21661b518201', 3, '069f72db-2157-43de-8e88-21661b518200');

@@ -77,34 +77,4 @@ interface RestaurantRepository : JpaRepository<Restaurant, UUID> {
                 "WHERE r.restaurant.id = ?1",
     )
     fun findTablesOfRestaurant(uuid: UUID, pageable: Pageable?): Page<RestaurantTable?>?
-
-    /**
-     * Searches after the opening hours of a given restaurant
-     * @param uuid the uuid of the restaurant
-     * @param fromDay the start of the day to query
-     * @param fromDay the end of the day to query (normally the next day)
-     * @param pageable access the database values in batches
-     * @return a page of tables
-     */
-    @Query(
-        value = "SELECT t " +
-                "FROM Timeslot t " +
-                "JOIN t.restaurant r " +
-                "WHERE r.id = ?1 " +
-                "AND t.timeslotFrom >= ?2 " +
-                "AND t.timeslotTo <= ?3",
-
-        countQuery = "SELECT count(t) " +
-                "FROM Timeslot t " +
-                "JOIN t.restaurant r " +
-                "WHERE r.id = ?1 " +
-                "AND t.timeslotFrom >= ?2 " +
-                "AND t.timeslotTo <= ?3",
-    )
-    fun findTimeslotsInTimeframeOfRestaurant(
-        uuid: UUID,
-        fromDay: Timestamp,
-        toDay: Timestamp,
-        pageable: Pageable?
-    ): Page<Timeslot?>?
 }
