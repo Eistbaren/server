@@ -1,13 +1,11 @@
 package de.reservationbear.eist.db.entity
 
+import com.fasterxml.jackson.annotation.JsonBackReference
 import org.hibernate.annotations.ColumnDefault
 import org.hibernate.annotations.GenericGenerator
 import org.hibernate.annotations.Type
 import java.util.*
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
+import javax.persistence.*
 
 /**
  * Represents the (lat/lon) location of a restaurant
@@ -24,6 +22,13 @@ class RestaurantLocation(
     @ColumnDefault("random_uuid()")
     @Type(type = "uuid-char")
     val id: UUID,
+
     val lat: Double,
-    val lon: Double
+
+    val lon: Double,
+
+    @OneToOne
+    @JoinColumn(name = "restaurantId")
+    @JsonBackReference
+    val restaurant: Restaurant
 )

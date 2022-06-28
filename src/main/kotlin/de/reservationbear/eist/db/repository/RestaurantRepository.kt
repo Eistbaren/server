@@ -19,13 +19,13 @@ interface RestaurantRepository : JpaRepository<Restaurant, UUID> {
      * @return a page of comments
      */
     @Query(
-        value = "SELECT r.comments " +
-                "FROM Restaurant r " +
-                "WHERE r.id = ?1",
+        value = "SELECT c " +
+                "FROM Comment c " +
+                "WHERE c.restaurant.id = ?1",
 
-        countQuery = "SELECT size(r.comments) " +
-                "FROM Restaurant r " +
-                "WHERE r.id = ?1",
+        countQuery = "SELECT count(c) " +
+                "FROM Comment c " +
+                "WHERE c.restaurant.id = ?1",
     )
     fun findCommentsOfRestaurant(uuid: UUID, pageable: Pageable?): Page<Comment?>?
 
@@ -38,18 +38,21 @@ interface RestaurantRepository : JpaRepository<Restaurant, UUID> {
      * @return all reservation of the restaurant in the given time frame
      */
     @Query(
-        value = "SELECT r.reservations " +
+        value = "SELECT DISTINCT re " +
                 "FROM Restaurant r " +
-                "JOIN r.reservations rs " +
+                "JOIN r.restaurantTables rt " +
+                "JOIN rt.reservation re " +
                 "WHERE r.id = ?1 " +
-                "AND rs.reservationFrom >= ?2 " +
-                "AND rs.reservationTo <= ?3",
-        countQuery = "SELECT count(r.reservations) " +
+                "AND re.reservationFrom >= ?2 " +
+                "AND re.reservationTo <= ?3",
+
+        countQuery = "SELECT count(DISTINCT re) " +
                 "FROM Restaurant r " +
-                "JOIN r.reservations rs " +
+                "JOIN r.restaurantTables rt " +
+                "JOIN rt.reservation re " +
                 "WHERE r.id = ?1 " +
-                "AND rs.reservationFrom >= ?2 " +
-                "AND rs.reservationTo <= ?3",
+                "AND re.reservationFrom >= ?2 " +
+                "AND re.reservationTo <= ?3",
     )
     fun findReservationsInTimeframeOfRestaurant(
         uuid: UUID,
@@ -69,7 +72,7 @@ interface RestaurantRepository : JpaRepository<Restaurant, UUID> {
                 "FROM RestaurantTable r " +
                 "WHERE r.restaurant.id = ?1",
 
-        countQuery = "SELECT r " +
+        countQuery = "SELECT count(r) " +
                 "FROM RestaurantTable r " +
                 "WHERE r.restaurant.id = ?1",
     )

@@ -1,6 +1,5 @@
 package de.reservationbear.eist.db.entity
 
-import com.fasterxml.jackson.annotation.JsonBackReference
 import com.fasterxml.jackson.annotation.JsonManagedReference
 import org.hibernate.annotations.ColumnDefault
 import org.hibernate.annotations.GenericGenerator
@@ -24,23 +23,40 @@ class Restaurant(
     @ColumnDefault("random_uuid()")
     @Type(type = "uuid-char")
     val id: UUID,
+
     val name: String,
+
     @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+        name = "RESTAURANT_IMAGES",
+        joinColumns = [JoinColumn(name = "restaurant_id")],
+        inverseJoinColumns = [JoinColumn(name = "image_id")]
+    )
     val images: Set<Image>? = null,
+
     val website: URI? = null,
-    @OneToOne(fetch = FetchType.EAGER)
+
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "restaurant")
+    @JsonManagedReference
     val openingHours: Timeslot? = null,
+
     val averageRating: Double,
+
     val priceCategory: Int,
-    @OneToOne(fetch = FetchType.EAGER)
+
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "restaurant")
+    @JsonManagedReference
     val location: RestaurantLocation? = null,
-    @OneToOne(fetch = FetchType.EAGER)
+
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "restaurant")
+    @JsonManagedReference
     val floorPlan: RestaurantFloorPlan? = null,
+
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "restaurant")
     @JsonManagedReference(value = "restaurantTablesRestaurant")
     val restaurantTables: Set<RestaurantTable>? = null,
-    @OneToMany(fetch = FetchType.EAGER)
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "restaurant")
+    @JsonManagedReference
     val comments: Set<Comment>? = null,
-    @OneToMany(fetch = FetchType.EAGER)
-    val reservations: Set<Reservation>? = null
 )
