@@ -15,12 +15,12 @@ import javax.servlet.http.HttpServletResponse
  */
 @ControllerAdvice
 
-class DefaultExceptionHandler {
+class ExceptionHandler {
 
     //Manually implemented @Slf4j
     companion object {
         private val LOGGER = LoggerFactory
-            .getLogger(DefaultExceptionHandler::class.java)
+            .getLogger(ExceptionHandler::class.java)
     }
 
     /**

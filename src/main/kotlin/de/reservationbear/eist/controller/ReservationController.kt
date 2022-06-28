@@ -4,6 +4,7 @@ import de.reservationbear.eist.controller.responseMapper.ConfirmationMapper
 import de.reservationbear.eist.controller.responseMapper.ReservationMapper
 import de.reservationbear.eist.controller.responseMapper.TimeslotMapper
 import de.reservationbear.eist.db.entity.Reservation
+import de.reservationbear.eist.exceptionhandler.ApiException
 import de.reservationbear.eist.service.ReservationService
 import de.reservationbear.eist.service.TableService
 import net.fortuna.ical4j.model.Calendar
@@ -54,7 +55,7 @@ class ReservationController(val reservationService: ReservationService, val tabl
         if (reservation.restaurantTables != null && reservation.restaurantTables.isNotEmpty()) {
             reservation.restaurant = reservation.restaurantTables.stream().findFirst().get().restaurant
         } else {
-            return ResponseEntity.badRequest().build()
+           throw ApiException("Tablelist cannot be null or error",401)
         }
 
         reservationService.saveReservation(reservation)
