@@ -6,6 +6,7 @@ import de.reservationbear.eist.controller.responseMapper.TimeslotMapper
 import de.reservationbear.eist.db.entity.Reservation
 import de.reservationbear.eist.exceptionhandler.ApiException
 import de.reservationbear.eist.service.ReservationService
+import de.reservationbear.eist.service.TableService
 import org.springframework.core.io.Resource
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -73,7 +74,6 @@ class ReservationController(val reservationService: ReservationService, val tabl
      *
      * @param id                Id of the reservation
      * @param confirmationToken confirmationToken for the reservation
-     * @param confirmed         Set to true when reservation is confirmed
      * @return                  ResponseEntity with status and body with JSON
      */
     @PatchMapping(
