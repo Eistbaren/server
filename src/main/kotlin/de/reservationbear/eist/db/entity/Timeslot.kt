@@ -25,9 +25,9 @@ class Timeslot(
 
     val timeslotFrom: Timestamp,
 
-    val timeslotTo: Timestamp
+    val timeslotTo: Timestamp,
 
     @ManyToOne(fetch = FetchType.EAGER)
-@JoinColumn(name = "RestaurantId")
-val restaurant: Restaurant
+    @JoinColumn(name = "RestaurantId")
+    val restaurant: Restaurant
 )

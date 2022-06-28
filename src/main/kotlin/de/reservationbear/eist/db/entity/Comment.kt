@@ -10,7 +10,7 @@ import javax.persistence.*
 /**
  * Represents a comment/ short review of a restaurant
  */
-@Entity(name = "comments")
+@Entity
 class Comment(
     @Id
     @GeneratedValue(generator = "UUID")
@@ -32,5 +32,6 @@ class Comment(
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "RestaurantId")
+    @JsonIgnore
     val restaurant: Restaurant
 )

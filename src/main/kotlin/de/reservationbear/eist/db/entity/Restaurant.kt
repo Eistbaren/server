@@ -1,7 +1,5 @@
 package de.reservationbear.eist.db.entity
 
-import com.fasterxml.jackson.annotation.JsonBackReference
-import com.fasterxml.jackson.annotation.JsonManagedReference
 import com.fasterxml.jackson.annotation.JsonManagedReference
 import org.hibernate.annotations.ColumnDefault
 import org.hibernate.annotations.GenericGenerator
@@ -27,8 +25,13 @@ class Restaurant(
     val id: UUID,
 
     val name: String,
-    //TODO JOIN
+
     @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+        name = "RESTAURANT_IMAGES",
+        joinColumns = [JoinColumn(name = "restaurant_id")],
+        inverseJoinColumns = [JoinColumn(name = "image_id")]
+    )
     val images: Set<Image>? = null,
 
     val website: URI? = null,
@@ -51,9 +54,5 @@ class Restaurant(
     val restaurantTables: Set<RestaurantTable>? = null,
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "restaurant")
-    val comments: Set<Comment>? = null
-
-    //TODO
-    @OneToMany(fetch = FetchType.EAGER)
-val reservations: Set<Reservation>? = null
+    val comments: Set<Comment>? = null,
 )

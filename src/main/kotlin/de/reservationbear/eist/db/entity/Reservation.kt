@@ -26,8 +26,8 @@ class Reservation(
     @ManyToMany(fetch = FetchType.EAGER, cascade = [CascadeType.PERSIST, CascadeType.MERGE])
     @JoinTable(
         name = "RESERVATION_RESTAURANT_TABLES",
-        joinColumns = [JoinColumn(name = "Reservation.ID")],
-        inverseJoinColumns = [JoinColumn(name = "RestaurantTables.ID")]
+        joinColumns = [JoinColumn(name = "reservation_id")],
+        inverseJoinColumns = [JoinColumn(name = "restaurantTables_id")]
     )
     val restaurantTables: Set<RestaurantTable>? = null,
 
@@ -39,13 +39,5 @@ class Reservation(
 
     val userEmail: String,
 
-    var confirmed: Boolean
-
-    @ManyToOne
-@JoinTable(
-    name = "RESTAURANT_RESERVATIONS",
-    joinColumns = [JoinColumn(name = "reservations_ID")],
-    inverseJoinColumns = [JoinColumn(name = "restaurant_id")]
-)
-var restaurant: Restaurant? = null
+    var confirmed: Boolean,
 )

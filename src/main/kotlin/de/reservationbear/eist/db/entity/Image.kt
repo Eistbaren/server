@@ -24,10 +24,9 @@ class Image(
 
     val imageURL: String,
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "RestaurantId")
-    val restaurant: Restaurant,
-
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "image")
-    val tableFloorPlans: Set<TableFloorPlan>
+    val tableFloorPlans: Set<TableFloorPlan>,
+
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "images")
+    val restaurantImage: Set<Restaurant>
 )
