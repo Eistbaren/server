@@ -425,6 +425,8 @@ components:
           format: uuid
         name:
           type: string
+        type:
+          type: string
         images:
           type: array
           items:
