@@ -12,8 +12,6 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import java.math.BigDecimal
 import java.sql.Timestamp
-import java.time.Instant
-import java.time.LocalDateTime
 import java.util.*
 
 /**
@@ -56,7 +54,12 @@ class RestaurantController(val restaurantService: RestaurantService) {
                         restaurant.name,
                         restaurant.images?.map { image -> image.id },
                         restaurant.website,
-                        restaurant.openingHours?.toMutableList(),
+                        restaurant.openingHours?.timeslotTo?.let {
+                            OpeningHoursMapper(
+                                restaurant.openingHours.timeslotFrom,
+                                it
+                            )
+                        } ?: OpeningHoursMapper(0, 0),
                         restaurant.averageRating,
                         restaurant.priceCategory,
                         restaurant.location,
@@ -89,7 +92,12 @@ class RestaurantController(val restaurantService: RestaurantService) {
                 restaurant.name,
                 restaurant.images?.map { image -> image.id },
                 restaurant.website,
-                restaurant.openingHours?.toMutableList(),
+                restaurant.openingHours?.timeslotTo?.let {
+                    OpeningHoursMapper(
+                        restaurant.openingHours.timeslotFrom,
+                        it
+                    )
+                } ?: OpeningHoursMapper(0, 0),
                 restaurant.averageRating,
                 restaurant.priceCategory,
                 restaurant.location,
@@ -167,50 +175,6 @@ class RestaurantController(val restaurantService: RestaurantService) {
                 BigDecimal(currentPage),
                 BigDecimal(pageSize),
                 comments?.toList() ?: ArrayList<Comment?>()
-            )
-        )
-    }
-
-    /**
-     * Returns a paginated list of all timeslots on a given date for a given restaurant.
-     *
-     * @param date              date of the timeslots that should be returned
-     * @param currentPage       page to load
-     * @param pageSize          size of one page
-     * @return                  ResponseEntity with status and body with JSON
-     */
-    @GetMapping(
-        value = ["/restaurant/{id}/timeslot"],
-        produces = ["application/json"]
-    )
-    fun getRestaurantTimeslots(
-        @PathVariable("id") id: UUID,
-        @RequestParam(value = "date", required = true) date: Long,
-        @RequestParam(value = "currentPage", defaultValue = "0") currentPage: Int,
-        @RequestParam(value = "pageSize", defaultValue = "50") pageSize: Int
-    ): ResponseEntity<PagingResponseMapper> {
-
-        val singleDay = 1000 * 60 * 60 * 24
-
-        val timeslots = restaurantService.findOpeningHoursInTimeFrameOfRestaurant(
-            id, Timestamp.valueOf(
-                LocalDateTime.ofInstant(
-                    Instant.ofEpochMilli(date * 1000),
-                    TimeZone.getDefault().toZoneId()
-                )
-            ), Timestamp.valueOf(
-                LocalDateTime.ofInstant(
-                    Instant.ofEpochMilli(date * 1000 + singleDay),
-                    TimeZone.getDefault().toZoneId()
-                )
-            ), PageRequest.of(currentPage, pageSize)
-        )
-
-        return ResponseEntity.ok(
-            PagingResponseMapper(
-                BigDecimal(timeslots?.totalPages ?: 0),
-                BigDecimal(currentPage),
-                BigDecimal(pageSize), timeslots?.toList() ?: ArrayList<Comment?>()
             )
         )
     }
