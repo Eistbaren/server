@@ -51,8 +51,10 @@ class ReservationController(val reservationService: ReservationService, val tabl
             false
         )
 
-        if(reservation.restaurantTables?.isEmpty() == false){
+        if (reservation.restaurantTables != null && reservation.restaurantTables.isNotEmpty()) {
             reservation.restaurant = reservation.restaurantTables.stream().findFirst().get().restaurant
+        } else {
+            return ResponseEntity.badRequest().build()
         }
 
         reservationService.saveReservation(reservation)
