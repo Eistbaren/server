@@ -15,12 +15,12 @@ import javax.servlet.http.HttpServletResponse
  */
 @ControllerAdvice
 
-class DefaultExceptionHandler {
+class ExceptionHandler {
 
     //Manually implemented @Slf4j
     companion object {
         private val LOGGER = LoggerFactory
-            .getLogger(DefaultExceptionHandler::class.java)
+            .getLogger(ExceptionHandler::class.java)
     }
 
     /**
@@ -72,4 +72,16 @@ class DefaultExceptionHandler {
     @ExceptionHandler(value = [NotImplementedError::class])
     fun onNotImplemented(ex: NotImplementedError, response: HttpServletResponse): Unit =
         response.sendError(HttpStatus.NOT_IMPLEMENTED.value(), "This endpoint is not implemented yet")
+
+    /**
+     * handles ApiExceptions - params gets injected by Spring Boot. When an APIException occurs
+     * the method will catch it and returns the errorcode and message in the json-response
+     *
+     * @param ex ApiException injected by SpringBoot
+     * @param response HttpServletResponse from the request that triggered an exception
+     */
+    @ExceptionHandler(value = [ApiException::class])
+    fun onApiException(ex: ApiException, response: HttpServletResponse): Unit =
+        response.sendError(ex.code, ex.message)
+
 }
