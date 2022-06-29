@@ -39,8 +39,8 @@ class MailService(val confirmationMailPattern: ConfirmationMailPattern, val regi
         confirmationMailPattern.sendMail(
             userEmail,
             userName,
+            reservationId,
             confirmationToken,
-            reservationId
         )
     }
 }
