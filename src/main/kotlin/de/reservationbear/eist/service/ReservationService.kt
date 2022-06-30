@@ -47,10 +47,10 @@ class ReservationService(val db: ReservationRepository) {
         if (res.confirmationToken == null) {
             throw ApiException("Confirmation token is missing", 400)
         }
-        if(res.confirmationToken!! != confirmationToken){
+        if (res.confirmationToken!! != confirmationToken) {
             throw ApiException("Confirmation token is incorrect", 400)
         }
-        if(res.reservationFrom < Timestamp.from(Instant.now().plus(12, ChronoUnit.HOURS))){
+        if (res.reservationFrom < Timestamp.from(Instant.now().plus(12, ChronoUnit.HOURS))) {
             throw ApiException("Confirmation token expired", 400)
         }
         res.confirmed = true
@@ -74,9 +74,9 @@ class ReservationService(val db: ReservationRepository) {
      * @return a list of reservations
      */
     fun getReservationsForConfirmation(): List<Reservation>? = db.findAllReservations(
-            Timestamp.from(Instant.now().plus(24, ChronoUnit.HOURS)),
-            Timestamp.from(Instant.now().plus(12, ChronoUnit.HOURS))
-        )
+        Timestamp.from(Instant.now().plus(24, ChronoUnit.HOURS)),
+        Timestamp.from(Instant.now().plus(12, ChronoUnit.HOURS))
+    )
 
     /**
      * Returns a resource (ICS File) from the reservation with the given id
@@ -87,13 +87,10 @@ class ReservationService(val db: ReservationRepository) {
     fun getICSResource(id: UUID): ByteArrayResource {
         val reservation: Reservation = getReservation(id)
 
-        val summary : String = if(reservation.restaurantTables == null || reservation.restaurantTables.isEmpty()){
+        val summary: String = if (reservation.restaurantTables == null || reservation.restaurantTables.isEmpty()) {
             "Reservation: table and restaurant missing"
         } else {
-            "Reservation: " + (reservation.restaurantTables
-                .first()
-                .restaurant
-                .name)
+            "Reservation: " + (reservation.restaurantTables.first().restaurant.name)
         }
 
         val calendarEvent = VEvent(
