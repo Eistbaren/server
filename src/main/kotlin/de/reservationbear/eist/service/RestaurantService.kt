@@ -33,9 +33,8 @@ class RestaurantService(val db: RestaurantRepository) {
      * @param pageable the page of restaurant comments
      * @return the page of restaurant comments
      */
-    fun getPageOfRestaurantComments(uuid: UUID, pageable: Pageable): Page<Comment?>?{
-        return db.findCommentsOfRestaurant(uuid, pageable)
-    }
+    fun getPageOfRestaurantComments(uuid: UUID, pageable: Pageable): Page<Comment?>? =
+        db.findCommentsOfRestaurant(uuid, pageable)
 
 
     /**
