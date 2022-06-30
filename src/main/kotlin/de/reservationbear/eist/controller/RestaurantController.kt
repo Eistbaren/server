@@ -54,12 +54,10 @@ class RestaurantController(val restaurantService: RestaurantService) {
                         restaurant.name,
                         restaurant.images?.map { image -> image.id },
                         restaurant.website,
-                        restaurant.openingHours?.timeslotTo?.let {
-                            OpeningHoursMapper(
-                                restaurant.openingHours.timeslotFrom,
-                                it
-                            )
-                        } ?: OpeningHoursMapper(0, 0),
+                        OpeningHoursMapper(
+                            restaurant.openingHours?.timeslotFrom ?: 0,
+                            restaurant.openingHours?.timeslotTo ?: 0
+                        ),
                         restaurant.averageRating,
                         restaurant.priceCategory,
                         RestaurantLocationMapper(restaurant.location?.lon ?: 0.0, restaurant.location?.lon ?: 0.0),
@@ -92,15 +90,13 @@ class RestaurantController(val restaurantService: RestaurantService) {
                 restaurant.name,
                 restaurant.images?.map { image -> image.id },
                 restaurant.website,
-                restaurant.openingHours?.timeslotTo?.let {
-                    OpeningHoursMapper(
-                        restaurant.openingHours.timeslotFrom,
-                        it
-                    )
-                } ?: OpeningHoursMapper(0, 0),
+                OpeningHoursMapper(
+                    restaurant.openingHours?.timeslotFrom ?: 0,
+                    restaurant.openingHours?.timeslotTo ?: 0
+                ),
                 restaurant.averageRating,
                 restaurant.priceCategory,
-                RestaurantLocationMapper(restaurant.location?.lon ?: 0.0, restaurant.location?.lon ?: 0.0),
+                RestaurantLocationMapper(restaurant.location?.lat ?: 0.0, restaurant.location?.lon ?: 0.0),
                 restaurant.floorPlan
             )
         )

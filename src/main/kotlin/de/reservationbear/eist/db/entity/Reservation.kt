@@ -1,6 +1,7 @@
 package de.reservationbear.eist.db.entity
 
 import com.fasterxml.jackson.annotation.JsonIgnore
+import com.fasterxml.jackson.annotation.JsonManagedReference
 import org.hibernate.annotations.ColumnDefault
 import org.hibernate.annotations.GenericGenerator
 import org.hibernate.annotations.Type
@@ -23,25 +24,25 @@ class Reservation(
     @ColumnDefault("random_uuid()")
     @Type(type = "uuid-char")
     val id: UUID? = null,
-    @ManyToMany(fetch = FetchType.EAGER)
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = [CascadeType.PERSIST, CascadeType.MERGE])
     @JoinTable(
         name = "RESERVATION_RESTAURANT_TABLES",
-        joinColumns = [JoinColumn(name = "Reservation.ID")],
-        inverseJoinColumns = [JoinColumn(name = "RestaurantTables.ID")]
+        joinColumns = [JoinColumn(name = "reservation_id")],
+        inverseJoinColumns = [JoinColumn(name = "restaurantTables_id")]
     )
-    var restaurantTables: Set<RestaurantTable>? = null,
+    @JsonManagedReference
+    val restaurantTables: Set<RestaurantTable>? = null,
+
     val reservationFrom: Timestamp,
+
     val reservationTo: Timestamp,
+
     val userName: String,
+
     val userEmail: String,
+
     var confirmed: Boolean,
-    @ManyToOne
-    @JoinTable(
-        name = "RESTAURANT_RESERVATIONS",
-        joinColumns = [JoinColumn(name = "reservations_ID")],
-        inverseJoinColumns = [JoinColumn(name = "restaurant_id")]
-    )
-    var restaurant: Restaurant? = null,
 
     @JsonIgnore
     var sendConfirmation: Boolean? = false,
