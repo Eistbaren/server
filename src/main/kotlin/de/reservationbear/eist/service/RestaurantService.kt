@@ -38,6 +38,7 @@ class RestaurantService(val db: RestaurantRepository) {
     }
 
 
+
     /**
      * Search after a page of restaurant tables
      * @param uuid uuid of the restaurant
