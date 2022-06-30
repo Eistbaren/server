@@ -1,13 +1,11 @@
 package de.reservationbear.eist.db.entity
 
+import com.fasterxml.jackson.annotation.JsonBackReference
 import org.hibernate.annotations.ColumnDefault
 import org.hibernate.annotations.GenericGenerator
 import org.hibernate.annotations.Type
 import java.util.*
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
+import javax.persistence.*
 
 /**
  * Represents the size of a floor plan of a restaurant
@@ -24,6 +22,13 @@ class RestaurantFloorPlanSize(
     @ColumnDefault("random_uuid()")
     @Type(type = "uuid-char")
     val id: UUID,
+
     val width: Int,
-    val height: Int
+
+    val height: Int,
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "restaurantFloorPlanId")
+    @JsonBackReference
+    val restaurantFloorPlan: RestaurantFloorPlan
 )

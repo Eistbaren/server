@@ -52,10 +52,8 @@ class ReservationController(val reservationService: ReservationService, val tabl
             false
         )
 
-        if (reservation.restaurantTables != null && reservation.restaurantTables.isNotEmpty()) {
-            reservation.restaurant = reservation.restaurantTables.stream().findFirst().get().restaurant
-        } else {
-           throw ApiException("Tablelist cannot be null or error",401)
+        if (reservation.restaurantTables == null || reservation.restaurantTables.isEmpty()) {
+           throw ApiException("Tablelist cannot be null or error", 401)
         }
 
         reservationService.saveReservation(reservation)
