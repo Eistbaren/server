@@ -87,19 +87,19 @@ class ReservationService(val db: ReservationRepository) {
     fun getICSResource(id: UUID): ByteArrayResource {
         val reservation: Reservation = getReservation(id)
 
-        //Null restaurantTables to prevent error
-        if(reservation.restaurantTables?.isEmpty() == true){
-            reservation.restaurantTables = null
+        val summary : String = if(reservation.restaurantTables == null || reservation.restaurantTables.isEmpty()){
+            "Reservation: table and restaurant missing"
+        } else {
+            "Reservation: " + (reservation.restaurantTables
+                .first()
+                .restaurant
+                .name)
         }
 
         val calendarEvent = VEvent(
             reservation.reservationFrom.toLocalDateTime(),
             reservation.reservationTo.toLocalDateTime(),
-            "Reservation: " + ((reservation.restaurantTables
-                ?.first()
-                ?.restaurant
-                ?.name)
-                ?: "no restaurant selected")
+            summary
         )
 
         val calendar = Calendar()
