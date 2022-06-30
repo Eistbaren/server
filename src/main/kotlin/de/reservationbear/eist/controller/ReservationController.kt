@@ -47,7 +47,7 @@ class ReservationController(val reservationService: ReservationService, val tabl
                 ?.collect(Collectors.toSet())
                 ?.toSet(),
             Timestamp(reservationMapper.time!!.from!! * 1000),
-            Timestamp(reservationMapper.time.to!! * 100),
+            Timestamp(reservationMapper.time.to!! * 1000),
             reservationMapper.userName!!,
             reservationMapper.userEmail!!,
             false
