@@ -30,7 +30,7 @@ data class TableMapper(
     val seats: Int? = table?.seats
 
     @JsonProperty("floorPlan")
-    fun floorPlan(): HashMap<String, HashMap<String, Int?>?>? {
+    private fun floorPlan(): HashMap<String, HashMap<String, Int?>?>? {
         if (table?.floorPlan == null) {
             return null;
         }

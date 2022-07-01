@@ -39,7 +39,7 @@ data class RestaurantMapper(
     val floorPlan: RestaurantFloorPlan? = null
 ) {
     @JsonProperty("floorPlan")
-    fun floorPlanMapper(): RestaurantFloorPlanMapper? {
+    private fun floorPlanMapper(): RestaurantFloorPlanMapper? {
         if (floorPlan == null) {
             return null
         }

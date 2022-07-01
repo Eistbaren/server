@@ -6,16 +6,19 @@ import de.reservationbear.eist.db.entity.RestaurantFloorPlan
 import java.util.*
 import kotlin.collections.HashMap
 
+/**
+ * Mapper for the RestaurantFloorPlan Object - Maps the return into a compliant schema to the API guideline
+ */
 class RestaurantFloorPlanMapper(
     @JsonIgnore
     val floorPlan: RestaurantFloorPlan?
 ) {
 
     @JsonProperty("image")
-    fun image(): UUID? = floorPlan?.image?.id
+    val image: UUID? = floorPlan?.image?.id
 
     @JsonProperty("size")
-    fun size(): HashMap<String, Int>? {
+    private fun size(): HashMap<String, Int>? {
         if (floorPlan?.width == null || floorPlan.height == null) {
             return null;
         }
