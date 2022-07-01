@@ -3,7 +3,6 @@ package de.reservationbear.eist.controller.responseMapper
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
 import de.reservationbear.eist.db.entity.RestaurantFloorPlan
-import de.reservationbear.eist.db.entity.RestaurantLocation
 import java.net.URI
 import java.util.*
 
@@ -40,10 +39,10 @@ data class RestaurantMapper(
     val floorPlan: RestaurantFloorPlan? = null
 ) {
     @JsonProperty("floorPlan")
-    fun floorPlanMapper(): FloorPlanMapper? {
+    fun floorPlanMapper(): RestaurantFloorPlanMapper? {
         if (floorPlan == null) {
             return null
         }
-        return FloorPlanMapper(floorPlan)
+        return RestaurantFloorPlanMapper(floorPlan)
     }
 }

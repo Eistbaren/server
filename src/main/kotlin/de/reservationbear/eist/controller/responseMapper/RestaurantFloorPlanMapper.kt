@@ -2,12 +2,11 @@ package de.reservationbear.eist.controller.responseMapper
 
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
-import de.reservationbear.eist.db.entity.Image
 import de.reservationbear.eist.db.entity.RestaurantFloorPlan
 import java.util.*
 import kotlin.collections.HashMap
 
-class FloorPlanMapper(
+class RestaurantFloorPlanMapper(
     @JsonIgnore
     val floorPlan: RestaurantFloorPlan?
 ) {
