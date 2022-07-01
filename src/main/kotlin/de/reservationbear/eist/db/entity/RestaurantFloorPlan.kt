@@ -28,9 +28,8 @@ class RestaurantFloorPlan(
     @JoinColumn(name = "imageId")
     val image: Image? = null,
 
-    @OneToOne(fetch = FetchType.EAGER, mappedBy = "restaurantFloorPlan")
-    @JsonManagedReference
-    val propertySize: RestaurantFloorPlanSize,
+    val width: Int?,
+    val height: Int?,
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "restaurantId")

@@ -5,20 +5,8 @@ insert into RESTAURANT_LOCATION(ID, LAT, LON, RESTAURANT_ID)
 values ('069f72db-2157-43de-8e88-21661b518200', 48.267873, 11.672376, '069f72db-2157-43de-8e88-21661b518200');
 
 INSERT INTO TIMESLOT
-values ('069f72db-2157-43de-8e98-21661b518200', 0,0, '069f72db-2157-43de-8e88-21661b518200');
+values ('069f72db-2157-43de-8e98-21661b518200', 0, 0, '069f72db-2157-43de-8e88-21661b518200');
 
-insert into restaurant_table(id, seats, restaurant_id)
-values ('069f72db-2157-43de-8e88-21661b518201', 3, '069f72db-2157-43de-8e88-21661b518200');
-
-
-insert into reservation(ID, CONFIRMED, RESERVATION_FROM, RESERVATION_TO, USER_EMAIL, USER_NAME)
-values ('069f72db-2157-43de-8e88-21661b518201', false,
-        parsedatetime('10-06-2022 13:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
-        parsedatetime('10-06-2022 13:30:00.000', 'dd-MM-yyyy hh:mm:ss.SS'), 'jonas.ladner@tum.de',
-        'LadnerJonas');
-
-insert into RESERVATION_RESTAURANT_TABLES(RESERVATION_ID, RESTAURANT_TABLES_ID)
-values ('069f72db-2157-43de-8e88-21661b518201', '069f72db-2157-43de-8e88-21661b518201');
 
 
 insert into IMAGE (ID, IMAGEURL)
@@ -29,6 +17,8 @@ insert into IMAGE (ID, IMAGEURL)
 values ('069f72db-2157-43de-8e88-21661b518201', '/serverFile/serverImages/floorplan/table4-2.png');
 insert into IMAGE (ID, IMAGEURL)
 values ('069f72db-2157-43de-8e88-21661b518202', '/serverFile/serverImages/floorplan/table8-1.png');
+insert into IMAGE (ID, IMAGEURL)
+values ('069f72db-2157-43de-8e88-21661b518203', '/serverFile/serverImages/floorplan/floorplan-temporary.png');
 insert into IMAGE (ID, IMAGEURL)
 values ('069f72db-2157-43de-8e88-21661b518300', '/serverFile/serverImages/restaurant/mensa-außen-1.png');
 insert into IMAGE (ID, IMAGEURL)
@@ -274,24 +264,45 @@ values ('069f72db-2157-43de-8e88-21661b518204', '069f72db-2157-43de-8e88-21661b5
 insert into comment (id, rating, comment, name, restaurant_id)
 values ('069f72db-2157-43de-8e88-21661b518201', 1, 'Super DB', 'DB-Admin', '069f72db-2157-43de-8e88-21661b518200');
 insert into comment (id, rating, comment, name, restaurant_id)
-values ('069f72db-2157-43de-8e88-21661b518202', 1, 'Super DB', 'DB-Admin','069f72db-2157-43de-8e88-21661b518200');
+values ('069f72db-2157-43de-8e88-21661b518202', 1, 'Super DB', 'DB-Admin', '069f72db-2157-43de-8e88-21661b518200');
 insert into comment (id, rating, comment, name, restaurant_id)
-values ('069f72db-2157-43de-8e88-21661b518203', 1, 'Super DB', 'DB-Admin','069f72db-2157-43de-8e88-21661b518200');
+values ('069f72db-2157-43de-8e88-21661b518203', 1, 'Super DB', 'DB-Admin', '069f72db-2157-43de-8e88-21661b518200');
 insert into comment (id, rating, comment, name, restaurant_id)
-values ('069f72db-2157-43de-8e88-21661b518204', 1, 'Super DB', 'DB-Admin','069f72db-2157-43de-8e88-21661b518200');
+values ('069f72db-2157-43de-8e88-21661b518204', 1, 'Super DB', 'DB-Admin', '069f72db-2157-43de-8e88-21661b518200');
 insert into comment (id, rating, comment, name, restaurant_id)
-values ('069f72db-2157-43de-8e88-21661b518205', 1, 'Super DB', 'DB-Admin','069f72db-2157-43de-8e88-21661b518200');
+values ('069f72db-2157-43de-8e88-21661b518205', 1, 'Super DB', 'DB-Admin', '069f72db-2157-43de-8e88-21661b518200');
 insert into comment (id, rating, comment, name, restaurant_id)
-values ('069f72db-2157-43de-8e88-21661b518206', 1, 'Super DB', 'DB-Admin','069f72db-2157-43de-8e88-21661b518200');
+values ('069f72db-2157-43de-8e88-21661b518206', 1, 'Super DB', 'DB-Admin', '069f72db-2157-43de-8e88-21661b518200');
 insert into comment (id, rating, comment, name, restaurant_id)
-values ('069f72db-2157-43de-8e88-21661b518207', 1, 'Super DB', 'DB-Admin','069f72db-2157-43de-8e88-21661b518200');
+values ('069f72db-2157-43de-8e88-21661b518207', 1, 'Super DB', 'DB-Admin', '069f72db-2157-43de-8e88-21661b518200');
 insert into comment (id, rating, comment, name, restaurant_id)
-values ('069f72db-2157-43de-8e88-21661b518208', 1, 'Super DB', 'DB-Admin','069f72db-2157-43de-8e88-21661b518200');
+values ('069f72db-2157-43de-8e88-21661b518208', 1, 'Super DB', 'DB-Admin', '069f72db-2157-43de-8e88-21661b518200');
 insert into comment (id, rating, comment, name, restaurant_id)
-values ('069f72db-2157-43de-8e88-21661b518209', 1, 'Super DB', 'DB-Admin','069f72db-2157-43de-8e88-21661b518200');
+values ('069f72db-2157-43de-8e88-21661b518209', 1, 'Super DB', 'DB-Admin', '069f72db-2157-43de-8e88-21661b518200');
 insert into comment (id, rating, comment, name, restaurant_id)
-values ('069f72db-2157-43de-8e88-21661b518210', 1, 'Super DB', 'DB-Admin','069f72db-2157-43de-8e88-21661b518200');
+values ('069f72db-2157-43de-8e88-21661b518210', 1, 'Super DB', 'DB-Admin', '069f72db-2157-43de-8e88-21661b518200');
 insert into comment (id, rating, comment, name, restaurant_id)
-values ('069f72db-2157-43de-8e88-21661b518211', 1, 'Super DB', 'DB-Admin','069f72db-2157-43de-8e88-21661b518200');
+values ('069f72db-2157-43de-8e88-21661b518211', 1, 'Super DB', 'DB-Admin', '069f72db-2157-43de-8e88-21661b518200');
 insert into comment (id, rating, comment, name, restaurant_id)
-values ('069f72db-2157-43de-8e88-21661b518212', 1, 'Super DB', 'DB-Admin','069f72db-2157-43de-8e88-21661b518200');
+values ('069f72db-2157-43de-8e88-21661b518212', 1, 'Super DB', 'DB-Admin', '069f72db-2157-43de-8e88-21661b518200');
+
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518200', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518200',
+        '069f72db-2157-43de-8e88-21661b518200');
+
+
+insert into TABLE_FLOOR_PLAN(ID, HEIGTH, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518201', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id,	FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518200', 3, '069f72db-2157-43de-8e88-21661b518200','069f72db-2157-43de-8e88-21661b518201');
+
+
+insert into reservation(ID, CONFIRMED, RESERVATION_FROM, RESERVATION_TO, USER_EMAIL, USER_NAME)
+values ('069f72db-2157-43de-8e88-21661b518200', false,
+        parsedatetime('10-06-2022 13:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('10-06-2022 13:30:00.000', 'dd-MM-yyyy hh:mm:ss.SS'), 'jonas.ladner@tum.de',
+        'LadnerJonas');
+
+insert into RESERVATION_RESTAURANT_TABLES(RESERVATION_ID, RESTAURANT_TABLES_ID)
+values ('069f72db-2157-43de-8e88-21661b518200', '069f72db-2157-43de-8e88-21661b518200');

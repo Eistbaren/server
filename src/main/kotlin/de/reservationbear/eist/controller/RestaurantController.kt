@@ -130,12 +130,7 @@ class RestaurantController(val restaurantService: RestaurantService) {
                 BigDecimal(pageSize),
                 tables
                     ?.map { table ->
-                        TableMapper(
-                            table?.id,
-                            table?.restaurant?.id,
-                            table?.seats,
-                            table?.floorPlan
-                        )
+                        TableMapper(table)
                     }
                     ?.toList()
             )

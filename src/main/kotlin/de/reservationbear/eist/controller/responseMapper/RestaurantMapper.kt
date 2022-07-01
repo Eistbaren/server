@@ -1,5 +1,6 @@
 package de.reservationbear.eist.controller.responseMapper
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
 import de.reservationbear.eist.db.entity.RestaurantFloorPlan
 import de.reservationbear.eist.db.entity.RestaurantLocation
@@ -35,6 +36,14 @@ data class RestaurantMapper(
     @field:JsonProperty("priceCategory") val priceCategory: Int? = null,
 
     @field:JsonProperty("location") val location: RestaurantLocationMapper? = null,
-
-    @field:JsonProperty("floorPlan") val floorPlan: RestaurantFloorPlan? = null
-)
+    @JsonIgnore
+    val floorPlan: RestaurantFloorPlan? = null
+) {
+    @JsonProperty("floorPlan")
+    fun floorPlanMapper(): FloorPlanMapper? {
+        if (floorPlan == null) {
+            return null
+        }
+        return FloorPlanMapper(floorPlan)
+    }
+}
