@@ -59,6 +59,8 @@ class Restaurant(
     @JsonManagedReference(value = "restaurantTablesRestaurant")
     val restaurantTables: Set<RestaurantTable>? = null,
 
+    @SortNatural
+    @OrderBy("id ASC")
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "restaurant")
     @JsonManagedReference
     val comments: Set<Comment>? = null,

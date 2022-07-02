@@ -35,4 +35,9 @@ class Comment(
     @JoinColumn(name = "restaurantId")
     @JsonBackReference
     val restaurant: Restaurant
-)
+) : Comparable<Comment> {
+    override fun compareTo(other: Comment): Int {
+        return id.compareTo(other.id)
+    }
+
+}
