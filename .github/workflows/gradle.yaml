@@ -25,9 +25,3 @@ jobs:
 
       - name: Run tests
         run: ./gradlew test --tests "*"
-
-      - name: Upload aritfacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: build
-          path: build
