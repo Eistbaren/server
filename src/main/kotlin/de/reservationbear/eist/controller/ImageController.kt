@@ -48,7 +48,7 @@ class ImageController(val imageService: ImageService) {
         response.contentType = "image/png";
         response.setHeader(
             HttpHeaders.CACHE_CONTROL,
-            CacheControl.maxAge(Duration.ofMinutes(5))
+            CacheControl.maxAge(Duration.ofDays(1))
                 .headerValue
         );
 
