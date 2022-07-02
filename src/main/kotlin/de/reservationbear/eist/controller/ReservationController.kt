@@ -79,6 +79,35 @@ class ReservationController(
     }
 
     /**
+     * Returns a reservation, specified by the id.
+     * Edits an existing reservation - is not allowed to create
+     *
+     * @param id        id of the reservation
+     * @return          ResponseEntity with status and body with JSON
+     */
+    @GetMapping(
+        value = ["/reservation/{id}"],
+        produces = ["application/json"]
+    )
+    fun getReservation(
+        @PathVariable("id") id: UUID
+    ): ResponseEntity<ReservationMapper> {
+
+        val reservation: Reservation = reservationService.getReservation(id)
+
+        return ResponseEntity.ok(
+            ReservationMapper(
+                reservation.id,
+                reservation.restaurantTables?.map { tables -> tables.id }?.toList(),
+                TimeslotMapper(reservation.reservationFrom, reservation.reservationTo),
+                reservation.userName,
+                reservation.userEmail,
+                reservation.confirmed
+            )
+        )
+    }
+
+    /**
      * Edits an existing reservation - is not allowed to create
      *
      * @param id                Id of the reservation
