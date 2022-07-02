@@ -3,6 +3,8 @@ package de.reservationbear.eist.controller
 import de.reservationbear.eist.service.ImageService
 import org.springframework.core.io.ByteArrayResource
 import org.springframework.core.io.Resource
+import org.springframework.http.CacheControl
+import org.springframework.http.HttpHeaders
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -13,6 +15,7 @@ import java.io.InputStream
 import java.net.URL
 import java.nio.file.Files
 import java.nio.file.Path
+import java.time.Duration
 import javax.servlet.http.HttpServletResponse
 
 
@@ -43,6 +46,12 @@ class ImageController(val imageService: ImageService) {
             return
         }
         response.contentType = "image/png";
+        response.setHeader(
+            HttpHeaders.CACHE_CONTROL,
+            CacheControl.maxAge(Duration.ofDays(1))
+                .headerValue
+        );
+
         inputStream.transferTo(response.outputStream)
     }
 }
