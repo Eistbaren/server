@@ -335,7 +335,7 @@ values ('069f72db-2157-43de-8e88-21661b518204', 600 * 2, 1000 * 2, '069f72db-215
         '069f72db-2157-43de-8e88-21661b518204');
 
 
-insert into TABLE_FLOOR_PLAN(ID, HEIGTH, WIDTH, X, Y, IMAGE_ID)
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
 values ('069f72db-2157-43de-8e88-21661b518200', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
         '069f72db-2157-43de-8e88-21661b518200');
 insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
@@ -353,28 +353,28 @@ insert into RESERVATION_RESTAURANT_TABLES(RESERVATION_ID, RESTAURANT_TABLES_ID)
 values ('069f72db-2157-43de-8e88-21661b518200', '069f72db-2157-43de-8e88-21661b518200');
 
 
-insert into TABLE_FLOOR_PLAN(ID, HEIGTH, WIDTH, X, Y, IMAGE_ID)
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
 values ('069f72db-2157-43de-8e88-21661b518201', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
         '069f72db-2157-43de-8e88-21661b518201');
 insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
 values ('069f72db-2157-43de-8e88-21661b518201', 3, '069f72db-2157-43de-8e88-21661b518200',
         '069f72db-2157-43de-8e88-21661b518201');
 
-insert into TABLE_FLOOR_PLAN(ID, HEIGTH, WIDTH, X, Y, IMAGE_ID)
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
 values ('069f72db-2157-43de-8e88-21661b518202', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
         '069f72db-2157-43de-8e88-21661b518202');
 insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
 values ('069f72db-2157-43de-8e88-21661b518202', 3, '069f72db-2157-43de-8e88-21661b518200',
         '069f72db-2157-43de-8e88-21661b518202');
 
-insert into TABLE_FLOOR_PLAN(ID, HEIGTH, WIDTH, X, Y, IMAGE_ID)
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
 values ('069f72db-2157-43de-8e88-21661b518203', 100 * 2, 100 * 2, 700 * 2, 300 * 2,
         '069f72db-2157-43de-8e88-21661b518203');
 insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
 values ('069f72db-2157-43de-8e88-21661b518203', 3, '069f72db-2157-43de-8e88-21661b518200',
         '069f72db-2157-43de-8e88-21661b518203');
 
-insert into TABLE_FLOOR_PLAN(ID, HEIGTH, WIDTH, X, Y, IMAGE_ID)
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
 values ('069f72db-2157-43de-8e88-21661b518204', 100 * 2, 100 * 2, 700 * 2, 70 * 2,
         '069f72db-2157-43de-8e88-21661b518200');
 insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)

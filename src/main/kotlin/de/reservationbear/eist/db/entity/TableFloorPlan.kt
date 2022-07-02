@@ -1,6 +1,5 @@
 package de.reservationbear.eist.db.entity
 
-import com.fasterxml.jackson.annotation.JsonManagedReference
 import org.hibernate.annotations.ColumnDefault
 import org.hibernate.annotations.GenericGenerator
 import org.hibernate.annotations.Type
@@ -31,5 +30,5 @@ class TableFloorPlan(
     val y: Int? = null,
 
     val width: Int? = null,
-    val heigth: Int? = null
+    val height: Int? = null
 )

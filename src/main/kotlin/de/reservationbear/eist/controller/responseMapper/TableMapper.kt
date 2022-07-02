@@ -1,7 +1,6 @@
 package de.reservationbear.eist.controller.responseMapper
 
 import com.fasterxml.jackson.annotation.JsonIgnore
-import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import de.reservationbear.eist.db.entity.RestaurantTable
 import java.util.*
@@ -44,7 +43,7 @@ data class TableMapper(
 
         val size: HashMap<String, Int?> = HashMap()
         size["width"] = table.floorPlan.width
-        size["heigth"] = table.floorPlan.heigth
+        size["height"] = table.floorPlan.height
         result["size"] = size;
 
         result["image"] = table.floorPlan.image?.id;
