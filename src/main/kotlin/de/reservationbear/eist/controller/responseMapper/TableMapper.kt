@@ -30,12 +30,12 @@ data class TableMapper(
     val seats: Int? = table?.seats
 
     @JsonProperty("floorPlan")
-    private fun floorPlan(): HashMap<String, HashMap<String, Int?>?>? {
+    private fun floorPlan(): HashMap<String, Any?>? {
         if (table?.floorPlan == null) {
             return null;
         }
 
-        val result: HashMap<String, HashMap<String, Int?>?> = HashMap()
+        val result: HashMap<String, Any?> = HashMap()
 
         val position: HashMap<String, Int?> = HashMap()
         position["x"] = table.floorPlan.x
@@ -46,6 +46,8 @@ data class TableMapper(
         size["width"] = table.floorPlan.width
         size["heigth"] = table.floorPlan.heigth
         result["size"] = size;
+
+        result["image"] = table.floorPlan.image?.id;
 
         return result
     }
