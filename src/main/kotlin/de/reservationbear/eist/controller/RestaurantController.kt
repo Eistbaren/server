@@ -60,7 +60,7 @@ class RestaurantController(val restaurantService: RestaurantService) {
                         ),
                         restaurant.averageRating,
                         restaurant.priceCategory,
-                        RestaurantLocationMapper(restaurant.location?.lon ?: 0.0, restaurant.location?.lon ?: 0.0),
+                        RestaurantLocationMapper(restaurant.location?.lat ?: 0.0, restaurant.location?.lon ?: 0.0),
                         restaurant.floorPlan
                     )
                 }.toList()
