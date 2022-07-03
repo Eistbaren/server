@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 /**
  * Mapper for reservation location
  *
- * @param let
+ * @param lat
  * @param lon
  */
 
