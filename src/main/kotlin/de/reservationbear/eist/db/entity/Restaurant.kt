@@ -3,6 +3,7 @@ package de.reservationbear.eist.db.entity
 import com.fasterxml.jackson.annotation.JsonManagedReference
 import org.hibernate.annotations.ColumnDefault
 import org.hibernate.annotations.GenericGenerator
+import org.hibernate.annotations.SortNatural
 import org.hibernate.annotations.Type
 import java.net.URI
 import java.util.*
@@ -26,6 +27,8 @@ class Restaurant(
 
     val name: String,
 
+    @SortNatural
+    @OrderBy("id ASC")
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
         name = "RESTAURANT_IMAGES",
@@ -56,6 +59,8 @@ class Restaurant(
     @JsonManagedReference(value = "restaurantTablesRestaurant")
     val restaurantTables: Set<RestaurantTable>? = null,
 
+    @SortNatural
+    @OrderBy("id ASC")
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "restaurant")
     @JsonManagedReference
     val comments: Set<Comment>? = null,
