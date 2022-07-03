@@ -1,0 +1,4 @@
+GET http://localhost:8080/api/restaurant?filters=,b,c,48.20550175643585,16.310635908600222,344,g,h,i,j&currentPage=0&pageSize=8
+Accept: application/json
+
+###

@@ -72,4 +72,30 @@ class RestaurantService(val db: RestaurantRepository) {
         to: Timestamp,
         pageable: Pageable
     ): Page<Timeslot?>? = db.findTimeslotsInTimeframeOfRestaurant(uuid, from, to, pageable)
+
+    /**
+     * Find all Restaurants that satisfy the given filters. If no filters where set, returns a page of all restaurants.
+     * Filter can either be empty or a list of 10 parameters. If a filter should not be used, the filter should be
+     * set to the empty string
+     * @param filterList list of filters to narrow restaurant search
+     * @param pageable for pagination of search results
+     */
+    fun getPageOfFilteredRestaurants(filterList: List<String>, pageable: Pageable): Page<Restaurant> {
+        if(filterList.isEmpty()) {
+            return db.findAll(pageable)
+        }
+
+        val query = filterList[0]
+        val priceCategory = filterList[2].toIntOrNull()
+        val lat = filterList[3].toDoubleOrNull()
+        val lon = filterList[4].toDoubleOrNull()
+        val radius = filterList[5].toDoubleOrNull()
+        val minimumAverageRating = filterList[6].toDoubleOrNull()
+        val timeFrom = filterList[7].toLongOrNull()?.let { Date(it * 1000) }
+        val timeTo = filterList[8].toLongOrNull()?.let { Date(it * 1000) }
+        val numberVisitors = filterList[9].toIntOrNull()
+
+        return db.filterRestaurants(query, priceCategory, minimumAverageRating, timeFrom,
+                timeTo, lat, lon, radius, numberVisitors, pageable)
+    }
 }

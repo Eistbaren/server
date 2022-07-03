@@ -308,5 +308,44 @@ insert into restaurant (NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
 values ('Bergnaum and Sons', 4, 3, 'www.google.de');
 insert into restaurant (NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
 values ('Steuber and Sons', 5, 1, 'www.google.de');
-insert into restaurant (NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
-values ('Breitenberg Inc', 1, 2, 'www.duckduckgo.com');
+
+
+/*Locations*/
+insert into restaurant_location (ID, LAT, LON)
+values ('069f72db-2157-43de-8e88-21661b518223', 48.187120304469374, 16.313691501443913);
+insert into restaurant_location (ID, LAT, LON)
+values ('069f72db-2157-43de-8e88-21661b518225', 48.26898700522353, 11.670421906144792);
+insert into restaurant_location (ID, LAT, LON)
+values ('069f72db-2257-43de-8e88-21661b518225', 48.13747187109867, 11.575427029351456);
+
+
+/*Restaurants*/
+insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, Location_ID)
+values ('069f72db-2157-43de-8e88-21661b518224', 'Test 1', 3.5, 3, '069f72db-2157-43de-8e88-21661b518223');
+insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, Location_ID)
+values ('069f72db-2157-43de-8e88-21661b518226', 'Test 2', 2.4, 1, '069f72db-2157-43de-8e88-21661b518225');
+insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, LOCATION_ID)
+values ('069f72db-2157-43de-8e88-21661b518246' ,'Breitenberg Inc', 1, 2, 'www.duckduckgo.com', '069f72db-2257-43de-8e88-21661b518225');
+
+
+/*Tables*/
+insert into restaurant_table (ID, SEATS ,RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518227', 5, '069f72db-2157-43de-8e88-21661b518226');
+insert into restaurant_table (ID, SEATS ,RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518228', 7, '069f72db-2157-43de-8e88-21661b518226');
+insert into restaurant_table (ID, SEATS ,RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518229', 6, '069f72db-2157-43de-8e88-21661b518224');
+insert into restaurant_table (ID, SEATS ,RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518245', 4, '069f72db-2157-43de-8e88-21661b518246');
+
+/*Reservation*/
+insert into reservation (ID, RESERVATION_FROM, RESERVATION_TO, CONFIRMED)
+values ('069f72db-2157-43de-8e88-21661b518230', '2008-01-01 00:00:01', '2008-01-02 00:00:01', true);
+
+/*Reservation to Tables*/
+insert into RESERVATION_RESTAURANT_TABLES (Reservation_ID, Restaurant_Tables_ID)
+values ('069f72db-2157-43de-8e88-21661b518230', '069f72db-2157-43de-8e88-21661b518228');
+
+
+
+
