@@ -57,7 +57,7 @@ task submodulesUpdate(type: Exec) {
     group 'Build Setup'
 }
 
-// nodeSetup.dependsOn submodulesUpdate
+nodeSetup.dependsOn submodulesUpdate
 
 task copyReactBuildFiles(type: Copy) {
     description "Copies the build files from react to the desired location"
@@ -68,8 +68,8 @@ task copyReactBuildFiles(type: Copy) {
     group "npm"
 }
 
-// compileKotlin.dependsOn copyReactBuildFiles
-// processResources.dependsOn copyReactBuildFiles
+compileKotlin.dependsOn copyReactBuildFiles
+processResources.dependsOn copyReactBuildFiles
 
 clean.delete << file("client/node_modules")
 clean.delete << file("src/main/resources/static/dist")
