@@ -33,10 +33,7 @@ class TableController(val tableService: TableService) {
 
         return ResponseEntity.ok(
             TableMapper(
-                restaurantTable.id,
-                restaurantTable.restaurant.id,
-                restaurantTable.seats,
-                restaurantTable.floorPlan
+                restaurantTable
             )
         )
     }

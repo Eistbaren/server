@@ -11,18 +11,6 @@ values ('069f72db-2157-43de-8e98-21661b518200',
         DATEDIFF('SECOND', DATE '1970-01-01', CURRENT_DATE()) + 60 * 60 * (17 - 2),
         '069f72db-2157-43de-8e88-21661b518200');
 
-insert into restaurant_table(id, seats, restaurant_id)
-values ('069f72db-2157-43de-8e88-21661b518201', 3, '069f72db-2157-43de-8e88-21661b518200');
-
-
-insert into reservation(ID, CONFIRMED, RESERVATION_FROM, RESERVATION_TO, USER_EMAIL, USER_NAME)
-values ('069f72db-2157-43de-8e88-21661b518201', false,
-        parsedatetime('10-06-2022 13:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
-        parsedatetime('10-06-2022 13:30:00.000', 'dd-MM-yyyy hh:mm:ss.SS'), 'jonas.ladner@tum.de',
-        'LadnerJonas');
-
-insert into RESERVATION_RESTAURANT_TABLES(RESERVATION_ID, RESTAURANT_TABLES_ID)
-values ('069f72db-2157-43de-8e88-21661b518201', '069f72db-2157-43de-8e88-21661b518201');
 
 
 insert into IMAGE (ID, IMAGEURL)
@@ -33,6 +21,8 @@ insert into IMAGE (ID, IMAGEURL)
 values ('069f72db-2157-43de-8e88-21661b518201', '/serverFile/serverImages/floorplan/table4-2.png');
 insert into IMAGE (ID, IMAGEURL)
 values ('069f72db-2157-43de-8e88-21661b518202', '/serverFile/serverImages/floorplan/table8-1.png');
+insert into IMAGE (ID, IMAGEURL)
+values ('069f72db-2157-43de-8e88-21661b518203', '/serverFile/serverImages/floorplan/floorplan-temporary.png');
 insert into IMAGE (ID, IMAGEURL)
 values ('069f72db-2157-43de-8e88-21661b518300', '/serverFile/serverImages/restaurant/mensa-außen-1.png');
 insert into IMAGE (ID, IMAGEURL)
@@ -323,3 +313,70 @@ insert into comment (id, rating, comment, name, restaurant_id)
 values ('069f72db-2157-43de-8e88-21661b518211', 1, 'Super DB', 'DB-Admin', '069f72db-2157-43de-8e88-21661b518200');
 insert into comment (id, rating, comment, name, restaurant_id)
 values ('069f72db-2157-43de-8e88-21661b518212', 1, 'Super DB', 'DB-Admin', '069f72db-2157-43de-8e88-21661b518200');
+
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518200', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518200');
+
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518201', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518201');
+
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518202', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518202');
+
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518203', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518203');
+
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518204', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518204');
+
+
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518200', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518200', 3, '069f72db-2157-43de-8e88-21661b518200',
+        '069f72db-2157-43de-8e88-21661b518200');
+
+
+insert into reservation(ID, CONFIRMED, RESERVATION_FROM, RESERVATION_TO, USER_EMAIL, USER_NAME)
+values ('069f72db-2157-43de-8e88-21661b518200', false,
+        parsedatetime('10-06-2022 13:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('10-06-2022 13:30:00.000', 'dd-MM-yyyy hh:mm:ss.SS'), 'jonas.ladner@tum.de',
+        'LadnerJonas');
+
+insert into RESERVATION_RESTAURANT_TABLES(RESERVATION_ID, RESTAURANT_TABLES_ID)
+values ('069f72db-2157-43de-8e88-21661b518200', '069f72db-2157-43de-8e88-21661b518200');
+
+
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518201', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518201', 3, '069f72db-2157-43de-8e88-21661b518200',
+        '069f72db-2157-43de-8e88-21661b518201');
+
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518202', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518202', 3, '069f72db-2157-43de-8e88-21661b518200',
+        '069f72db-2157-43de-8e88-21661b518202');
+
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518203', 100 * 2, 100 * 2, 700 * 2, 300 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518203', 3, '069f72db-2157-43de-8e88-21661b518200',
+        '069f72db-2157-43de-8e88-21661b518203');
+
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518204', 100 * 2, 100 * 2, 700 * 2, 70 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518205', 3, '069f72db-2157-43de-8e88-21661b518204',
+        '069f72db-2157-43de-8e88-21661b518204');
