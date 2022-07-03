@@ -31,4 +31,8 @@ class Image(
 
     @ManyToMany(fetch = FetchType.EAGER, mappedBy = "images")
     val restaurantImage: Set<Restaurant>
-)
+) : Comparable<Image> {
+    override fun compareTo(other: Image): Int {
+        return this.id.compareTo(other.id)
+    }
+}
