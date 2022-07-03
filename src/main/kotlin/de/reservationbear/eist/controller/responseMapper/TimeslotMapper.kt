@@ -11,7 +11,7 @@ import java.sql.Timestamp
  */
 data class TimeslotMapper(
 
-    @field:JsonProperty("from") val from: Timestamp? = null,
+    @field:JsonProperty("from") val from: Long? = null,
 
-    @field:JsonProperty("to") val to: Timestamp? = null
+    @field:JsonProperty("to") val to: Long? = null
 )

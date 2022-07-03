@@ -7,8 +7,8 @@ values ('069f72db-2157-43de-8e88-21661b518200', 48.267873, 11.672376, '069f72db-
 // 8-2 / 17-2 to fix the time zone;
 INSERT INTO TIMESLOT
 values ('069f72db-2157-43de-8e98-21661b518200',
-        DATEDIFF('SECOND', DATE '1970-01-01', CURRENT_DATE()) + 60 * 60 * (8 - 2),
-        DATEDIFF('SECOND', DATE '1970-01-01', CURRENT_DATE()) + 60 * 60 * (17 - 2),
+        parsedatetime('02-07-2022 13:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 17:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
         '069f72db-2157-43de-8e88-21661b518200');
 
 
@@ -39,8 +39,8 @@ insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
 values ('069f72db-2157-43de-8e88-21661b518201', 'Cronin-Hagenes', 2, 2, 'www.tum.de');
 INSERT INTO TIMESLOT
 values ('069f72db-2157-43de-8e98-21661b518201',
-        DATEDIFF('SECOND', DATE '1970-01-01', CURRENT_DATE()) + 60 * 60 * (11 - 2),
-        DATEDIFF('SECOND', DATE '1970-01-01', CURRENT_DATE()) + 60 * 60 * (19 - 2),
+        parsedatetime('02-07-2022 14:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 17:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
         '069f72db-2157-43de-8e88-21661b518201');
 insert into RESTAURANT_LOCATION(ID, LAT, LON, RESTAURANT_ID)
 values ('069f72db-2157-43de-8e88-21661b518201', 48.147154, 11.566124, '069f72db-2157-43de-8e88-21661b518201');
@@ -49,8 +49,8 @@ insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
 values ('069f72db-2157-43de-8e88-21661b518202', 'Schultz, Abshire and Yost', 3, 3, 'www.tum.de');
 INSERT INTO TIMESLOT
 values ('069f72db-2157-43de-8e98-21661b518202',
-        DATEDIFF('SECOND', DATE '1970-01-01', CURRENT_DATE()) + 60 * 60 * (10 - 2),
-        DATEDIFF('SECOND', DATE '1970-01-01', CURRENT_DATE()) + 60 * 60 * (18 - 2),
+        parsedatetime('02-07-2022 15:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 17:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
         '069f72db-2157-43de-8e88-21661b518202');
 insert into RESTAURANT_LOCATION(ID, LAT, LON, RESTAURANT_ID)
 values ('069f72db-2157-43de-8e88-21661b518202', 48.147154, 11.586124, '069f72db-2157-43de-8e88-21661b518202');
@@ -59,8 +59,8 @@ insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
 values ('069f72db-2157-43de-8e88-21661b518203', 'Ferry-Steuber', 4, 1, 'www.tum.de');
 INSERT INTO TIMESLOT
 values ('069f72db-2157-43de-8e98-21661b518203',
-        DATEDIFF('SECOND', DATE '1970-01-01', CURRENT_DATE()) + 60 * 60 * (15 - 2),
-        DATEDIFF('SECOND', DATE '1970-01-01', CURRENT_DATE()) + 60 * 60 * (20 - 2),
+        parsedatetime('02-07-2022 13:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 18:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
         '069f72db-2157-43de-8e88-21661b518203');
 insert into RESTAURANT_LOCATION(ID, LAT, LON, RESTAURANT_ID)
 values ('069f72db-2157-43de-8e88-21661b518203', 48.168154, 11.576124, '069f72db-2157-43de-8e88-21661b518203');
@@ -69,8 +69,8 @@ insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
 values ('069f72db-2157-43de-8e88-21661b518204', 'Balistreri-Quigley', 5, 2, 'www.google.de');
 INSERT INTO TIMESLOT
 values ('069f72db-2157-43de-8e98-21661b518204',
-        DATEDIFF('SECOND', DATE '1970-01-01', CURRENT_DATE()) + 60 * 60 * (10 - 2),
-        DATEDIFF('SECOND', DATE '1970-01-01', CURRENT_DATE()) + 60 * 60 * (14 - 2),
+        parsedatetime('02-07-2022 16:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 17:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
         '069f72db-2157-43de-8e88-21661b518204');
 insert into RESTAURANT_LOCATION(ID, LAT, LON, RESTAURANT_ID)
 values ('069f72db-2157-43de-8e88-21661b518204', 48.157154, 11.556124, '069f72db-2157-43de-8e88-21661b518204');

@@ -55,8 +55,8 @@ class RestaurantController(val restaurantService: RestaurantService) {
                         restaurant.images?.map { image -> image.id },
                         restaurant.website,
                         OpeningHoursMapper(
-                            restaurant.openingHours?.timeslotFrom ?: 0,
-                            restaurant.openingHours?.timeslotTo ?: 0
+                            (restaurant.openingHours?.timeslotFrom?.time ?: 0) / 1000,
+                            (restaurant.openingHours?.timeslotTo?.time ?: 0) / 1000
                         ),
                         restaurant.averageRating,
                         restaurant.priceCategory,
@@ -91,8 +91,8 @@ class RestaurantController(val restaurantService: RestaurantService) {
                 restaurant.images?.map { image -> image.id },
                 restaurant.website,
                 OpeningHoursMapper(
-                    restaurant.openingHours?.timeslotFrom ?: 0,
-                    restaurant.openingHours?.timeslotTo ?: 0
+                    (restaurant.openingHours?.timeslotFrom?.time ?: 0) / 1000,
+                    (restaurant.openingHours?.timeslotTo?.time ?: 0) / 1000
                 ),
                 restaurant.averageRating,
                 restaurant.priceCategory,
@@ -195,8 +195,8 @@ class RestaurantController(val restaurantService: RestaurantService) {
         val reservations: Page<Reservation?>? =
             restaurantService.findReservationsInTimeframeOfRestaurant(
                 id,
-                Timestamp(from),
-                Timestamp(to),
+                Timestamp(from * 1000),
+                Timestamp(to * 1000),
                 PageRequest.of(currentPage, pageSize)
             )
 
@@ -208,8 +208,8 @@ class RestaurantController(val restaurantService: RestaurantService) {
                     ?.let {
                         RestaurantTableMapper(
                             TimeslotMapper(
-                                reservation.reservationFrom,
-                                reservation.reservationTo
+                                reservation.reservationFrom.time / 1000,
+                                reservation.reservationTo.time / 1000
                             ),
                             it.toList()
                         )

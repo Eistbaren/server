@@ -24,9 +24,9 @@ class Timeslot(
     @Type(type = "uuid-char")
     val id: UUID,
 
-    val timeslotFrom: Long,
+    val timeslotFrom: Timestamp,
     
-    val timeslotTo: Long,
+    val timeslotTo: Timestamp,
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "restaurantId")
