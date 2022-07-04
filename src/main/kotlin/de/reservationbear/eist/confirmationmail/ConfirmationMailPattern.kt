@@ -17,14 +17,14 @@ class ConfirmationMailPattern(val mailSender: MailSender) {
      * @param name          name of the recipient
      * @param token         token for confirm a reservation
      */
-    fun sendMail(mailAddress: String, name: String, uuid: UUID, token: UUID) {
+    fun sendMail(mailAddress: String, name: String, reservationId: UUID, token: UUID) {
         //Link for confirmation side
-        val link = "http://localhost:8080/${token}"
+        val link = "https://reservation-bear.de/reservation-details/${reservationId}?confirmationToken=${token}"
         mailSender.send(
             mailAddress,
             buildEmail(name.split(" ")[0], link),
             "Confirmation of your reservation",
-            uuid
+            reservationId
         )
     }
 

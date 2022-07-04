@@ -19,7 +19,7 @@ class RegistrationMailPattern(val mailSender: MailSender) {
      */
     fun sendMail(mailAddress: String, name: String, reservationId: UUID) {
         //No such endpoint - do we want to approve mail addresses?
-        val link = "http://localhost:8080/api/reservation/${reservationId}/"
+        val link = "https://reservation-bear.de/reservation-details/${reservationId}"
         mailSender.send(
             mailAddress,
             buildEmail(name.split(" ")[0], link),
