@@ -11,7 +11,7 @@ import java.util.*
  */
 data class RestaurantTableMapper(
 
-    @field:JsonProperty("timeslot") val timeslots: TimeslotMapper? = null,
+    @field:JsonProperty("time") val timeslots: TimeslotMapper? = null,
 
     @field:JsonProperty("reservedTables") val reservedTables: List<UUID?>? = null
 )
