@@ -1,5 +1,6 @@
 package de.reservationbear.eist.db.entity
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonManagedReference
 import org.hibernate.annotations.ColumnDefault
 import org.hibernate.annotations.GenericGenerator
@@ -42,4 +43,10 @@ class Reservation(
     val userEmail: String,
 
     var confirmed: Boolean,
+
+    @JsonIgnore
+    var sendConfirmation: Boolean? = false,
+
+    @JsonIgnore
+    var confirmationToken: UUID? = null
 )
