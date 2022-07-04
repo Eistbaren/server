@@ -39,7 +39,7 @@ class MailProvider(val mailSender: JavaMailSender, val reservationService: Reser
             helper.setText(email!!, true)
             helper.setTo(to!!)
             helper.setSubject(subject ?: "Info")
-            helper.setFrom("reservation@reservation-bear.de")
+            helper.setFrom("reservations@reservation-bear.de","Reservation-Bear.de")
             if(reservationUUID != null) {
                 helper.addAttachment("reservation.ics", reservationService.getICSResource(reservationUUID))
             }

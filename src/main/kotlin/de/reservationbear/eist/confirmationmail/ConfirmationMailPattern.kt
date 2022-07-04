@@ -23,7 +23,7 @@ class ConfirmationMailPattern(val mailSender: MailSender) {
         mailSender.send(
             mailAddress,
             buildEmail(name.split(" ")[0], link),
-            "Confirmation of your reservation",
+            "✅ Confirmation of your reservation (${reservationId})",
             reservationId
         )
     }
@@ -84,7 +84,7 @@ class ConfirmationMailPattern(val mailSender: MailSender) {
             <p style="Margin:0 0 20px 0;font-size:19px;line-height:25px;color:#2e3440c">Hi $name,</p><p style="Margin:0 0 20px 0;font-size:19px;line-height:25px;color:#2e3440">thanks for your reservation. Now you just have to confirm the reservation one last time at the following link and you can enjoy your meal!</p><blockquote style="Margin:0 0 20px 0;border-left:10px solid #2e3440;padding:15px 0 0.1px 15px;font-size:19px;line-height:25px"><p style="Margin:0 0 20px 0;font-size:19px;line-height:25px;color:#2e3440c"> <a href="$link" style="color: #88c0d0">Click here for confirmation</a> </p></blockquote>
 Thank you for your trust in Reservation Bear. If you have any questions or problems, please contact our support team at any time by e-mail or directly by telephone.
 <p>Have a nice day</p>        
-<p>Your Eistbären team</p>   
+<p>Your Eistbären team 🐻‍❄️</p>   
       </td>
       <td width="10" valign="middle"><br></td>
     </tr>

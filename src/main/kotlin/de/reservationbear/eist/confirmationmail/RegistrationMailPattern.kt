@@ -20,10 +20,13 @@ class RegistrationMailPattern(val mailSender: MailSender) {
     fun sendMail(mailAddress: String, name: String, reservationId: UUID) {
         //No such endpoint - do we want to approve mail addresses?
         val link = "https://reservation-bear.de/reservation-details/${reservationId}"
+
+        //List of Emojis for Title
+        val icons = arrayOf("🍚","🥗","🍕","🍔","🍝","🍰","🧇","🌮","🥙","🍣","🥗","🍺","🍹","🍷")
         mailSender.send(
             mailAddress,
             buildEmail(name.split(" ")[0], link),
-            "Confirmation of your reservation",
+            "${icons[Random().nextInt(0,icons.size)]} Confirmation of your reservation (${reservationId})",
             null
         )
     }
@@ -84,7 +87,7 @@ class RegistrationMailPattern(val mailSender: MailSender) {
             <p style="Margin:0 0 20px 0;font-size:19px;line-height:25px;color:#2e3440c">Hi $name,</p><p style="Margin:0 0 20px 0;font-size:19px;line-height:25px;color:#2e3440"> Thank you for booking through our service. Below you will find a link to your dashboard: </p><blockquote style="Margin:0 0 20px 0;border-left:10px solid #2e3440;padding:15px 0 0.1px 15px;font-size:19px;line-height:25px"><p style="Margin:0 0 20px 0;font-size:19px;line-height:25px;color:#2e3440c"> <a href="$link" style="color: #88c0d0">Click here for dashboard</a> </p></blockquote>
 24 hours before your reservation date you will receive another email where you have to confirm your reservation one last time (this can be done up to 12 hours before). 
 <p>Have a nice day</p>        
-<p>Your Eistbären team</p>   
+<p>Your Eistbären team 🐻‍❄️‍</p>   
       </td>
       <td width="10" valign="middle"><br></td>
     </tr>
