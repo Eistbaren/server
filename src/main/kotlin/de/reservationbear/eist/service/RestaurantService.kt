@@ -84,16 +84,46 @@ class RestaurantService(val db: RestaurantRepository) {
         if(filterList.isEmpty()) {
             return db.findAll(pageable)
         }
+        var query: String = ""
+        var priceCategory: Int? = null
+        var lat: Double? = null
+        var lon: Double? = null
+        var radius: Double? = null
+        var minimumAverageRating: Double? = null
+        var timeFrom: Date? = null
+        var timeTo: Date? = null
+        var numberVisitors: Int? = null
 
-        val query = filterList[0]
-        val priceCategory = filterList[2].toIntOrNull()
-        val lat = filterList[3].toDoubleOrNull()
-        val lon = filterList[4].toDoubleOrNull()
-        val radius = filterList[5].toDoubleOrNull()
-        val minimumAverageRating = filterList[6].toDoubleOrNull()
-        val timeFrom = filterList[7].toLongOrNull()?.let { Date(it * 1000) }
-        val timeTo = filterList[8].toLongOrNull()?.let { Date(it * 1000) }
-        val numberVisitors = filterList[9].toIntOrNull()
+        if(filterList.size >= 10) {
+            numberVisitors = filterList[9].toIntOrNull()
+        }
+        if(filterList.size >= 9) {
+            timeTo = filterList[8].toLongOrNull()?.let { Date(it * 1000) }
+        }
+        if(filterList.size >= 8) {
+            timeFrom = filterList[7].toLongOrNull()?.let { Date(it * 1000) }
+        }
+        if(filterList.size >= 7) {
+            minimumAverageRating = filterList[6].toDoubleOrNull()
+        }
+        if(filterList.size >= 6) {
+            radius = filterList[5].toDoubleOrNull()
+        }
+        if(filterList.size >= 5) {
+            lon = filterList[4].toDoubleOrNull()
+        }
+        if(filterList.size >= 4) {
+            lat = filterList[3].toDoubleOrNull()
+        }
+        if(filterList.size >= 3) {
+            priceCategory = filterList[2].toIntOrNull()
+        }
+        if(filterList.size >= 2) {
+            // restaurant type
+        }
+        if(filterList.size >= 1) {
+            query = filterList[0]
+        }
 
         return db.filterRestaurants(query, priceCategory, minimumAverageRating, timeFrom,
                 timeTo, lat, lon, radius, numberVisitors, pageable)
