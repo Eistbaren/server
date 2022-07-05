@@ -3,6 +3,7 @@ package de.reservationbear.eist.confirmationmail
 
 import org.springframework.stereotype.Service
 import java.util.*
+import kotlin.math.floor
 
 /**
  * Pattern for sending a registration mail
@@ -26,7 +27,7 @@ class RegistrationMailPattern(val mailSender: MailSender) {
         mailSender.send(
             mailAddress,
             buildEmail(name.split(" ")[0], link),
-            "${icons[Random().nextInt(0,icons.size)]} Confirmation of your reservation (${reservationId})",
+            "${icons[floor(Math.random() * icons.size).toInt()]} Confirmation of your reservation (${reservationId})",
             null
         )
     }
