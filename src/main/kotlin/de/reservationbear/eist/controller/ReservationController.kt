@@ -11,9 +11,11 @@ import de.reservationbear.eist.service.TableService
 import org.springframework.core.io.Resource
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import java.net.URL
 import java.sql.Timestamp
 import java.util.*
 import java.util.stream.Collectors
+import javax.servlet.http.HttpServletRequest
 
 /**
  * REST-Controller for the reservation entity
@@ -37,7 +39,8 @@ class ReservationController(
         produces = ["application/json"]
     )
     fun createReservation(
-        @RequestBody reservationMapper: ReservationMapper
+        @RequestBody reservationMapper: ReservationMapper,
+        request : HttpServletRequest
     ): ResponseEntity<ReservationMapper> {
 
         val reservation = Reservation(
@@ -50,7 +53,7 @@ class ReservationController(
             Timestamp(reservationMapper.time.to!! * 1000),
             reservationMapper.userName!!,
             reservationMapper.userEmail!!,
-            false
+            urlFromRequest = request.requestURL.toString()
         )
 
         if (reservation.restaurantTables == null || reservation.restaurantTables.isEmpty()) {
@@ -64,6 +67,7 @@ class ReservationController(
         mailService.sendRegistrationMail(
             insertedReservation.userEmail,
             insertedReservation.userName,
+            URL(insertedReservation.urlFromRequest),
             insertedReservation.id!!
         )
 
