@@ -34,8 +34,7 @@ paths:
           **location**: *array[lat, lon]* \
           **radius**: *integer*, radius around the location to search \
           **averageRating**: *integer (1-5)* \
-          **timeFrom**: *unix-timestamp* \
-          **timeTo**: *unix-timestamp* \
+          **time**: *array[unix-timestamp, unix-timestamp]* from (first) and to (second) as unix timestamps \
           **numberVisitors**: *integer*
         style: form
         explode: false
