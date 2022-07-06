@@ -35,7 +35,8 @@ paths:
           **radius**: *integer*, radius around the location to search \
           **averageRating**: *integer (1-5)* \
           **time**: *array[unix-timestamp, unix-timestamp]* from (first) and to (second) as unix timestamps \
-          **numberVisitors**: *integer*
+          **numberVisitors**: *integer* \
+          The filters are provided as array elements in the format `key=value`.
         style: form
         explode: false
         schema:
