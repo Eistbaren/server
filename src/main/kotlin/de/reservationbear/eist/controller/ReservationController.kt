@@ -4,25 +4,27 @@ import de.reservationbear.eist.controller.responseMapper.ConfirmationMapper
 import de.reservationbear.eist.controller.responseMapper.ReservationMapper
 import de.reservationbear.eist.controller.responseMapper.TimeslotMapper
 import de.reservationbear.eist.db.entity.Reservation
+import de.reservationbear.eist.exceptionhandler.ApiException
+import de.reservationbear.eist.service.MailService
 import de.reservationbear.eist.service.ReservationService
 import de.reservationbear.eist.service.TableService
-import net.fortuna.ical4j.model.Calendar
-import net.fortuna.ical4j.model.component.VEvent
-import net.fortuna.ical4j.model.property.ProdId
-import net.fortuna.ical4j.util.RandomUidGenerator
-import org.springframework.core.io.ByteArrayResource
 import org.springframework.core.io.Resource
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import java.sql.Timestamp
 import java.util.*
 import java.util.stream.Collectors
 
 /**
- * REST-Controller for the reservation entity.
+ * REST-Controller for the reservation entity
  */
 @RestController
 @RequestMapping(value = ["/api"])
-class ReservationController(val reservationService: ReservationService, val tableService: TableService) {
+class ReservationController(
+    val reservationService: ReservationService,
+    val tableService: TableService,
+    val mailService: MailService
+) {
 
     /**
      * Creates a reservation and pass it to the reservation service
@@ -44,24 +46,32 @@ class ReservationController(val reservationService: ReservationService, val tabl
                 ?.map { t -> tableService.getTable(t!!) }
                 ?.collect(Collectors.toSet())
                 ?.toSet(),
-            reservationMapper.time!!.from!!,
-            reservationMapper.time.to!!,
+            Timestamp(reservationMapper.time!!.from!! * 1000),
+            Timestamp(reservationMapper.time.to!! * 1000),
             reservationMapper.userName!!,
             reservationMapper.userEmail!!,
             false
         )
 
-        reservation.restaurant = reservation.restaurantTables?.stream()?.findFirst()?.get()?.restaurant;
+        if (reservation.restaurantTables == null || reservation.restaurantTables.isEmpty()) {
+           throw ApiException("Tablelist cannot be null or error", 401)
+        }
 
         reservationService.saveReservation(reservation)
 
         val insertedReservation: Reservation = reservation.id?.let { reservationService.getReservation(it) }!!
 
+        mailService.sendRegistrationMail(
+            insertedReservation.userEmail,
+            insertedReservation.userName,
+            insertedReservation.id!!
+        )
+
         return ResponseEntity.ok(
             ReservationMapper(
                 insertedReservation.id,
                 insertedReservation.restaurantTables?.map { tables -> tables.id }?.toList(),
-                TimeslotMapper(insertedReservation.reservationFrom, insertedReservation.reservationTo),
+                TimeslotMapper(insertedReservation.reservationFrom.time / 1000, insertedReservation.reservationTo.time / 1000),
                 insertedReservation.userName,
                 insertedReservation.userEmail,
                 insertedReservation.confirmed
@@ -71,6 +81,7 @@ class ReservationController(val reservationService: ReservationService, val tabl
 
     /**
      * Returns a reservation, specified by the id.
+     * Edits an existing reservation - is not allowed to create
      *
      * @param id        id of the reservation
      * @return          ResponseEntity with status and body with JSON
@@ -89,7 +100,7 @@ class ReservationController(val reservationService: ReservationService, val tabl
             ReservationMapper(
                 reservation.id,
                 reservation.restaurantTables?.map { tables -> tables.id }?.toList(),
-                TimeslotMapper(reservation.reservationFrom, reservation.reservationTo),
+                TimeslotMapper(reservation.reservationFrom.time / 1000, reservation.reservationTo.time / 1000),
                 reservation.userName,
                 reservation.userEmail,
                 reservation.confirmed
@@ -98,13 +109,11 @@ class ReservationController(val reservationService: ReservationService, val tabl
     }
 
     /**
-     * When called, this endpoint patches the attribute "confirmed" on the reservation specified
-     * by the PathVariable id to the Boolean value in the RequestBody.
+     * Edits an existing reservation - is not allowed to create
      *
-     * @param id                        id of the reservation
-     * @param confirmationToken         confirmationToken for the reservation
-     * @param confirmationMapper        Set to true when reservation is confirmed
-     * @return                          ResponseEntity with status and body with JSON
+     * @param id                Id of the reservation
+     * @param confirmationToken confirmationToken for the reservation
+     * @return                  ResponseEntity with status and body with JSON
      */
     @PatchMapping(
         value = ["/reservation/{id}"],
@@ -112,19 +121,17 @@ class ReservationController(val reservationService: ReservationService, val tabl
     )
     fun patchReservation(
         @PathVariable("id") id: UUID,
-        @RequestParam(value = "confirmationToken", required = true) confirmationToken: String,
+        @RequestParam(value = "confirmationToken", required = true) confirmationToken: UUID,
         @RequestBody confirmationMapper: ConfirmationMapper
     ): ResponseEntity<ReservationMapper> {
 
-        val patchedReservation: Reservation = reservationService.getReservation(id)
-        patchedReservation.confirmed = confirmationMapper.confirmed
-        reservationService.saveReservation(patchedReservation)
+        val patchedReservation: Reservation = reservationService.confirmReservation(id, confirmationToken)
 
         return ResponseEntity.ok(
             ReservationMapper(
                 patchedReservation.id,
                 patchedReservation.restaurantTables?.map { tables -> tables.id }?.toList(),
-                TimeslotMapper(patchedReservation.reservationFrom, patchedReservation.reservationTo),
+                TimeslotMapper(patchedReservation.reservationFrom.time / 1000, patchedReservation.reservationTo.time /1000),
                 patchedReservation.userName,
                 patchedReservation.userEmail,
                 patchedReservation.confirmed
@@ -146,14 +153,13 @@ class ReservationController(val reservationService: ReservationService, val tabl
         @PathVariable("id") id: UUID
     ): ResponseEntity<ReservationMapper> {
 
-        val removedReservation: Reservation = id.let { reservationService.getReservation(id) }
-        reservationService.deleteReservation(id)
+        val removedReservation: Reservation = reservationService.deleteReservation(id)
 
         return ResponseEntity.ok(
             ReservationMapper(
                 removedReservation.id,
                 removedReservation.restaurantTables?.map { tables -> tables.id }?.toList(),
-                TimeslotMapper(removedReservation.reservationFrom, removedReservation.reservationTo),
+                TimeslotMapper(removedReservation.reservationFrom.time / 1000, removedReservation.reservationTo.time / 1000),
                 removedReservation.userName,
                 removedReservation.userEmail,
                 removedReservation.confirmed
@@ -162,7 +168,7 @@ class ReservationController(val reservationService: ReservationService, val tabl
     }
 
     /**
-     * Returns a reservation ics, specified by the id.
+     * Returns a reservation ics, specified by the id
      *
      * @param id        id of the reservation
      * @return          ResponseEntity with status and an ICS file
@@ -172,25 +178,8 @@ class ReservationController(val reservationService: ReservationService, val tabl
         produces = ["text/calendar"]
     )
     fun getReservationIcs(
-        @PathVariable("id") id: String
+        @PathVariable("id") id: UUID
     ): ResponseEntity<Resource> {
-        val reservation: Reservation = id.let { reservationService.getReservation(UUID.fromString(id)) }
-
-        val calendarEvent = VEvent(
-            reservation.reservationFrom.toLocalDateTime(),
-            reservation.reservationTo.toLocalDateTime(),
-            "Reservation: " + reservation.restaurantTables?.first()?.restaurant?.name
-        )
-
-        val calendar = Calendar()
-            .withComponent(calendarEvent)
-            // add the from the specification required properties
-            .withProperty(RandomUidGenerator().generateUid())
-            .withProperty(ProdId("-//Eistbear Calender Event//iCal4j 1.0//EN"))
-            .withDefaults()
-
-        val calendarByte = calendar.toString().toByteArray()
-        val resource: Resource = ByteArrayResource(calendarByte)
-        return ResponseEntity.ok(resource)
+        return ResponseEntity.ok(reservationService.getICSResource(id))
     }
 }
