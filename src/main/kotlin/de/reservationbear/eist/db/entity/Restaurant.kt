@@ -15,7 +15,7 @@ import javax.persistence.*
  */
 @Entity
 class Restaurant(
-        @Id
+    @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
         name = "UUID",
@@ -26,9 +26,9 @@ class Restaurant(
     @Type(type = "uuid-char")
     val id: UUID,
 
-        val name: String,
+    val name: String,
 
-        @SortNatural
+    @SortNatural
     @OrderBy("id ASC")
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -38,34 +38,34 @@ class Restaurant(
     )
     val images: Set<Image>? = null,
 
-        val website: URI? = null,
+    val website: URI? = null,
 
-        @OneToOne(fetch = FetchType.EAGER, mappedBy = "restaurant")
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "restaurant")
     @JsonManagedReference
     val openingHours: Timeslot? = null,
 
-        val averageRating: Double,
+    val averageRating: Double,
 
-        val priceCategory: Int,
+    val priceCategory: Int,
 
-        @OneToOne(fetch = FetchType.EAGER, mappedBy = "restaurant")
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "restaurant")
     @JsonManagedReference
     val location: RestaurantLocation? = null,
 
-        @OneToOne(fetch = FetchType.EAGER, mappedBy = "restaurant")
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "restaurant")
     @JsonManagedReference
     val floorPlan: RestaurantFloorPlan? = null,
 
-        @OneToMany(fetch = FetchType.EAGER, mappedBy = "restaurant")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "restaurant")
     @JsonManagedReference(value = "restaurantTablesRestaurant")
     val restaurantTables: Set<RestaurantTable>? = null,
 
-        @SortNatural
+    @SortNatural
     @OrderBy("id ASC")
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "restaurant")
     @JsonManagedReference
     val comments: Set<Comment>? = null,
 
-        @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.ORDINAL)
     val type: RestaurantType? = null,
 )
