@@ -1,7 +1,7 @@
 package de.reservationbear.eist.db.entity
 
 import com.fasterxml.jackson.annotation.JsonManagedReference
-import de.reservationbear.eist.db.RestaurantType
+import de.reservationbear.eist.db.type.RestaurantType
 import org.hibernate.annotations.ColumnDefault
 import org.hibernate.annotations.GenericGenerator
 import org.hibernate.annotations.SortNatural

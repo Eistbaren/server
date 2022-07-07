@@ -2,7 +2,7 @@ package de.reservationbear.eist.controller.responseMapper
 
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
-import de.reservationbear.eist.db.RestaurantType
+import de.reservationbear.eist.db.type.RestaurantType
 import de.reservationbear.eist.db.entity.RestaurantFloorPlan
 import java.net.URI
 import java.util.*
