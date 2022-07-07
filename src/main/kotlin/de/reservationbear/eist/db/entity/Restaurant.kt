@@ -1,6 +1,7 @@
 package de.reservationbear.eist.db.entity
 
 import com.fasterxml.jackson.annotation.JsonManagedReference
+import de.reservationbear.eist.db.type.RestaurantType
 import org.hibernate.annotations.ColumnDefault
 import org.hibernate.annotations.GenericGenerator
 import org.hibernate.annotations.SortNatural
@@ -64,4 +65,7 @@ class Restaurant(
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "restaurant")
     @JsonManagedReference
     val comments: Set<Comment>? = null,
+
+    @Enumerated(EnumType.ORDINAL)
+    val type: RestaurantType? = null,
 )
