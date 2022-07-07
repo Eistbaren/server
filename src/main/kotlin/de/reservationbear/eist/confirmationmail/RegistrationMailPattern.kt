@@ -64,12 +64,14 @@ class RegistrationMailPattern(val mailSender: MailSender) {
 			</a>
 		</p>
 	</blockquote>
+    <p style="margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #2e3440;">
 	24 hours before your reservation date you will receive another email where you have to confirm your reservation one last time (this can be done up to 12 hours before).
-	<p>
+    </p>
+	<p style="font-size: 19px; color: #2e3440;">
 		Have a nice day
 	</p>
-	<p>
-		Your Eistbären team 🐻‍❄️‍
+	<p style="font-size: 19px; color: #2e3440;">
+		Your Eistbären team 🐻‍❄️
 	</p>
 </div>
 """

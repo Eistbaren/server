@@ -58,17 +58,17 @@ class ConfirmationMailPattern(val mailSender: MailSender) {
 	<blockquote style="margin: 0 0 20px 0; border-left: 10px solid #2e3440; padding: 15px 0 0.1px 15px; font-size: 19px; line-height: 25px;">
 		<p style="margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #2e3440c;">
 			<a style="color: #88c0d0;" href="$link">
-				 Click here for confirmation
+				 Click here for dashboard
 			</a>
 		</p>
 	</blockquote>
-	<p>
+	<p style="margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #2e3440;">
 		Thank you for your trust in Reservation Bear. If you have any questions or problems, please contact our support team at any time by e-mail or directly by telephone.
 	</p>
-	<p>
+	<p style="font-size: 19px; color: #2e3440;">
 		Have a nice day
 	</p>
-	<p>
+	<p style="font-size: 19px; color: #2e3440;">
 		Your Eistbären team 🐻‍❄️
 	</p>
 </div>
