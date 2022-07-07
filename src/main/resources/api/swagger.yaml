@@ -259,7 +259,7 @@ paths:
       summary: get options
       responses:
         200:
-          description: OK
+          description: "This is only used for CORS so there is no content, just headers"
           headers:
             Access-Control-Request-Method:
               description: "Contains all allowed methods eg. `POST` and `PATCH`"
@@ -275,7 +275,6 @@ paths:
                 items:
                   type: string
             
-    
   /reservation/{id}:
     get:
       tags:
