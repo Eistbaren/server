@@ -20,7 +20,7 @@ class ConfirmationMailPattern(val mailSender: MailSender) {
      */
     fun sendMail(mailAddress: String, name: String, url: URL, reservationId: UUID, token: UUID) {
         //Link for confirmation side
-        val link = "${url.host}/reservation-details/${reservationId}?confirmationToken=${token}"
+        val link = "${url.host + ":" + url.port}/reservation-details/${reservationId}?confirmationToken=${token}"
         mailSender.send(
             mailAddress,
             buildEmail(name.split(" ")[0], link),

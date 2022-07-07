@@ -21,7 +21,7 @@ class RegistrationMailPattern(val mailSender: MailSender) {
      */
     fun sendMail(mailAddress: String, name: String, url: URL, reservationId: UUID) {
         //No such endpoint - do we want to approve mail addresses?
-        val link = "${url.host}/reservation-details/${reservationId}"
+        val link = "${url.host + ":" + url.port}/reservation-details/${reservationId}"
 
         //List of Emojis for Title
         val icons = arrayOf("🍚","🥗","🍕","🍔","🍝","🍰","🧇","🌮","🥙","🍣","🥗","🍺","🍹","🍷")
