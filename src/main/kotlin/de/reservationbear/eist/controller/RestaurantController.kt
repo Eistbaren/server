@@ -12,8 +12,6 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import java.math.BigDecimal
 import java.sql.Timestamp
-import java.time.Instant
-import java.time.LocalDateTime
 import java.util.*
 
 /**
@@ -54,11 +52,15 @@ class RestaurantController(val restaurantService: RestaurantService) {
                         restaurant.name,
                         restaurant.images?.map { image -> image.id },
                         restaurant.website,
-                        restaurant.openingHours?.toMutableList(),
+                        OpeningHoursMapper(
+                            (restaurant.openingHours?.timeslotFrom?.time ?: 0) / 1000,
+                            (restaurant.openingHours?.timeslotTo?.time ?: 0) / 1000
+                        ),
                         restaurant.averageRating,
                         restaurant.priceCategory,
-                        restaurant.location,
-                        restaurant.floorPlan
+                        RestaurantLocationMapper(restaurant.location?.lat ?: 0.0, restaurant.location?.lon ?: 0.0),
+                        restaurant.floorPlan,
+                        restaurant.type
                     )
                 }.toList()
             )
@@ -87,11 +89,15 @@ class RestaurantController(val restaurantService: RestaurantService) {
                 restaurant.name,
                 restaurant.images?.map { image -> image.id },
                 restaurant.website,
-                restaurant.openingHours?.toMutableList(),
+                OpeningHoursMapper(
+                    (restaurant.openingHours?.timeslotFrom?.time ?: 0) / 1000,
+                    (restaurant.openingHours?.timeslotTo?.time ?: 0) / 1000
+                ),
                 restaurant.averageRating,
                 restaurant.priceCategory,
-                restaurant.location,
-                restaurant.floorPlan
+                RestaurantLocationMapper(restaurant.location?.lat ?: 0.0, restaurant.location?.lon ?: 0.0),
+                restaurant.floorPlan,
+                restaurant.type
             )
         )
     }
@@ -124,12 +130,7 @@ class RestaurantController(val restaurantService: RestaurantService) {
                 BigDecimal(pageSize),
                 tables
                     ?.map { table ->
-                        TableMapper(
-                            table?.id,
-                            table?.restaurant?.id,
-                            table?.seats,
-                            table?.floorPlan
-                        )
+                        TableMapper(table)
                     }
                     ?.toList()
             )
@@ -170,50 +171,6 @@ class RestaurantController(val restaurantService: RestaurantService) {
     }
 
     /**
-     * Returns a paginated list of all timeslots on a given date for a given restaurant.
-     *
-     * @param date              date of the timeslots that should be returned
-     * @param currentPage       page to load
-     * @param pageSize          size of one page
-     * @return                  ResponseEntity with status and body with JSON
-     */
-    @GetMapping(
-        value = ["/restaurant/{id}/timeslot"],
-        produces = ["application/json"]
-    )
-    fun getRestaurantTimeslots(
-        @PathVariable("id") id: UUID,
-        @RequestParam(value = "date", required = true) date: Long,
-        @RequestParam(value = "currentPage", defaultValue = "0") currentPage: Int,
-        @RequestParam(value = "pageSize", defaultValue = "50") pageSize: Int
-    ): ResponseEntity<PagingResponseMapper> {
-
-        val singleDay = 1000 * 60 * 60 * 24
-
-        val timeslots = restaurantService.findOpeningHoursInTimeFrameOfRestaurant(
-            id, Timestamp.valueOf(
-                LocalDateTime.ofInstant(
-                    Instant.ofEpochMilli(date * 1000),
-                    TimeZone.getDefault().toZoneId()
-                )
-            ), Timestamp.valueOf(
-                LocalDateTime.ofInstant(
-                    Instant.ofEpochMilli(date * 1000 + singleDay),
-                    TimeZone.getDefault().toZoneId()
-                )
-            ), PageRequest.of(currentPage, pageSize)
-        )
-
-        return ResponseEntity.ok(
-            PagingResponseMapper(
-                BigDecimal(timeslots?.totalPages ?: 0),
-                BigDecimal(currentPage),
-                BigDecimal(pageSize), timeslots?.toList() ?: ArrayList<Comment?>()
-            )
-        )
-    }
-
-    /**
      * Returns a list of reservation paginated by the id restaurant.
      *
      * @param id                id of the restaurant
@@ -238,8 +195,8 @@ class RestaurantController(val restaurantService: RestaurantService) {
         val reservations: Page<Reservation?>? =
             restaurantService.findReservationsInTimeframeOfRestaurant(
                 id,
-                Timestamp(from),
-                Timestamp(to),
+                Timestamp(from * 1000),
+                Timestamp(to * 1000),
                 PageRequest.of(currentPage, pageSize)
             )
 
@@ -251,8 +208,8 @@ class RestaurantController(val restaurantService: RestaurantService) {
                     ?.let {
                         RestaurantTableMapper(
                             TimeslotMapper(
-                                reservation.reservationFrom,
-                                reservation.reservationTo
+                                reservation.reservationFrom.time / 1000,
+                                reservation.reservationTo.time / 1000
                             ),
                             it.toList()
                         )

@@ -21,8 +21,14 @@ class TableFloorPlan(
     @ColumnDefault("random_uuid()")
     @Type(type = "uuid-char")
     val id: UUID,
+
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "imageId")
     val image: Image? = null,
-    @OneToOne(fetch = FetchType.EAGER)
-    val propertySize: TableFloorPlanPosition? = null
+
+    val x: Int? = null,
+    val y: Int? = null,
+
+    val width: Int? = null,
+    val height: Int? = null
 )

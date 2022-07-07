@@ -11,7 +11,7 @@ import java.util.*
 @Service
 class ImageService(val db: ImageRepository) {
     /**
-     * Provides the image entity of image uuid
+     * Provides the image entity of image uuid.
      * @param uuid uuid of the image
      * @return the image object
      */
