@@ -252,6 +252,30 @@ paths:
               schema:
                 $ref: '#/components/schemas/Reservation'
       x-codegen-request-body-name: reservation
+      
+    options:
+      tags:
+      - reservation
+      summary: get options
+      responses:
+        200:
+          description: OK
+          headers:
+            Access-Control-Request-Method:
+              description: "Contains all allowed methods eg. `POST` and `PATCH`"
+              schema:
+                type: array
+                items:
+                  type: string
+                  
+            Access-Control-Request-Headers:
+              description: "Contains all allowed headers eg. `Content-Type`"
+              schema:
+                type: array
+                items:
+                  type: string
+            
+    
   /reservation/{id}:
     get:
       tags:
