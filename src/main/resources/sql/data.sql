@@ -265,8 +265,8 @@ insert into restaurant (NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
 values ('Bergnaum and Sons', 4, 3, 'www.google.de');
 insert into restaurant (NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
 values ('Steuber and Sons', 5, 1, 'www.google.de');
-insert into restaurant (NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
-values ('Breitenberg Inc', 1, 2, 'www.duckduckgo.com');
+insert into restaurant (NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
+values ('Breitenberg Inc', 1, 2, 'www.duckduckgo.com', 1);
 
 
 insert into RESTAURANT_IMAGES (RESTAURANT_ID, IMAGE_ID)
