@@ -1,12 +1,14 @@
 package de.reservationbear.eist
 
 import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
 import org.springframework.web.servlet.config.annotation.CorsRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
 /**
  * Defines the custom Cors settings
  */
+@Configuration
 class CorsConfigurer {
     /**
      * Allows access to our API-Endpoints from all Origins
