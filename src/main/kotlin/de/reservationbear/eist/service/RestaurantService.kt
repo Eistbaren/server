@@ -2,6 +2,7 @@ package de.reservationbear.eist.service
 
 import de.reservationbear.eist.db.entity.*
 import de.reservationbear.eist.db.repository.RestaurantRepository
+import de.reservationbear.eist.db.type.RestaurantType
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
@@ -78,8 +79,10 @@ class RestaurantService(val db: RestaurantRepository) {
 
     /**
      * Find all Restaurants that satisfy the given filters. If no filters where set, returns a page of all restaurants.
-     * Filter can either be empty or a list of 10 parameters. If a filter should not be used, the filter should be
-     * set to the empty string
+     * Filter can either be empty or a list of 8 parameters represented by key-value pairs. If a filter should not be
+     * used, the filter should be omitted in the http request. Parameters that require an array as value must
+     * separate the values inside the array with ;
+     * All filters, that are not included in the request are set to the default (null or "").
      * @param filterList list of filters to narrow restaurant search
      * @param pageable for pagination of search results
      */
@@ -87,48 +90,28 @@ class RestaurantService(val db: RestaurantRepository) {
         if(filterList.isEmpty()) {
             return db.findAll(pageable)
         }
-        var query: String = ""
-        var priceCategory: Int? = null
-        var lat: Double? = null
-        var lon: Double? = null
-        var radius: Double? = null
-        var minimumAverageRating: Double? = null
-        var timeFrom: Date? = null
-        var timeTo: Date? = null
-        var numberVisitors: Int? = null
 
-        if(filterList.size >= 10) {
-            numberVisitors = filterList[9].toIntOrNull()
-        }
-        if(filterList.size >= 9) {
-            timeTo = filterList[8].toLongOrNull()?.let { Date(it * 1000) }
-        }
-        if(filterList.size >= 8) {
-            timeFrom = filterList[7].toLongOrNull()?.let { Date(it * 1000) }
-        }
-        if(filterList.size >= 7) {
-            minimumAverageRating = filterList[6].toDoubleOrNull()
-        }
-        if(filterList.size >= 6) {
-            radius = filterList[5].toDoubleOrNull()
-        }
-        if(filterList.size >= 5) {
-            lon = filterList[4].toDoubleOrNull()
-        }
-        if(filterList.size >= 4) {
-            lat = filterList[3].toDoubleOrNull()
-        }
-        if(filterList.size >= 3) {
-            priceCategory = filterList[2].toIntOrNull()
-        }
-        if(filterList.size >= 2) {
-            // restaurant type
-        }
-        if(filterList.size >= 1) {
-            query = filterList[0]
+        val map: HashMap<String, String> = HashMap()
+        filterList.forEach {
+            val split = it.split("=")
+            if (split.size == 2) {
+                map[split[0].trim()] = split[1].trim()
+            }
         }
 
-        return db.filterRestaurants(query, priceCategory, minimumAverageRating, timeFrom,
-                timeTo, lat, lon, radius, numberVisitors, pageable)
+        var query = map["query"].orEmpty()
+        var type: RestaurantType? = map["type"]?.uppercase()?.let { RestaurantType.valueOf(it) }
+        var priceCategory: Int? = map["priceCategory"]?.toIntOrNull()
+        var lat: Double? = map["location"]?.split(";")?.getOrNull(0)?.toDoubleOrNull()
+        var lon: Double? = map["location"]?.split(";")?.getOrNull(1)?.toDoubleOrNull()
+        var radius: Double? = map["radius"]?.toDoubleOrNull()
+        var minimumAverageRating: Double? = map["averageRating"]?.toDoubleOrNull()
+        var timeFrom: Date? = map["time"]?.split(";")?.getOrNull(0)?.toLongOrNull()?.let { Date(it * 1000) }
+        var timeTo: Date? = map["time"]?.split(";")?.getOrNull(1)?.toLongOrNull()?.let { Date(it * 1000) }
+        var numberVisitors: Int? = map["numberVisitors"]?.toIntOrNull()
+
+        return db.filterRestaurants(query, type, priceCategory, minimumAverageRating, timeFrom, timeTo, lat, lon,
+                radius, numberVisitors, pageable)
+
     }
 }

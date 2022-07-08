@@ -1,6 +1,7 @@
 package de.reservationbear.eist.db.repository
 
 import de.reservationbear.eist.db.entity.*
+import de.reservationbear.eist.db.type.RestaurantType
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.jpa.repository.JpaRepository
@@ -113,6 +114,7 @@ interface RestaurantRepository : JpaRepository<Restaurant, UUID> {
     /**
      * Filters all restaurants based on the given query parameters. Each parameter can be null.
      * @param query string, substring that needs to be contained in the restaurants name
+     * @param type RestaurantType, type of the restaurant, e.g. "italian"
      * @param priceCategory int, from 1 to 3
      * @param minimumAverageRating double, from 1.0 t0 5.0
      * @param timeFrom date, start of the reservation
@@ -125,7 +127,8 @@ interface RestaurantRepository : JpaRepository<Restaurant, UUID> {
      */
     @Query("SELECT DISTINCT r from Restaurant  r " +
             "JOIN r.restaurantTables t " +
-            "where lower(r.name) LIKE lower(concat('%', :query, '%')) " +
+            "WHERE (:query IS NULL or lower(r.name) LIKE lower(concat('%', :query, '%'))) " +
+            "and (:type IS NULL or r.type = :type) " +
             "and (:priceCategory IS NULL or r.priceCategory = :priceCategory)" +
             "and (:minimumAverageRating IS NULL or r.averageRating >= :minimumAverageRating)" +
             "and (:numberOfVisitors IS NULL or t.seats >= :numberOfVisitors)" +
@@ -143,7 +146,8 @@ interface RestaurantRepository : JpaRepository<Restaurant, UUID> {
             "* (FUNCTION('sin', FUNCTION('radians', r.location.lat))))" +
             "))")
 
-    fun filterRestaurants(@Param("query") query: String,
+    fun filterRestaurants(@Param("query") query: String?,
+                          @Param("type") type: RestaurantType?,
                           @Param("priceCategory") priceCategory: Int?,
                           @Param("minimumAverageRating") minimumAverageRating: Double?,
                           @Param("timeFrom") timeFrom: Date?,

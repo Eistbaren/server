@@ -31,10 +31,10 @@ paths:
           **query**: *string*, query for seaching restaurants \
           **type**: *string*, type of restaurant e.g. Italian \
           **priceCategory**: *integer (1-3)* \
-          **location**: *array[lat, lon]* \
+          **location**: *array[lat; lon]*, array values must be seperated using ; \
           **radius**: *integer*, radius around the location to search \
           **averageRating**: *integer (1-5)* \
-          **time**: *array[unix-timestamp, unix-timestamp]* from (first) and to (second) as unix timestamps \
+          **time**: *array[unix-timestamp; unix-timestamp]* from (first) and to (second) as unix timestamps, array values must be seperated using ; \
           **numberVisitors**: *integer* \
           The filters are provided as array elements in the format `key=value`.
         style: form
