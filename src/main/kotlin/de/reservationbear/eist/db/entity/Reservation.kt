@@ -42,11 +42,15 @@ class Reservation(
 
     val userEmail: String,
 
-    var confirmed: Boolean,
+    var confirmed: Boolean = false,
 
     @JsonIgnore
     var sendConfirmation: Boolean? = false,
 
     @JsonIgnore
-    var confirmationToken: UUID? = null
+    var confirmationToken: UUID? = null,
+
+    @JsonIgnore
+    var urlFromRequest: String
+
 )
