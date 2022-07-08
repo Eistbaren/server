@@ -7,12 +7,15 @@ import de.reservationbear.eist.db.entity.Reservation
 import de.reservationbear.eist.exceptionhandler.ApiException
 import de.reservationbear.eist.service.MailService
 import de.reservationbear.eist.service.ReservationService
+import de.reservationbear.eist.service.RestaurantService
 import de.reservationbear.eist.service.TableService
 import org.springframework.core.io.Resource
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import java.net.URL
 import java.sql.Timestamp
+import java.time.Instant
+import java.time.temporal.ChronoUnit
 import java.util.*
 import java.util.stream.Collectors
 import javax.servlet.http.HttpServletRequest
@@ -24,6 +27,7 @@ import javax.servlet.http.HttpServletRequest
 @RequestMapping(value = ["/api"])
 class ReservationController(
     val reservationService: ReservationService,
+    val restaurantService: RestaurantService,
     val tableService: TableService,
     val mailService: MailService
 ) {
@@ -40,7 +44,7 @@ class ReservationController(
     )
     fun createReservation(
         @RequestBody reservationMapper: ReservationMapper,
-        request : HttpServletRequest
+        request: HttpServletRequest
     ): ResponseEntity<ReservationMapper> {
 
         val reservation = Reservation(
@@ -56,9 +60,35 @@ class ReservationController(
             urlFromRequest = request.requestURL.toString()
         )
 
+        //Catch reservation with empty table
         if (reservation.restaurantTables == null || reservation.restaurantTables.isEmpty()) {
-           throw ApiException("Tablelist cannot be null or error", 401)
+            throw ApiException("Tablelist cannot be null or error", 400)
         }
+
+        //Catch reservation where due date is lower than 12 hours
+        if (reservation.reservationFrom < Timestamp.from(Instant.now().plus(12, ChronoUnit.HOURS))) {
+            throw ApiException("Reservation must be booked at least 12 hours before", 400)
+        }
+
+
+        //Catch reservation where to is greater then from
+        if (reservation.reservationFrom > reservation.reservationTo) {
+            throw ApiException("Reservation from connot be greater than to", 400)
+        }
+
+        //Cath if table is booked at the same time
+        val restaurantId = reservation.restaurantTables.stream().findFirst().get().restaurant.id
+        /*
+        if (restaurantService.findReservationsInTimeframeOfRestaurant(
+                restaurantId,
+                reservation.reservationFrom,
+                reservation.reservationTo,
+                Pageable.unpaged()
+            )
+                ?.stream()
+                ?.map { t -> t?.restaurantTables?.stream()?.filter(t ?: null -> t == reservation) }
+        )
+        */
 
         reservationService.saveReservation(reservation)
 
@@ -75,7 +105,10 @@ class ReservationController(
             ReservationMapper(
                 insertedReservation.id,
                 insertedReservation.restaurantTables?.map { tables -> tables.id }?.toList(),
-                TimeslotMapper(insertedReservation.reservationFrom.time / 1000, insertedReservation.reservationTo.time / 1000),
+                TimeslotMapper(
+                    insertedReservation.reservationFrom.time / 1000,
+                    insertedReservation.reservationTo.time / 1000
+                ),
                 insertedReservation.userName,
                 insertedReservation.userEmail,
                 insertedReservation.confirmed
@@ -135,7 +168,10 @@ class ReservationController(
             ReservationMapper(
                 patchedReservation.id,
                 patchedReservation.restaurantTables?.map { tables -> tables.id }?.toList(),
-                TimeslotMapper(patchedReservation.reservationFrom.time / 1000, patchedReservation.reservationTo.time /1000),
+                TimeslotMapper(
+                    patchedReservation.reservationFrom.time / 1000,
+                    patchedReservation.reservationTo.time / 1000
+                ),
                 patchedReservation.userName,
                 patchedReservation.userEmail,
                 patchedReservation.confirmed
@@ -163,7 +199,10 @@ class ReservationController(
             ReservationMapper(
                 removedReservation.id,
                 removedReservation.restaurantTables?.map { tables -> tables.id }?.toList(),
-                TimeslotMapper(removedReservation.reservationFrom.time / 1000, removedReservation.reservationTo.time / 1000),
+                TimeslotMapper(
+                    removedReservation.reservationFrom.time / 1000,
+                    removedReservation.reservationTo.time / 1000
+                ),
                 removedReservation.userName,
                 removedReservation.userEmail,
                 removedReservation.confirmed
