@@ -14,23 +14,23 @@ values ('069f72db-2157-43de-8e98-21661b518200',
 insert into IMAGE (ID, IMAGEURL)
 values ('069f72db-2157-43de-8e88-21661b518100', '/serverFile/serverImages/corporateIdentity/logo.png');
 insert into IMAGE (ID, IMAGEURL)
-values ('069f72db-2157-43de-8e88-21661b518200', '/serverFile/serverImages/floorplan/table4-1.png');
+values ('069f72db-2157-43de-8e88-21661b518200', '/serverFile/serverImages/floorplan/table4-1.webp');
 insert into IMAGE (ID, IMAGEURL)
-values ('069f72db-2157-43de-8e88-21661b518201', '/serverFile/serverImages/floorplan/table4-2.png');
+values ('069f72db-2157-43de-8e88-21661b518201', '/serverFile/serverImages/floorplan/table4-2.webp');
 insert into IMAGE (ID, IMAGEURL)
-values ('069f72db-2157-43de-8e88-21661b518202', '/serverFile/serverImages/floorplan/table8-1.png');
+values ('069f72db-2157-43de-8e88-21661b518202', '/serverFile/serverImages/floorplan/table8-1.webp');
 insert into IMAGE (ID, IMAGEURL)
 values ('069f72db-2157-43de-8e88-21661b518203', '/serverFile/serverImages/floorplan/floorplan-temporary.png');
 insert into IMAGE (ID, IMAGEURL)
-values ('069f72db-2157-43de-8e88-21661b518300', '/serverFile/serverImages/restaurant/mensa-außen-1.png');
+values ('069f72db-2157-43de-8e88-21661b518300', '/serverFile/serverImages/restaurant/mensa-außen-1.webp');
 insert into IMAGE (ID, IMAGEURL)
-values ('069f72db-2157-43de-8e88-21661b518301', '/serverFile/serverImages/restaurant/mensa-außen-2.png');
+values ('069f72db-2157-43de-8e88-21661b518301', '/serverFile/serverImages/restaurant/mensa-außen-2.webp');
 insert into IMAGE (ID, IMAGEURL)
-values ('069f72db-2157-43de-8e88-21661b518302', '/serverFile/serverImages/restaurant/mensa-außen-3.png');
+values ('069f72db-2157-43de-8e88-21661b518302', '/serverFile/serverImages/restaurant/mensa-außen-3.webp');
 insert into IMAGE (ID, IMAGEURL)
-values ('069f72db-2157-43de-8e88-21661b518303', '/serverFile/serverImages/restaurant/mensa-innen-1.png');
+values ('069f72db-2157-43de-8e88-21661b518303', '/serverFile/serverImages/restaurant/mensa-innen-1.webp');
 insert into IMAGE (ID, IMAGEURL)
-values ('069f72db-2157-43de-8e88-21661b518304', '/serverFile/serverImages/restaurant/mensa-innen-2.png');
+values ('069f72db-2157-43de-8e88-21661b518304', '/serverFile/serverImages/restaurant/mensa-innen-2.webp');
 
 // https://www.mockaroo.com/;
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
