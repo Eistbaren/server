@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.Configuration
 import org.springframework.scheduling.annotation.EnableScheduling
 import org.springframework.scheduling.annotation.Scheduled
+import java.net.URL
 import java.sql.Timestamp
 import java.time.Instant
 import java.util.*
@@ -43,6 +44,7 @@ class MailJob(val reservationService: ReservationService, val mailService: MailS
                     mailService.sendConfirmationMail(
                         element.userEmail,
                         element.userName,
+                        URL(element.urlFromRequest),
                         element.id!!,
                         confirmationToken
                     )
