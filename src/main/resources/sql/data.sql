@@ -1060,6 +1060,392 @@ values(1, 'The taco was disgusting!', 'Dieter', '069f72db-2157-43de-8e88-21661b5
 insert into comment(rating, comment, name, RESTAURANT_ID)
 values(4, 'The steak was great.', 'Fritz', '069f72db-2157-43de-8e88-21661b518596');
 
+-- timeslots
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518501', parsedatetime('02-07-2022 11:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 17:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518501');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518502', parsedatetime('02-07-2022 08:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 15:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518502');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518503', parsedatetime('02-07-2022 08:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 15:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518503');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518504', parsedatetime('02-07-2022 08:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 15:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518504');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518505', parsedatetime('02-07-2022 08:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 17:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518505');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518506', parsedatetime('02-07-2022 07:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 19:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518506');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518507', parsedatetime('02-07-2022 11:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 20:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518507');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518508', parsedatetime('02-07-2022 07:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 19:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518508');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518509', parsedatetime('02-07-2022 08:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 21:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518509');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518510', parsedatetime('02-07-2022 06:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 16:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518510');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518511', parsedatetime('02-07-2022 12:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 16:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518511');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518512', parsedatetime('02-07-2022 07:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 18:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518512');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518513', parsedatetime('02-07-2022 11:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 18:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518513');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518514', parsedatetime('02-07-2022 08:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 15:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518514');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518515', parsedatetime('02-07-2022 07:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 15:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518515');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518516', parsedatetime('02-07-2022 07:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 13:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518516');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518517', parsedatetime('02-07-2022 12:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 17:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518517');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518518', parsedatetime('02-07-2022 06:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 18:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518518');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518519', parsedatetime('02-07-2022 07:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 19:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518519');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518520', parsedatetime('02-07-2022 10:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 20:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518520');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518521', parsedatetime('02-07-2022 09:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 21:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518521');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518522', parsedatetime('02-07-2022 09:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 17:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518522');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518523', parsedatetime('02-07-2022 08:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 17:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518523');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518524', parsedatetime('02-07-2022 06:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 15:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518524');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518525', parsedatetime('02-07-2022 12:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 20:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518525');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518526', parsedatetime('02-07-2022 08:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 19:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518526');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518527', parsedatetime('02-07-2022 10:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 18:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518527');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518528', parsedatetime('02-07-2022 07:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 15:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518528');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518529', parsedatetime('02-07-2022 11:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 20:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518529');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518530', parsedatetime('02-07-2022 07:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 14:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518530');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518531', parsedatetime('02-07-2022 09:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 20:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518531');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518532', parsedatetime('02-07-2022 11:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 20:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518532');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518533', parsedatetime('02-07-2022 06:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 19:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518533');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518534', parsedatetime('02-07-2022 07:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 16:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518534');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518535', parsedatetime('02-07-2022 07:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 16:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518535');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518536', parsedatetime('02-07-2022 09:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 20:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518536');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518537', parsedatetime('02-07-2022 08:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 17:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518537');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518538', parsedatetime('02-07-2022 06:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 17:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518538');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518539', parsedatetime('02-07-2022 11:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 20:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518539');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518540', parsedatetime('02-07-2022 07:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 16:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518540');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518541', parsedatetime('02-07-2022 09:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 17:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518541');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518542', parsedatetime('02-07-2022 12:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 16:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518542');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518543', parsedatetime('02-07-2022 12:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 21:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518543');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518544', parsedatetime('02-07-2022 06:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 20:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518544');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518545', parsedatetime('02-07-2022 09:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 21:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518545');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518546', parsedatetime('02-07-2022 10:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 19:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518546');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518547', parsedatetime('02-07-2022 11:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 13:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518547');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518548', parsedatetime('02-07-2022 11:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 19:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518548');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518549', parsedatetime('02-07-2022 07:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 19:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518549');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518550', parsedatetime('02-07-2022 08:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 20:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518550');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518551', parsedatetime('02-07-2022 08:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 15:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518551');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518552', parsedatetime('02-07-2022 09:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 21:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518552');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518553', parsedatetime('02-07-2022 07:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 17:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518553');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518554', parsedatetime('02-07-2022 07:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 13:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518554');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518555', parsedatetime('02-07-2022 07:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 14:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518555');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518556', parsedatetime('02-07-2022 06:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 15:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518556');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518557', parsedatetime('02-07-2022 09:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 16:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518557');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518558', parsedatetime('02-07-2022 11:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 13:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518558');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518559', parsedatetime('02-07-2022 12:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 20:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518559');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518560', parsedatetime('02-07-2022 08:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 21:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518560');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518561', parsedatetime('02-07-2022 07:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 20:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518561');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518562', parsedatetime('02-07-2022 08:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 14:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518562');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518563', parsedatetime('02-07-2022 11:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 20:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518563');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518564', parsedatetime('02-07-2022 12:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 17:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518564');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518565', parsedatetime('02-07-2022 08:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 16:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518565');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518566', parsedatetime('02-07-2022 12:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 21:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518566');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518567', parsedatetime('02-07-2022 07:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 21:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518567');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518568', parsedatetime('02-07-2022 10:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 18:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518568');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518569', parsedatetime('02-07-2022 12:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 19:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518569');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518570', parsedatetime('02-07-2022 10:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 21:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518570');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518571', parsedatetime('02-07-2022 10:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 13:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518571');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518572', parsedatetime('02-07-2022 08:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 20:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518572');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518573', parsedatetime('02-07-2022 11:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 20:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518573');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518574', parsedatetime('02-07-2022 07:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 21:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518574');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518575', parsedatetime('02-07-2022 06:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 17:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518575');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518576', parsedatetime('02-07-2022 08:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 14:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518576');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518577', parsedatetime('02-07-2022 12:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 19:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518577');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518578', parsedatetime('02-07-2022 07:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 18:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518578');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518579', parsedatetime('02-07-2022 12:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 17:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518579');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518580', parsedatetime('02-07-2022 06:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 17:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518580');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518581', parsedatetime('02-07-2022 11:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 19:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518581');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518582', parsedatetime('02-07-2022 09:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 14:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518582');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518583', parsedatetime('02-07-2022 11:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 17:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518583');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518584', parsedatetime('02-07-2022 09:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 17:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518584');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518585', parsedatetime('02-07-2022 12:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 14:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518585');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518586', parsedatetime('02-07-2022 11:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 15:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518586');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518587', parsedatetime('02-07-2022 06:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 21:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518587');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518588', parsedatetime('02-07-2022 11:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 14:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518588');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518589', parsedatetime('02-07-2022 06:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 17:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518589');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518590', parsedatetime('02-07-2022 08:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 15:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518590');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518591', parsedatetime('02-07-2022 07:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 19:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518591');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518592', parsedatetime('02-07-2022 10:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 21:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518592');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518593', parsedatetime('02-07-2022 12:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 13:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518593');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518594', parsedatetime('02-07-2022 11:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 19:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518594');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518595', parsedatetime('02-07-2022 11:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 19:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518595');
+INSERT INTO TIMESLOT
+values ('069f72db-2157-43de-8e88-21661b518596', parsedatetime('02-07-2022 10:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        parsedatetime('03-07-2022 17:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
+        '069f72db-2157-43de-8e88-21661b518596');
+
 
 -- mensa comments
 insert into comment (id, rating, comment, name, restaurant_id)
