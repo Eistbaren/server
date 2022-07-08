@@ -39,9 +39,8 @@ class RestaurantController(val restaurantService: RestaurantService) {
         @RequestParam(value = "currentPage", defaultValue = "0") currentPage: Int,
         @RequestParam(value = "pageSize", defaultValue = "50") pageSize: Int
     ): ResponseEntity<PagingResponseMapper> {
-
         val restaurants: Page<Restaurant> =
-            restaurantService.getPageOfRestaurants(PageRequest.of(currentPage, pageSize))
+            restaurantService.getPageOfFilteredRestaurants(filters, PageRequest.of(currentPage, pageSize))
 
         return ResponseEntity.ok(
             PagingResponseMapper(
