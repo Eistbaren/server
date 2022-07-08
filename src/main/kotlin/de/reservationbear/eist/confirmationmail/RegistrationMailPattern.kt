@@ -5,9 +5,6 @@ import de.reservationbear.eist.db.entity.Reservation
 import de.reservationbear.eist.db.type.RestaurantType
 import org.springframework.stereotype.Service
 import java.net.URL
-import java.util.*
-import kotlin.collections.HashMap
-import kotlin.math.floor
 
 /**
  * Pattern for sending a registration mail
@@ -24,7 +21,11 @@ class RegistrationMailPattern(val mailSender: MailSender) {
      */
     fun sendMail(mailAddress: String, name: String, url: URL, reservation: Reservation) {
         //No such endpoint - do we want to approve mail addresses?
-        val link = "${url.host + ":" + url.port}/reservation-details/${reservation.id}"
+        val link: String = if (url.port == -1) {
+            "${url.host}/reservation-details/${reservation.id}"
+        } else {
+            "${url.host + ":" + url.port}/reservation-details/${reservation.id}"
+        }
 
         //List of Emojis for Title
         //val icons = arrayOf("🍚", "🥗", "🍕", "🍔", "🍝", "🍰", "🧇", "🌮", "🥙", "🍣", "🥗", "🍺", "🍹", "🍷")

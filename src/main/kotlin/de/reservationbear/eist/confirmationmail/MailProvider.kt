@@ -35,12 +35,12 @@ class MailProvider(val mailSender: JavaMailSender, val reservationService: Reser
     override fun send(to: String?, email: String?, subject: String?, reservationUUID: UUID?) {
         try {
             val mimeMessage = mailSender.createMimeMessage()
-            val helper = MimeMessageHelper(mimeMessage, true,"utf-8")
+            val helper = MimeMessageHelper(mimeMessage, true, "utf-8")
             helper.setText(email!!, true)
             helper.setTo(to!!)
             helper.setSubject(subject ?: "Info")
-            helper.setFrom("reservations@reservation-bear.de","Reservation-Bear.de")
-            if(reservationUUID != null) {
+            helper.setFrom("reservations@reservation-bear.de", "Reservation-Bear.de")
+            if (reservationUUID != null) {
                 helper.addAttachment("reservation.ics", reservationService.getICSResource(reservationUUID))
             }
             mailSender.send(mimeMessage)
