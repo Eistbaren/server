@@ -34,7 +34,7 @@ class ReservationController(
 
     @RequestMapping(value = ["/restaurant"], method = [RequestMethod.OPTIONS])
     fun options(response: HttpServletResponse): ResponseEntity<*>? {
-        response.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_METHODS, "POST,GET,PUT,DELETE,OPTIONS")
+        response.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_METHODS, "POST,GET,PATCH,DELETE,OPTIONS")
         response.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_HEADERS, MediaType.ALL_VALUE)
         return ResponseEntity<Any?>(HttpStatus.OK)
     }
