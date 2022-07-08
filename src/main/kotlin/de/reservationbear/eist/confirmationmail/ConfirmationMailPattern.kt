@@ -57,12 +57,12 @@ class ConfirmationMailPattern(val mailSender: MailSender) {
 		Hi $name,
 	</p>
 	<p style="margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #2e3440;">
-		thanks for your reservation. Now you just have to confirm the reservation one last time at the following link and you can enjoy your meal!
+		thanks for your reservation. Please confirm the reservation at the following link and you can enjoy your meal!
 	</p>
 	<blockquote style="margin: 0 0 20px 0; border-left: 10px solid #2e3440; padding: 15px 0 0.1px 15px; font-size: 19px; line-height: 25px;">
 		<p style="margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #2e3440c;">
 			<a style="color: #88c0d0;" href="$link">
-				 Click here to see your dashboard
+				 Click here to confirm your reservation
 			</a>
 		</p>
 	</blockquote>
