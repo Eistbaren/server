@@ -11,7 +11,6 @@ values ('069f72db-2157-43de-8e98-21661b518200',
         '069f72db-2157-43de-8e88-21661b518200');
 
 
-
 insert into IMAGE (ID, IMAGEURL)
 values ('069f72db-2157-43de-8e88-21661b518100', '/serverFile/serverImages/corporateIdentity/logo.png');
 insert into IMAGE (ID, IMAGEURL)
