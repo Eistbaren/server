@@ -11,6 +11,7 @@ import org.springframework.core.io.ByteArrayResource
 import org.springframework.stereotype.Service
 import java.sql.Timestamp
 import java.time.Instant
+import java.time.ZoneId
 import java.time.temporal.ChronoUnit
 import java.util.*
 
@@ -91,9 +92,9 @@ class ReservationService(val db: ReservationRepository) {
         }
 
         val calendarEvent = VEvent(
-            reservation.reservationFrom.toLocalDateTime(),
-            reservation.reservationTo.toLocalDateTime(),
-            summary
+            reservation.reservationFrom.toLocalDateTime().atZone(ZoneId.of("Europe/Berlin")),
+            reservation.reservationTo.toLocalDateTime().atZone(ZoneId.of("Europe/Berlin")),
+            summary,
         )
 
         val calendar = Calendar()
