@@ -34,10 +34,9 @@ class RestaurantService(val db: RestaurantRepository) {
      * @param pageable the page of restaurant comments
      * @return the page of restaurant comments
      */
-    fun getPageOfRestaurantComments(uuid: UUID, pageable: Pageable): Page<Comment?>?{
+    fun getPageOfRestaurantComments(uuid: UUID, pageable: Pageable): Page<Comment?>? {
         return db.findCommentsOfRestaurant(uuid, pageable)
     }
-
 
 
     /**
@@ -87,7 +86,7 @@ class RestaurantService(val db: RestaurantRepository) {
      * @param pageable for pagination of search results
      */
     fun getPageOfFilteredRestaurants(filterList: List<String>, pageable: Pageable): Page<Restaurant> {
-        if(filterList.isEmpty()) {
+        if (filterList.isEmpty()) {
             return db.findAll(pageable)
         }
 
@@ -110,8 +109,10 @@ class RestaurantService(val db: RestaurantRepository) {
         val timeTo: Date? = map["time"]?.split(";")?.getOrNull(1)?.trim()?.toLongOrNull()?.let { Date(it * 1000) }
         val numberVisitors: Int? = map["numberVisitors"]?.toIntOrNull()
 
-        return db.filterRestaurants(query, type, priceCategory, minimumAverageRating, timeFrom, timeTo, lat, lon,
-                radius, numberVisitors, pageable)
+        return db.filterRestaurants(
+            query, type, priceCategory, minimumAverageRating, timeFrom, timeTo, lat, lon,
+            radius, numberVisitors, pageable
+        )
 
     }
 }

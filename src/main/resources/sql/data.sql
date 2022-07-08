@@ -34,7 +34,7 @@ insert into IMAGE (ID, IMAGEURL)
 values ('069f72db-2157-43de-8e88-21661b518304', '/serverFile/serverImages/restaurant/mensa-innen-2.png');
 
 // https://www.mockaroo.com/;
-insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE )
+insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518201', 'Cronin-Hagenes', 2, 2, 'www.tum.de', 5);
 INSERT INTO TIMESLOT
 values ('069f72db-2157-43de-8e98-21661b518201',
@@ -54,7 +54,7 @@ values ('069f72db-2157-43de-8e98-21661b518202',
 insert into RESTAURANT_LOCATION(ID, LAT, LON, RESTAURANT_ID)
 values ('069f72db-2157-43de-8e88-21661b518202', 48.147154, 11.586124, '069f72db-2157-43de-8e88-21661b518202');
 
-insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE )
+insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518203', 'Ferry-Steuber', 4, 1, 'www.tum.de', 0);
 INSERT INTO TIMESLOT
 values ('069f72db-2157-43de-8e98-21661b518203',
@@ -64,8 +64,7 @@ values ('069f72db-2157-43de-8e98-21661b518203',
 insert into RESTAURANT_LOCATION(ID, LAT, LON, RESTAURANT_ID)
 values ('069f72db-2157-43de-8e88-21661b518203', 48.168154, 11.576124, '069f72db-2157-43de-8e88-21661b518203');
 
-insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE
-)
+insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518204', 'Balistreri-Quigley', 5, 2, 'www.google.de', 4);
 INSERT INTO TIMESLOT
 values ('069f72db-2157-43de-8e98-21661b518204',
@@ -156,7 +155,7 @@ values ('Hamill, Champlin and Quitzon', 4, 2, 'www.google.de', 7);
 insert into restaurant (NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('Predovic, Kertzmann and Hansen', 5, 3, 'www.tum.de', 8);
 insert into restaurant (NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('Ruecker, Stanton and Heathcote', 1, 1, 'www.google.de',7);
+values ('Ruecker, Stanton and Heathcote', 1, 1, 'www.google.de', 7);
 insert into restaurant (NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('Sauer Group', 2, 2, 'www.google.de', 6);
 insert into restaurant (NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
@@ -388,27 +387,29 @@ values ('069f72db-2157-43de-8e88-21661b518224', 'Test 1', 3.5, 3);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY)
 values ('069f72db-2157-43de-8e88-21661b518226', 'Test 2', 2.4, 1);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
-values ('069f72db-2157-43de-8e88-21661b518246' ,'Breitenberg Inc', 1, 2, 'www.duckduckgo.com');
+values ('069f72db-2157-43de-8e88-21661b518246', 'Breitenberg Inc', 1, 2, 'www.duckduckgo.com');
 
 
 /*Locations*/
 insert into restaurant_location (ID, LAT, LON, RESTAURANT_ID)
-values ('069f72db-2157-43de-8e88-21661b518223', 48.187120304469374, 16.313691501443913,'069f72db-2157-43de-8e88-21661b518224');
+values ('069f72db-2157-43de-8e88-21661b518223', 48.187120304469374, 16.313691501443913,
+        '069f72db-2157-43de-8e88-21661b518224');
 insert into restaurant_location (ID, LAT, LON, RESTAURANT_ID)
 values ('069f72db-2157-43de-8e88-21661b518224', 48.26898700522353, 11.670421906144792,
         '069f72db-2157-43de-8e88-21661b518226');
 insert into restaurant_location (ID, LAT, LON, RESTAURANT_ID)
-values ('069f72db-2257-43de-8e88-21661b518225', 48.13747187109867, 11.575427029351456,'069f72db-2157-43de-8e88-21661b518246');
+values ('069f72db-2257-43de-8e88-21661b518225', 48.13747187109867, 11.575427029351456,
+        '069f72db-2157-43de-8e88-21661b518246');
 
 
 /*Tables*/
-insert into restaurant_table (ID, SEATS ,RESTAURANT_ID)
+insert into restaurant_table (ID, SEATS, RESTAURANT_ID)
 values ('069f72db-2157-43de-8e88-21661b518227', 5, '069f72db-2157-43de-8e88-21661b518226');
-insert into restaurant_table (ID, SEATS ,RESTAURANT_ID)
+insert into restaurant_table (ID, SEATS, RESTAURANT_ID)
 values ('069f72db-2157-43de-8e88-21661b518228', 7, '069f72db-2157-43de-8e88-21661b518226');
-insert into restaurant_table (ID, SEATS ,RESTAURANT_ID)
+insert into restaurant_table (ID, SEATS, RESTAURANT_ID)
 values ('069f72db-2157-43de-8e88-21661b518229', 6, '069f72db-2157-43de-8e88-21661b518224');
-insert into restaurant_table (ID, SEATS ,RESTAURANT_ID)
+insert into restaurant_table (ID, SEATS, RESTAURANT_ID)
 values ('069f72db-2157-43de-8e88-21661b518245', 4, '069f72db-2157-43de-8e88-21661b518246');
 
 /*Reservation*/
