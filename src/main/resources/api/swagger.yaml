@@ -34,9 +34,9 @@ paths:
           **location**: *array[lat, lon]* \
           **radius**: *integer*, radius around the location to search \
           **averageRating**: *integer (1-5)* \
-          **timeFrom**: *unix-timestamp* \
-          **timeTo**: *unix-timestamp* \
-          **numberVisitors**: *integer*
+          **time**: *array[unix-timestamp, unix-timestamp]* from (first) and to (second) as unix timestamps \
+          **numberVisitors**: *integer* \
+          The filters are provided as array elements in the format `key=value`.
         style: form
         explode: false
         schema:
@@ -381,6 +381,8 @@ components:
           type: string
           format: uuid
         name:
+          type: string
+        type:
           type: string
         images:
           type: array
