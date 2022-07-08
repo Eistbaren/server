@@ -68,7 +68,7 @@ class ReservationController(
             insertedReservation.userEmail,
             insertedReservation.userName,
             URL(insertedReservation.urlFromRequest),
-            insertedReservation.id!!
+            insertedReservation
         )
 
         return ResponseEntity.ok(

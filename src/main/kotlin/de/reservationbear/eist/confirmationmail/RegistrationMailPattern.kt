@@ -1,9 +1,12 @@
 //Source: https://www.youtube.com/watch?v=QwQuro7ekvc
 package de.reservationbear.eist.confirmationmail
 
+import de.reservationbear.eist.db.entity.Reservation
+import de.reservationbear.eist.db.type.RestaurantType
 import org.springframework.stereotype.Service
 import java.net.URL
 import java.util.*
+import kotlin.collections.HashMap
 import kotlin.math.floor
 
 /**
@@ -17,18 +20,22 @@ class RegistrationMailPattern(val mailSender: MailSender) {
      *
      * @param mailAddress       Address for Mail
      * @param name              name of the recipient
-     * @param reservationId     id from the reservation
+     * @param reservation       reservation
      */
-    fun sendMail(mailAddress: String, name: String, url: URL, reservationId: UUID) {
+    fun sendMail(mailAddress: String, name: String, url: URL, reservation: Reservation) {
         //No such endpoint - do we want to approve mail addresses?
-        val link = "${url.host + ":" + url.port}/reservation-details/${reservationId}"
+        val link = "${url.host + ":" + url.port}/reservation-details/${reservation.id}"
 
         //List of Emojis for Title
-        val icons = arrayOf("🍚","🥗","🍕","🍔","🍝","🍰","🧇","🌮","🥙","🍣","🥗","🍺","🍹","🍷")
+        //val icons = arrayOf("🍚", "🥗", "🍕", "🍔", "🍝", "🍰", "🧇", "🌮", "🥙", "🍣", "🥗", "🍺", "🍹", "🍷")
+
+        val type: RestaurantType =
+            reservation.restaurantTables?.stream()?.findFirst()?.get()?.restaurant?.type ?: RestaurantType.GERMAN
+        val icon = type.getEmojis()
         mailSender.send(
             mailAddress,
             buildEmail(name.split(" ")[0], link),
-            "${icons[floor(Math.random() * icons.size).toInt()]} Confirmation of your reservation (${reservationId})",
+            "$icon Confirmation of your reservation (${reservation.id})",
             null
         )
     }
