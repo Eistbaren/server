@@ -12,5 +12,19 @@ enum class RestaurantType {
     CHINESE,
     SPANISH,
     BRITISH,
-    KOREAN,
+    KOREAN;
+
+    fun getEmojis() : String{
+        return when (this) {
+            ITALIAN -> "🍕"
+            FRENCH -> "🥐"
+            GREEK -> "🐟"
+            GERMAN -> "🥨"
+            JAPANESE -> "🍣"
+            CHINESE -> "🍙"
+            SPANISH -> "🥘"
+            BRITISH -> "🫖"
+            KOREAN -> "🍚"
+        }
+    }
 }

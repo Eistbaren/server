@@ -1,8 +1,12 @@
 //Source: https://www.youtube.com/watch?v=QwQuro7ekvc
 package de.reservationbear.eist.confirmationmail
 
+import de.reservationbear.eist.db.entity.Reservation
+import de.reservationbear.eist.db.type.RestaurantType
 import org.springframework.stereotype.Service
+import java.net.URL
 import java.util.*
+import kotlin.collections.HashMap
 import kotlin.math.floor
 
 /**
@@ -16,18 +20,22 @@ class RegistrationMailPattern(val mailSender: MailSender) {
      *
      * @param mailAddress       Address for Mail
      * @param name              name of the recipient
-     * @param reservationId     id from the reservation
+     * @param reservation       reservation
      */
-    fun sendMail(mailAddress: String, name: String, reservationId: UUID) {
+    fun sendMail(mailAddress: String, name: String, url: URL, reservation: Reservation) {
         //No such endpoint - do we want to approve mail addresses?
-        val link = "https://reservation-bear.de/reservation-details/${reservationId}"
+        val link = "${url.host + ":" + url.port}/reservation-details/${reservation.id}"
 
         //List of Emojis for Title
-        val icons = arrayOf("🍚","🥗","🍕","🍔","🍝","🍰","🧇","🌮","🥙","🍣","🥗","🍺","🍹","🍷")
+        //val icons = arrayOf("🍚", "🥗", "🍕", "🍔", "🍝", "🍰", "🧇", "🌮", "🥙", "🍣", "🥗", "🍺", "🍹", "🍷")
+
+        val type: RestaurantType =
+            reservation.restaurantTables?.stream()?.findFirst()?.get()?.restaurant?.type ?: RestaurantType.GERMAN
+        val icon = type.getEmojis()
         mailSender.send(
             mailAddress,
             buildEmail(name.split(" ")[0], link),
-            "${icons[floor(Math.random() * icons.size).toInt()]} Confirmation of your reservation (${reservationId})",
+            "$icon Confirmation of your reservation (${reservation.id})",
             null
         )
     }
@@ -41,62 +49,38 @@ class RegistrationMailPattern(val mailSender: MailSender) {
      */
     private fun buildEmail(name: String, link: String): String {
         return """
-            <div style="font-family:Helvetica,Arial,sans-serif;font-size:16px;margin:0;color:#0b0c0c">
-<span style="display:none;font-size:1px;color:#fff;max-height:0"></span>
-  <table role="presentation" width="100%" style="border-collapse:collapse;min-width:100%;width:100%!important" cellpadding="0" cellspacing="0" border="0">
-    <tbody><tr>
-      <td width="100%" height="53" bgcolor="#81a1c1">
-        <table role="presentation" width="100%" style="border-collapse:collapse;max-width:580px" cellpadding="0" cellspacing="0" border="0" align="center">
-          <tbody><tr>
-            <td width="70" bgcolor="#81a1c1" valign="middle">
-                <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse">
-                  <tbody><tr>
-                    <td style="padding-left:10px">
-                    </td>
-                    <td style="font-size:28px;line-height:1.315789474;Margin-top:4px;padding-left:10px">
-                      <span style="font-family:Helvetica,Arial,sans-serif;font-weight:700;color:#ffffff;text-decoration:none;vertical-align:top;display:inline-block">Confirm your email</span>
-                    </td>
-                  </tr>
-                </tbody></table>
-              </a>
-            </td>
-          </tr>
-        </tbody></table>    
-      </td>
-    </tr>
-  </tbody></table>
-  <table role="presentation" class="m_-6186904992287805515content" align="center" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;max-width:580px;width:100%!important" width="100%">
-    <tbody><tr>
-      <td width="10" height="10" valign="middle"></td>
-      <td>
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse">
-                  <tbody><tr>
-                    <td bgcolor="#2e3440" width="100%" height="10"></td>
-                  </tr>
-                </tbody></table>
-      </td>
-      <td width="10" valign="middle" height="10"></td>
-    </tr>
-  </tbody></table>
-  <table role="presentation" class="m_-6186904992287805515content" align="center" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;max-width:580px;width:100%!important" width="100%">
-    <tbody><tr>
-      <td height="30"><br></td>
-    </tr>
-    <tr>
-      <td width="10" valign="middle"><br></td>
-      <td style="font-family:Helvetica,Arial,sans-serif;font-size:19px;line-height:1.315789474;max-width:560px">
-            <p style="Margin:0 0 20px 0;font-size:19px;line-height:25px;color:#2e3440c">Hi $name,</p><p style="Margin:0 0 20px 0;font-size:19px;line-height:25px;color:#2e3440"> Thank you for booking through our service. Below you will find a link to your dashboard: </p><blockquote style="Margin:0 0 20px 0;border-left:10px solid #2e3440;padding:15px 0 0.1px 15px;font-size:19px;line-height:25px"><p style="Margin:0 0 20px 0;font-size:19px;line-height:25px;color:#2e3440c"> <a href="$link" style="color: #88c0d0">Click here for dashboard</a> </p></blockquote>
-24 hours before your reservation date you will receive another email where you have to confirm your reservation one last time (this can be done up to 12 hours before). 
-<p>Have a nice day</p>        
-<p>Your Eistbären team 🐻‍❄️‍</p>   
-      </td>
-      <td width="10" valign="middle"><br></td>
-    </tr>
-    <tr>
-      <td height="30"><br></td>
-    </tr>
-  </tbody></table><div class="yj6qo"></div><div class="adL">
-</div></div>
+<div style="width: 100%; height: 50px; background-color: #81a1c1;">
+	<h1 style="color: white; text-align: center; font-size: calc(7pt + 4vw); padding-top: 7px; font-family: Helvetica,Arial,sans-serif; margin-top: 0;">
+		Reservation confirmation
+	</h1>
+</div>
+<div style="width: 90%; height: 20px; background-color: #2e3440; margin: auto auto;">
+</div>
+<div style="height: 40px;"></div>
+<div style="width: 90%; margin: auto auto;">
+	<p style="margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #2e3440c;">
+		Hi $name,
+	</p>
+	<p style="margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #2e3440;">
+		Thank you for booking through our service. Below you will find a link to your dashboard:
+	</p>
+	<blockquote style="margin: 0 0 20px 0; border-left: 10px solid #2e3440; padding: 15px 0 0.1px 15px; font-size: 19px; line-height: 25px;">
+		<p style="margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #2e3440c;">
+			<a style="color: #88c0d0;" href="$link">
+				Click here to see your dashboard
+			</a>
+		</p>
+	</blockquote>
+    <p style="margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #2e3440;">
+	24 hours before your reservation date you will receive another email where you have to confirm your reservation one last time (this can be done up to 12 hours before).
+    </p>
+	<p style="font-size: 19px; color: #2e3440;">
+		Have a nice day
+	</p>
+	<p style="font-size: 19px; color: #2e3440;">
+		Your Eistbären team 🐻‍❄️
+	</p>
+</div>
 """
     }
 }

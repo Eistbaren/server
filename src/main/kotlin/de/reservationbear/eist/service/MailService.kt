@@ -2,7 +2,9 @@ package de.reservationbear.eist.service
 
 import de.reservationbear.eist.confirmationmail.ConfirmationMailPattern
 import de.reservationbear.eist.confirmationmail.RegistrationMailPattern
+import de.reservationbear.eist.db.entity.Reservation
 import org.springframework.stereotype.Service
+import java.net.URL
 import java.util.*
 
 /**
@@ -17,13 +19,14 @@ class MailService(val confirmationMailPattern: ConfirmationMailPattern, val regi
      *
      * @param userEmail         mail address from the user
      * @param userName          name of the user
-     * @param reservationId     id of the corresponding reservation
+     * @param reservation       corresponding reservation
      */
-    fun sendRegistrationMail(userEmail: String, userName: String, reservationId: UUID, ){
+    fun sendRegistrationMail(userEmail: String, userName: String, url: URL, reservation: Reservation){
         registrationMailPattern.sendMail(
             userEmail,
             userName,
-            reservationId
+            url,
+            reservation
         )
     }
 
@@ -35,10 +38,11 @@ class MailService(val confirmationMailPattern: ConfirmationMailPattern, val regi
      * @param reservationId     id of the corresponding reservation
      * @param confirmationToken confirmation token for confirming the mail
      */
-    fun sendConfirmationMail(userEmail: String, userName: String, reservationId: UUID, confirmationToken: UUID){
+    fun sendConfirmationMail(userEmail: String, userName: String, url: URL, reservationId: UUID, confirmationToken: UUID){
         confirmationMailPattern.sendMail(
             userEmail,
             userName,
+            url,
             reservationId,
             confirmationToken,
         )
