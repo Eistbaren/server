@@ -42,8 +42,8 @@ class ConfirmationMailPattern(val mailSender: MailSender) {
      */
     private fun buildEmail(name: String, link: String): String {
         return """
-<div style="width: 100%; height: 50px; background-color: #81a1c1;">
-	<h1 style="color: white; font-size: calc(7pt + 4vw); text-align: center; padding-top: 7px; font-family: Helvetica,Arial,sans-serif; margin-top: 0;">
+<div style="width: 100%; background-color: #81a1c1;">
+	<h1 style="color: white; text-align: center; font-size: 40px; padding-top: 7px; font-family: Helvetica,Arial,sans-serif; margin-top: 0; margin-block-end: 0;">
 		Confirm your reservation
 	</h1>
 </div>
