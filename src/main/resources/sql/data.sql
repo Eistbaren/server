@@ -1446,6 +1446,2023 @@ values ('069f72db-2157-43de-8e88-21661b518596', parsedatetime('02-07-2022 10:00:
         parsedatetime('03-07-2022 17:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
         '069f72db-2157-43de-8e88-21661b518596');
 
+-- floorplans and tables
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518501', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518501');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518501', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518601', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518701', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518501', 4, '069f72db-2157-43de-8e88-21661b518501',
+        '069f72db-2157-43de-8e88-21661b518501');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518601', 4, '069f72db-2157-43de-8e88-21661b518501',
+        '069f72db-2157-43de-8e88-21661b518601');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518701', 4, '069f72db-2157-43de-8e88-21661b518501',
+        '069f72db-2157-43de-8e88-21661b518701');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518502', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518502');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518502', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518602', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518702', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518502', 4, '069f72db-2157-43de-8e88-21661b518502',
+        '069f72db-2157-43de-8e88-21661b518502');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518602', 4, '069f72db-2157-43de-8e88-21661b518502',
+        '069f72db-2157-43de-8e88-21661b518602');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518702', 4, '069f72db-2157-43de-8e88-21661b518502',
+        '069f72db-2157-43de-8e88-21661b518702');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518503', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518503');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518503', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518603', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518703', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518503', 4, '069f72db-2157-43de-8e88-21661b518503',
+        '069f72db-2157-43de-8e88-21661b518503');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518603', 4, '069f72db-2157-43de-8e88-21661b518503',
+        '069f72db-2157-43de-8e88-21661b518603');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518703', 4, '069f72db-2157-43de-8e88-21661b518503',
+        '069f72db-2157-43de-8e88-21661b518703');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518504', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518504');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518504', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518604', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518704', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518504', 4, '069f72db-2157-43de-8e88-21661b518504',
+        '069f72db-2157-43de-8e88-21661b518504');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518604', 4, '069f72db-2157-43de-8e88-21661b518504',
+        '069f72db-2157-43de-8e88-21661b518604');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518704', 4, '069f72db-2157-43de-8e88-21661b518504',
+        '069f72db-2157-43de-8e88-21661b518704');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518505', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518505');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518505', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518605', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518705', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518505', 4, '069f72db-2157-43de-8e88-21661b518505',
+        '069f72db-2157-43de-8e88-21661b518505');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518605', 4, '069f72db-2157-43de-8e88-21661b518505',
+        '069f72db-2157-43de-8e88-21661b518605');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518705', 4, '069f72db-2157-43de-8e88-21661b518505',
+        '069f72db-2157-43de-8e88-21661b518705');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518506', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518506');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518506', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518606', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518706', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518506', 4, '069f72db-2157-43de-8e88-21661b518506',
+        '069f72db-2157-43de-8e88-21661b518506');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518606', 4, '069f72db-2157-43de-8e88-21661b518506',
+        '069f72db-2157-43de-8e88-21661b518606');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518706', 4, '069f72db-2157-43de-8e88-21661b518506',
+        '069f72db-2157-43de-8e88-21661b518706');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518507', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518507');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518507', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518607', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518707', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518507', 4, '069f72db-2157-43de-8e88-21661b518507',
+        '069f72db-2157-43de-8e88-21661b518507');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518607', 4, '069f72db-2157-43de-8e88-21661b518507',
+        '069f72db-2157-43de-8e88-21661b518607');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518707', 4, '069f72db-2157-43de-8e88-21661b518507',
+        '069f72db-2157-43de-8e88-21661b518707');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518508', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518508');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518508', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518608', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518708', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518508', 4, '069f72db-2157-43de-8e88-21661b518508',
+        '069f72db-2157-43de-8e88-21661b518508');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518608', 4, '069f72db-2157-43de-8e88-21661b518508',
+        '069f72db-2157-43de-8e88-21661b518608');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518708', 4, '069f72db-2157-43de-8e88-21661b518508',
+        '069f72db-2157-43de-8e88-21661b518708');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518509', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518509');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518509', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518609', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518709', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518509', 4, '069f72db-2157-43de-8e88-21661b518509',
+        '069f72db-2157-43de-8e88-21661b518509');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518609', 4, '069f72db-2157-43de-8e88-21661b518509',
+        '069f72db-2157-43de-8e88-21661b518609');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518709', 4, '069f72db-2157-43de-8e88-21661b518509',
+        '069f72db-2157-43de-8e88-21661b518709');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518510', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518510');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518510', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518610', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518710', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518510', 4, '069f72db-2157-43de-8e88-21661b518510',
+        '069f72db-2157-43de-8e88-21661b518510');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518610', 4, '069f72db-2157-43de-8e88-21661b518510',
+        '069f72db-2157-43de-8e88-21661b518610');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518710', 4, '069f72db-2157-43de-8e88-21661b518510',
+        '069f72db-2157-43de-8e88-21661b518710');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518511', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518511');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518511', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518611', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518711', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518511', 4, '069f72db-2157-43de-8e88-21661b518511',
+        '069f72db-2157-43de-8e88-21661b518511');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518611', 4, '069f72db-2157-43de-8e88-21661b518511',
+        '069f72db-2157-43de-8e88-21661b518611');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518711', 4, '069f72db-2157-43de-8e88-21661b518511',
+        '069f72db-2157-43de-8e88-21661b518711');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518512', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518512');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518512', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518612', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518712', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518512', 4, '069f72db-2157-43de-8e88-21661b518512',
+        '069f72db-2157-43de-8e88-21661b518512');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518612', 4, '069f72db-2157-43de-8e88-21661b518512',
+        '069f72db-2157-43de-8e88-21661b518612');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518712', 4, '069f72db-2157-43de-8e88-21661b518512',
+        '069f72db-2157-43de-8e88-21661b518712');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518513', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518513');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518513', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518613', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518713', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518513', 4, '069f72db-2157-43de-8e88-21661b518513',
+        '069f72db-2157-43de-8e88-21661b518513');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518613', 4, '069f72db-2157-43de-8e88-21661b518513',
+        '069f72db-2157-43de-8e88-21661b518613');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518713', 4, '069f72db-2157-43de-8e88-21661b518513',
+        '069f72db-2157-43de-8e88-21661b518713');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518514', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518514');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518514', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518614', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518714', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518514', 4, '069f72db-2157-43de-8e88-21661b518514',
+        '069f72db-2157-43de-8e88-21661b518514');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518614', 4, '069f72db-2157-43de-8e88-21661b518514',
+        '069f72db-2157-43de-8e88-21661b518614');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518714', 4, '069f72db-2157-43de-8e88-21661b518514',
+        '069f72db-2157-43de-8e88-21661b518714');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518515', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518515');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518515', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518615', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518715', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518515', 4, '069f72db-2157-43de-8e88-21661b518515',
+        '069f72db-2157-43de-8e88-21661b518515');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518615', 4, '069f72db-2157-43de-8e88-21661b518515',
+        '069f72db-2157-43de-8e88-21661b518615');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518715', 4, '069f72db-2157-43de-8e88-21661b518515',
+        '069f72db-2157-43de-8e88-21661b518715');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518516', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518516');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518516', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518616', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518716', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518516', 4, '069f72db-2157-43de-8e88-21661b518516',
+        '069f72db-2157-43de-8e88-21661b518516');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518616', 4, '069f72db-2157-43de-8e88-21661b518516',
+        '069f72db-2157-43de-8e88-21661b518616');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518716', 4, '069f72db-2157-43de-8e88-21661b518516',
+        '069f72db-2157-43de-8e88-21661b518716');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518517', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518517');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518517', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518617', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518717', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518517', 4, '069f72db-2157-43de-8e88-21661b518517',
+        '069f72db-2157-43de-8e88-21661b518517');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518617', 4, '069f72db-2157-43de-8e88-21661b518517',
+        '069f72db-2157-43de-8e88-21661b518617');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518717', 4, '069f72db-2157-43de-8e88-21661b518517',
+        '069f72db-2157-43de-8e88-21661b518717');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518518', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518518');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518518', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518618', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518718', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518518', 4, '069f72db-2157-43de-8e88-21661b518518',
+        '069f72db-2157-43de-8e88-21661b518518');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518618', 4, '069f72db-2157-43de-8e88-21661b518518',
+        '069f72db-2157-43de-8e88-21661b518618');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518718', 4, '069f72db-2157-43de-8e88-21661b518518',
+        '069f72db-2157-43de-8e88-21661b518718');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518519', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518519');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518519', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518619', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518719', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518519', 4, '069f72db-2157-43de-8e88-21661b518519',
+        '069f72db-2157-43de-8e88-21661b518519');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518619', 4, '069f72db-2157-43de-8e88-21661b518519',
+        '069f72db-2157-43de-8e88-21661b518619');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518719', 4, '069f72db-2157-43de-8e88-21661b518519',
+        '069f72db-2157-43de-8e88-21661b518719');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518520', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518520');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518520', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518620', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518720', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518520', 4, '069f72db-2157-43de-8e88-21661b518520',
+        '069f72db-2157-43de-8e88-21661b518520');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518620', 4, '069f72db-2157-43de-8e88-21661b518520',
+        '069f72db-2157-43de-8e88-21661b518620');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518720', 4, '069f72db-2157-43de-8e88-21661b518520',
+        '069f72db-2157-43de-8e88-21661b518720');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518521', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518521');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518521', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518621', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518721', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518521', 4, '069f72db-2157-43de-8e88-21661b518521',
+        '069f72db-2157-43de-8e88-21661b518521');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518621', 4, '069f72db-2157-43de-8e88-21661b518521',
+        '069f72db-2157-43de-8e88-21661b518621');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518721', 4, '069f72db-2157-43de-8e88-21661b518521',
+        '069f72db-2157-43de-8e88-21661b518721');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518522', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518522');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518522', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518622', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518722', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518522', 4, '069f72db-2157-43de-8e88-21661b518522',
+        '069f72db-2157-43de-8e88-21661b518522');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518622', 4, '069f72db-2157-43de-8e88-21661b518522',
+        '069f72db-2157-43de-8e88-21661b518622');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518722', 4, '069f72db-2157-43de-8e88-21661b518522',
+        '069f72db-2157-43de-8e88-21661b518722');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518523', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518523');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518523', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518623', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518723', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518523', 4, '069f72db-2157-43de-8e88-21661b518523',
+        '069f72db-2157-43de-8e88-21661b518523');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518623', 4, '069f72db-2157-43de-8e88-21661b518523',
+        '069f72db-2157-43de-8e88-21661b518623');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518723', 4, '069f72db-2157-43de-8e88-21661b518523',
+        '069f72db-2157-43de-8e88-21661b518723');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518524', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518524');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518524', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518624', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518724', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518524', 4, '069f72db-2157-43de-8e88-21661b518524',
+        '069f72db-2157-43de-8e88-21661b518524');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518624', 4, '069f72db-2157-43de-8e88-21661b518524',
+        '069f72db-2157-43de-8e88-21661b518624');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518724', 4, '069f72db-2157-43de-8e88-21661b518524',
+        '069f72db-2157-43de-8e88-21661b518724');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518525', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518525');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518525', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518625', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518725', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518525', 4, '069f72db-2157-43de-8e88-21661b518525',
+        '069f72db-2157-43de-8e88-21661b518525');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518625', 4, '069f72db-2157-43de-8e88-21661b518525',
+        '069f72db-2157-43de-8e88-21661b518625');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518725', 4, '069f72db-2157-43de-8e88-21661b518525',
+        '069f72db-2157-43de-8e88-21661b518725');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518526', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518526');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518526', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518626', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518726', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518526', 4, '069f72db-2157-43de-8e88-21661b518526',
+        '069f72db-2157-43de-8e88-21661b518526');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518626', 4, '069f72db-2157-43de-8e88-21661b518526',
+        '069f72db-2157-43de-8e88-21661b518626');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518726', 4, '069f72db-2157-43de-8e88-21661b518526',
+        '069f72db-2157-43de-8e88-21661b518726');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518527', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518527');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518527', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518627', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518727', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518527', 4, '069f72db-2157-43de-8e88-21661b518527',
+        '069f72db-2157-43de-8e88-21661b518527');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518627', 4, '069f72db-2157-43de-8e88-21661b518527',
+        '069f72db-2157-43de-8e88-21661b518627');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518727', 4, '069f72db-2157-43de-8e88-21661b518527',
+        '069f72db-2157-43de-8e88-21661b518727');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518528', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518528');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518528', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518628', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518728', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518528', 4, '069f72db-2157-43de-8e88-21661b518528',
+        '069f72db-2157-43de-8e88-21661b518528');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518628', 4, '069f72db-2157-43de-8e88-21661b518528',
+        '069f72db-2157-43de-8e88-21661b518628');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518728', 4, '069f72db-2157-43de-8e88-21661b518528',
+        '069f72db-2157-43de-8e88-21661b518728');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518529', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518529');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518529', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518629', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518729', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518529', 4, '069f72db-2157-43de-8e88-21661b518529',
+        '069f72db-2157-43de-8e88-21661b518529');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518629', 4, '069f72db-2157-43de-8e88-21661b518529',
+        '069f72db-2157-43de-8e88-21661b518629');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518729', 4, '069f72db-2157-43de-8e88-21661b518529',
+        '069f72db-2157-43de-8e88-21661b518729');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518530', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518530');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518530', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518630', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518730', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518530', 4, '069f72db-2157-43de-8e88-21661b518530',
+        '069f72db-2157-43de-8e88-21661b518530');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518630', 4, '069f72db-2157-43de-8e88-21661b518530',
+        '069f72db-2157-43de-8e88-21661b518630');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518730', 4, '069f72db-2157-43de-8e88-21661b518530',
+        '069f72db-2157-43de-8e88-21661b518730');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518531', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518531');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518531', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518631', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518731', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518531', 4, '069f72db-2157-43de-8e88-21661b518531',
+        '069f72db-2157-43de-8e88-21661b518531');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518631', 4, '069f72db-2157-43de-8e88-21661b518531',
+        '069f72db-2157-43de-8e88-21661b518631');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518731', 4, '069f72db-2157-43de-8e88-21661b518531',
+        '069f72db-2157-43de-8e88-21661b518731');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518532', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518532');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518532', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518632', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518732', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518532', 4, '069f72db-2157-43de-8e88-21661b518532',
+        '069f72db-2157-43de-8e88-21661b518532');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518632', 4, '069f72db-2157-43de-8e88-21661b518532',
+        '069f72db-2157-43de-8e88-21661b518632');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518732', 4, '069f72db-2157-43de-8e88-21661b518532',
+        '069f72db-2157-43de-8e88-21661b518732');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518533', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518533');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518533', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518633', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518733', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518533', 4, '069f72db-2157-43de-8e88-21661b518533',
+        '069f72db-2157-43de-8e88-21661b518533');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518633', 4, '069f72db-2157-43de-8e88-21661b518533',
+        '069f72db-2157-43de-8e88-21661b518633');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518733', 4, '069f72db-2157-43de-8e88-21661b518533',
+        '069f72db-2157-43de-8e88-21661b518733');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518534', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518534');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518534', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518634', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518734', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518534', 4, '069f72db-2157-43de-8e88-21661b518534',
+        '069f72db-2157-43de-8e88-21661b518534');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518634', 4, '069f72db-2157-43de-8e88-21661b518534',
+        '069f72db-2157-43de-8e88-21661b518634');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518734', 4, '069f72db-2157-43de-8e88-21661b518534',
+        '069f72db-2157-43de-8e88-21661b518734');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518535', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518535');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518535', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518635', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518735', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518535', 4, '069f72db-2157-43de-8e88-21661b518535',
+        '069f72db-2157-43de-8e88-21661b518535');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518635', 4, '069f72db-2157-43de-8e88-21661b518535',
+        '069f72db-2157-43de-8e88-21661b518635');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518735', 4, '069f72db-2157-43de-8e88-21661b518535',
+        '069f72db-2157-43de-8e88-21661b518735');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518536', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518536');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518536', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518636', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518736', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518536', 4, '069f72db-2157-43de-8e88-21661b518536',
+        '069f72db-2157-43de-8e88-21661b518536');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518636', 4, '069f72db-2157-43de-8e88-21661b518536',
+        '069f72db-2157-43de-8e88-21661b518636');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518736', 4, '069f72db-2157-43de-8e88-21661b518536',
+        '069f72db-2157-43de-8e88-21661b518736');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518537', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518537');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518537', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518637', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518737', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518537', 4, '069f72db-2157-43de-8e88-21661b518537',
+        '069f72db-2157-43de-8e88-21661b518537');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518637', 4, '069f72db-2157-43de-8e88-21661b518537',
+        '069f72db-2157-43de-8e88-21661b518637');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518737', 4, '069f72db-2157-43de-8e88-21661b518537',
+        '069f72db-2157-43de-8e88-21661b518737');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518538', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518538');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518538', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518638', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518738', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518538', 4, '069f72db-2157-43de-8e88-21661b518538',
+        '069f72db-2157-43de-8e88-21661b518538');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518638', 4, '069f72db-2157-43de-8e88-21661b518538',
+        '069f72db-2157-43de-8e88-21661b518638');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518738', 4, '069f72db-2157-43de-8e88-21661b518538',
+        '069f72db-2157-43de-8e88-21661b518738');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518539', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518539');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518539', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518639', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518739', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518539', 4, '069f72db-2157-43de-8e88-21661b518539',
+        '069f72db-2157-43de-8e88-21661b518539');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518639', 4, '069f72db-2157-43de-8e88-21661b518539',
+        '069f72db-2157-43de-8e88-21661b518639');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518739', 4, '069f72db-2157-43de-8e88-21661b518539',
+        '069f72db-2157-43de-8e88-21661b518739');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518540', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518540');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518540', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518640', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518740', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518540', 4, '069f72db-2157-43de-8e88-21661b518540',
+        '069f72db-2157-43de-8e88-21661b518540');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518640', 4, '069f72db-2157-43de-8e88-21661b518540',
+        '069f72db-2157-43de-8e88-21661b518640');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518740', 4, '069f72db-2157-43de-8e88-21661b518540',
+        '069f72db-2157-43de-8e88-21661b518740');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518541', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518541');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518541', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518641', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518741', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518541', 4, '069f72db-2157-43de-8e88-21661b518541',
+        '069f72db-2157-43de-8e88-21661b518541');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518641', 4, '069f72db-2157-43de-8e88-21661b518541',
+        '069f72db-2157-43de-8e88-21661b518641');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518741', 4, '069f72db-2157-43de-8e88-21661b518541',
+        '069f72db-2157-43de-8e88-21661b518741');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518542', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518542');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518542', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518642', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518742', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518542', 4, '069f72db-2157-43de-8e88-21661b518542',
+        '069f72db-2157-43de-8e88-21661b518542');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518642', 4, '069f72db-2157-43de-8e88-21661b518542',
+        '069f72db-2157-43de-8e88-21661b518642');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518742', 4, '069f72db-2157-43de-8e88-21661b518542',
+        '069f72db-2157-43de-8e88-21661b518742');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518543', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518543');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518543', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518643', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518743', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518543', 4, '069f72db-2157-43de-8e88-21661b518543',
+        '069f72db-2157-43de-8e88-21661b518543');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518643', 4, '069f72db-2157-43de-8e88-21661b518543',
+        '069f72db-2157-43de-8e88-21661b518643');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518743', 4, '069f72db-2157-43de-8e88-21661b518543',
+        '069f72db-2157-43de-8e88-21661b518743');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518544', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518544');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518544', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518644', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518744', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518544', 4, '069f72db-2157-43de-8e88-21661b518544',
+        '069f72db-2157-43de-8e88-21661b518544');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518644', 4, '069f72db-2157-43de-8e88-21661b518544',
+        '069f72db-2157-43de-8e88-21661b518644');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518744', 4, '069f72db-2157-43de-8e88-21661b518544',
+        '069f72db-2157-43de-8e88-21661b518744');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518545', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518545');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518545', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518645', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518745', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518545', 4, '069f72db-2157-43de-8e88-21661b518545',
+        '069f72db-2157-43de-8e88-21661b518545');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518645', 4, '069f72db-2157-43de-8e88-21661b518545',
+        '069f72db-2157-43de-8e88-21661b518645');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518745', 4, '069f72db-2157-43de-8e88-21661b518545',
+        '069f72db-2157-43de-8e88-21661b518745');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518546', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518546');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518546', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518646', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518746', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518546', 4, '069f72db-2157-43de-8e88-21661b518546',
+        '069f72db-2157-43de-8e88-21661b518546');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518646', 4, '069f72db-2157-43de-8e88-21661b518546',
+        '069f72db-2157-43de-8e88-21661b518646');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518746', 4, '069f72db-2157-43de-8e88-21661b518546',
+        '069f72db-2157-43de-8e88-21661b518746');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518547', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518547');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518547', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518647', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518747', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518547', 4, '069f72db-2157-43de-8e88-21661b518547',
+        '069f72db-2157-43de-8e88-21661b518547');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518647', 4, '069f72db-2157-43de-8e88-21661b518547',
+        '069f72db-2157-43de-8e88-21661b518647');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518747', 4, '069f72db-2157-43de-8e88-21661b518547',
+        '069f72db-2157-43de-8e88-21661b518747');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518548', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518548');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518548', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518648', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518748', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518548', 4, '069f72db-2157-43de-8e88-21661b518548',
+        '069f72db-2157-43de-8e88-21661b518548');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518648', 4, '069f72db-2157-43de-8e88-21661b518548',
+        '069f72db-2157-43de-8e88-21661b518648');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518748', 4, '069f72db-2157-43de-8e88-21661b518548',
+        '069f72db-2157-43de-8e88-21661b518748');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518549', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518549');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518549', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518649', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518749', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518549', 4, '069f72db-2157-43de-8e88-21661b518549',
+        '069f72db-2157-43de-8e88-21661b518549');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518649', 4, '069f72db-2157-43de-8e88-21661b518549',
+        '069f72db-2157-43de-8e88-21661b518649');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518749', 4, '069f72db-2157-43de-8e88-21661b518549',
+        '069f72db-2157-43de-8e88-21661b518749');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518550', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518550');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518550', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518650', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518750', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518550', 4, '069f72db-2157-43de-8e88-21661b518550',
+        '069f72db-2157-43de-8e88-21661b518550');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518650', 4, '069f72db-2157-43de-8e88-21661b518550',
+        '069f72db-2157-43de-8e88-21661b518650');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518750', 4, '069f72db-2157-43de-8e88-21661b518550',
+        '069f72db-2157-43de-8e88-21661b518750');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518551', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518551');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518551', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518651', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518751', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518551', 4, '069f72db-2157-43de-8e88-21661b518551',
+        '069f72db-2157-43de-8e88-21661b518551');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518651', 4, '069f72db-2157-43de-8e88-21661b518551',
+        '069f72db-2157-43de-8e88-21661b518651');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518751', 4, '069f72db-2157-43de-8e88-21661b518551',
+        '069f72db-2157-43de-8e88-21661b518751');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518552', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518552');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518552', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518652', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518752', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518552', 4, '069f72db-2157-43de-8e88-21661b518552',
+        '069f72db-2157-43de-8e88-21661b518552');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518652', 4, '069f72db-2157-43de-8e88-21661b518552',
+        '069f72db-2157-43de-8e88-21661b518652');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518752', 4, '069f72db-2157-43de-8e88-21661b518552',
+        '069f72db-2157-43de-8e88-21661b518752');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518553', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518553');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518553', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518653', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518753', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518553', 4, '069f72db-2157-43de-8e88-21661b518553',
+        '069f72db-2157-43de-8e88-21661b518553');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518653', 4, '069f72db-2157-43de-8e88-21661b518553',
+        '069f72db-2157-43de-8e88-21661b518653');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518753', 4, '069f72db-2157-43de-8e88-21661b518553',
+        '069f72db-2157-43de-8e88-21661b518753');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518554', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518554');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518554', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518654', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518754', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518554', 4, '069f72db-2157-43de-8e88-21661b518554',
+        '069f72db-2157-43de-8e88-21661b518554');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518654', 4, '069f72db-2157-43de-8e88-21661b518554',
+        '069f72db-2157-43de-8e88-21661b518654');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518754', 4, '069f72db-2157-43de-8e88-21661b518554',
+        '069f72db-2157-43de-8e88-21661b518754');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518555', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518555');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518555', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518655', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518755', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518555', 4, '069f72db-2157-43de-8e88-21661b518555',
+        '069f72db-2157-43de-8e88-21661b518555');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518655', 4, '069f72db-2157-43de-8e88-21661b518555',
+        '069f72db-2157-43de-8e88-21661b518655');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518755', 4, '069f72db-2157-43de-8e88-21661b518555',
+        '069f72db-2157-43de-8e88-21661b518755');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518556', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518556');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518556', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518656', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518756', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518556', 4, '069f72db-2157-43de-8e88-21661b518556',
+        '069f72db-2157-43de-8e88-21661b518556');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518656', 4, '069f72db-2157-43de-8e88-21661b518556',
+        '069f72db-2157-43de-8e88-21661b518656');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518756', 4, '069f72db-2157-43de-8e88-21661b518556',
+        '069f72db-2157-43de-8e88-21661b518756');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518557', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518557');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518557', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518657', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518757', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518557', 4, '069f72db-2157-43de-8e88-21661b518557',
+        '069f72db-2157-43de-8e88-21661b518557');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518657', 4, '069f72db-2157-43de-8e88-21661b518557',
+        '069f72db-2157-43de-8e88-21661b518657');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518757', 4, '069f72db-2157-43de-8e88-21661b518557',
+        '069f72db-2157-43de-8e88-21661b518757');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518558', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518558');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518558', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518658', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518758', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518558', 4, '069f72db-2157-43de-8e88-21661b518558',
+        '069f72db-2157-43de-8e88-21661b518558');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518658', 4, '069f72db-2157-43de-8e88-21661b518558',
+        '069f72db-2157-43de-8e88-21661b518658');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518758', 4, '069f72db-2157-43de-8e88-21661b518558',
+        '069f72db-2157-43de-8e88-21661b518758');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518559', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518559');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518559', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518659', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518759', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518559', 4, '069f72db-2157-43de-8e88-21661b518559',
+        '069f72db-2157-43de-8e88-21661b518559');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518659', 4, '069f72db-2157-43de-8e88-21661b518559',
+        '069f72db-2157-43de-8e88-21661b518659');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518759', 4, '069f72db-2157-43de-8e88-21661b518559',
+        '069f72db-2157-43de-8e88-21661b518759');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518560', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518560');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518560', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518660', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518760', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518560', 4, '069f72db-2157-43de-8e88-21661b518560',
+        '069f72db-2157-43de-8e88-21661b518560');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518660', 4, '069f72db-2157-43de-8e88-21661b518560',
+        '069f72db-2157-43de-8e88-21661b518660');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518760', 4, '069f72db-2157-43de-8e88-21661b518560',
+        '069f72db-2157-43de-8e88-21661b518760');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518561', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518561');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518561', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518661', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518761', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518561', 4, '069f72db-2157-43de-8e88-21661b518561',
+        '069f72db-2157-43de-8e88-21661b518561');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518661', 4, '069f72db-2157-43de-8e88-21661b518561',
+        '069f72db-2157-43de-8e88-21661b518661');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518761', 4, '069f72db-2157-43de-8e88-21661b518561',
+        '069f72db-2157-43de-8e88-21661b518761');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518562', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518562');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518562', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518662', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518762', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518562', 4, '069f72db-2157-43de-8e88-21661b518562',
+        '069f72db-2157-43de-8e88-21661b518562');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518662', 4, '069f72db-2157-43de-8e88-21661b518562',
+        '069f72db-2157-43de-8e88-21661b518662');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518762', 4, '069f72db-2157-43de-8e88-21661b518562',
+        '069f72db-2157-43de-8e88-21661b518762');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518563', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518563');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518563', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518663', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518763', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518563', 4, '069f72db-2157-43de-8e88-21661b518563',
+        '069f72db-2157-43de-8e88-21661b518563');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518663', 4, '069f72db-2157-43de-8e88-21661b518563',
+        '069f72db-2157-43de-8e88-21661b518663');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518763', 4, '069f72db-2157-43de-8e88-21661b518563',
+        '069f72db-2157-43de-8e88-21661b518763');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518564', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518564');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518564', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518664', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518764', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518564', 4, '069f72db-2157-43de-8e88-21661b518564',
+        '069f72db-2157-43de-8e88-21661b518564');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518664', 4, '069f72db-2157-43de-8e88-21661b518564',
+        '069f72db-2157-43de-8e88-21661b518664');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518764', 4, '069f72db-2157-43de-8e88-21661b518564',
+        '069f72db-2157-43de-8e88-21661b518764');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518565', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518565');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518565', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518665', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518765', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518565', 4, '069f72db-2157-43de-8e88-21661b518565',
+        '069f72db-2157-43de-8e88-21661b518565');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518665', 4, '069f72db-2157-43de-8e88-21661b518565',
+        '069f72db-2157-43de-8e88-21661b518665');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518765', 4, '069f72db-2157-43de-8e88-21661b518565',
+        '069f72db-2157-43de-8e88-21661b518765');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518566', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518566');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518566', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518666', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518766', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518566', 4, '069f72db-2157-43de-8e88-21661b518566',
+        '069f72db-2157-43de-8e88-21661b518566');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518666', 4, '069f72db-2157-43de-8e88-21661b518566',
+        '069f72db-2157-43de-8e88-21661b518666');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518766', 4, '069f72db-2157-43de-8e88-21661b518566',
+        '069f72db-2157-43de-8e88-21661b518766');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518567', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518567');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518567', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518667', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518767', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518567', 4, '069f72db-2157-43de-8e88-21661b518567',
+        '069f72db-2157-43de-8e88-21661b518567');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518667', 4, '069f72db-2157-43de-8e88-21661b518567',
+        '069f72db-2157-43de-8e88-21661b518667');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518767', 4, '069f72db-2157-43de-8e88-21661b518567',
+        '069f72db-2157-43de-8e88-21661b518767');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518568', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518568');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518568', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518668', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518768', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518568', 4, '069f72db-2157-43de-8e88-21661b518568',
+        '069f72db-2157-43de-8e88-21661b518568');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518668', 4, '069f72db-2157-43de-8e88-21661b518568',
+        '069f72db-2157-43de-8e88-21661b518668');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518768', 4, '069f72db-2157-43de-8e88-21661b518568',
+        '069f72db-2157-43de-8e88-21661b518768');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518569', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518569');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518569', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518669', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518769', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518569', 4, '069f72db-2157-43de-8e88-21661b518569',
+        '069f72db-2157-43de-8e88-21661b518569');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518669', 4, '069f72db-2157-43de-8e88-21661b518569',
+        '069f72db-2157-43de-8e88-21661b518669');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518769', 4, '069f72db-2157-43de-8e88-21661b518569',
+        '069f72db-2157-43de-8e88-21661b518769');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518570', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518570');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518570', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518670', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518770', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518570', 4, '069f72db-2157-43de-8e88-21661b518570',
+        '069f72db-2157-43de-8e88-21661b518570');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518670', 4, '069f72db-2157-43de-8e88-21661b518570',
+        '069f72db-2157-43de-8e88-21661b518670');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518770', 4, '069f72db-2157-43de-8e88-21661b518570',
+        '069f72db-2157-43de-8e88-21661b518770');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518571', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518571');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518571', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518671', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518771', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518571', 4, '069f72db-2157-43de-8e88-21661b518571',
+        '069f72db-2157-43de-8e88-21661b518571');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518671', 4, '069f72db-2157-43de-8e88-21661b518571',
+        '069f72db-2157-43de-8e88-21661b518671');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518771', 4, '069f72db-2157-43de-8e88-21661b518571',
+        '069f72db-2157-43de-8e88-21661b518771');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518572', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518572');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518572', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518672', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518772', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518572', 4, '069f72db-2157-43de-8e88-21661b518572',
+        '069f72db-2157-43de-8e88-21661b518572');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518672', 4, '069f72db-2157-43de-8e88-21661b518572',
+        '069f72db-2157-43de-8e88-21661b518672');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518772', 4, '069f72db-2157-43de-8e88-21661b518572',
+        '069f72db-2157-43de-8e88-21661b518772');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518573', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518573');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518573', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518673', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518773', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518573', 4, '069f72db-2157-43de-8e88-21661b518573',
+        '069f72db-2157-43de-8e88-21661b518573');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518673', 4, '069f72db-2157-43de-8e88-21661b518573',
+        '069f72db-2157-43de-8e88-21661b518673');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518773', 4, '069f72db-2157-43de-8e88-21661b518573',
+        '069f72db-2157-43de-8e88-21661b518773');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518574', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518574');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518574', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518674', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518774', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518574', 4, '069f72db-2157-43de-8e88-21661b518574',
+        '069f72db-2157-43de-8e88-21661b518574');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518674', 4, '069f72db-2157-43de-8e88-21661b518574',
+        '069f72db-2157-43de-8e88-21661b518674');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518774', 4, '069f72db-2157-43de-8e88-21661b518574',
+        '069f72db-2157-43de-8e88-21661b518774');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518575', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518575');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518575', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518675', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518775', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518575', 4, '069f72db-2157-43de-8e88-21661b518575',
+        '069f72db-2157-43de-8e88-21661b518575');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518675', 4, '069f72db-2157-43de-8e88-21661b518575',
+        '069f72db-2157-43de-8e88-21661b518675');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518775', 4, '069f72db-2157-43de-8e88-21661b518575',
+        '069f72db-2157-43de-8e88-21661b518775');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518576', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518576');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518576', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518676', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518776', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518576', 4, '069f72db-2157-43de-8e88-21661b518576',
+        '069f72db-2157-43de-8e88-21661b518576');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518676', 4, '069f72db-2157-43de-8e88-21661b518576',
+        '069f72db-2157-43de-8e88-21661b518676');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518776', 4, '069f72db-2157-43de-8e88-21661b518576',
+        '069f72db-2157-43de-8e88-21661b518776');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518577', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518577');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518577', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518677', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518777', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518577', 4, '069f72db-2157-43de-8e88-21661b518577',
+        '069f72db-2157-43de-8e88-21661b518577');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518677', 4, '069f72db-2157-43de-8e88-21661b518577',
+        '069f72db-2157-43de-8e88-21661b518677');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518777', 4, '069f72db-2157-43de-8e88-21661b518577',
+        '069f72db-2157-43de-8e88-21661b518777');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518578', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518578');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518578', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518678', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518778', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518578', 4, '069f72db-2157-43de-8e88-21661b518578',
+        '069f72db-2157-43de-8e88-21661b518578');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518678', 4, '069f72db-2157-43de-8e88-21661b518578',
+        '069f72db-2157-43de-8e88-21661b518678');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518778', 4, '069f72db-2157-43de-8e88-21661b518578',
+        '069f72db-2157-43de-8e88-21661b518778');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518579', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518579');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518579', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518679', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518779', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518579', 4, '069f72db-2157-43de-8e88-21661b518579',
+        '069f72db-2157-43de-8e88-21661b518579');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518679', 4, '069f72db-2157-43de-8e88-21661b518579',
+        '069f72db-2157-43de-8e88-21661b518679');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518779', 4, '069f72db-2157-43de-8e88-21661b518579',
+        '069f72db-2157-43de-8e88-21661b518779');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518580', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518580');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518580', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518680', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518780', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518580', 4, '069f72db-2157-43de-8e88-21661b518580',
+        '069f72db-2157-43de-8e88-21661b518580');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518680', 4, '069f72db-2157-43de-8e88-21661b518580',
+        '069f72db-2157-43de-8e88-21661b518680');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518780', 4, '069f72db-2157-43de-8e88-21661b518580',
+        '069f72db-2157-43de-8e88-21661b518780');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518581', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518581');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518581', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518681', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518781', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518581', 4, '069f72db-2157-43de-8e88-21661b518581',
+        '069f72db-2157-43de-8e88-21661b518581');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518681', 4, '069f72db-2157-43de-8e88-21661b518581',
+        '069f72db-2157-43de-8e88-21661b518681');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518781', 4, '069f72db-2157-43de-8e88-21661b518581',
+        '069f72db-2157-43de-8e88-21661b518781');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518582', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518582');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518582', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518682', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518782', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518582', 4, '069f72db-2157-43de-8e88-21661b518582',
+        '069f72db-2157-43de-8e88-21661b518582');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518682', 4, '069f72db-2157-43de-8e88-21661b518582',
+        '069f72db-2157-43de-8e88-21661b518682');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518782', 4, '069f72db-2157-43de-8e88-21661b518582',
+        '069f72db-2157-43de-8e88-21661b518782');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518583', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518583');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518583', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518683', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518783', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518583', 4, '069f72db-2157-43de-8e88-21661b518583',
+        '069f72db-2157-43de-8e88-21661b518583');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518683', 4, '069f72db-2157-43de-8e88-21661b518583',
+        '069f72db-2157-43de-8e88-21661b518683');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518783', 4, '069f72db-2157-43de-8e88-21661b518583',
+        '069f72db-2157-43de-8e88-21661b518783');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518584', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518584');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518584', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518684', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518784', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518584', 4, '069f72db-2157-43de-8e88-21661b518584',
+        '069f72db-2157-43de-8e88-21661b518584');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518684', 4, '069f72db-2157-43de-8e88-21661b518584',
+        '069f72db-2157-43de-8e88-21661b518684');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518784', 4, '069f72db-2157-43de-8e88-21661b518584',
+        '069f72db-2157-43de-8e88-21661b518784');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518585', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518585');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518585', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518685', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518785', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518585', 4, '069f72db-2157-43de-8e88-21661b518585',
+        '069f72db-2157-43de-8e88-21661b518585');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518685', 4, '069f72db-2157-43de-8e88-21661b518585',
+        '069f72db-2157-43de-8e88-21661b518685');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518785', 4, '069f72db-2157-43de-8e88-21661b518585',
+        '069f72db-2157-43de-8e88-21661b518785');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518586', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518586');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518586', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518686', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518786', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518586', 4, '069f72db-2157-43de-8e88-21661b518586',
+        '069f72db-2157-43de-8e88-21661b518586');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518686', 4, '069f72db-2157-43de-8e88-21661b518586',
+        '069f72db-2157-43de-8e88-21661b518686');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518786', 4, '069f72db-2157-43de-8e88-21661b518586',
+        '069f72db-2157-43de-8e88-21661b518786');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518587', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518587');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518587', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518687', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518787', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518587', 4, '069f72db-2157-43de-8e88-21661b518587',
+        '069f72db-2157-43de-8e88-21661b518587');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518687', 4, '069f72db-2157-43de-8e88-21661b518587',
+        '069f72db-2157-43de-8e88-21661b518687');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518787', 4, '069f72db-2157-43de-8e88-21661b518587',
+        '069f72db-2157-43de-8e88-21661b518787');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518588', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518588');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518588', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518688', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518788', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518588', 4, '069f72db-2157-43de-8e88-21661b518588',
+        '069f72db-2157-43de-8e88-21661b518588');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518688', 4, '069f72db-2157-43de-8e88-21661b518588',
+        '069f72db-2157-43de-8e88-21661b518688');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518788', 4, '069f72db-2157-43de-8e88-21661b518588',
+        '069f72db-2157-43de-8e88-21661b518788');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518589', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518589');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518589', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518689', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518789', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518589', 4, '069f72db-2157-43de-8e88-21661b518589',
+        '069f72db-2157-43de-8e88-21661b518589');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518689', 4, '069f72db-2157-43de-8e88-21661b518589',
+        '069f72db-2157-43de-8e88-21661b518689');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518789', 4, '069f72db-2157-43de-8e88-21661b518589',
+        '069f72db-2157-43de-8e88-21661b518789');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518590', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518590');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518590', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518690', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518790', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518590', 4, '069f72db-2157-43de-8e88-21661b518590',
+        '069f72db-2157-43de-8e88-21661b518590');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518690', 4, '069f72db-2157-43de-8e88-21661b518590',
+        '069f72db-2157-43de-8e88-21661b518690');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518790', 4, '069f72db-2157-43de-8e88-21661b518590',
+        '069f72db-2157-43de-8e88-21661b518790');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518591', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518591');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518591', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518691', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518791', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518591', 4, '069f72db-2157-43de-8e88-21661b518591',
+        '069f72db-2157-43de-8e88-21661b518591');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518691', 4, '069f72db-2157-43de-8e88-21661b518591',
+        '069f72db-2157-43de-8e88-21661b518691');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518791', 4, '069f72db-2157-43de-8e88-21661b518591',
+        '069f72db-2157-43de-8e88-21661b518791');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518592', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518592');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518592', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518692', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518792', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518592', 4, '069f72db-2157-43de-8e88-21661b518592',
+        '069f72db-2157-43de-8e88-21661b518592');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518692', 4, '069f72db-2157-43de-8e88-21661b518592',
+        '069f72db-2157-43de-8e88-21661b518692');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518792', 4, '069f72db-2157-43de-8e88-21661b518592',
+        '069f72db-2157-43de-8e88-21661b518792');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518593', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518593');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518593', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518693', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518793', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518593', 4, '069f72db-2157-43de-8e88-21661b518593',
+        '069f72db-2157-43de-8e88-21661b518593');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518693', 4, '069f72db-2157-43de-8e88-21661b518593',
+        '069f72db-2157-43de-8e88-21661b518693');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518793', 4, '069f72db-2157-43de-8e88-21661b518593',
+        '069f72db-2157-43de-8e88-21661b518793');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518594', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518594');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518594', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518694', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518794', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518594', 4, '069f72db-2157-43de-8e88-21661b518594',
+        '069f72db-2157-43de-8e88-21661b518594');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518694', 4, '069f72db-2157-43de-8e88-21661b518594',
+        '069f72db-2157-43de-8e88-21661b518694');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518794', 4, '069f72db-2157-43de-8e88-21661b518594',
+        '069f72db-2157-43de-8e88-21661b518794');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518595', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518595');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518595', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518695', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518795', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518595', 4, '069f72db-2157-43de-8e88-21661b518595',
+        '069f72db-2157-43de-8e88-21661b518595');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518695', 4, '069f72db-2157-43de-8e88-21661b518595',
+        '069f72db-2157-43de-8e88-21661b518695');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518795', 4, '069f72db-2157-43de-8e88-21661b518595',
+        '069f72db-2157-43de-8e88-21661b518795');
+insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
+values ('069f72db-2157-43de-8e88-21661b518596', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
+        '069f72db-2157-43de-8e88-21661b518596');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518596', 100 * 2, 100 * 2, 20 * 2, 20 * 2,
+        '069f72db-2157-43de-8e88-21661b518200');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518696', 100 * 2, 100 * 2, 20 * 2, 250 * 2,
+        '069f72db-2157-43de-8e88-21661b518201');
+insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
+values ('069f72db-2157-43de-8e88-21661b518796', 160 * 2, 100 * 2, 700 * 2, 50 * 2,
+        '069f72db-2157-43de-8e88-21661b518202');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518596', 4, '069f72db-2157-43de-8e88-21661b518596',
+        '069f72db-2157-43de-8e88-21661b518596');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518696', 4, '069f72db-2157-43de-8e88-21661b518596',
+        '069f72db-2157-43de-8e88-21661b518696');
+insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
+values ('069f72db-2157-43de-8e88-21661b518796', 4, '069f72db-2157-43de-8e88-21661b518596',
+        '069f72db-2157-43de-8e88-21661b518796');
 
 -- mensa comments
 insert into comment (id, rating, comment, name, restaurant_id)
