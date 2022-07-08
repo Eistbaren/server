@@ -23,7 +23,7 @@ values ('069f72db-2157-43de-8e88-21661b518202', '/serverFile/serverImages/floorp
 insert into IMAGE (ID, IMAGEURL)
 values ('069f72db-2157-43de-8e88-21661b518203', '/serverFile/serverImages/floorplan/floorplan-temporary.png');
 insert into IMAGE (ID, IMAGEURL)
-values ('069f72db-2157-43de-8e88-21661b518300', '/serverFile/serverImages/restaurant/mensa-außen-1-v2.png');
+values ('069f72db-2157-43de-8e88-21661b518300', '/serverFile/serverImages/restaurant/mensa-außen-1.png');
 insert into IMAGE (ID, IMAGEURL)
 values ('069f72db-2157-43de-8e88-21661b518301', '/serverFile/serverImages/restaurant/mensa-außen-2.png');
 insert into IMAGE (ID, IMAGEURL)
