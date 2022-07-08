@@ -8,7 +8,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 /**
  * Defines the custom Cors settings
  */
-@Configuration
 class CorsConfigurer {
     /**
      * Allows access to our API-Endpoints from all Origins

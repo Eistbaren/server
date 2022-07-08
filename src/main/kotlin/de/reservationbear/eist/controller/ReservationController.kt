@@ -8,12 +8,18 @@ import de.reservationbear.eist.exceptionhandler.ApiException
 import de.reservationbear.eist.service.MailService
 import de.reservationbear.eist.service.ReservationService
 import de.reservationbear.eist.service.TableService
+import jdk.jfr.ContentType
 import org.springframework.core.io.Resource
+import org.springframework.http.HttpHeaders
+import org.springframework.http.HttpStatus
+import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import java.sql.Timestamp
 import java.util.*
 import java.util.stream.Collectors
+import javax.servlet.http.HttpServletResponse
+
 
 /**
  * REST-Controller for the reservation entity
@@ -25,6 +31,13 @@ class ReservationController(
     val tableService: TableService,
     val mailService: MailService
 ) {
+
+    @RequestMapping(value = ["/restaurant"], method = [RequestMethod.OPTIONS])
+    fun options(response: HttpServletResponse): ResponseEntity<*>? {
+        response.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_METHODS, "POST,GET,PUT,DELETE,OPTIONS")
+        response.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_HEADERS, MediaType.ALL_VALUE)
+        return ResponseEntity<Any?>(HttpStatus.OK)
+    }
 
     /**
      * Creates a reservation and pass it to the reservation service
