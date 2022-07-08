@@ -32,6 +32,11 @@ class ReservationController(
     val mailService: MailService
 ) {
 
+    /**
+     * Options method to change header for CORS
+     *
+     * @return 200 HttpStatus
+     */
     @RequestMapping(value = ["/restaurant"], method = [RequestMethod.OPTIONS])
     fun options(response: HttpServletResponse): ResponseEntity<*>? {
         response.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_METHODS, "POST,GET,PUT,DELETE,OPTIONS")
