@@ -1,4 +1,0 @@
-GET http://localhost:8080/api/restaurant?filters=time=1199178001;1199181601,numberVisitors=6&currentPage=0&pageSize=8
-Accept: application/json
-
-###
