@@ -67,7 +67,7 @@ class RegistrationMailPattern(val mailSender: MailSender) {
 	<blockquote style="margin: 0 0 20px 0; border-left: 10px solid #2e3440; padding: 15px 0 0.1px 15px; font-size: 19px; line-height: 25px;">
 		<p style="margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #2e3440c;">
 			<a style="color: #88c0d0;" href="$link">
-				Click here for dashboard
+				Click here to see your dashboard
 			</a>
 		</p>
 	</blockquote>
