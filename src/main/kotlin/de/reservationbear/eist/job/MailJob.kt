@@ -32,7 +32,7 @@ class MailJob(val reservationService: ReservationService, val mailService: MailS
      * Crawls all reservations from DB and send mails to the ones, which due date is in one day.
      * Checks every ten minutes
      **/
-    @Scheduled(fixedRate = 10, timeUnit = TimeUnit.MINUTES)
+    @Scheduled(fixedRate = 1, timeUnit = TimeUnit.MINUTES)
     fun crawlDataBaseForSendingConfirmationMail() {
         val reservation: List<Reservation>? =
             reservationService.getReservationsForConfirmation()
