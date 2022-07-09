@@ -186,6 +186,11 @@ class ReservationController(
 
         val patchedReservation: Reservation = reservationService.confirmReservation(id, confirmationToken)
 
+        //Catch reservation where due date is lower than 12 hours and cannot be canceled anymore
+        if (patchedReservation.reservationFrom < Timestamp.from(Instant.now().plus(12, ChronoUnit.HOURS))) {
+            throw ApiException("Reservation cannot be confirmed anymore", 400)
+        }
+
         return ResponseEntity.ok(
             ReservationMapper(
                 patchedReservation.id,
@@ -216,6 +221,11 @@ class ReservationController(
     ): ResponseEntity<ReservationMapper> {
 
         val removedReservation: Reservation = reservationService.deleteReservation(id)
+
+        //Catch reservation where due date is lower than 12 hours and cannot be canceled anymore
+        if (removedReservation.reservationFrom < Timestamp.from(Instant.now().plus(12, ChronoUnit.HOURS))) {
+            throw ApiException("Reservation cannot be cancelt anymore", 400)
+        }
 
         return ResponseEntity.ok(
             ReservationMapper(
