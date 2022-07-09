@@ -88,7 +88,7 @@ class ReservationController(
 
         //Catch invalid name
         if(reservation.userName.split(" ").size < 2){
-            throw ApiException("Jeder Name braucht mindestens einen Vornamen und Nachnamen", 400)
+            throw ApiException("Every name must contain a Firstname and a Lastname", 400)
         }
 
         //Catch invalid Email-Address - Source: https://howtodoinjava.com/java/regex/java-regex-validate-email-address/
