@@ -42,8 +42,8 @@ class ConfirmationMailPattern(val mailSender: MailSender) {
      */
     private fun buildEmail(name: String, link: String): String {
         return """
-<div style="width: 100%; height: 50px; background-color: #81a1c1;">
-	<h1 style="color: white; font-size: calc(7pt + 4vw); text-align: center; padding-top: 7px; font-family: Helvetica,Arial,sans-serif; margin-top: 0;">
+<div style="width: 100%; background-color: #81a1c1;">
+	<h1 style="color: white; text-align: center; font-size: 40px; padding-top: 7px; font-family: Helvetica,Arial,sans-serif; margin: 0 0 0 0; margin-block-end: 0;">
 		Confirm your reservation
 	</h1>
 </div>
@@ -57,12 +57,12 @@ class ConfirmationMailPattern(val mailSender: MailSender) {
 		Hi $name,
 	</p>
 	<p style="margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #2e3440;">
-		thanks for your reservation. Now you just have to confirm the reservation one last time at the following link and you can enjoy your meal!
+		thanks for your reservation. Please confirm the reservation at the following link and you can enjoy your meal!
 	</p>
 	<blockquote style="margin: 0 0 20px 0; border-left: 10px solid #2e3440; padding: 15px 0 0.1px 15px; font-size: 19px; line-height: 25px;">
 		<p style="margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #2e3440c;">
 			<a style="color: #88c0d0;" href="$link">
-				 Click here to see your dashboard
+				 Click here to confirm your reservation
 			</a>
 		</p>
 	</blockquote>

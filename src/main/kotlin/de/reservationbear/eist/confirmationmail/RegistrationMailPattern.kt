@@ -50,8 +50,8 @@ class RegistrationMailPattern(val mailSender: MailSender) {
      */
     private fun buildEmail(name: String, link: String): String {
         return """
-<div style="width: 100%; height: 50px; background-color: #81a1c1;">
-	<h1 style="color: white; text-align: center; font-size: calc(7pt + 4vw); padding-top: 7px; font-family: Helvetica,Arial,sans-serif; margin-top: 0;">
+<div style="width: 100%; background-color: #81a1c1;">
+	<h1 style="color: white; text-align: center; font-size: 40px; padding-top: 7px; font-family: Helvetica,Arial,sans-serif; margin: 0 0 0 0; margin-block-end: 0;">
 		Reservation confirmation
 	</h1>
 </div>
@@ -68,12 +68,12 @@ class RegistrationMailPattern(val mailSender: MailSender) {
 	<blockquote style="margin: 0 0 20px 0; border-left: 10px solid #2e3440; padding: 15px 0 0.1px 15px; font-size: 19px; line-height: 25px;">
 		<p style="margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #2e3440c;">
 			<a style="color: #88c0d0;" href="$link">
-				Click here to see your dashboard
+				Click here to view your reservation details
 			</a>
 		</p>
 	</blockquote>
     <p style="margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #2e3440;">
-	24 hours before your reservation date you will receive another email where you have to confirm your reservation one last time (this can be done up to 12 hours before).
+	You will receive another email with a confirmation link 24 hours before your appointment. Please note, that you have to confirm your reservation within 12 hours after that email.
     </p>
 	<p style="font-size: 19px; color: #2e3440;">
 		Have a nice day

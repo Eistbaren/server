@@ -40,8 +40,16 @@ class ReservationController(
     )
     fun createReservation(
         @RequestBody reservationMapper: ReservationMapper,
-        request : HttpServletRequest
+        request: HttpServletRequest
     ): ResponseEntity<ReservationMapper> {
+
+        var url = request.getHeader("Origin")
+        if (url == null) {
+            url = request.getHeader("Referer")
+        }
+        if (url == null) {
+            url = request.requestURL.toString()
+        }
 
         val reservation = Reservation(
             null,
@@ -53,11 +61,11 @@ class ReservationController(
             Timestamp(reservationMapper.time.to!! * 1000),
             reservationMapper.userName!!,
             reservationMapper.userEmail!!,
-            urlFromRequest = request.requestURL.toString()
+            urlFromRequest = url
         )
 
         if (reservation.restaurantTables == null || reservation.restaurantTables.isEmpty()) {
-           throw ApiException("Tablelist cannot be null or error", 401)
+            throw ApiException("Tablelist cannot be null or error", 401)
         }
 
         reservationService.saveReservation(reservation)
@@ -75,7 +83,10 @@ class ReservationController(
             ReservationMapper(
                 insertedReservation.id,
                 insertedReservation.restaurantTables?.map { tables -> tables.id }?.toList(),
-                TimeslotMapper(insertedReservation.reservationFrom.time / 1000, insertedReservation.reservationTo.time / 1000),
+                TimeslotMapper(
+                    insertedReservation.reservationFrom.time / 1000,
+                    insertedReservation.reservationTo.time / 1000
+                ),
                 insertedReservation.userName,
                 insertedReservation.userEmail,
                 insertedReservation.confirmed
@@ -135,7 +146,10 @@ class ReservationController(
             ReservationMapper(
                 patchedReservation.id,
                 patchedReservation.restaurantTables?.map { tables -> tables.id }?.toList(),
-                TimeslotMapper(patchedReservation.reservationFrom.time / 1000, patchedReservation.reservationTo.time /1000),
+                TimeslotMapper(
+                    patchedReservation.reservationFrom.time / 1000,
+                    patchedReservation.reservationTo.time / 1000
+                ),
                 patchedReservation.userName,
                 patchedReservation.userEmail,
                 patchedReservation.confirmed
@@ -163,7 +177,10 @@ class ReservationController(
             ReservationMapper(
                 removedReservation.id,
                 removedReservation.restaurantTables?.map { tables -> tables.id }?.toList(),
-                TimeslotMapper(removedReservation.reservationFrom.time / 1000, removedReservation.reservationTo.time / 1000),
+                TimeslotMapper(
+                    removedReservation.reservationFrom.time / 1000,
+                    removedReservation.reservationTo.time / 1000
+                ),
                 removedReservation.userName,
                 removedReservation.userEmail,
                 removedReservation.confirmed
