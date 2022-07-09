@@ -232,7 +232,7 @@ class ReservationController(
 
         //Catch reservation where due date is lower than 12 hours and cannot be canceled anymore
         if (removedReservation.reservationFrom < Timestamp.from(Instant.now().plus(12, ChronoUnit.HOURS))) {
-            throw ApiException("Reservation cannot be cancelt anymore", 400)
+            throw ApiException("Reservation cannot be canceled anymore", 400)
         }
 
         return ResponseEntity.ok(
