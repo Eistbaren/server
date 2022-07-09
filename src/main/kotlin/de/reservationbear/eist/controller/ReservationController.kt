@@ -4,12 +4,14 @@ import de.reservationbear.eist.controller.responseMapper.ConfirmationMapper
 import de.reservationbear.eist.controller.responseMapper.ReservationMapper
 import de.reservationbear.eist.controller.responseMapper.TimeslotMapper
 import de.reservationbear.eist.db.entity.Reservation
+import de.reservationbear.eist.db.entity.RestaurantTable
 import de.reservationbear.eist.exceptionhandler.ApiException
 import de.reservationbear.eist.service.MailService
 import de.reservationbear.eist.service.ReservationService
 import de.reservationbear.eist.service.RestaurantService
 import de.reservationbear.eist.service.TableService
 import org.springframework.core.io.Resource
+import org.springframework.data.domain.Pageable.unpaged
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import java.net.URL
@@ -17,6 +19,7 @@ import java.sql.Timestamp
 import java.time.Instant
 import java.time.temporal.ChronoUnit
 import java.util.*
+import java.util.regex.Pattern
 import java.util.stream.Collectors
 import javax.servlet.http.HttpServletRequest
 
@@ -70,25 +73,43 @@ class ReservationController(
             throw ApiException("Reservation must be booked at least 12 hours before", 400)
         }
 
-
         //Catch reservation where to is greater then from
         if (reservation.reservationFrom > reservation.reservationTo) {
-            throw ApiException("Reservation from connot be greater than to", 400)
+            throw ApiException("Reservation from cannot be greater than to", 400)
         }
 
-        //Cath if table is booked at the same time
+        //Catch invalid name
+        if(reservation.userName.split(" ").size < 2){
+            throw ApiException("Jeder Name braucht mindestens einen Vornamen und Nachnamen", 400)
+        }
+
+        //Catch invalid Email-Address - Source: https://howtodoinjava.com/java/regex/java-regex-validate-email-address/
+        val regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$"
+        val matcher = Pattern.compile(regex).matcher(reservation.userName)
+        if (!matcher.matches()) {
+            throw ApiException("E-Mail is invalid", 400)
+        }
+
+        //Catch if table is booked at the same time
         val restaurantId = reservation.restaurantTables.stream().findFirst().get().restaurant.id
-        /*
-        if (restaurantService.findReservationsInTimeframeOfRestaurant(
-                restaurantId,
-                reservation.reservationFrom,
-                reservation.reservationTo,
-                Pageable.unpaged()
-            )
-                ?.stream()
-                ?.map { t -> t?.restaurantTables?.stream()?.filter(t ?: null -> t == reservation) }
+        val reservedTables: HashSet<RestaurantTable>? = restaurantService.findReservationsInTimeframeOfRestaurant(
+            restaurantId,
+            reservation.reservationFrom,
+            reservation.reservationTo,
+            unpaged()
         )
-        */
+            ?.stream()
+            ?.map { t -> t?.restaurantTables?.stream() }
+            ?.flatMap { t -> t }
+            ?.collect(Collectors.toSet()) as HashSet<RestaurantTable>?
+
+        if (reservedTables != null) {
+            for (table in reservedTables) {
+                if (reservation.restaurantTables.contains(table)) {
+                    throw ApiException("Table is already reserved", 400)
+                }
+            }
+        }
 
         reservationService.saveReservation(reservation)
 
@@ -104,7 +125,8 @@ class ReservationController(
         return ResponseEntity.ok(
             ReservationMapper(
                 insertedReservation.id,
-                insertedReservation.restaurantTables?.map { tables -> tables.id }?.toList(),
+                insertedReservation.restaurantTables?.map
+                { tables -> tables.id }?.toList(),
                 TimeslotMapper(
                     insertedReservation.reservationFrom.time / 1000,
                     insertedReservation.reservationTo.time / 1000
