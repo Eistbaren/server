@@ -50,6 +50,14 @@ class ReservationController(
         request: HttpServletRequest
     ): ResponseEntity<ReservationMapper> {
 
+        var url = request.getHeader("Origin")
+        if (url == null) {
+            url = request.getHeader("Referer")
+        }
+        if (url == null) {
+            url = request.requestURL.toString()
+        }
+
         val reservation = Reservation(
             null,
             reservationMapper.tables?.stream()
@@ -60,7 +68,7 @@ class ReservationController(
             Timestamp(reservationMapper.time.to!! * 1000),
             reservationMapper.userName!!,
             reservationMapper.userEmail!!,
-            urlFromRequest = request.requestURL.toString()
+            urlFromRequest = url
         )
 
         //Catch reservation with empty table
