@@ -91,7 +91,7 @@ class ReservationController(
             throw ApiException("Every name must contain a firstname and a lastname", 400)
         }
 
-        //Catch invalid Email-Address - Source: https://howtodoinjava.com/java/regex/java-regex-validate-email-address/
+        //Catch invalid Email-Address
         val regex = "^\\S+@\\S+\\.\\S+\$"
         val matcher = Pattern.compile(regex).matcher(reservation.userEmail)
         if (!matcher.matches()) {
