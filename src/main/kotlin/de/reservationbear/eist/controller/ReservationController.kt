@@ -4,16 +4,22 @@ import de.reservationbear.eist.controller.responseMapper.ConfirmationMapper
 import de.reservationbear.eist.controller.responseMapper.ReservationMapper
 import de.reservationbear.eist.controller.responseMapper.TimeslotMapper
 import de.reservationbear.eist.db.entity.Reservation
+import de.reservationbear.eist.db.entity.RestaurantTable
 import de.reservationbear.eist.exceptionhandler.ApiException
 import de.reservationbear.eist.service.MailService
 import de.reservationbear.eist.service.ReservationService
+import de.reservationbear.eist.service.RestaurantService
 import de.reservationbear.eist.service.TableService
 import org.springframework.core.io.Resource
+import org.springframework.data.domain.Pageable.unpaged
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import java.net.URL
 import java.sql.Timestamp
+import java.time.Instant
+import java.time.temporal.ChronoUnit
 import java.util.*
+import java.util.regex.Pattern
 import java.util.stream.Collectors
 import javax.servlet.http.HttpServletRequest
 
@@ -24,6 +30,7 @@ import javax.servlet.http.HttpServletRequest
 @RequestMapping(value = ["/api"])
 class ReservationController(
     val reservationService: ReservationService,
+    val restaurantService: RestaurantService,
     val tableService: TableService,
     val mailService: MailService
 ) {
@@ -64,8 +71,52 @@ class ReservationController(
             urlFromRequest = url
         )
 
+        //Catch reservation with empty table
         if (reservation.restaurantTables == null || reservation.restaurantTables.isEmpty()) {
-            throw ApiException("Tablelist cannot be null or error", 401)
+            throw ApiException("Tablelist cannot be null or error", 400)
+        }
+
+        //Catch reservation where due date is lower than 12 hours
+        if (reservation.reservationFrom < Timestamp.from(Instant.now().plus(12, ChronoUnit.HOURS))) {
+            throw ApiException("Reservation must be booked at least 12 hours before", 400)
+        }
+
+        //Catch reservation where to is greater then from
+        if (reservation.reservationFrom > reservation.reservationTo) {
+            throw ApiException("Reservation from cannot be greater than to", 400)
+        }
+
+        //Catch invalid name
+        if(reservation.userName.split(" ").size < 2){
+            throw ApiException("Every name must contain a firstname and a lastname", 400)
+        }
+
+        //Catch invalid Email-Address - Source: https://howtodoinjava.com/java/regex/java-regex-validate-email-address/
+        val regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$"
+        val matcher = Pattern.compile(regex).matcher(reservation.userName)
+        if (!matcher.matches()) {
+            throw ApiException("E-Mail is invalid", 400)
+        }
+
+        //Catch if table is booked at the same time
+        val restaurantId = reservation.restaurantTables.stream().findFirst().get().restaurant.id
+        val reservedTables: HashSet<RestaurantTable>? = restaurantService.findReservationsInTimeframeOfRestaurant(
+            restaurantId,
+            reservation.reservationFrom,
+            reservation.reservationTo,
+            unpaged()
+        )
+            ?.stream()
+            ?.map { t -> t?.restaurantTables?.stream() }
+            ?.flatMap { t -> t }
+            ?.collect(Collectors.toSet()) as HashSet<RestaurantTable>?
+
+        if (reservedTables != null) {
+            for (table in reservedTables) {
+                if (reservation.restaurantTables.contains(table)) {
+                    throw ApiException("Table is already reserved", 400)
+                }
+            }
         }
 
         reservationService.saveReservation(reservation)
@@ -82,7 +133,8 @@ class ReservationController(
         return ResponseEntity.ok(
             ReservationMapper(
                 insertedReservation.id,
-                insertedReservation.restaurantTables?.map { tables -> tables.id }?.toList(),
+                insertedReservation.restaurantTables?.map
+                { tables -> tables.id }?.toList(),
                 TimeslotMapper(
                     insertedReservation.reservationFrom.time / 1000,
                     insertedReservation.reservationTo.time / 1000
@@ -142,6 +194,11 @@ class ReservationController(
 
         val patchedReservation: Reservation = reservationService.confirmReservation(id, confirmationToken)
 
+        //Catch reservation where due date is lower than 12 hours and cannot be canceled anymore
+        if (patchedReservation.reservationFrom < Timestamp.from(Instant.now().plus(12, ChronoUnit.HOURS))) {
+            throw ApiException("Reservation cannot be confirmed anymore", 400)
+        }
+
         return ResponseEntity.ok(
             ReservationMapper(
                 patchedReservation.id,
@@ -172,6 +229,11 @@ class ReservationController(
     ): ResponseEntity<ReservationMapper> {
 
         val removedReservation: Reservation = reservationService.deleteReservation(id)
+
+        //Catch reservation where due date is lower than 12 hours and cannot be canceled anymore
+        if (removedReservation.reservationFrom < Timestamp.from(Instant.now().plus(12, ChronoUnit.HOURS))) {
+            throw ApiException("Reservation cannot be canceled anymore", 400)
+        }
 
         return ResponseEntity.ok(
             ReservationMapper(
