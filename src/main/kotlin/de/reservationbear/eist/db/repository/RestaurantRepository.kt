@@ -47,25 +47,21 @@ interface RestaurantRepository : JpaRepository<Restaurant, UUID> {
                 "WHERE r.id = ?1 " +
                 "AND (" +
                 "(re.reservationFrom <= ?2 " +
-                "AND re.reservationTo < ?3)" +
-                "OR (re.reservationFrom <= ?2 " +
-                "AND re.reservationFrom < ?3)" +
+                "AND re.reservationTo > ?2) " +
                 "OR (re.reservationFrom >= ?2 " +
                 "AND re.reservationFrom < ?3)" +
                 ")",
 
-        countQuery = "SELECT count(DISTINCT re) " +
+        countQuery = "SELECT DISTINCT re " +
                 "FROM Restaurant r " +
                 "JOIN r.restaurantTables rt " +
                 "JOIN rt.reservation re " +
                 "WHERE r.id = ?1 " +
                 "AND (" +
                 "(re.reservationFrom <= ?2 " +
-                    "AND re.reservationTo < ?3)" +
-                "OR (re.reservationFrom <= ?2 " +
-                    "AND re.reservationFrom < ?3)" +
+                "AND re.reservationTo > ?2) " +
                 "OR (re.reservationFrom >= ?2 " +
-                    "AND re.reservationFrom < ?3)" +
+                "AND re.reservationFrom < ?3)" +
                 ")",
     )
     fun findReservationsInTimeframeOfRestaurant(
