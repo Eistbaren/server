@@ -52,7 +52,7 @@ interface RestaurantRepository : JpaRepository<Restaurant, UUID> {
                 "AND re.reservationFrom < ?3)" +
                 ")",
 
-        countQuery = "SELECT DISTINCT re " +
+        countQuery = "SELECT count(DISTINCT re) " +
                 "FROM Restaurant r " +
                 "JOIN r.restaurantTables rt " +
                 "JOIN rt.reservation re " +
