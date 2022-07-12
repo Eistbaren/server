@@ -37,7 +37,7 @@ class RegistrationMailPattern(val mailSender: MailSender) {
             mailAddress,
             buildEmail(name.split(" ")[0], link),
             "$icon Confirmation of your reservation (${reservation.id})",
-            null
+            reservation.id
         )
     }
 
