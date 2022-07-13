@@ -115,103 +115,103 @@ values ('069f72db-2157-43de-8e88-21661b518612', '/serverFile/serverImages/restau
 -- https://www.mockaroo.com/;
 -- fully generated
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518501', 'Friesen-Brakus', 4, 3, 'www.google.de', 5);
+values ('069f72db-2157-43de-8e88-21661b518501', 'Temaki', 4, 3, 'www.google.de', 5);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518502', 'Haley Inc', 3, 1, 'www.duckduckgo.com', 3);
+values ('069f72db-2157-43de-8e88-21661b518502', 'Prism', 3, 1, 'www.duckduckgo.com', 3);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518503', 'Haag, Zulauf and Davis', 3, 2, 'www.duckduckgo.com', 0);
+values ('069f72db-2157-43de-8e88-21661b518503', 'La poma', 3, 2, 'www.duckduckgo.com', 0);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518504', 'Wilderman, Gusikowski and Hahn', 4, 3, 'www.google.de', 8);
+values ('069f72db-2157-43de-8e88-21661b518504', 'Bieberbau', 4, 3, 'www.google.de', 8);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518505', 'Johnston LLC', 5, 1, 'www.tum.de', 6);
+values ('069f72db-2157-43de-8e88-21661b518505', 'Aulis', 5, 1, 'www.tum.de', 6);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518506', 'Runte-Bode', 1, 2, 'www.duckduckgo.com', 6);
+values ('069f72db-2157-43de-8e88-21661b518506', 'Spring', 4, 2, 'www.duckduckgo.com', 6);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518507', 'Hilpert Group', 2, 3, 'www.duckduckgo.com', 3);
+values ('069f72db-2157-43de-8e88-21661b518507', 'The Perm', 3, 3, 'www.duckduckgo.com', 3);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518508', 'Tremblay and Sons', 3, 1, 'www.tum.de', 7);
+values ('069f72db-2157-43de-8e88-21661b518508', 'Marcus', 3, 1, 'www.tum.de', 7);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518509', 'Wiegand Inc', 4, 2, 'www.google.de', 1);
+values ('069f72db-2157-43de-8e88-21661b518509', 'Clove Club', 4, 2, 'www.google.de', 1);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518510', 'Hammes Inc', 5, 3, 'www.tum.de', 0);
+values ('069f72db-2157-43de-8e88-21661b518510', 'Trivet', 5, 3, 'www.tum.de', 0);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518511', 'Borer, Casper and Denesik', 1, 1, 'www.google.de', 4);
+values ('069f72db-2157-43de-8e88-21661b518511', 'Roketsu', 4, 1, 'www.google.de', 4);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518512', 'Kiehn Group', 2, 2, 'www.duckduckgo.com', 3);
+values ('069f72db-2157-43de-8e88-21661b518512', 'Scott''s', 3, 2, 'www.duckduckgo.com', 3);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518513', 'Murazik and Sons', 3, 3, 'www.tum.de', 3);
+values ('069f72db-2157-43de-8e88-21661b518513', 'Murazik', 3, 3, 'www.tum.de', 3);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518514', 'Corwin, Lesch and Parisian', 4, 1, 'www.tum.de', 7);
+values ('069f72db-2157-43de-8e88-21661b518514', 'Satoria', 4, 1, 'www.tum.de', 7);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518515', 'Jerde and Sons', 5, 2, 'www.duckduckgo.com', 8);
+values ('069f72db-2157-43de-8e88-21661b518515', 'Jerde & Sons', 5, 2, 'www.duckduckgo.com', 8);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518516', 'Hills-Kozey', 2, 1, 'www.tum.de', 6);
+values ('069f72db-2157-43de-8e88-21661b518516', 'Leroy', 4, 1, 'www.tum.de', 6);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518517', 'Rolfson Group', 3, 2, 'www.google.de', 8);
+values ('069f72db-2157-43de-8e88-21661b518517', 'RAI', 3, 2, 'www.google.de', 8);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518518', 'Bartell-Bernier', 4, 3, 'www.duckduckgo.com', 8);
+values ('069f72db-2157-43de-8e88-21661b518518', 'Café Deco', 4, 3, 'www.duckduckgo.com', 8);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518519', 'Lang, Ward and Adams', 5, 1, 'www.google.de', 3);
+values ('069f72db-2157-43de-8e88-21661b518519', 'Gymkhana', 5, 1, 'www.google.de', 3);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518520', 'Prosacco Group', 1, 2, 'www.duckduckgo.com', 2);
+values ('069f72db-2157-43de-8e88-21661b518520', 'Prosacco', 1, 2, 'www.duckduckgo.com', 2);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518521', 'Rice, Monahan and Abbott', 2, 3, 'www.duckduckgo.com', 2);
+values ('069f72db-2157-43de-8e88-21661b518521', 'Rice & Monahan', 2, 3, 'www.duckduckgo.com', 2);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518522', 'MacGyver-Rohan', 3, 1, 'www.tum.de', 0);
+values ('069f72db-2157-43de-8e88-21661b518522', 'Rohan', 4, 1, 'www.tum.de', 0);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518523', 'Pagac-Nienow', 4, 2, 'www.duckduckgo.com', 5);
+values ('069f72db-2157-43de-8e88-21661b518523', 'Pamac', 4, 2, 'www.duckduckgo.com', 5);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518524', 'Reichert LLC', 5, 3, 'www.google.de', 6);
+values ('069f72db-2157-43de-8e88-21661b518524', 'Reichert', 5, 3, 'www.google.de', 6);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518525', 'Jenkins LLC', 1, 1, 'www.google.de', 6);
+values ('069f72db-2157-43de-8e88-21661b518525', 'Jenkins', 31, 1, 'www.google.de', 6);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518526', 'Torp-Marks', 2, 2, 'www.duckduckgo.com', 5);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518527', 'Kohler-Sipes', 3, 3, 'www.google.de', 4);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518528', 'Stiedemann, McKenzie and Stark', 4, 1, 'www.duckduckgo.com', 3);
+values ('069f72db-2157-43de-8e88-21661b518528', 'Kenzie & Stark', 4, 1, 'www.duckduckgo.com', 3);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518529', 'Hansen and Sons', 5, 2, 'www.google.de', 2);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518530', 'Metz-Roberts', 1, 3, 'www.duckduckgo.com', 1);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518531', 'Jerde Inc', 2, 1, 'www.duckduckgo.com', 0);
+values ('069f72db-2157-43de-8e88-21661b518531', 'Jerde', 2, 1, 'www.duckduckgo.com', 0);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518532', 'Beier, Klein and Okuneva', 3, 2, 'www.duckduckgo.com', 1);
+values ('069f72db-2157-43de-8e88-21661b518532', 'Beier & Klein', 3, 2, 'www.duckduckgo.com', 1);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518533', 'Little LLC', 4, 3, 'www.tum.de', 2);
+values ('069f72db-2157-43de-8e88-21661b518533', 'Little', 4, 3, 'www.tum.de', 2);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518534', 'Muller-Stanton', 5, 1, 'www.tum.de', 3);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518535', 'Roberts, Shanahan and Morar', 1, 2, 'www.google.de', 4);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518536', 'Sporer-Boyer', 2, 3, 'www.tum.de', 5);
+values ('069f72db-2157-43de-8e88-21661b518536', 'Boyer', 2, 3, 'www.tum.de', 5);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518537', 'Grant-Cruickshank', 3, 1, 'www.duckduckgo.com', 6);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518538', 'Hamill, Champlin and Quitzon', 4, 2, 'www.google.de', 7);
+values ('069f72db-2157-43de-8e88-21661b518538', 'Champlin', 4, 2, 'www.google.de', 7);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518539', 'Predovic, Kertzmann and Hansen', 5, 3, 'www.tum.de', 8);
+values ('069f72db-2157-43de-8e88-21661b518539', 'Kertzmann', 5, 3, 'www.tum.de', 8);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518540', 'Ruecker, Stanton and Heathcote', 1, 1, 'www.google.de', 7);
+values ('069f72db-2157-43de-8e88-21661b518540', 'Stanton', 1, 1, 'www.google.de', 7);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518541', 'Sauer Group', 2, 2, 'www.google.de', 6);
+values ('069f72db-2157-43de-8e88-21661b518541', 'Sauer & Friends', 2, 2, 'www.google.de', 6);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518542', 'Macejkovic, Senger and Torp', 3, 3, 'www.duckduckgo.com', 5);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518543', 'Runolfsson-O''Hara', 4, 1, 'www.tum.de', 4);
+values ('069f72db-2157-43de-8e88-21661b518543', 'Runolfsson', 4, 1, 'www.tum.de', 4);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518544', 'Maggio, Gislason and Rogahn', 5, 2, 'www.tum.de', 3);
+values ('069f72db-2157-43de-8e88-21661b518544', 'Herman', 5, 2, 'www.tum.de', 3);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518545', 'Stanton, Towne and Herman', 1, 3, 'www.google.de', 2);
+values ('069f72db-2157-43de-8e88-21661b518545', 'Stanton', 1, 3, 'www.google.de', 2);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518546', 'Hodkiewicz, Grady and Conn', 2, 1, 'www.tum.de', 1);
+values ('069f72db-2157-43de-8e88-21661b518546', 'Grady and Conn', 2, 1, 'www.tum.de', 1);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518547', 'MacGyver-Lubowitz', 3, 2, 'www.google.de', 0);
+values ('069f72db-2157-43de-8e88-21661b518547', 'Gyver', 3, 2, 'www.google.de', 0);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518548', 'Marks, Parisian and Heathcote', 4, 3, 'www.duckduckgo.com', 1);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518549', 'Kihn-Bartoletti', 5, 1, 'www.tum.de', 2);
+values ('069f72db-2157-43de-8e88-21661b518549', 'WANG', 5, 1, 'www.tum.de', 2);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518550', 'Torphy-Cassin', 1, 2, 'www.tum.de', 3);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
@@ -221,7 +221,7 @@ values ('069f72db-2157-43de-8e88-21661b518552', 'Ullrich, Larson and Hartmann', 
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518553', 'Rowe-Dicki', 4, 2, 'www.tum.de', 6);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518554', 'Schultz Group', 5, 3, 'www.duckduckgo.com', 7);
+values ('069f72db-2157-43de-8e88-21661b518554', 'Schultz', 5, 3, 'www.duckduckgo.com', 7);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518555', 'Paucek, Witting and Rogahn', 1, 1, 'www.google.de', 8);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
@@ -231,11 +231,11 @@ values ('069f72db-2157-43de-8e88-21661b518557', 'Kshlerin and Sons', 3, 3, 'www.
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518558', 'Streich-Graham', 4, 1, 'www.duckduckgo.com', 5);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518559', 'Heaney Group', 5, 2, 'www.tum.de', 4);
+values ('069f72db-2157-43de-8e88-21661b518559', 'Heaney', 5, 2, 'www.tum.de', 4);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518560', 'Gaylord-Powlowski', 1, 3, 'www.duckduckgo.com', 3);
+values ('069f72db-2157-43de-8e88-21661b518560', 'Polowski', 1, 3, 'www.duckduckgo.com', 3);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518561', 'Sporer and Sons', 2, 1, 'www.duckduckgo.com', 2);
+values ('069f72db-2157-43de-8e88-21661b518561', 'Sporer', 2, 1, 'www.duckduckgo.com', 2);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518562', 'Mante and Sons', 3, 2, 'www.tum.de', 1);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
@@ -243,31 +243,31 @@ values ('069f72db-2157-43de-8e88-21661b518563', 'Gleason-Daniel', 4, 3, 'www.goo
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518564', 'Jast, Bayer and Hoppe', 5, 1, 'www.duckduckgo.com', 1);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518565', 'Powlowski, Marvin and Collins', 1, 2, 'www.tum.de', 2);
+values ('069f72db-2157-43de-8e88-21661b518565', 'Marvin & Collins', 1, 2, 'www.tum.de', 2);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518566', 'DuBuque-Huel', 2, 3, 'www.duckduckgo.com', 3);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518567', 'Sauer, Jones and Bruen', 3, 1, 'www.tum.de', 4);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518568', 'Hilpert Group', 4, 2, 'www.google.de', 5);
+values ('069f72db-2157-43de-8e88-21661b518568', 'Hilpert', 4, 2, 'www.google.de', 5);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518569', 'Dicki, Beatty and Collier', 5, 3, 'www.tum.de', 6);
+values ('069f72db-2157-43de-8e88-21661b518569', 'Volt', 5, 3, 'www.tum.de', 6);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518570', 'Sawayn, Watsica and Gulgowski', 1, 1, 'www.duckduckgo.com', 7);
+values ('069f72db-2157-43de-8e88-21661b518570', 'Kitchen Library', 1, 1, 'www.duckduckgo.com', 7);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518571', 'Barton and Sons', 2, 2, 'www.google.de', 8);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518572', 'Streich Group', 3, 3, 'www.tum.de', 7);
+values ('069f72db-2157-43de-8e88-21661b518572', 'Seabird', 3, 3, 'www.tum.de', 7);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518573', 'Gibson and Sons', 4, 1, 'www.google.de', 6);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518574', 'Metz, Schowalter and Thompson', 5, 2, 'www.google.de', 5);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518575', 'Swift Group', 1, 3, 'www.tum.de', 4);
+values ('069f72db-2157-43de-8e88-21661b518575', 'Carmel', 1, 3, 'www.tum.de', 4);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518576', 'Breitenberg Inc', 1, 2, 'www.duckduckgo.com', 0);
+values ('069f72db-2157-43de-8e88-21661b518576', 'Brittenberg', 1, 2, 'www.duckduckgo.com', 0);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518577', 'Goldner LLC', 1, 3, 'www.google.de', 2);
+values ('069f72db-2157-43de-8e88-21661b518577', 'Goldner', 1, 3, 'www.google.de', 2);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518578', 'Considine-Prohaska', 2, 1, 'www.duckduckgo.com', 3);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
@@ -277,21 +277,21 @@ values ('069f72db-2157-43de-8e88-21661b518580', 'Gutkowski-Quitzon', 4, 3, 'www.
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518581', 'Turner-Renner', 5, 1, 'www.tum.de', 0);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518582', 'Bahringer Group', 1, 2, 'www.tum.de', 1);
+values ('069f72db-2157-43de-8e88-21661b518582', 'Bahringer', 1, 2, 'www.tum.de', 1);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518583', 'Grimes, Hudson and Goodwin', 2, 3, 'www.duckduckgo.com', 2);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518584', 'Kihn and Sons', 3, 1, 'www.tum.de', 3);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518585', 'Kozey-Morissette', 4, 2, 'www.duckduckgo.com', 4);
+values ('069f72db-2157-43de-8e88-21661b518585', 'Morisse', 4, 2, 'www.duckduckgo.com', 4);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518586', 'Wiegand, Crist and West', 5, 3, 'www.tum.de', 5);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518587', 'Cassin and Sons', 1, 1, 'www.duckduckgo.com', 6);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518588', 'Abernathy Inc', 2, 2, 'www.duckduckgo.com', 7);
+values ('069f72db-2157-43de-8e88-21661b518588', 'Abernat', 2, 2, 'www.duckduckgo.com', 7);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518589', 'Ankunding-Gerhold', 3, 3, 'www.tum.de', 8);
+values ('069f72db-2157-43de-8e88-21661b518589', 'Gerhold''s', 3, 3, 'www.tum.de', 8);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518590', 'Deckow-Gerlach', 4, 1, 'www.tum.de', 7);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
@@ -299,9 +299,9 @@ values ('069f72db-2157-43de-8e88-21661b518591', 'Upton, Leannon and Renner', 5, 
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518592', 'Grimes-Kautzer', 1, 3, 'www.google.de', 5);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518593', 'Williamson LLC', 2, 1, 'www.tum.de', 4);
+values ('069f72db-2157-43de-8e88-21661b518593', 'Williamson', 2, 1, 'www.tum.de', 4);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518594', 'Nolan Group', 3, 2, 'www.tum.de', 3);
+values ('069f72db-2157-43de-8e88-21661b518594', 'Nolan', 3, 2, 'www.tum.de', 3);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518595', 'Bergnaum and Sons', 4, 3, 'www.google.de', 2);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
@@ -3654,7 +3654,7 @@ values ('069f72db-2157-43de-8e88-21661b518224', 'Test 1', 3.5, 3);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY)
 values ('069f72db-2157-43de-8e88-21661b518226', 'Test 2', 2.4, 1);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
-values ('069f72db-2157-43de-8e88-21661b518246', 'Breitenberg Inc', 1, 2, 'www.duckduckgo.com');
+values ('069f72db-2157-43de-8e88-21661b518246', 'Breitenberg', 1, 2, 'www.duckduckgo.com');
 
 
 /*Locations*/
