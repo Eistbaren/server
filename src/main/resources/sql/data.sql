@@ -1,5 +1,5 @@
 insert into restaurant (id, name, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518200', 'Mensa Garching', 5.0, 2, 'hunger.tum.sexy', 7);
+values ('069f72db-2157-43de-8e88-21661b518200', 'Mensa Garching', 4.0, 2, 'hunger.tum.sexy', 7);
 
 insert into RESTAURANT_LOCATION(ID, LAT, LON, RESTAURANT_ID)
 values ('069f72db-2157-43de-8e88-21661b518200', 48.267873, 11.672376, '069f72db-2157-43de-8e88-21661b518200');
@@ -117,7 +117,7 @@ values ('069f72db-2157-43de-8e88-21661b518612', '/serverFile/serverImages/restau
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518501', 'Temaki', 4, 3, 'www.google.de', 5);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
-values ('069f72db-2157-43de-8e88-21661b518502', 'Prism', 3, 1, 'www.duckduckgo.com', 3);
+values ('069f72db-2157-43de-8e88-21661b518502', 'Prism', 4, 1, 'www.duckduckgo.com', 3);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
 values ('069f72db-2157-43de-8e88-21661b518503', 'La poma', 3, 2, 'www.duckduckgo.com', 0);
 insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE, TYPE)
@@ -516,581 +516,773 @@ values (48.1852651620345, 11.45550206902536, '069f72db-2157-43de-8e88-21661b5185
 
 -- comments
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The chicken was stunning!', 'Carl', '069f72db-2157-43de-8e88-21661b518501');
+values(4, 'The taco was okay. The restaurant was very clean.', 'Freddie', '069f72db-2157-43de-8e88-21661b518501');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The steak was great.', 'Fritz', '069f72db-2157-43de-8e88-21661b518501');
+values(4, 'The wrap was great. The service staff was friendly.', 'Oscar', '069f72db-2157-43de-8e88-21661b518501');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The steak was disgusting!', 'Fritz', '069f72db-2157-43de-8e88-21661b518501');
+values(3, 'The pasta was okay. The service was okay.', 'Jack', '069f72db-2157-43de-8e88-21661b518501');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The chicken was stunning!', 'Luis', '069f72db-2157-43de-8e88-21661b518502');
+values(3, 'The lasagna was okay. Would visit again.', 'Luis', '069f72db-2157-43de-8e88-21661b518501');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The chicken was stunning!', 'Fritz', '069f72db-2157-43de-8e88-21661b518502');
+values(3, 'The pizza was okay! I would eat there again.', 'Alice', '069f72db-2157-43de-8e88-21661b518502');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The chicken was disgusting!', 'Dieter', '069f72db-2157-43de-8e88-21661b518502');
+values(5, 'The spareribs were delicious!', 'Alice', '069f72db-2157-43de-8e88-21661b518502');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The fillet was stunning!', 'Emma', '069f72db-2157-43de-8e88-21661b518503');
+values(5, 'The burger bun was crunchy and filled with fresh ingredients!', 'Jack', '069f72db-2157-43de-8e88-21661b518502');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The fillet was stunning!', 'Luis', '069f72db-2157-43de-8e88-21661b518503');
+values(4, 'The fish was fresh. The service was quite friendly.', ' Mia', '069f72db-2157-43de-8e88-21661b518502');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The taco was okay.', 'Luis', '069f72db-2157-43de-8e88-21661b518503');
+values(4, 'The fillet was great! The service was very polite.', 'Alice', '069f72db-2157-43de-8e88-21661b518503');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The wrap was great.', 'Emma', '069f72db-2157-43de-8e88-21661b518504');
+values(5, 'The fish was stunning! Kitchen chef and team were very friendly.', 'Oscar', '069f72db-2157-43de-8e88-21661b518503');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The fish was okay.', 'Carl', '069f72db-2157-43de-8e88-21661b518504');
+values(4, 'The pizza was great. Would visit again.', 'Alice', '069f72db-2157-43de-8e88-21661b518503');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The meat was disgusting!', 'Emma', '069f72db-2157-43de-8e88-21661b518504');
+values(4, 'The burger was great. Kitchen chef and team were very friendly.', 'Dieter', '069f72db-2157-43de-8e88-21661b518503');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The chicken was okay.', 'Dieter', '069f72db-2157-43de-8e88-21661b518505');
+values(4, 'The ramen was great. okay.', 'Alice', '069f72db-2157-43de-8e88-21661b518504');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The taco was poor.', 'Dieter', '069f72db-2157-43de-8e88-21661b518505');
+values(4, 'The fillet was great. Would visit again.', 'Leo', '069f72db-2157-43de-8e88-21661b518504');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The pasta was okay.', 'Emma', '069f72db-2157-43de-8e88-21661b518505');
+values(5, 'The burger was stunning! Kitchen chef and team were very friendly.', 'Goerge', '069f72db-2157-43de-8e88-21661b518504');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The fillet was poor.', 'Dieter', '069f72db-2157-43de-8e88-21661b518506');
+values(4, 'The duck was great. Kitchen chef and team were very friendly.', 'Freddie', '069f72db-2157-43de-8e88-21661b518504');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The meat was poor.', 'Emma', '069f72db-2157-43de-8e88-21661b518506');
+values(5, 'The chicken was stunning! Kitchen chef and team were very friendly.', 'Lilly', '069f72db-2157-43de-8e88-21661b518505');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The fish was great.', 'Luis', '069f72db-2157-43de-8e88-21661b518506');
+values(5, 'The pizza was delicious! Would visit again.', 'Goerge', '069f72db-2157-43de-8e88-21661b518505');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The taco was disgusting!', 'Fritz', '069f72db-2157-43de-8e88-21661b518507');
+values(4, 'The meat was great! The service staff were very welcoming.', 'Sophia', '069f72db-2157-43de-8e88-21661b518505');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The fish was stunning!', 'Carl', '069f72db-2157-43de-8e88-21661b518507');
+values(5, 'The fish was stunning! Kitchen chef and team were very friendly.', 'Freddie', '069f72db-2157-43de-8e88-21661b518505');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The pasta was poor.', 'Dieter', '069f72db-2157-43de-8e88-21661b518507');
+values(4, 'The salmon was great. Kitchen chef and team were very friendly.', 'Emma', '069f72db-2157-43de-8e88-21661b518506');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The fillet was poor.', 'Dieter', '069f72db-2157-43de-8e88-21661b518508');
+values(4, 'The garlic pie was great. Would visit again.', 'Luis', '069f72db-2157-43de-8e88-21661b518506');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The chicken was disgusting!', 'Dieter', '069f72db-2157-43de-8e88-21661b518508');
+values(5, 'The ramen was stunning! Would visit again.', 'Goerge', '069f72db-2157-43de-8e88-21661b518506');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The chicken was poor.', 'Luis', '069f72db-2157-43de-8e88-21661b518508');
+values(5, 'The pizza was stunning! Would visit again.', 'Carl', '069f72db-2157-43de-8e88-21661b518506');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The fillet was poor.', 'Carl', '069f72db-2157-43de-8e88-21661b518509');
+values(4, 'The pizza was great! Kitchen chef and team were very friendly.', ' Mia', '069f72db-2157-43de-8e88-21661b518507');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The meat was great.', 'Carl', '069f72db-2157-43de-8e88-21661b518509');
+values(5, 'The lasagna was stunning! Kitchen chef and team were very friendly.', 'Fritz', '069f72db-2157-43de-8e88-21661b518507');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The fillet was okay.', 'Emma', '069f72db-2157-43de-8e88-21661b518509');
+values(5, 'The lasagna was delicious! Kitchen team was very quick.', 'Fritz', '069f72db-2157-43de-8e88-21661b518507');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The fillet was great.', 'Carl', '069f72db-2157-43de-8e88-21661b518510');
+values(5, 'The duck was stunning! Kitchen chef and team were very friendly.', 'Carl', '069f72db-2157-43de-8e88-21661b518507');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The taco was disgusting!', 'Emma', '069f72db-2157-43de-8e88-21661b518510');
+values(4, 'The taco was great. Would visit again.', 'Emma', '069f72db-2157-43de-8e88-21661b518508');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The fillet was disgusting!', 'Carl', '069f72db-2157-43de-8e88-21661b518510');
+values(5, 'The fillet was stunning! Kitchen chef and team were very friendly.', 'Luis', '069f72db-2157-43de-8e88-21661b518508');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The wrap was poor.', 'Fritz', '069f72db-2157-43de-8e88-21661b518511');
+values(4, 'The fish was great! Would visit again.', 'Alice', '069f72db-2157-43de-8e88-21661b518508');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The fillet was disgusting!', 'Carl', '069f72db-2157-43de-8e88-21661b518511');
+values(5, 'The fish was stunning! Kitchen chef and team were very friendly.', ' Mia', '069f72db-2157-43de-8e88-21661b518508');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The steak was poor.', 'Emma', '069f72db-2157-43de-8e88-21661b518511');
+values(4, 'The fish was great. okay.', 'Oscar', '069f72db-2157-43de-8e88-21661b518509');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The taco was okay.', 'Luis', '069f72db-2157-43de-8e88-21661b518512');
+values(4, 'The taco was great. okay.', 'Dieter', '069f72db-2157-43de-8e88-21661b518509');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The meat was poor.', 'Luis', '069f72db-2157-43de-8e88-21661b518512');
+values(5, 'The fish was stunning! Kitchen chef and team were very friendly.', 'Dieter', '069f72db-2157-43de-8e88-21661b518509');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The taco was okay.', 'Dieter', '069f72db-2157-43de-8e88-21661b518512');
+values(4, 'The steak was great. Kitchen chef and team were very friendly.', 'Luis', '069f72db-2157-43de-8e88-21661b518509');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The wrap was okay.', 'Fritz', '069f72db-2157-43de-8e88-21661b518513');
+values(4, 'The fillet was great. Would visit again.', 'Sophia', '069f72db-2157-43de-8e88-21661b518510');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The steak was okay.', 'Luis', '069f72db-2157-43de-8e88-21661b518513');
+values(3, 'The duck was okay. Would visit again.', 'Emma', '069f72db-2157-43de-8e88-21661b518510');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The wrap was disgusting!', 'Luis', '069f72db-2157-43de-8e88-21661b518513');
+values(4, 'The burger was great. okay.', 'Carl', '069f72db-2157-43de-8e88-21661b518510');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The fillet was okay.', 'Emma', '069f72db-2157-43de-8e88-21661b518514');
+values(5, 'The garlic pie was stunning! Kitchen chef and team were very friendly.', 'Fritz', '069f72db-2157-43de-8e88-21661b518510');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The wrap was great.', 'Emma', '069f72db-2157-43de-8e88-21661b518514');
+values(5, 'The spareribs were stunning! Kitchen chef and team were very friendly.', 'Freddie', '069f72db-2157-43de-8e88-21661b518511');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The meat was okay.', 'Luis', '069f72db-2157-43de-8e88-21661b518514');
+values(5, 'The fillet was stunning! Would visit again.', 'Luis', '069f72db-2157-43de-8e88-21661b518511');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The fish was okay.', 'Luis', '069f72db-2157-43de-8e88-21661b518515');
+values(5, 'The chicken was stunning! Would visit again.', 'Jack', '069f72db-2157-43de-8e88-21661b518511');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The pasta was okay.', 'Dieter', '069f72db-2157-43de-8e88-21661b518515');
+values(5, 'The meat was stunning! Kitchen chef and team were very friendly.', 'Luis', '069f72db-2157-43de-8e88-21661b518511');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The taco was stunning!', 'Luis', '069f72db-2157-43de-8e88-21661b518515');
+values(3, 'The lasagna was okay. Kitchen chef and team were very friendly.', 'Charlotte', '069f72db-2157-43de-8e88-21661b518512');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The wrap was disgusting!', 'Fritz', '069f72db-2157-43de-8e88-21661b518516');
+values(3, 'The salmon was okay. Would visit again.', 'Leo', '069f72db-2157-43de-8e88-21661b518512');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The meat was stunning!', 'Fritz', '069f72db-2157-43de-8e88-21661b518516');
+values(5, 'The spareribs were stunning! Kitchen chef and team were very friendly.', 'Leo', '069f72db-2157-43de-8e88-21661b518512');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The pasta was great.', 'Carl', '069f72db-2157-43de-8e88-21661b518516');
+values(5, 'The garlic pie was stunning! Would visit again.', 'Dieter', '069f72db-2157-43de-8e88-21661b518512');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The steak was disgusting!', 'Fritz', '069f72db-2157-43de-8e88-21661b518517');
+values(5, 'The fillet was stunning! Kitchen chef and team were very friendly.', 'Freddie', '069f72db-2157-43de-8e88-21661b518513');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The meat was disgusting!', 'Fritz', '069f72db-2157-43de-8e88-21661b518517');
+values(5, 'The wrap was stunning! Kitchen chef and team were very friendly.', 'Emma', '069f72db-2157-43de-8e88-21661b518513');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The pasta was great.', 'Dieter', '069f72db-2157-43de-8e88-21661b518517');
+values(5, 'The pasta was stunning! Kitchen chef and team were very friendly.', 'Emma', '069f72db-2157-43de-8e88-21661b518513');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The wrap was poor.', 'Carl', '069f72db-2157-43de-8e88-21661b518518');
+values(5, 'The fish was stunning! Kitchen chef and team were very friendly.', 'Freddie', '069f72db-2157-43de-8e88-21661b518513');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The fillet was stunning!', 'Emma', '069f72db-2157-43de-8e88-21661b518518');
+values(3, 'The salmon was okay. The service was okay.', 'Oscar', '069f72db-2157-43de-8e88-21661b518514');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The meat was disgusting!', 'Carl', '069f72db-2157-43de-8e88-21661b518518');
+values(4, 'The chicken was great. Kitchen chef and team were very friendly.', 'Charlotte', '069f72db-2157-43de-8e88-21661b518514');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The taco was stunning!', 'Emma', '069f72db-2157-43de-8e88-21661b518519');
+values(3, 'The spareribs were okay. Kitchen chef and team were very friendly.', 'Leo', '069f72db-2157-43de-8e88-21661b518514');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The meat was okay.', 'Luis', '069f72db-2157-43de-8e88-21661b518519');
+values(3, 'The salmon was okay. The service was okay.', 'Oscar', '069f72db-2157-43de-8e88-21661b518514');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The fillet was stunning!', 'Dieter', '069f72db-2157-43de-8e88-21661b518519');
+values(1, 'The wrap was disgusting! The service was okay.', 'Jack', '069f72db-2157-43de-8e88-21661b518515');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The chicken was okay.', 'Luis', '069f72db-2157-43de-8e88-21661b518520');
+values(1, 'The steak was disgusting! I never eat there again.', 'Fritz', '069f72db-2157-43de-8e88-21661b518515');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The steak was stunning!', 'Luis', '069f72db-2157-43de-8e88-21661b518520');
+values(3, 'The chicken was okay. Would visit again.', 'Alice', '069f72db-2157-43de-8e88-21661b518515');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The fillet was great.', 'Fritz', '069f72db-2157-43de-8e88-21661b518520');
+values(3, 'The salmon was okay. The service was okay.', 'Carl', '069f72db-2157-43de-8e88-21661b518515');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The chicken was disgusting!', 'Emma', '069f72db-2157-43de-8e88-21661b518521');
+values(5, 'The steak was stunning! Kitchen chef and team were very friendly.', 'Lilly', '069f72db-2157-43de-8e88-21661b518516');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The wrap was poor.', 'Fritz', '069f72db-2157-43de-8e88-21661b518521');
+values(5, 'The steak was stunning! Kitchen chef and team were very friendly.', 'Leo', '069f72db-2157-43de-8e88-21661b518516');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The taco was great.', 'Carl', '069f72db-2157-43de-8e88-21661b518521');
+values(4, 'The lasagna was great. Kitchen chef and team were very friendly.', 'Leo', '069f72db-2157-43de-8e88-21661b518516');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The steak was okay.', 'Fritz', '069f72db-2157-43de-8e88-21661b518522');
+values(5, 'The steak was stunning! Would visit again.', 'Dieter', '069f72db-2157-43de-8e88-21661b518516');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The fillet was disgusting!', 'Dieter', '069f72db-2157-43de-8e88-21661b518522');
+values(5, 'The garlic pie was stunning! Kitchen chef and team were very friendly.', 'Goerge', '069f72db-2157-43de-8e88-21661b518517');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The wrap was great.', 'Fritz', '069f72db-2157-43de-8e88-21661b518522');
+values(5, 'The lasagna was stunning! Kitchen chef and team were very friendly.', 'Alice', '069f72db-2157-43de-8e88-21661b518517');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The meat was disgusting!', 'Carl', '069f72db-2157-43de-8e88-21661b518523');
+values(5, 'The fillet was stunning! Would visit again.', 'Harry', '069f72db-2157-43de-8e88-21661b518517');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The taco was stunning!', 'Dieter', '069f72db-2157-43de-8e88-21661b518523');
+values(4, 'The lasagna was great. Kitchen chef and team were very friendly.', 'Fritz', '069f72db-2157-43de-8e88-21661b518517');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The fish was okay.', 'Luis', '069f72db-2157-43de-8e88-21661b518523');
+values(3, 'The chicken was okay. The service was okay.', ' Mia', '069f72db-2157-43de-8e88-21661b518518');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The meat was poor.', 'Emma', '069f72db-2157-43de-8e88-21661b518524');
+values(4, 'The wrap was great. Kitchen chef and team were very friendly.', 'Emma', '069f72db-2157-43de-8e88-21661b518518');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The taco was poor.', 'Dieter', '069f72db-2157-43de-8e88-21661b518524');
+values(5, 'The chicken was stunning! Kitchen chef and team were very friendly.', 'Freddie', '069f72db-2157-43de-8e88-21661b518518');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The chicken was poor.', 'Emma', '069f72db-2157-43de-8e88-21661b518524');
+values(5, 'The ramen was stunning! Kitchen chef and team were very friendly.', 'Dieter', '069f72db-2157-43de-8e88-21661b518518');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The fish was stunning!', 'Luis', '069f72db-2157-43de-8e88-21661b518525');
+values(3, 'The fish was okay. okay.', 'Sophia', '069f72db-2157-43de-8e88-21661b518519');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The meat was poor.', 'Luis', '069f72db-2157-43de-8e88-21661b518525');
+values(2, 'The duck was poor. okay.', 'Emma', '069f72db-2157-43de-8e88-21661b518519');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The fish was stunning!', 'Dieter', '069f72db-2157-43de-8e88-21661b518525');
+values(1, 'The fish was disgusting! I never eat there again.', 'Sophia', '069f72db-2157-43de-8e88-21661b518519');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The taco was stunning!', 'Emma', '069f72db-2157-43de-8e88-21661b518526');
+values(1, 'The meat was disgusting! The service was okay.', 'Freddie', '069f72db-2157-43de-8e88-21661b518519');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The chicken was disgusting!', 'Dieter', '069f72db-2157-43de-8e88-21661b518526');
+values(5, 'The meat was stunning! Would visit again.', 'Leo', '069f72db-2157-43de-8e88-21661b518520');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The chicken was okay.', 'Emma', '069f72db-2157-43de-8e88-21661b518526');
+values(5, 'The fillet was stunning! Kitchen chef and team were very friendly.', 'Emma', '069f72db-2157-43de-8e88-21661b518520');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The fish was great.', 'Fritz', '069f72db-2157-43de-8e88-21661b518527');
+values(5, 'The garlic pie was stunning! Would visit again.', 'Fritz', '069f72db-2157-43de-8e88-21661b518520');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The wrap was disgusting!', 'Emma', '069f72db-2157-43de-8e88-21661b518527');
+values(4, 'The taco was great. okay.', 'Sophia', '069f72db-2157-43de-8e88-21661b518520');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The chicken was great.', 'Carl', '069f72db-2157-43de-8e88-21661b518527');
+values(4, 'The fish was great. Kitchen chef and team were very friendly.', 'Dieter', '069f72db-2157-43de-8e88-21661b518521');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The wrap was poor.', 'Dieter', '069f72db-2157-43de-8e88-21661b518528');
+values(4, 'The meat was great. okay.', 'Lilly', '069f72db-2157-43de-8e88-21661b518521');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The taco was okay.', 'Fritz', '069f72db-2157-43de-8e88-21661b518528');
+values(4, 'The ramen was great. okay.', 'Fritz', '069f72db-2157-43de-8e88-21661b518521');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The wrap was stunning!', 'Fritz', '069f72db-2157-43de-8e88-21661b518528');
+values(4, 'The chicken was great. Kitchen chef and team were very friendly.', 'Charlotte', '069f72db-2157-43de-8e88-21661b518521');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The steak was great.', 'Carl', '069f72db-2157-43de-8e88-21661b518529');
+values(3, 'The wrap was okay. The service was okay.', 'Carl', '069f72db-2157-43de-8e88-21661b518522');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The steak was disgusting!', 'Carl', '069f72db-2157-43de-8e88-21661b518529');
+values(4, 'The pizza was great. okay.', 'Goerge', '069f72db-2157-43de-8e88-21661b518522');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The meat was okay.', 'Carl', '069f72db-2157-43de-8e88-21661b518529');
+values(5, 'The chicken was stunning! Kitchen chef and team were very friendly.', 'Harry', '069f72db-2157-43de-8e88-21661b518522');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The fish was okay.', 'Carl', '069f72db-2157-43de-8e88-21661b518530');
+values(5, 'The salmon was stunning! Kitchen chef and team were very friendly.', 'Emma', '069f72db-2157-43de-8e88-21661b518522');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The fish was stunning!', 'Dieter', '069f72db-2157-43de-8e88-21661b518530');
+values(3, 'The pasta was okay. Would visit again.', ' Mia', '069f72db-2157-43de-8e88-21661b518523');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The meat was okay.', 'Fritz', '069f72db-2157-43de-8e88-21661b518530');
+values(3, 'The fillet was okay. okay.', 'Dieter', '069f72db-2157-43de-8e88-21661b518523');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The pasta was disgusting!', 'Fritz', '069f72db-2157-43de-8e88-21661b518531');
+values(2, 'The pasta was poor. Would visit again.', 'Dieter', '069f72db-2157-43de-8e88-21661b518523');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The meat was okay.', 'Fritz', '069f72db-2157-43de-8e88-21661b518531');
+values(3, 'The steak was okay. okay.', 'Jack', '069f72db-2157-43de-8e88-21661b518523');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The chicken was okay.', 'Luis', '069f72db-2157-43de-8e88-21661b518531');
+values(3, 'The pizza was okay. Would visit again.', 'Carl', '069f72db-2157-43de-8e88-21661b518524');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The pasta was stunning!', 'Luis', '069f72db-2157-43de-8e88-21661b518532');
+values(3, 'The wrap was okay. okay.', 'Alice', '069f72db-2157-43de-8e88-21661b518524');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The steak was disgusting!', 'Fritz', '069f72db-2157-43de-8e88-21661b518532');
+values(5, 'The wrap was stunning! Kitchen chef and team were very friendly.', 'Oscar', '069f72db-2157-43de-8e88-21661b518524');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The wrap was okay.', 'Dieter', '069f72db-2157-43de-8e88-21661b518532');
+values(5, 'The pasta was stunning! Kitchen chef and team were very friendly.', 'Harry', '069f72db-2157-43de-8e88-21661b518524');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The chicken was disgusting!', 'Luis', '069f72db-2157-43de-8e88-21661b518533');
+values(3, 'The burger was okay. Kitchen chef and team were very friendly.', 'Lilly', '069f72db-2157-43de-8e88-21661b518525');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The pasta was disgusting!', 'Dieter', '069f72db-2157-43de-8e88-21661b518533');
+values(2, 'The pasta was poor. The service was okay.', 'Alice', '069f72db-2157-43de-8e88-21661b518525');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The steak was great.', 'Fritz', '069f72db-2157-43de-8e88-21661b518533');
+values(4, 'The meat was great. okay.', 'Lilly', '069f72db-2157-43de-8e88-21661b518525');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The meat was stunning!', 'Luis', '069f72db-2157-43de-8e88-21661b518534');
+values(3, 'The fish was okay. okay.', 'Dieter', '069f72db-2157-43de-8e88-21661b518525');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The steak was disgusting!', 'Carl', '069f72db-2157-43de-8e88-21661b518534');
+values(5, 'The duck was stunning! Would visit again.', 'Oscar', '069f72db-2157-43de-8e88-21661b518526');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The pasta was poor.', 'Dieter', '069f72db-2157-43de-8e88-21661b518534');
+values(4, 'The fillet was great. okay.', 'Alice', '069f72db-2157-43de-8e88-21661b518526');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The wrap was disgusting!', 'Dieter', '069f72db-2157-43de-8e88-21661b518535');
+values(4, 'The lasagna was great. okay.', 'Emma', '069f72db-2157-43de-8e88-21661b518526');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The steak was okay.', 'Fritz', '069f72db-2157-43de-8e88-21661b518535');
+values(5, 'The meat was stunning! Would visit again.', 'Harry', '069f72db-2157-43de-8e88-21661b518526');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The pasta was disgusting!', 'Emma', '069f72db-2157-43de-8e88-21661b518535');
+values(3, 'The taco was okay. Kitchen chef and team were very friendly.', 'Sophia', '069f72db-2157-43de-8e88-21661b518527');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The pasta was stunning!', 'Dieter', '069f72db-2157-43de-8e88-21661b518536');
+values(3, 'The fish was okay. Would visit again.', ' Mia', '069f72db-2157-43de-8e88-21661b518527');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The pasta was poor.', 'Dieter', '069f72db-2157-43de-8e88-21661b518536');
+values(3, 'The wrap was okay. Would visit again.', 'Jack', '069f72db-2157-43de-8e88-21661b518527');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The chicken was disgusting!', 'Luis', '069f72db-2157-43de-8e88-21661b518536');
+values(2, 'The duck was poor. Would visit again.', 'Emma', '069f72db-2157-43de-8e88-21661b518527');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The steak was poor.', 'Emma', '069f72db-2157-43de-8e88-21661b518537');
+values(3, 'The chicken was okay. Would visit again.', 'Charlotte', '069f72db-2157-43de-8e88-21661b518528');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The fillet was great.', 'Carl', '069f72db-2157-43de-8e88-21661b518537');
+values(2, 'The steak was poor. okay.', 'Charlotte', '069f72db-2157-43de-8e88-21661b518528');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The taco was okay.', 'Dieter', '069f72db-2157-43de-8e88-21661b518537');
+values(4, 'The lasagna was great. Would visit again.', 'Emma', '069f72db-2157-43de-8e88-21661b518528');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The steak was stunning!', 'Fritz', '069f72db-2157-43de-8e88-21661b518538');
+values(3, 'The salmon was okay. The service was okay.', 'Freddie', '069f72db-2157-43de-8e88-21661b518528');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The meat was disgusting!', 'Fritz', '069f72db-2157-43de-8e88-21661b518538');
+values(5, 'The lasagna was stunning! Kitchen chef and team were very friendly.', 'Leo', '069f72db-2157-43de-8e88-21661b518529');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The fillet was great.', 'Dieter', '069f72db-2157-43de-8e88-21661b518538');
+values(5, 'The taco was stunning! Kitchen chef and team were very friendly.', 'Freddie', '069f72db-2157-43de-8e88-21661b518529');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The steak was poor.', 'Carl', '069f72db-2157-43de-8e88-21661b518539');
+values(5, 'The garlic pie was stunning! Kitchen chef and team were very friendly.', 'Dieter', '069f72db-2157-43de-8e88-21661b518529');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The fish was poor.', 'Luis', '069f72db-2157-43de-8e88-21661b518539');
+values(5, 'The burger was stunning! Would visit again.', 'Leo', '069f72db-2157-43de-8e88-21661b518529');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The fish was great.', 'Carl', '069f72db-2157-43de-8e88-21661b518539');
+values(3, 'The wrap was okay. Kitchen chef and team were very friendly.', 'Emma', '069f72db-2157-43de-8e88-21661b518530');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The taco was disgusting!', 'Fritz', '069f72db-2157-43de-8e88-21661b518540');
+values(2, 'The fish was poor. okay.', 'Dieter', '069f72db-2157-43de-8e88-21661b518530');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The chicken was okay.', 'Luis', '069f72db-2157-43de-8e88-21661b518540');
+values(2, 'The wrap was poor. Would visit again.', 'Alice', '069f72db-2157-43de-8e88-21661b518530');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The meat was great.', 'Luis', '069f72db-2157-43de-8e88-21661b518540');
+values(4, 'The meat was great. Kitchen chef and team were very friendly.', 'Dieter', '069f72db-2157-43de-8e88-21661b518530');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The fish was poor.', 'Emma', '069f72db-2157-43de-8e88-21661b518541');
+values(4, 'The lasagna was great. Kitchen chef and team were very friendly.', 'Charlotte', '069f72db-2157-43de-8e88-21661b518531');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The wrap was disgusting!', 'Carl', '069f72db-2157-43de-8e88-21661b518541');
+values(4, 'The fish was great. Would visit again.', ' Mia', '069f72db-2157-43de-8e88-21661b518531');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The pasta was disgusting!', 'Fritz', '069f72db-2157-43de-8e88-21661b518541');
+values(3, 'The spareribs were okay. okay.', 'Harry', '069f72db-2157-43de-8e88-21661b518531');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The pasta was stunning!', 'Luis', '069f72db-2157-43de-8e88-21661b518542');
+values(3, 'The wrap was okay. The service was okay.', 'Luis', '069f72db-2157-43de-8e88-21661b518531');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The meat was stunning!', 'Fritz', '069f72db-2157-43de-8e88-21661b518542');
+values(4, 'The pasta was great. Kitchen chef and team were very friendly.', 'Alice', '069f72db-2157-43de-8e88-21661b518532');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The steak was stunning!', 'Luis', '069f72db-2157-43de-8e88-21661b518542');
+values(3, 'The chicken was okay. The service was okay.', 'Charlotte', '069f72db-2157-43de-8e88-21661b518532');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The meat was great.', 'Emma', '069f72db-2157-43de-8e88-21661b518543');
+values(5, 'The pasta was stunning! Kitchen chef and team were very friendly.', 'Sophia', '069f72db-2157-43de-8e88-21661b518532');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The pasta was poor.', 'Carl', '069f72db-2157-43de-8e88-21661b518543');
+values(4, 'The ramen was great. Would visit again.', 'Alice', '069f72db-2157-43de-8e88-21661b518532');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The taco was great.', 'Carl', '069f72db-2157-43de-8e88-21661b518543');
+values(4, 'The ramen was great. Kitchen chef and team were very friendly.', 'Lilly', '069f72db-2157-43de-8e88-21661b518533');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The fillet was poor.', 'Carl', '069f72db-2157-43de-8e88-21661b518544');
+values(3, 'The meat was okay. The service was okay.', 'Carl', '069f72db-2157-43de-8e88-21661b518533');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The chicken was okay.', 'Dieter', '069f72db-2157-43de-8e88-21661b518544');
+values(3, 'The burger was okay. Would visit again.', 'Emma', '069f72db-2157-43de-8e88-21661b518533');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The wrap was stunning!', 'Emma', '069f72db-2157-43de-8e88-21661b518544');
+values(5, 'The fillet was stunning! Would visit again.', 'Luis', '069f72db-2157-43de-8e88-21661b518533');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The taco was disgusting!', 'Luis', '069f72db-2157-43de-8e88-21661b518545');
+values(5, 'The pasta was stunning! Kitchen chef and team were very friendly.', 'Goerge', '069f72db-2157-43de-8e88-21661b518534');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The fish was disgusting!', 'Luis', '069f72db-2157-43de-8e88-21661b518545');
+values(5, 'The garlic pie was stunning! Would visit again.', 'Sophia', '069f72db-2157-43de-8e88-21661b518534');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The fish was stunning!', 'Luis', '069f72db-2157-43de-8e88-21661b518545');
+values(5, 'The meat was stunning! Kitchen chef and team were very friendly.', 'Emma', '069f72db-2157-43de-8e88-21661b518534');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The taco was okay.', 'Fritz', '069f72db-2157-43de-8e88-21661b518546');
+values(5, 'The fillet was stunning! Would visit again.', 'Jack', '069f72db-2157-43de-8e88-21661b518534');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The steak was okay.', 'Luis', '069f72db-2157-43de-8e88-21661b518546');
+values(3, 'The fillet was okay. Would visit again.', 'Dieter', '069f72db-2157-43de-8e88-21661b518535');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The pasta was great.', 'Emma', '069f72db-2157-43de-8e88-21661b518546');
+values(2, 'The burger was poor. I never eat there again.', 'Lilly', '069f72db-2157-43de-8e88-21661b518535');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The fillet was okay.', 'Emma', '069f72db-2157-43de-8e88-21661b518547');
+values(2, 'The ramen was poor. okay.', 'Alice', '069f72db-2157-43de-8e88-21661b518535');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The fish was stunning!', 'Luis', '069f72db-2157-43de-8e88-21661b518547');
+values(3, 'The pizza was okay. Kitchen chef and team were very friendly.', 'Oscar', '069f72db-2157-43de-8e88-21661b518535');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The chicken was okay.', 'Luis', '069f72db-2157-43de-8e88-21661b518547');
+values(2, 'The fish was poor. Would visit again.', 'Harry', '069f72db-2157-43de-8e88-21661b518536');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The pasta was poor.', 'Dieter', '069f72db-2157-43de-8e88-21661b518548');
+values(2, 'The burger was poor. okay.', 'Jack', '069f72db-2157-43de-8e88-21661b518536');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The fillet was great.', 'Emma', '069f72db-2157-43de-8e88-21661b518548');
+values(3, 'The meat was okay. okay.', 'Freddie', '069f72db-2157-43de-8e88-21661b518536');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The fish was stunning!', 'Luis', '069f72db-2157-43de-8e88-21661b518548');
+values(2, 'The wrap was poor. I never eat there again.', 'Carl', '069f72db-2157-43de-8e88-21661b518536');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The wrap was okay.', 'Luis', '069f72db-2157-43de-8e88-21661b518549');
+values(3, 'The fillet was okay. Would visit again.', 'Harry', '069f72db-2157-43de-8e88-21661b518537');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The taco was disgusting!', 'Carl', '069f72db-2157-43de-8e88-21661b518549');
+values(3, 'The taco was okay. The service was okay.', 'Sophia', '069f72db-2157-43de-8e88-21661b518537');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The wrap was okay.', 'Dieter', '069f72db-2157-43de-8e88-21661b518549');
+values(3, 'The lasagna was okay. Kitchen chef and team were very friendly.', 'Emma', '069f72db-2157-43de-8e88-21661b518537');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The fillet was poor.', 'Fritz', '069f72db-2157-43de-8e88-21661b518550');
+values(2, 'The wrap was poor. Would visit again.', 'Charlotte', '069f72db-2157-43de-8e88-21661b518537');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The fillet was stunning!', 'Fritz', '069f72db-2157-43de-8e88-21661b518550');
+values(5, 'The ramen was stunning! Kitchen chef and team were very friendly.', 'Leo', '069f72db-2157-43de-8e88-21661b518538');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The taco was poor.', 'Emma', '069f72db-2157-43de-8e88-21661b518550');
+values(4, 'The lasagna was great. Would visit again.', 'Charlotte', '069f72db-2157-43de-8e88-21661b518538');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The taco was stunning!', 'Carl', '069f72db-2157-43de-8e88-21661b518551');
+values(3, 'The garlic pie was okay. Would visit again.', 'Alice', '069f72db-2157-43de-8e88-21661b518538');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The meat was okay.', 'Fritz', '069f72db-2157-43de-8e88-21661b518551');
+values(4, 'The garlic pie was great. Would visit again.', 'Sophia', '069f72db-2157-43de-8e88-21661b518538');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The steak was great.', 'Carl', '069f72db-2157-43de-8e88-21661b518551');
+values(5, 'The duck was stunning! Kitchen chef and team were very friendly.', 'Alice', '069f72db-2157-43de-8e88-21661b518539');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The chicken was poor.', 'Dieter', '069f72db-2157-43de-8e88-21661b518552');
+values(5, 'The burger was stunning! Would visit again.', 'Fritz', '069f72db-2157-43de-8e88-21661b518539');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The fillet was stunning!', 'Carl', '069f72db-2157-43de-8e88-21661b518552');
+values(4, 'The lasagna was great. Would visit again.', 'Sophia', '069f72db-2157-43de-8e88-21661b518539');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The meat was poor.', 'Emma', '069f72db-2157-43de-8e88-21661b518552');
+values(3, 'The meat was okay. Kitchen chef and team were very friendly.', 'Harry', '069f72db-2157-43de-8e88-21661b518539');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The wrap was poor.', 'Dieter', '069f72db-2157-43de-8e88-21661b518553');
+values(2, 'The pasta was poor. The service was okay.', 'Oscar', '069f72db-2157-43de-8e88-21661b518540');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The fish was great.', 'Carl', '069f72db-2157-43de-8e88-21661b518553');
+values(1, 'The salmon was disgusting! I never eat there again.', 'Goerge', '069f72db-2157-43de-8e88-21661b518540');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The pasta was great.', 'Fritz', '069f72db-2157-43de-8e88-21661b518553');
+values(1, 'The wrap was disgusting! okay.', 'Harry', '069f72db-2157-43de-8e88-21661b518540');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The fillet was stunning!', 'Carl', '069f72db-2157-43de-8e88-21661b518554');
+values(1, 'The steak was disgusting! I never eat there again.', 'Charlotte', '069f72db-2157-43de-8e88-21661b518540');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The wrap was stunning!', 'Dieter', '069f72db-2157-43de-8e88-21661b518554');
+values(5, 'The fish was stunning! Kitchen chef and team were very friendly.', 'Goerge', '069f72db-2157-43de-8e88-21661b518541');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The chicken was great.', 'Luis', '069f72db-2157-43de-8e88-21661b518554');
+values(5, 'The burger was stunning! Kitchen chef and team were very friendly.', 'Charlotte', '069f72db-2157-43de-8e88-21661b518541');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The wrap was great.', 'Luis', '069f72db-2157-43de-8e88-21661b518555');
+values(5, 'The duck was stunning! Would visit again.', 'Charlotte', '069f72db-2157-43de-8e88-21661b518541');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The wrap was disgusting!', 'Fritz', '069f72db-2157-43de-8e88-21661b518555');
+values(5, 'The salmon was stunning! Kitchen chef and team were very friendly.', 'Goerge', '069f72db-2157-43de-8e88-21661b518541');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The fish was okay.', 'Luis', '069f72db-2157-43de-8e88-21661b518555');
+values(5, 'The duck was stunning! Kitchen chef and team were very friendly.', 'Charlotte', '069f72db-2157-43de-8e88-21661b518542');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The wrap was stunning!', 'Fritz', '069f72db-2157-43de-8e88-21661b518556');
+values(5, 'The salmon was stunning! Would visit again.', 'Fritz', '069f72db-2157-43de-8e88-21661b518542');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The pasta was disgusting!', 'Emma', '069f72db-2157-43de-8e88-21661b518556');
+values(5, 'The garlic pie was stunning! Kitchen chef and team were very friendly.', 'Freddie', '069f72db-2157-43de-8e88-21661b518542');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The steak was poor.', 'Dieter', '069f72db-2157-43de-8e88-21661b518556');
+values(5, 'The fish was stunning! Kitchen chef and team were very friendly.', 'Dieter', '069f72db-2157-43de-8e88-21661b518542');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The chicken was stunning!', 'Dieter', '069f72db-2157-43de-8e88-21661b518557');
+values(1, 'The pasta was disgusting! I never eat there again.', 'Luis', '069f72db-2157-43de-8e88-21661b518543');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The chicken was okay.', 'Carl', '069f72db-2157-43de-8e88-21661b518557');
+values(3, 'The pasta was okay. The service was okay.', 'Goerge', '069f72db-2157-43de-8e88-21661b518543');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The meat was stunning!', 'Dieter', '069f72db-2157-43de-8e88-21661b518557');
+values(2, 'The pizza was poor. Would visit again.', 'Fritz', '069f72db-2157-43de-8e88-21661b518543');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The fillet was poor.', 'Emma', '069f72db-2157-43de-8e88-21661b518558');
+values(3, 'The salmon was okay. The service was okay.', 'Leo', '069f72db-2157-43de-8e88-21661b518543');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The steak was great.', 'Dieter', '069f72db-2157-43de-8e88-21661b518558');
+values(5, 'The steak was stunning! Kitchen chef and team were very friendly.', 'Jack', '069f72db-2157-43de-8e88-21661b518544');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The chicken was great.', 'Luis', '069f72db-2157-43de-8e88-21661b518558');
+values(5, 'The taco was stunning! Would visit again.', 'Goerge', '069f72db-2157-43de-8e88-21661b518544');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The pasta was great.', 'Fritz', '069f72db-2157-43de-8e88-21661b518559');
+values(5, 'The meat was stunning! Would visit again.', 'Lilly', '069f72db-2157-43de-8e88-21661b518544');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The pasta was disgusting!', 'Dieter', '069f72db-2157-43de-8e88-21661b518559');
+values(5, 'The pasta was stunning! Would visit again.', 'Fritz', '069f72db-2157-43de-8e88-21661b518544');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The fish was poor.', 'Dieter', '069f72db-2157-43de-8e88-21661b518559');
+values(5, 'The chicken was stunning! Kitchen chef and team were very friendly.', 'Goerge', '069f72db-2157-43de-8e88-21661b518545');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The chicken was okay.', 'Luis', '069f72db-2157-43de-8e88-21661b518560');
+values(5, 'The chicken was stunning! Kitchen chef and team were very friendly.', 'Lilly', '069f72db-2157-43de-8e88-21661b518545');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The fish was okay.', 'Carl', '069f72db-2157-43de-8e88-21661b518560');
+values(4, 'The lasagna was great. Kitchen chef and team were very friendly.', 'Lilly', '069f72db-2157-43de-8e88-21661b518545');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The pasta was great.', 'Emma', '069f72db-2157-43de-8e88-21661b518560');
+values(5, 'The duck was stunning! Would visit again.', 'Freddie', '069f72db-2157-43de-8e88-21661b518545');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The wrap was okay.', 'Luis', '069f72db-2157-43de-8e88-21661b518561');
+values(5, 'The salmon was stunning! Kitchen chef and team were very friendly.', ' Mia', '069f72db-2157-43de-8e88-21661b518546');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The chicken was great.', 'Dieter', '069f72db-2157-43de-8e88-21661b518561');
+values(4, 'The taco was great. okay.', 'Jack', '069f72db-2157-43de-8e88-21661b518546');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The pasta was disgusting!', 'Fritz', '069f72db-2157-43de-8e88-21661b518561');
+values(3, 'The fillet was okay. Would visit again.', 'Fritz', '069f72db-2157-43de-8e88-21661b518546');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The pasta was great.', 'Carl', '069f72db-2157-43de-8e88-21661b518562');
+values(5, 'The fish was stunning! Kitchen chef and team were very friendly.', 'Fritz', '069f72db-2157-43de-8e88-21661b518546');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The pasta was poor.', 'Luis', '069f72db-2157-43de-8e88-21661b518562');
+values(5, 'The salmon was stunning! Kitchen chef and team were very friendly.', 'Alice', '069f72db-2157-43de-8e88-21661b518547');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The steak was great.', 'Fritz', '069f72db-2157-43de-8e88-21661b518562');
+values(5, 'The fillet was stunning! Would visit again.', 'Dieter', '069f72db-2157-43de-8e88-21661b518547');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The pasta was disgusting!', 'Emma', '069f72db-2157-43de-8e88-21661b518563');
+values(5, 'The fish was stunning! Kitchen chef and team were very friendly.', 'Freddie', '069f72db-2157-43de-8e88-21661b518547');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The fillet was stunning!', 'Dieter', '069f72db-2157-43de-8e88-21661b518563');
+values(4, 'The taco was great. Kitchen chef and team were very friendly.', 'Luis', '069f72db-2157-43de-8e88-21661b518547');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The wrap was poor.', 'Dieter', '069f72db-2157-43de-8e88-21661b518563');
+values(4, 'The burger was great. Would visit again.', 'Lilly', '069f72db-2157-43de-8e88-21661b518548');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The fish was stunning!', 'Dieter', '069f72db-2157-43de-8e88-21661b518564');
+values(4, 'The burger was great. okay.', 'Harry', '069f72db-2157-43de-8e88-21661b518548');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The chicken was stunning!', 'Fritz', '069f72db-2157-43de-8e88-21661b518564');
+values(5, 'The spareribs were stunning! Would visit again.', 'Luis', '069f72db-2157-43de-8e88-21661b518548');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The taco was great.', 'Fritz', '069f72db-2157-43de-8e88-21661b518564');
+values(5, 'The garlic pie was stunning! Kitchen chef and team were very friendly.', ' Mia', '069f72db-2157-43de-8e88-21661b518548');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The taco was disgusting!', 'Carl', '069f72db-2157-43de-8e88-21661b518565');
+values(4, 'The garlic pie was great. Would visit again.', 'Goerge', '069f72db-2157-43de-8e88-21661b518549');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The taco was poor.', 'Emma', '069f72db-2157-43de-8e88-21661b518565');
+values(3, 'The spareribs were okay. okay.', 'Harry', '069f72db-2157-43de-8e88-21661b518549');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The taco was okay.', 'Fritz', '069f72db-2157-43de-8e88-21661b518565');
+values(4, 'The duck was great. Kitchen chef and team were very friendly.', 'Lilly', '069f72db-2157-43de-8e88-21661b518549');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The fillet was okay.', 'Carl', '069f72db-2157-43de-8e88-21661b518566');
+values(3, 'The fillet was okay. Kitchen chef and team were very friendly.', 'Leo', '069f72db-2157-43de-8e88-21661b518549');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The pasta was great.', 'Dieter', '069f72db-2157-43de-8e88-21661b518566');
+values(4, 'The ramen was great. Kitchen chef and team were very friendly.', 'Carl', '069f72db-2157-43de-8e88-21661b518550');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The taco was okay.', 'Dieter', '069f72db-2157-43de-8e88-21661b518566');
+values(5, 'The meat was stunning! Would visit again.', 'Harry', '069f72db-2157-43de-8e88-21661b518550');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The taco was stunning!', 'Dieter', '069f72db-2157-43de-8e88-21661b518567');
+values(4, 'The fish was great. Would visit again.', 'Charlotte', '069f72db-2157-43de-8e88-21661b518550');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The taco was disgusting!', 'Emma', '069f72db-2157-43de-8e88-21661b518567');
+values(4, 'The wrap was great. okay.', 'Fritz', '069f72db-2157-43de-8e88-21661b518550');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The meat was okay.', 'Luis', '069f72db-2157-43de-8e88-21661b518567');
+values(1, 'The burger was disgusting! The service was okay.', 'Jack', '069f72db-2157-43de-8e88-21661b518551');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The pasta was great.', 'Emma', '069f72db-2157-43de-8e88-21661b518568');
+values(3, 'The steak was okay. Would visit again.', 'Charlotte', '069f72db-2157-43de-8e88-21661b518551');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The chicken was great.', 'Luis', '069f72db-2157-43de-8e88-21661b518568');
+values(2, 'The meat was poor. okay.', ' Mia', '069f72db-2157-43de-8e88-21661b518551');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The wrap was okay.', 'Fritz', '069f72db-2157-43de-8e88-21661b518568');
+values(3, 'The pizza was okay. okay.', 'Luis', '069f72db-2157-43de-8e88-21661b518551');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The pasta was poor.', 'Fritz', '069f72db-2157-43de-8e88-21661b518569');
+values(5, 'The fish was stunning! Kitchen chef and team were very friendly.', 'Leo', '069f72db-2157-43de-8e88-21661b518552');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The steak was poor.', 'Fritz', '069f72db-2157-43de-8e88-21661b518569');
+values(5, 'The garlic pie was stunning! Would visit again.', 'Dieter', '069f72db-2157-43de-8e88-21661b518552');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The taco was stunning!', 'Emma', '069f72db-2157-43de-8e88-21661b518569');
+values(5, 'The ramen was stunning! Kitchen chef and team were very friendly.', 'Alice', '069f72db-2157-43de-8e88-21661b518552');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The fish was stunning!', 'Emma', '069f72db-2157-43de-8e88-21661b518570');
+values(5, 'The salmon was stunning! Kitchen chef and team were very friendly.', 'Sophia', '069f72db-2157-43de-8e88-21661b518552');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The chicken was disgusting!', 'Luis', '069f72db-2157-43de-8e88-21661b518570');
+values(3, 'The wrap was okay. Kitchen chef and team were very friendly.', 'Carl', '069f72db-2157-43de-8e88-21661b518553');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The meat was stunning!', 'Emma', '069f72db-2157-43de-8e88-21661b518570');
+values(4, 'The duck was great. okay.', 'Leo', '069f72db-2157-43de-8e88-21661b518553');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The fillet was great.', 'Emma', '069f72db-2157-43de-8e88-21661b518571');
+values(5, 'The meat was stunning! Kitchen chef and team were very friendly.', 'Alice', '069f72db-2157-43de-8e88-21661b518553');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The fillet was poor.', 'Luis', '069f72db-2157-43de-8e88-21661b518571');
+values(5, 'The taco was stunning! Kitchen chef and team were very friendly.', 'Goerge', '069f72db-2157-43de-8e88-21661b518553');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The meat was disgusting!', 'Carl', '069f72db-2157-43de-8e88-21661b518571');
+values(2, 'The ramen was poor. okay.', ' Mia', '069f72db-2157-43de-8e88-21661b518554');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The meat was disgusting!', 'Dieter', '069f72db-2157-43de-8e88-21661b518572');
+values(1, 'The spareribs were disgusting! The service was okay.', 'Leo', '069f72db-2157-43de-8e88-21661b518554');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The fillet was okay.', 'Emma', '069f72db-2157-43de-8e88-21661b518572');
+values(1, 'The spareribs were disgusting! I never eat there again.', 'Alice', '069f72db-2157-43de-8e88-21661b518554');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The steak was stunning!', 'Fritz', '069f72db-2157-43de-8e88-21661b518572');
+values(1, 'The wrap was disgusting! I never eat there again.', 'Luis', '069f72db-2157-43de-8e88-21661b518554');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The pasta was okay.', 'Dieter', '069f72db-2157-43de-8e88-21661b518573');
+values(5, 'The garlic pie was stunning! Would visit again.', 'Jack', '069f72db-2157-43de-8e88-21661b518555');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The wrap was poor.', 'Fritz', '069f72db-2157-43de-8e88-21661b518573');
+values(5, 'The fillet was stunning! Kitchen chef and team were very friendly.', 'Jack', '069f72db-2157-43de-8e88-21661b518555');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The fillet was great.', 'Carl', '069f72db-2157-43de-8e88-21661b518573');
+values(4, 'The pizza was great. Kitchen chef and team were very friendly.', 'Jack', '069f72db-2157-43de-8e88-21661b518555');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The steak was disgusting!', 'Fritz', '069f72db-2157-43de-8e88-21661b518574');
+values(3, 'The ramen was okay. Kitchen chef and team were very friendly.', 'Lilly', '069f72db-2157-43de-8e88-21661b518555');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The taco was okay.', 'Fritz', '069f72db-2157-43de-8e88-21661b518574');
+values(3, 'The steak was okay. The service was okay.', 'Emma', '069f72db-2157-43de-8e88-21661b518556');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The wrap was stunning!', 'Carl', '069f72db-2157-43de-8e88-21661b518574');
+values(5, 'The salmon was stunning! Kitchen chef and team were very friendly.', 'Goerge', '069f72db-2157-43de-8e88-21661b518556');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The wrap was okay.', 'Luis', '069f72db-2157-43de-8e88-21661b518575');
+values(5, 'The garlic pie was stunning! Kitchen chef and team were very friendly.', 'Fritz', '069f72db-2157-43de-8e88-21661b518556');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The chicken was poor.', 'Emma', '069f72db-2157-43de-8e88-21661b518575');
+values(5, 'The steak was stunning! Kitchen chef and team were very friendly.', 'Freddie', '069f72db-2157-43de-8e88-21661b518556');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The chicken was stunning!', 'Carl', '069f72db-2157-43de-8e88-21661b518575');
+values(5, 'The lasagna was stunning! Kitchen chef and team were very friendly.', 'Alice', '069f72db-2157-43de-8e88-21661b518557');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The fish was disgusting!', 'Emma', '069f72db-2157-43de-8e88-21661b518576');
+values(4, 'The duck was great. Kitchen chef and team were very friendly.', 'Leo', '069f72db-2157-43de-8e88-21661b518557');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The taco was great.', 'Carl', '069f72db-2157-43de-8e88-21661b518576');
+values(4, 'The chicken was great. okay.', 'Alice', '069f72db-2157-43de-8e88-21661b518557');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The pasta was great.', 'Luis', '069f72db-2157-43de-8e88-21661b518576');
+values(5, 'The chicken was stunning! Would visit again.', 'Goerge', '069f72db-2157-43de-8e88-21661b518557');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The fish was okay.', 'Luis', '069f72db-2157-43de-8e88-21661b518577');
+values(5, 'The duck was stunning! Kitchen chef and team were very friendly.', 'Luis', '069f72db-2157-43de-8e88-21661b518558');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The wrap was okay.', 'Carl', '069f72db-2157-43de-8e88-21661b518577');
+values(5, 'The pizza was stunning! Kitchen chef and team were very friendly.', 'Harry', '069f72db-2157-43de-8e88-21661b518558');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The wrap was stunning!', 'Emma', '069f72db-2157-43de-8e88-21661b518577');
+values(4, 'The wrap was great. Kitchen chef and team were very friendly.', 'Goerge', '069f72db-2157-43de-8e88-21661b518558');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The fillet was stunning!', 'Carl', '069f72db-2157-43de-8e88-21661b518578');
+values(3, 'The salmon was okay. okay.', 'Alice', '069f72db-2157-43de-8e88-21661b518558');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The steak was great.', 'Dieter', '069f72db-2157-43de-8e88-21661b518578');
+values(3, 'The lasagna was okay. Kitchen chef and team were very friendly.', 'Fritz', '069f72db-2157-43de-8e88-21661b518559');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The fillet was disgusting!', 'Emma', '069f72db-2157-43de-8e88-21661b518578');
+values(4, 'The taco was great. okay.', 'Goerge', '069f72db-2157-43de-8e88-21661b518559');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The fish was poor.', 'Carl', '069f72db-2157-43de-8e88-21661b518579');
+values(5, 'The lasagna was stunning! Kitchen chef and team were very friendly.', 'Jack', '069f72db-2157-43de-8e88-21661b518559');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The meat was stunning!', 'Emma', '069f72db-2157-43de-8e88-21661b518579');
+values(4, 'The burger was great. Kitchen chef and team were very friendly.', 'Alice', '069f72db-2157-43de-8e88-21661b518559');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The fillet was disgusting!', 'Emma', '069f72db-2157-43de-8e88-21661b518579');
+values(3, 'The fillet was okay. The service was okay.', 'Carl', '069f72db-2157-43de-8e88-21661b518560');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The pasta was poor.', 'Emma', '069f72db-2157-43de-8e88-21661b518580');
+values(5, 'The meat was stunning! Kitchen chef and team were very friendly.', 'Carl', '069f72db-2157-43de-8e88-21661b518560');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The steak was poor.', 'Dieter', '069f72db-2157-43de-8e88-21661b518580');
+values(5, 'The salmon was stunning! Would visit again.', 'Leo', '069f72db-2157-43de-8e88-21661b518560');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The fillet was okay.', 'Carl', '069f72db-2157-43de-8e88-21661b518580');
+values(5, 'The burger was stunning! Would visit again.', 'Sophia', '069f72db-2157-43de-8e88-21661b518560');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The fish was stunning!', 'Luis', '069f72db-2157-43de-8e88-21661b518581');
+values(5, 'The duck was stunning! Kitchen chef and team were very friendly.', 'Goerge', '069f72db-2157-43de-8e88-21661b518561');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The chicken was disgusting!', 'Carl', '069f72db-2157-43de-8e88-21661b518581');
+values(4, 'The duck was great. Would visit again.', 'Harry', '069f72db-2157-43de-8e88-21661b518561');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The wrap was poor.', 'Luis', '069f72db-2157-43de-8e88-21661b518581');
+values(4, 'The steak was great. Kitchen chef and team were very friendly.', 'Goerge', '069f72db-2157-43de-8e88-21661b518561');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The meat was poor.', 'Luis', '069f72db-2157-43de-8e88-21661b518582');
+values(4, 'The taco was great. okay.', 'Harry', '069f72db-2157-43de-8e88-21661b518561');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The steak was okay.', 'Carl', '069f72db-2157-43de-8e88-21661b518582');
+values(5, 'The pasta was stunning! Kitchen chef and team were very friendly.', 'Harry', '069f72db-2157-43de-8e88-21661b518562');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The meat was okay.', 'Dieter', '069f72db-2157-43de-8e88-21661b518582');
+values(5, 'The salmon was stunning! Kitchen chef and team were very friendly.', 'Fritz', '069f72db-2157-43de-8e88-21661b518562');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The chicken was okay.', 'Luis', '069f72db-2157-43de-8e88-21661b518583');
+values(5, 'The taco was stunning! Kitchen chef and team were very friendly.', 'Lilly', '069f72db-2157-43de-8e88-21661b518562');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The fish was poor.', 'Luis', '069f72db-2157-43de-8e88-21661b518583');
+values(5, 'The garlic pie was stunning! Kitchen chef and team were very friendly.', 'Jack', '069f72db-2157-43de-8e88-21661b518562');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The pasta was disgusting!', 'Emma', '069f72db-2157-43de-8e88-21661b518583');
+values(5, 'The pasta was stunning! Kitchen chef and team were very friendly.', 'Lilly', '069f72db-2157-43de-8e88-21661b518563');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The steak was disgusting!', 'Emma', '069f72db-2157-43de-8e88-21661b518584');
+values(5, 'The chicken was stunning! Kitchen chef and team were very friendly.', 'Harry', '069f72db-2157-43de-8e88-21661b518563');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The fillet was okay.', 'Luis', '069f72db-2157-43de-8e88-21661b518584');
+values(5, 'The taco was stunning! Kitchen chef and team were very friendly.', ' Mia', '069f72db-2157-43de-8e88-21661b518563');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The taco was okay.', 'Emma', '069f72db-2157-43de-8e88-21661b518584');
+values(4, 'The spareribs were great. Kitchen chef and team were very friendly.', 'Charlotte', '069f72db-2157-43de-8e88-21661b518563');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The fillet was stunning!', 'Carl', '069f72db-2157-43de-8e88-21661b518585');
+values(5, 'The ramen was stunning! Would visit again.', ' Mia', '069f72db-2157-43de-8e88-21661b518564');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The taco was stunning!', 'Fritz', '069f72db-2157-43de-8e88-21661b518585');
+values(4, 'The ramen was great. Kitchen chef and team were very friendly.', 'Alice', '069f72db-2157-43de-8e88-21661b518564');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The fillet was disgusting!', 'Emma', '069f72db-2157-43de-8e88-21661b518585');
+values(5, 'The pasta was stunning! Kitchen chef and team were very friendly.', 'Luis', '069f72db-2157-43de-8e88-21661b518564');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The fish was okay.', 'Dieter', '069f72db-2157-43de-8e88-21661b518586');
+values(5, 'The pasta was stunning! Would visit again.', 'Luis', '069f72db-2157-43de-8e88-21661b518564');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The chicken was great.', 'Luis', '069f72db-2157-43de-8e88-21661b518586');
+values(2, 'The spareribs were poor. The service was okay.', 'Dieter', '069f72db-2157-43de-8e88-21661b518565');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The taco was stunning!', 'Dieter', '069f72db-2157-43de-8e88-21661b518586');
+values(3, 'The pizza was okay. The service was okay.', ' Mia', '069f72db-2157-43de-8e88-21661b518565');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The pasta was disgusting!', 'Carl', '069f72db-2157-43de-8e88-21661b518587');
+values(4, 'The lasagna was great. Kitchen chef and team were very friendly.', ' Mia', '069f72db-2157-43de-8e88-21661b518565');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The chicken was okay.', 'Dieter', '069f72db-2157-43de-8e88-21661b518587');
+values(5, 'The spareribs were stunning! Would visit again.', 'Lilly', '069f72db-2157-43de-8e88-21661b518565');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The meat was stunning!', 'Dieter', '069f72db-2157-43de-8e88-21661b518587');
+values(5, 'The wrap was stunning! Kitchen chef and team were very friendly.', 'Dieter', '069f72db-2157-43de-8e88-21661b518566');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The fish was poor.', 'Fritz', '069f72db-2157-43de-8e88-21661b518588');
+values(5, 'The chicken was stunning! Would visit again.', 'Dieter', '069f72db-2157-43de-8e88-21661b518566');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The taco was okay.', 'Luis', '069f72db-2157-43de-8e88-21661b518588');
+values(4, 'The chicken was great. Kitchen chef and team were very friendly.', 'Leo', '069f72db-2157-43de-8e88-21661b518566');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The pasta was disgusting!', 'Carl', '069f72db-2157-43de-8e88-21661b518588');
+values(5, 'The burger was stunning! Kitchen chef and team were very friendly.', 'Emma', '069f72db-2157-43de-8e88-21661b518566');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The pasta was disgusting!', 'Dieter', '069f72db-2157-43de-8e88-21661b518589');
+values(4, 'The steak was great. Kitchen chef and team were very friendly.', 'Luis', '069f72db-2157-43de-8e88-21661b518567');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The taco was poor.', 'Fritz', '069f72db-2157-43de-8e88-21661b518589');
+values(5, 'The duck was stunning! Kitchen chef and team were very friendly.', 'Sophia', '069f72db-2157-43de-8e88-21661b518567');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The fillet was poor.', 'Carl', '069f72db-2157-43de-8e88-21661b518589');
+values(5, 'The lasagna was stunning! Kitchen chef and team were very friendly.', 'Dieter', '069f72db-2157-43de-8e88-21661b518567');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The meat was okay.', 'Dieter', '069f72db-2157-43de-8e88-21661b518590');
+values(5, 'The steak was stunning! Kitchen chef and team were very friendly.', 'Sophia', '069f72db-2157-43de-8e88-21661b518567');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The pasta was great.', 'Carl', '069f72db-2157-43de-8e88-21661b518590');
+values(1, 'The pizza was disgusting! I never eat there again.', 'Charlotte', '069f72db-2157-43de-8e88-21661b518568');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The fillet was disgusting!', 'Emma', '069f72db-2157-43de-8e88-21661b518590');
+values(2, 'The duck was poor. okay.', 'Oscar', '069f72db-2157-43de-8e88-21661b518568');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The fish was poor.', 'Fritz', '069f72db-2157-43de-8e88-21661b518591');
+values(3, 'The meat was okay. okay.', 'Leo', '069f72db-2157-43de-8e88-21661b518568');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The wrap was okay.', 'Fritz', '069f72db-2157-43de-8e88-21661b518591');
+values(5, 'The fish was stunning! Kitchen chef and team were very friendly.', 'Fritz', '069f72db-2157-43de-8e88-21661b518568');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The pasta was stunning!', 'Emma', '069f72db-2157-43de-8e88-21661b518591');
+values(3, 'The taco was okay. Would visit again.', 'Jack', '069f72db-2157-43de-8e88-21661b518569');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(2, 'The wrap was poor.', 'Dieter', '069f72db-2157-43de-8e88-21661b518592');
+values(2, 'The spareribs were poor. I never eat there again.', 'Alice', '069f72db-2157-43de-8e88-21661b518569');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The steak was disgusting!', 'Fritz', '069f72db-2157-43de-8e88-21661b518592');
+values(4, 'The burger was great. okay.', 'Goerge', '069f72db-2157-43de-8e88-21661b518569');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The meat was great.', 'Luis', '069f72db-2157-43de-8e88-21661b518592');
+values(4, 'The spareribs were great. okay.', 'Luis', '069f72db-2157-43de-8e88-21661b518569');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The wrap was disgusting!', 'Carl', '069f72db-2157-43de-8e88-21661b518593');
+values(5, 'The lasagna was stunning! Would visit again.', 'Fritz', '069f72db-2157-43de-8e88-21661b518570');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The wrap was disgusting!', 'Luis', '069f72db-2157-43de-8e88-21661b518593');
+values(5, 'The burger was stunning! Kitchen chef and team were very friendly.', 'Freddie', '069f72db-2157-43de-8e88-21661b518570');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The fish was disgusting!', 'Fritz', '069f72db-2157-43de-8e88-21661b518593');
+values(5, 'The pizza was stunning! Kitchen chef and team were very friendly.', 'Alice', '069f72db-2157-43de-8e88-21661b518570');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The taco was disgusting!', 'Carl', '069f72db-2157-43de-8e88-21661b518594');
+values(5, 'The pizza was stunning! Kitchen chef and team were very friendly.', 'Harry', '069f72db-2157-43de-8e88-21661b518570');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The meat was great.', 'Luis', '069f72db-2157-43de-8e88-21661b518594');
+values(3, 'The ramen was okay. okay.', 'Carl', '069f72db-2157-43de-8e88-21661b518571');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(5, 'The wrap was stunning!', 'Fritz', '069f72db-2157-43de-8e88-21661b518594');
+values(5, 'The burger was stunning! Kitchen chef and team were very friendly.', 'Harry', '069f72db-2157-43de-8e88-21661b518571');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The chicken was okay.', 'Fritz', '069f72db-2157-43de-8e88-21661b518595');
+values(5, 'The meat was stunning! Kitchen chef and team were very friendly.', 'Oscar', '069f72db-2157-43de-8e88-21661b518571');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The taco was okay.', 'Carl', '069f72db-2157-43de-8e88-21661b518595');
+values(5, 'The steak was stunning! Would visit again.', 'Charlotte', '069f72db-2157-43de-8e88-21661b518571');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The steak was great.', 'Luis', '069f72db-2157-43de-8e88-21661b518595');
+values(3, 'The duck was okay. okay.', 'Carl', '069f72db-2157-43de-8e88-21661b518572');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(3, 'The taco was okay.', 'Fritz', '069f72db-2157-43de-8e88-21661b518596');
+values(4, 'The duck was great. Would visit again.', 'Harry', '069f72db-2157-43de-8e88-21661b518572');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(1, 'The taco was disgusting!', 'Dieter', '069f72db-2157-43de-8e88-21661b518596');
+values(5, 'The fish was stunning! Would visit again.', ' Mia', '069f72db-2157-43de-8e88-21661b518572');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values(4, 'The steak was great.', 'Fritz', '069f72db-2157-43de-8e88-21661b518596');
+values(5, 'The salmon was stunning! Kitchen chef and team were very friendly.', 'Goerge', '069f72db-2157-43de-8e88-21661b518572');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The salmon was stunning! Kitchen chef and team were very friendly.', 'Harry', '069f72db-2157-43de-8e88-21661b518573');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(4, 'The ramen was great. okay.', ' Mia', '069f72db-2157-43de-8e88-21661b518573');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The ramen was stunning! Kitchen chef and team were very friendly.', 'Dieter', '069f72db-2157-43de-8e88-21661b518573');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The spareribs were stunning! Kitchen chef and team were very friendly.', 'Harry', '069f72db-2157-43de-8e88-21661b518573');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(4, 'The spareribs were great. Kitchen chef and team were very friendly.', ' Mia', '069f72db-2157-43de-8e88-21661b518574');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(3, 'The ramen was okay. The service was okay.', ' Mia', '069f72db-2157-43de-8e88-21661b518574');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The meat was stunning! Kitchen chef and team were very friendly.', 'Luis', '069f72db-2157-43de-8e88-21661b518574');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The pizza was stunning! Kitchen chef and team were very friendly.', 'Charlotte', '069f72db-2157-43de-8e88-21661b518574');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(1, 'The pasta was disgusting! okay.', 'Fritz', '069f72db-2157-43de-8e88-21661b518575');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(1, 'The duck was disgusting! The service was okay.', 'Luis', '069f72db-2157-43de-8e88-21661b518575');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(3, 'The salmon was okay. Would visit again.', 'Harry', '069f72db-2157-43de-8e88-21661b518575');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(2, 'The spareribs were poor. I never eat there again.', 'Oscar', '069f72db-2157-43de-8e88-21661b518575');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(4, 'The ramen was great. Kitchen chef and team were very friendly.', 'Carl', '069f72db-2157-43de-8e88-21661b518576');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The meat was stunning! Kitchen chef and team were very friendly.', 'Lilly', '069f72db-2157-43de-8e88-21661b518576');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The duck was stunning! Kitchen chef and team were very friendly.', 'Goerge', '069f72db-2157-43de-8e88-21661b518576');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The garlic pie was stunning! Kitchen chef and team were very friendly.', 'Alice', '069f72db-2157-43de-8e88-21661b518576');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(4, 'The ramen was great. Kitchen chef and team were very friendly.', 'Luis', '069f72db-2157-43de-8e88-21661b518577');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The duck was stunning! Kitchen chef and team were very friendly.', 'Charlotte', '069f72db-2157-43de-8e88-21661b518577');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The chicken was stunning! Kitchen chef and team were very friendly.', 'Jack', '069f72db-2157-43de-8e88-21661b518577');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The fish was stunning! Kitchen chef and team were very friendly.', 'Dieter', '069f72db-2157-43de-8e88-21661b518577');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(4, 'The salmon was great. Kitchen chef and team were very friendly.', 'Carl', '069f72db-2157-43de-8e88-21661b518578');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The ramen was stunning! Kitchen chef and team were very friendly.', 'Sophia', '069f72db-2157-43de-8e88-21661b518578');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The salmon was stunning! Would visit again.', 'Lilly', '069f72db-2157-43de-8e88-21661b518578');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The pizza was stunning! Would visit again.', 'Charlotte', '069f72db-2157-43de-8e88-21661b518578');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The ramen was stunning! Kitchen chef and team were very friendly.', ' Mia', '069f72db-2157-43de-8e88-21661b518579');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The meat was stunning! Kitchen chef and team were very friendly.', 'Freddie', '069f72db-2157-43de-8e88-21661b518579');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The wrap was stunning! Kitchen chef and team were very friendly.', 'Dieter', '069f72db-2157-43de-8e88-21661b518579');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The lasagna was stunning! Kitchen chef and team were very friendly.', 'Freddie', '069f72db-2157-43de-8e88-21661b518579');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(4, 'The taco was great. Kitchen chef and team were very friendly.', 'Jack', '069f72db-2157-43de-8e88-21661b518580');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(4, 'The salmon was great. okay.', 'Dieter', '069f72db-2157-43de-8e88-21661b518580');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(3, 'The pizza was okay. Kitchen chef and team were very friendly.', 'Jack', '069f72db-2157-43de-8e88-21661b518580');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(4, 'The salmon was great. okay.', 'Fritz', '069f72db-2157-43de-8e88-21661b518580');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(3, 'The fish was okay. Kitchen chef and team were very friendly.', 'Leo', '069f72db-2157-43de-8e88-21661b518581');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The garlic pie was stunning! Kitchen chef and team were very friendly.', 'Alice', '069f72db-2157-43de-8e88-21661b518581');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The fillet was stunning! Kitchen chef and team were very friendly.', 'Luis', '069f72db-2157-43de-8e88-21661b518581');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The taco was stunning! Kitchen chef and team were very friendly.', 'Oscar', '069f72db-2157-43de-8e88-21661b518581');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(3, 'The wrap was okay. Kitchen chef and team were very friendly.', 'Charlotte', '069f72db-2157-43de-8e88-21661b518582');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(2, 'The meat was poor. okay.', 'Oscar', '069f72db-2157-43de-8e88-21661b518582');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(3, 'The duck was okay. okay.', 'Jack', '069f72db-2157-43de-8e88-21661b518582');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(4, 'The lasagna was great. Kitchen chef and team were very friendly.', 'Alice', '069f72db-2157-43de-8e88-21661b518582');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(1, 'The salmon was disgusting! I never eat there again.', 'Carl', '069f72db-2157-43de-8e88-21661b518583');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(2, 'The fish was poor. I never eat there again.', 'Alice', '069f72db-2157-43de-8e88-21661b518583');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(3, 'The steak was okay. Kitchen chef and team were very friendly.', 'Luis', '069f72db-2157-43de-8e88-21661b518583');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The meat was stunning! Would visit again.', 'Lilly', '069f72db-2157-43de-8e88-21661b518583');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The ramen was stunning! Kitchen chef and team were very friendly.', 'Lilly', '069f72db-2157-43de-8e88-21661b518584');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The salmon was stunning! Would visit again.', 'Goerge', '069f72db-2157-43de-8e88-21661b518584');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The lasagna was stunning! Kitchen chef and team were very friendly.', 'Emma', '069f72db-2157-43de-8e88-21661b518584');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(4, 'The meat was great. okay.', 'Leo', '069f72db-2157-43de-8e88-21661b518584');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(3, 'The meat was okay. Kitchen chef and team were very friendly.', 'Jack', '069f72db-2157-43de-8e88-21661b518585');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(2, 'The meat was poor. okay.', 'Sophia', '069f72db-2157-43de-8e88-21661b518585');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(2, 'The wrap was poor. Would visit again.', 'Freddie', '069f72db-2157-43de-8e88-21661b518585');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(2, 'The burger was poor. Would visit again.', 'Freddie', '069f72db-2157-43de-8e88-21661b518585');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(1, 'The spareribs were disgusting! I never eat there again.', 'Dieter', '069f72db-2157-43de-8e88-21661b518586');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(1, 'The burger was disgusting! I never eat there again.', 'Alice', '069f72db-2157-43de-8e88-21661b518586');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(2, 'The chicken was poor. okay.', ' Mia', '069f72db-2157-43de-8e88-21661b518586');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(1, 'The pasta was disgusting! okay.', 'Emma', '069f72db-2157-43de-8e88-21661b518586');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(3, 'The meat was okay. Would visit again.', 'Harry', '069f72db-2157-43de-8e88-21661b518587');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(2, 'The salmon was poor. The service was okay.', 'Charlotte', '069f72db-2157-43de-8e88-21661b518587');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(3, 'The fillet was okay. The service was okay.', 'Alice', '069f72db-2157-43de-8e88-21661b518587');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(4, 'The lasagna was great. Would visit again.', 'Charlotte', '069f72db-2157-43de-8e88-21661b518587');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(3, 'The meat was okay. The service was okay.', 'Charlotte', '069f72db-2157-43de-8e88-21661b518588');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(3, 'The taco was okay. Would visit again.', 'Freddie', '069f72db-2157-43de-8e88-21661b518588');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(4, 'The chicken was great. Kitchen chef and team were very friendly.', 'Freddie', '069f72db-2157-43de-8e88-21661b518588');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The garlic pie was stunning! Kitchen chef and team were very friendly.', 'Alice', '069f72db-2157-43de-8e88-21661b518588');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The spareribs were stunning! Would visit again.', 'Harry', '069f72db-2157-43de-8e88-21661b518589');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(4, 'The spareribs were great. Would visit again.', 'Luis', '069f72db-2157-43de-8e88-21661b518589');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The garlic pie was stunning! Would visit again.', 'Lilly', '069f72db-2157-43de-8e88-21661b518589');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The taco was stunning! Kitchen chef and team were very friendly.', 'Emma', '069f72db-2157-43de-8e88-21661b518589');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(4, 'The fish was great. Kitchen chef and team were very friendly.', 'Oscar', '069f72db-2157-43de-8e88-21661b518590');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The chicken was stunning! Kitchen chef and team were very friendly.', 'Dieter', '069f72db-2157-43de-8e88-21661b518590');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The steak was stunning! Kitchen chef and team were very friendly.', 'Harry', '069f72db-2157-43de-8e88-21661b518590');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The taco was stunning! Would visit again.', 'Emma', '069f72db-2157-43de-8e88-21661b518590');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(3, 'The lasagna was okay. Kitchen chef and team were very friendly.', 'Jack', '069f72db-2157-43de-8e88-21661b518591');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The duck was stunning! Kitchen chef and team were very friendly.', 'Dieter', '069f72db-2157-43de-8e88-21661b518591');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The wrap was stunning! Kitchen chef and team were very friendly.', 'Lilly', '069f72db-2157-43de-8e88-21661b518591');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(4, 'The spareribs were great. Kitchen chef and team were very friendly.', 'Dieter', '069f72db-2157-43de-8e88-21661b518591');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(3, 'The meat was okay. Would visit again.', 'Alice', '069f72db-2157-43de-8e88-21661b518592');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(3, 'The salmon was okay. Would visit again.', 'Dieter', '069f72db-2157-43de-8e88-21661b518592');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(3, 'The pasta was okay. Kitchen chef and team were very friendly.', 'Dieter', '069f72db-2157-43de-8e88-21661b518592');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(3, 'The taco was okay. okay.', 'Luis', '069f72db-2157-43de-8e88-21661b518592');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The salmon was stunning! Would visit again.', 'Goerge', '069f72db-2157-43de-8e88-21661b518593');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The burger was stunning! Would visit again.', 'Sophia', '069f72db-2157-43de-8e88-21661b518593');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The meat was stunning! Would visit again.', 'Carl', '069f72db-2157-43de-8e88-21661b518593');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The meat was stunning! Kitchen chef and team were very friendly.', 'Sophia', '069f72db-2157-43de-8e88-21661b518593');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(1, 'The pizza was disgusting! okay.', 'Freddie', '069f72db-2157-43de-8e88-21661b518594');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(3, 'The pizza was okay. The service was okay.', 'Sophia', '069f72db-2157-43de-8e88-21661b518594');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(4, 'The taco was great. Would visit again.', 'Charlotte', '069f72db-2157-43de-8e88-21661b518594');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(4, 'The steak was great. Kitchen chef and team were very friendly.', 'Freddie', '069f72db-2157-43de-8e88-21661b518594');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The garlic pie was stunning! Would visit again.', 'Emma', '069f72db-2157-43de-8e88-21661b518595');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The salmon was stunning! Kitchen chef and team were very friendly.', 'Harry', '069f72db-2157-43de-8e88-21661b518595');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(4, 'The garlic pie was great. Kitchen chef and team were very friendly.', 'Oscar', '069f72db-2157-43de-8e88-21661b518595');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(4, 'The ramen was great. Kitchen chef and team were very friendly.', ' Mia', '069f72db-2157-43de-8e88-21661b518595');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(4, 'The pasta was great. Would visit again.', 'Fritz', '069f72db-2157-43de-8e88-21661b518596');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The garlic pie was stunning! Would visit again.', 'Lilly', '069f72db-2157-43de-8e88-21661b518596');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(4, 'The burger was great. Kitchen chef and team were very friendly.', 'Alice', '069f72db-2157-43de-8e88-21661b518596');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The salmon was stunning! Kitchen chef and team were very friendly.', ' Mia', '069f72db-2157-43de-8e88-21661b518596');
 
 -- timeslots
 INSERT INTO TIMESLOT
@@ -3575,30 +3767,14 @@ insert into RESTAURANT_IMAGES (RESTAURANT_ID, IMAGE_ID)
 values ('069f72db-2157-43de-8e88-21661b518512', '069f72db-2157-43de-8e88-21661b518612');
 
 -- mensa comments
-insert into comment (id, rating, comment, name, restaurant_id)
-values ('069f72db-2157-43de-8e88-21661b518201', 1, 'Super DB', 'DB-Admin', '069f72db-2157-43de-8e88-21661b518200');
-insert into comment (id, rating, comment, name, restaurant_id)
-values ('069f72db-2157-43de-8e88-21661b518202', 1, 'Super DB', 'DB-Admin', '069f72db-2157-43de-8e88-21661b518200');
-insert into comment (id, rating, comment, name, restaurant_id)
-values ('069f72db-2157-43de-8e88-21661b518203', 1, 'Super DB', 'DB-Admin', '069f72db-2157-43de-8e88-21661b518200');
-insert into comment (id, rating, comment, name, restaurant_id)
-values ('069f72db-2157-43de-8e88-21661b518204', 1, 'Super DB', 'DB-Admin', '069f72db-2157-43de-8e88-21661b518200');
-insert into comment (id, rating, comment, name, restaurant_id)
-values ('069f72db-2157-43de-8e88-21661b518205', 1, 'Super DB', 'DB-Admin', '069f72db-2157-43de-8e88-21661b518200');
-insert into comment (id, rating, comment, name, restaurant_id)
-values ('069f72db-2157-43de-8e88-21661b518206', 1, 'Super DB', 'DB-Admin', '069f72db-2157-43de-8e88-21661b518200');
-insert into comment (id, rating, comment, name, restaurant_id)
-values ('069f72db-2157-43de-8e88-21661b518207', 1, 'Super DB', 'DB-Admin', '069f72db-2157-43de-8e88-21661b518200');
-insert into comment (id, rating, comment, name, restaurant_id)
-values ('069f72db-2157-43de-8e88-21661b518208', 1, 'Super DB', 'DB-Admin', '069f72db-2157-43de-8e88-21661b518200');
-insert into comment (id, rating, comment, name, restaurant_id)
-values ('069f72db-2157-43de-8e88-21661b518209', 1, 'Super DB', 'DB-Admin', '069f72db-2157-43de-8e88-21661b518200');
-insert into comment (id, rating, comment, name, restaurant_id)
-values ('069f72db-2157-43de-8e88-21661b518210', 1, 'Super DB', 'DB-Admin', '069f72db-2157-43de-8e88-21661b518200');
-insert into comment (id, rating, comment, name, restaurant_id)
-values ('069f72db-2157-43de-8e88-21661b518211', 1, 'Super DB', 'DB-Admin', '069f72db-2157-43de-8e88-21661b518200');
-insert into comment (id, rating, comment, name, restaurant_id)
-values ('069f72db-2157-43de-8e88-21661b518212', 1, 'Super DB', 'DB-Admin', '069f72db-2157-43de-8e88-21661b518200');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(5, 'The chicken was stunning! Would visit again.', 'Jack', '069f72db-2157-43de-8e88-21661b518200');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(3, 'The lasagna was okay. The queue was quite long..', 'Charlotte', '069f72db-2157-43de-8e88-21661b518200');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(4, 'The wok was great! Kitchen chef and team were very friendly.', 'Luis', '069f72db-2157-43de-8e88-21661b518200');
+insert into comment(rating, comment, name, RESTAURANT_ID)
+values(3, 'The salmon was okay. Would visit again.', 'Leo', '069f72db-2157-43de-8e88-21661b518200');
 
 insert into RESTAURANT_FLOOR_PLAN(ID, HEIGHT, WIDTH, IMAGE_ID, RESTAURANT_ID)
 values ('069f72db-2157-43de-8e88-21661b518200', 600 * 2, 1000 * 2, '069f72db-2157-43de-8e88-21661b518203',
@@ -3646,43 +3822,3 @@ values ('069f72db-2157-43de-8e88-21661b518203', 3, '069f72db-2157-43de-8e88-2166
 insert into TABLE_FLOOR_PLAN(ID, HEIGHT, WIDTH, X, Y, IMAGE_ID)
 values ('069f72db-2157-43de-8e88-21661b518204', 100 * 2, 100 * 2, 700 * 2, 70 * 2,
         '069f72db-2157-43de-8e88-21661b518200');
-
-
-/*Restaurants*/
-insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY)
-values ('069f72db-2157-43de-8e88-21661b518224', 'Test 1', 3.5, 3);
-insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY)
-values ('069f72db-2157-43de-8e88-21661b518226', 'Test 2', 2.4, 1);
-insert into restaurant (ID, NAME, AVERAGE_RATING, PRICE_CATEGORY, WEBSITE)
-values ('069f72db-2157-43de-8e88-21661b518246', 'Breitenberg', 1, 2, 'www.duckduckgo.com');
-
-
-/*Locations*/
-insert into restaurant_location (ID, LAT, LON, RESTAURANT_ID)
-values ('069f72db-2157-43de-8e88-21661b518223', 48.187120304469374, 16.313691501443913,
-        '069f72db-2157-43de-8e88-21661b518224');
-insert into restaurant_location (ID, LAT, LON, RESTAURANT_ID)
-values ('069f72db-2157-43de-8e88-21661b518224', 48.26898700522353, 11.670421906144792,
-        '069f72db-2157-43de-8e88-21661b518226');
-insert into restaurant_location (ID, LAT, LON, RESTAURANT_ID)
-values ('069f72db-2257-43de-8e88-21661b518225', 48.13747187109867, 11.575427029351456,
-        '069f72db-2157-43de-8e88-21661b518246');
-
-
-/*Tables*/
-insert into restaurant_table (ID, SEATS, RESTAURANT_ID)
-values ('069f72db-2157-43de-8e88-21661b518227', 5, '069f72db-2157-43de-8e88-21661b518226');
-insert into restaurant_table (ID, SEATS, RESTAURANT_ID)
-values ('069f72db-2157-43de-8e88-21661b518228', 7, '069f72db-2157-43de-8e88-21661b518226');
-insert into restaurant_table (ID, SEATS, RESTAURANT_ID)
-values ('069f72db-2157-43de-8e88-21661b518229', 6, '069f72db-2157-43de-8e88-21661b518224');
-insert into restaurant_table (ID, SEATS, RESTAURANT_ID)
-values ('069f72db-2157-43de-8e88-21661b518245', 4, '069f72db-2157-43de-8e88-21661b518246');
-
-/*Reservation*/
-insert into reservation (ID, RESERVATION_FROM, RESERVATION_TO, CONFIRMED)
-values ('069f72db-2157-43de-8e88-21661b518230', '2008-01-01 10:00:01', '2008-01-02 11:00:01', true);
-
-/*Reservation to Tables*/
-insert into RESERVATION_RESTAURANT_TABLES (Reservation_ID, Restaurant_Tables_ID)
-values ('069f72db-2157-43de-8e88-21661b518230', '069f72db-2157-43de-8e88-21661b518228');
