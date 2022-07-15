@@ -4,6 +4,7 @@ import de.reservationbear.eist.db.entity.Reservation
 import de.reservationbear.eist.db.repository.ReservationRepository
 import de.reservationbear.eist.exceptionhandler.ApiException
 import net.fortuna.ical4j.model.Calendar
+import net.fortuna.ical4j.model.TimeZoneRegistryFactory
 import net.fortuna.ical4j.model.component.VEvent
 import net.fortuna.ical4j.model.property.ProdId
 import net.fortuna.ical4j.util.RandomUidGenerator
@@ -14,6 +15,7 @@ import java.time.Instant
 import java.time.ZoneId
 import java.time.temporal.ChronoUnit
 import java.util.*
+
 
 /**
  * A service to provide specific access to the reservation values in the database
@@ -97,8 +99,10 @@ class ReservationService(val db: ReservationRepository) {
             summary,
         )
 
+        val registry = TimeZoneRegistryFactory.getInstance().createRegistry()
         val calendar = Calendar()
             .withComponent(calendarEvent)
+            .withComponent(registry.getTimeZone("Europe/Berlin").vTimeZone)
             // add the from the specification required properties
             .withProperty(RandomUidGenerator().generateUid())
             .withProperty(ProdId("-//Eistbear Calender Event//iCal4j 1.0//EN"))
