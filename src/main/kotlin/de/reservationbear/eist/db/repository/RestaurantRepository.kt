@@ -141,11 +141,17 @@ interface RestaurantRepository : JpaRepository<Restaurant, UUID> {
                 "and (:priceCategory IS NULL or r.priceCategory = :priceCategory)" +
                 "and (:minimumAverageRating IS NULL or r.averageRating >= :minimumAverageRating)" +
                 "and (:numberOfVisitors IS NULL or t.seats >= :numberOfVisitors)" +
-                "and (:timeFrom IS NULL or :timeTo IS NULL or (t.id NOT IN " +
+                "and (:timeFrom IS NULL or :timeTo IS NULL " +
+                "or ((((FUNCTION('HOUR', :timeFrom) > FUNCTION('HOUR', r.openingHours.timeslotFrom)) " +
+                "or (FUNCTION('HOUR', :timeFrom) = FUNCTION('HOUR', r.openingHours.timeslotFrom) and FUNCTION('MINUTE', :timeFrom) >= FUNCTION('MINUTE', r.openingHours.timeslotFrom))) " +
+                "and ((FUNCTION('HOUR', :timeTo) < FUNCTION('HOUR', r.openingHours.timeslotTo)) " +
+                "or (FUNCTION('HOUR', :timeTo) = FUNCTION('HOUR', r.openingHours.timeslotTo) and FUNCTION('MINUTE', :timeTo) <= FUNCTION('MINUTE', r.openingHours.timeslotTo)))) " +
+                "and (t.id NOT IN " +
                 "(Select tx.id from Reservation rsx " +
                 "JOIN rsx.restaurantTables tx " +
                 "WHERE (rsx.reservationFrom <= :timeFrom and rsx.reservationTo >= :timeTo) or (rsx.reservationFrom < :timeFrom " +
-                "and rsx.reservationTo > :timeFrom) or (rsx.reservationFrom < :timeTo and rsx.reservationTo > :timeTo)))) " +
+                "and rsx.reservationTo > :timeFrom) or (rsx.reservationFrom < :timeTo and rsx.reservationTo > " +
+                ":timeTo))))) " +
                 "and (r.location IS NULL or :latitude IS NULL or :longitude IS NULL or :radius IS NULL or (" +
                 ":radius >= 6371  * FUNCTION('acos', " +
                 "(FUNCTION('cos', FUNCTION('radians', :latitude))) " +
