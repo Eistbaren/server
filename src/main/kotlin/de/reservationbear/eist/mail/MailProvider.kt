@@ -1,6 +1,7 @@
 //Source: https://www.youtube.com/watch?v=QwQuro7ekvc
-package de.reservationbear.eist.confirmationmail
+package de.reservationbear.eist.mail
 
+import de.reservationbear.eist.db.entity.Reservation
 import de.reservationbear.eist.service.ReservationService
 import lombok.AllArgsConstructor
 import org.slf4j.LoggerFactory
@@ -8,7 +9,6 @@ import org.springframework.mail.javamail.JavaMailSender
 import org.springframework.mail.javamail.MimeMessageHelper
 import org.springframework.scheduling.annotation.Async
 import org.springframework.stereotype.Service
-import java.util.*
 import javax.mail.MessagingException
 
 /**
@@ -16,7 +16,7 @@ import javax.mail.MessagingException
  */
 @Service
 @AllArgsConstructor
-class MailProvider(val mailSender: JavaMailSender, val reservationService: ReservationService) : MailSender {
+class MailProvider(val mailSender: JavaMailSender) : MailSender {
 
     companion object {
         private val LOGGER = LoggerFactory
@@ -32,7 +32,7 @@ class MailProvider(val mailSender: JavaMailSender, val reservationService: Reser
      */
     @Throws(IllegalStateException::class)
     @Async
-    override fun send(to: String?, email: String?, subject: String?, reservationUUID: UUID?) {
+    override fun send(to: String?, email: String?, subject: String?, reservation: Reservation?) {
         try {
             val mimeMessage = mailSender.createMimeMessage()
             val helper = MimeMessageHelper(mimeMessage, true, "utf-8")
@@ -40,8 +40,8 @@ class MailProvider(val mailSender: JavaMailSender, val reservationService: Reser
             helper.setTo(to!!)
             helper.setSubject(subject ?: "Info")
             helper.setFrom("reservations@reservation-bear.de", "Reservation-Bear.de")
-            if (reservationUUID != null) {
-                helper.addAttachment("reservation.ics", reservationService.getICSResource(reservationUUID))
+            if (reservation != null) {
+                helper.addAttachment("reservation.ics", ReservationService.getICS(reservation))
             }
             mailSender.send(mimeMessage)
         } catch (e: MessagingException) {

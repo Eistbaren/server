@@ -1,15 +1,9 @@
 package de.reservationbear.eist.db.repository
 
-import de.reservationbear.eist.db.entity.Comment
 import de.reservationbear.eist.db.entity.Reservation
-import org.springframework.data.domain.Page
-import org.springframework.data.domain.Pageable
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import java.sql.Timestamp
-import java.time.Instant
-import java.time.Instant.now
-import java.time.LocalDateTime
 import java.util.*
 
 /**
@@ -29,7 +23,21 @@ interface ReservationRepository : JpaRepository<Reservation, UUID> {
                 "WHERE r.confirmed <> true " +
                 "AND r.reservationFrom <= ?1 " +
                 "AND r.reservationFrom >= ?2 " +
-                "AND r.sendConfirmation <> true ",
+                "AND r.sendConfirmation <> true "
     )
     fun findAllReservations(from: Timestamp, to: Timestamp): List<Reservation>?
+
+    /**
+     * Searches after all reservations between from and to
+     * @param from      timestamp of beginning time (default: current time)
+     * @return          a list of reservations
+     */
+
+    @Query(
+        value = "SELECT r " +
+                "FROM Reservation r " +
+                "WHERE r.confirmed <> true " +
+                "AND r.reservationFrom <= ?1 "
+    )
+    fun findAllReservationsForRemove(from: Timestamp?): List<Reservation>?
 }

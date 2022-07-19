@@ -5076,13 +5076,3 @@ values ('069f72db-2157-43de-8e88-21661b518201', 100 * 2, 100 * 2, 95 * 2, 465 * 
 insert into restaurant_table(id, seats, restaurant_id, FLOOR_PLAN_ID)
 values ('069f72db-2157-43de-8e88-21661b518201', 4, '069f72db-2157-43de-8e88-21661b518200',
         '069f72db-2157-43de-8e88-21661b518201');
-
-
-insert into reservation(ID, CONFIRMED, RESERVATION_FROM, RESERVATION_TO, USER_EMAIL, USER_NAME)
-values ('069f72db-2157-43de-8e88-21661b518200', false,
-        parsedatetime('10-06-2022 13:00:00.000', 'dd-MM-yyyy hh:mm:ss.SS'),
-        parsedatetime('10-06-2022 13:30:00.000', 'dd-MM-yyyy hh:mm:ss.SS'), 'jonas.ladner@tum.de',
-        'LadnerJonas');
-
-insert into RESERVATION_RESTAURANT_TABLES(RESERVATION_ID, RESTAURANT_TABLES_ID)
-values ('069f72db-2157-43de-8e88-21661b518200', '069f72db-2157-43de-8e88-21661b518200');

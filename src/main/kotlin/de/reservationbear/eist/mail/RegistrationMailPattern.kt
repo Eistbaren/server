@@ -1,5 +1,5 @@
 //Source: https://www.youtube.com/watch?v=QwQuro7ekvc
-package de.reservationbear.eist.confirmationmail
+package de.reservationbear.eist.mail
 
 import de.reservationbear.eist.db.entity.Reservation
 import de.reservationbear.eist.db.type.RestaurantType
@@ -13,22 +13,20 @@ import java.net.URL
 class RegistrationMailPattern(val mailSender: MailSender) {
 
     /**
-     * Method that calls the mailSender.send method to send the mail
+     * Method that calls the mailSender.send method to send the mail.
+     * Mail sends the Reservation Confirmation
      *
      * @param mailAddress       Address for Mail
      * @param name              name of the recipient
+     * @param url           url for the dashboard
      * @param reservation       reservation
      */
     fun sendMail(mailAddress: String, name: String, url: URL, reservation: Reservation) {
-        //No such endpoint - do we want to approve mail addresses?
         val link: String = if (url.port == -1) {
             "${url.host}/reservation-details/${reservation.id}"
         } else {
             "${url.host + ":" + url.port}/reservation-details/${reservation.id}"
         }
-
-        //List of Emojis for Title
-        //val icons = arrayOf("🍚", "🥗", "🍕", "🍔", "🍝", "🍰", "🧇", "🌮", "🥙", "🍣", "🥗", "🍺", "🍹", "🍷")
 
         val type: RestaurantType =
             reservation.restaurantTables?.stream()?.findFirst()?.get()?.restaurant?.type ?: RestaurantType.GERMAN
@@ -37,7 +35,7 @@ class RegistrationMailPattern(val mailSender: MailSender) {
             mailAddress,
             buildEmail(name.split(" ")[0], link),
             "$icon Confirmation of your reservation (${reservation.id})",
-            reservation.id
+            reservation
         )
     }
 
