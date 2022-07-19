@@ -1,5 +1,5 @@
 //Source: https://www.youtube.com/watch?v=QwQuro7ekvc
-package de.reservationbear.eist.confirmationmail
+package de.reservationbear.eist.mail
 
 import java.util.*
 

@@ -1,7 +1,6 @@
 package de.reservationbear.eist.job
 
-import de.reservationbear.eist.confirmationmail.ConfirmationMailPattern
-import de.reservationbear.eist.confirmationmail.MailProvider
+import de.reservationbear.eist.mail.MailProvider
 import de.reservationbear.eist.db.entity.Reservation
 import de.reservationbear.eist.service.MailService
 import de.reservationbear.eist.service.ReservationService
@@ -10,8 +9,6 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.scheduling.annotation.EnableScheduling
 import org.springframework.scheduling.annotation.Scheduled
 import java.net.URL
-import java.sql.Timestamp
-import java.time.Instant
 import java.util.*
 import java.util.concurrent.TimeUnit
 

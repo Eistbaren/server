@@ -1,6 +1,7 @@
 package de.reservationbear.eist.service
 
 import de.reservationbear.eist.db.entity.Reservation
+import de.reservationbear.eist.db.entity.RestaurantTable
 import de.reservationbear.eist.db.repository.ReservationRepository
 import de.reservationbear.eist.exceptionhandler.ApiException
 import net.fortuna.ical4j.model.Calendar
@@ -9,25 +10,94 @@ import net.fortuna.ical4j.model.component.VEvent
 import net.fortuna.ical4j.model.property.ProdId
 import net.fortuna.ical4j.util.RandomUidGenerator
 import org.springframework.core.io.ByteArrayResource
+import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
+import java.net.URL
 import java.sql.Timestamp
 import java.time.Instant
 import java.time.ZoneId
 import java.time.temporal.ChronoUnit
 import java.util.*
+import java.util.regex.Pattern
+import java.util.stream.Collectors
 
 
 /**
  * A service to provide specific access to the reservation values in the database
  */
 @Service
-class ReservationService(val db: ReservationRepository) {
+class ReservationService(
+    val db: ReservationRepository,
+    val restaurantService: RestaurantService,
+    val mailService: MailService
+) {
     /**
      * Saves a reservation
      * @param reservation the reservation to save to the database
      * @return the saved reservation
      */
-    fun saveReservation(reservation: Reservation): Reservation = db.save(reservation)
+    fun saveReservation(reservation: Reservation): Reservation {
+
+
+        //Catch reservation with empty table
+        if (reservation.restaurantTables == null || reservation.restaurantTables.isEmpty()) {
+            throw ApiException("Tablelist cannot be null or error", 400)
+        }
+
+        //Catch reservation where due date is lower than 12 hours
+        if (reservation.reservationFrom < Timestamp.from(Instant.now().plus(12, ChronoUnit.HOURS))) {
+            throw ApiException("Reservation must be booked at least 12 hours before", 400)
+        }
+
+        //Catch reservation where to is greater then from
+        if (reservation.reservationFrom > reservation.reservationTo) {
+            throw ApiException("Reservation from cannot be greater than to", 400)
+        }
+
+        //Catch invalid name
+        if (reservation.userName.split(" ").size < 2) {
+            throw ApiException("Every name must contain a firstname and a lastname", 400)
+        }
+
+        //Catch invalid Email-Address
+        val regex = "^\\S+@\\S+\\.\\S+\$"
+        val matcher = Pattern.compile(regex).matcher(reservation.userEmail)
+        if (!matcher.matches()) {
+            throw ApiException("E-Mail is invalid", 400)
+        }
+
+        //Catch if table is booked at the same time
+        val restaurantId = reservation.restaurantTables.stream().findFirst().get().restaurant.id
+        val reservedTables: HashSet<RestaurantTable>? = restaurantService.findReservationsInTimeframeOfRestaurant(
+            restaurantId,
+            reservation.reservationFrom,
+            reservation.reservationTo,
+            Pageable.unpaged()
+        )
+            ?.stream()
+            ?.map { t -> t?.restaurantTables?.stream() }
+            ?.flatMap { t -> t }
+            ?.collect(Collectors.toSet()) as HashSet<RestaurantTable>?
+
+        if (reservedTables != null) {
+            for (table in reservedTables) {
+                if (reservation.restaurantTables.contains(table)) {
+                    throw ApiException("Table is already reserved", 400)
+                }
+            }
+        }
+
+        val insertedReservation = db.save(reservation)
+
+        mailService.sendRegistrationMail(
+            insertedReservation.userEmail,
+            insertedReservation.userName,
+            URL(insertedReservation.urlFromRequest),
+            insertedReservation
+        )
+
+        return insertedReservation
+    }
 
     /**
      * Returns the reservation to search after
@@ -44,6 +114,10 @@ class ReservationService(val db: ReservationRepository) {
 
     fun confirmReservation(uuid: UUID, confirmationToken: UUID): Reservation {
         val res = db.getById(uuid)
+        //Catch reservation where due date is lower than 12 hours and cannot be canceled anymore
+        if (res.reservationFrom < Timestamp.from(Instant.now().plus(12, ChronoUnit.HOURS))) {
+            throw ApiException("Reservation cannot be confirmed anymore", 400)
+        }
         if (res.confirmationToken == null) {
             throw ApiException("Confirmation token is missing", 400)
         }
@@ -64,7 +138,19 @@ class ReservationService(val db: ReservationRepository) {
      */
     fun deleteReservation(uuid: UUID): Reservation {
         val res = db.getById(uuid)
+
+        //Catch reservation where due date is lower than 12 hours and cannot be canceled anymore
+        if (res.reservationFrom < Timestamp.from(Instant.now().plus(12, ChronoUnit.HOURS)) && res.confirmed) {
+            throw ApiException("Reservation cannot be canceled anymore", 400)
+        }
+
         db.deleteById(uuid)
+        mailService.sendCancellationMail(
+            res.userEmail,
+            "Reservation deleted",
+            "You cancelled your reservation",
+            res
+        )
         return res
     }
 

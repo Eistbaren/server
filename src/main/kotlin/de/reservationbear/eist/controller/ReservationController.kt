@@ -31,8 +31,7 @@ import javax.servlet.http.HttpServletRequest
 class ReservationController(
     val reservationService: ReservationService,
     val restaurantService: RestaurantService,
-    val tableService: TableService,
-    val mailService: MailService
+    val tableService: TableService
 ) {
 
     /**
@@ -71,64 +70,7 @@ class ReservationController(
             urlFromRequest = url
         )
 
-        //Catch reservation with empty table
-        if (reservation.restaurantTables == null || reservation.restaurantTables.isEmpty()) {
-            throw ApiException("Tablelist cannot be null or error", 400)
-        }
-
-        //Catch reservation where due date is lower than 12 hours
-        if (reservation.reservationFrom < Timestamp.from(Instant.now().plus(12, ChronoUnit.HOURS))) {
-            throw ApiException("Reservation must be booked at least 12 hours before", 400)
-        }
-
-        //Catch reservation where to is greater then from
-        if (reservation.reservationFrom > reservation.reservationTo) {
-            throw ApiException("Reservation from cannot be greater than to", 400)
-        }
-
-        //Catch invalid name
-        if(reservation.userName.split(" ").size < 2){
-            throw ApiException("Every name must contain a firstname and a lastname", 400)
-        }
-
-        //Catch invalid Email-Address
-        val regex = "^\\S+@\\S+\\.\\S+\$"
-        val matcher = Pattern.compile(regex).matcher(reservation.userEmail)
-        if (!matcher.matches()) {
-            throw ApiException("E-Mail is invalid", 400)
-        }
-
-        //Catch if table is booked at the same time
-        val restaurantId = reservation.restaurantTables.stream().findFirst().get().restaurant.id
-        val reservedTables: HashSet<RestaurantTable>? = restaurantService.findReservationsInTimeframeOfRestaurant(
-            restaurantId,
-            reservation.reservationFrom,
-            reservation.reservationTo,
-            unpaged()
-        )
-            ?.stream()
-            ?.map { t -> t?.restaurantTables?.stream() }
-            ?.flatMap { t -> t }
-            ?.collect(Collectors.toSet()) as HashSet<RestaurantTable>?
-
-        if (reservedTables != null) {
-            for (table in reservedTables) {
-                if (reservation.restaurantTables.contains(table)) {
-                    throw ApiException("Table is already reserved", 400)
-                }
-            }
-        }
-
-        reservationService.saveReservation(reservation)
-
-        val insertedReservation: Reservation = reservation.id?.let { reservationService.getReservation(it) }!!
-
-        mailService.sendRegistrationMail(
-            insertedReservation.userEmail,
-            insertedReservation.userName,
-            URL(insertedReservation.urlFromRequest),
-            insertedReservation
-        )
+        val insertedReservation: Reservation = reservationService.saveReservation(reservation)
 
         return ResponseEntity.ok(
             ReservationMapper(
@@ -194,11 +136,6 @@ class ReservationController(
 
         val patchedReservation: Reservation = reservationService.confirmReservation(id, confirmationToken)
 
-        //Catch reservation where due date is lower than 12 hours and cannot be canceled anymore
-        if (patchedReservation.reservationFrom < Timestamp.from(Instant.now().plus(12, ChronoUnit.HOURS))) {
-            throw ApiException("Reservation cannot be confirmed anymore", 400)
-        }
-
         return ResponseEntity.ok(
             ReservationMapper(
                 patchedReservation.id,
@@ -229,11 +166,6 @@ class ReservationController(
     ): ResponseEntity<ReservationMapper> {
 
         val removedReservation: Reservation = reservationService.deleteReservation(id)
-
-        //Catch reservation where due date is lower than 12 hours and cannot be canceled anymore
-        if (removedReservation.reservationFrom < Timestamp.from(Instant.now().plus(12, ChronoUnit.HOURS))) {
-            throw ApiException("Reservation cannot be canceled anymore", 400)
-        }
 
         return ResponseEntity.ok(
             ReservationMapper(

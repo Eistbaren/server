@@ -1,5 +1,5 @@
 //Source: https://www.youtube.com/watch?v=QwQuro7ekvc
-package de.reservationbear.eist.confirmationmail
+package de.reservationbear.eist.mail
 
 import org.springframework.stereotype.Service
 import java.net.URL
@@ -13,9 +13,12 @@ class ConfirmationMailPattern(val mailSender: MailSender) {
 
     /**
      * Method that calls the mailSender.send method to send the mail
+     * It sends the mail to finally confirm the mail
      *
      * @param mailAddress   Address for Mail
      * @param name          name of the recipient
+     * @param url           url for the dashboard
+     * @param reservationId id of the reservation
      * @param token         token for confirm a reservation
      */
     fun sendMail(mailAddress: String, name: String, url: URL, reservationId: UUID, token: UUID) {
