@@ -1,7 +1,7 @@
 //Source: https://www.youtube.com/watch?v=QwQuro7ekvc
 package de.reservationbear.eist.mail
 
-import java.util.*
+import de.reservationbear.eist.db.entity.Reservation
 
 /**
  * Interface for the Mail-Sender - if we want to switch the Sender implementation it can be done over the interface
@@ -14,5 +14,5 @@ interface MailSender {
      * @param email     E-Mail text
      * @param subject   title of mail
      */
-    fun send(to: String?, email: String?, subject: String?, reservationUUID: UUID?)
+    fun send(to: String?, email: String?, subject: String?, reservation: Reservation?)
 }

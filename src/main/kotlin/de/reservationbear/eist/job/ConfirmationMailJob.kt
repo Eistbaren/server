@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit
  */
 @Configuration
 @EnableScheduling
-class MailJob(val reservationService: ReservationService, val mailService: MailService) {
+class ConfirmationMailJob(val reservationService: ReservationService, val mailService: MailService) {
 
     companion object {
         private val LOGGER = LoggerFactory
@@ -27,13 +27,13 @@ class MailJob(val reservationService: ReservationService, val mailService: MailS
 
     /**
      * Crawls all reservations from DB and send mails to the ones, which due date is in one day.
-     * Checks every ten minutes
+     * Checks every minute
      **/
     @Scheduled(fixedRate = 1, timeUnit = TimeUnit.MINUTES)
     fun crawlDataBaseForSendingConfirmationMail() {
         val reservation: List<Reservation>? =
             reservationService.getReservationsForConfirmation()
-        LOGGER.info("Database is crawled to send confirmation mails: ${reservation?.size ?: 0} reservation/s where found")
+        LOGGER.debug("Database is crawled to send confirmation mails: ${reservation?.size ?: 0} reservation/s where found")
         if (reservation != null) {
             for (element in reservation) {
                 try {
@@ -42,7 +42,7 @@ class MailJob(val reservationService: ReservationService, val mailService: MailS
                         element.userEmail,
                         element.userName,
                         URL(element.urlFromRequest),
-                        element.id!!,
+                        element,
                         confirmationToken
                     )
                     element.confirmationToken = confirmationToken

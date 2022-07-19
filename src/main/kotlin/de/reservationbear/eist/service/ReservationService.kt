@@ -136,7 +136,7 @@ class ReservationService(
      * @param uuid uuid of the reservation
      * @return the hopefully deleted reservation
      */
-    fun deleteReservation(uuid: UUID): Reservation {
+    fun deleteReservation(uuid: UUID, cancellationReason: String): Reservation {
         val res = db.getById(uuid)
 
         //Catch reservation where due date is lower than 12 hours and cannot be canceled anymore
@@ -147,8 +147,8 @@ class ReservationService(
         db.deleteById(uuid)
         mailService.sendCancellationMail(
             res.userEmail,
-            "Reservation deleted",
-            "You cancelled your reservation",
+            res.userName,
+            cancellationReason,
             res
         )
         return res
@@ -164,37 +164,45 @@ class ReservationService(
         Timestamp.from(Instant.now().plus(12, ChronoUnit.HOURS))
     )
 
-    /**
-     * Returns a resource (ICS File) from the reservation with the given id
-     *
-     * @param id id of the reservation
-     * @return ICS-Resource
-     */
-    fun getICSResource(id: UUID): ByteArrayResource {
-        val reservation: Reservation = getReservation(id)
+    fun getReservationsForDeletion(): List<Reservation>? = db.findAllReservationsForRemove(Timestamp.from(Instant.now().plus(12, ChronoUnit.HOURS)))
 
-        val summary: String = if (reservation.restaurantTables == null || reservation.restaurantTables.isEmpty()) {
-            "Reservation: table and restaurant missing"
-        } else {
-            "Reservation: " + (reservation.restaurantTables.first().restaurant.name)
+    fun getICSResource(uuid: UUID) : ByteArrayResource {
+        val reservation: Reservation = getReservation(uuid)
+        return getICS(reservation)
+    }
+
+    companion object {
+        /**
+         * Returns a resource (ICS File) from the reservation with the given id
+         *
+         * @param reservation   the reservation where you want to get the ICS File from
+         * @return              ICS-Resource
+         */
+        fun getICS(reservation: Reservation): ByteArrayResource {
+
+            val summary: String = if (reservation.restaurantTables == null || reservation.restaurantTables.isEmpty()) {
+                "Reservation: table and restaurant missing"
+            } else {
+                "Reservation: " + (reservation.restaurantTables.first().restaurant.name)
+            }
+
+            val calendarEvent = VEvent(
+                reservation.reservationFrom.toLocalDateTime().atZone(ZoneId.of("Europe/Berlin")),
+                reservation.reservationTo.toLocalDateTime().atZone(ZoneId.of("Europe/Berlin")),
+                summary,
+            )
+
+            val registry = TimeZoneRegistryFactory.getInstance().createRegistry()
+            val calendar = Calendar()
+                .withComponent(calendarEvent)
+                .withComponent(registry.getTimeZone("Europe/Berlin").vTimeZone)
+                // add the from the specification required properties
+                .withProperty(RandomUidGenerator().generateUid())
+                .withProperty(ProdId("-//Eistbear Calender Event//iCal4j 1.0//EN"))
+                .withDefaults()
+
+            val calendarByte = calendar.toString().toByteArray()
+            return ByteArrayResource(calendarByte)
         }
-
-        val calendarEvent = VEvent(
-            reservation.reservationFrom.toLocalDateTime().atZone(ZoneId.of("Europe/Berlin")),
-            reservation.reservationTo.toLocalDateTime().atZone(ZoneId.of("Europe/Berlin")),
-            summary,
-        )
-
-        val registry = TimeZoneRegistryFactory.getInstance().createRegistry()
-        val calendar = Calendar()
-            .withComponent(calendarEvent)
-            .withComponent(registry.getTimeZone("Europe/Berlin").vTimeZone)
-            // add the from the specification required properties
-            .withProperty(RandomUidGenerator().generateUid())
-            .withProperty(ProdId("-//Eistbear Calender Event//iCal4j 1.0//EN"))
-            .withDefaults()
-
-        val calendarByte = calendar.toString().toByteArray()
-        return ByteArrayResource(calendarByte)
     }
 }

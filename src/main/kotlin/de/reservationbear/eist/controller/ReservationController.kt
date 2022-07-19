@@ -4,22 +4,14 @@ import de.reservationbear.eist.controller.responseMapper.ConfirmationMapper
 import de.reservationbear.eist.controller.responseMapper.ReservationMapper
 import de.reservationbear.eist.controller.responseMapper.TimeslotMapper
 import de.reservationbear.eist.db.entity.Reservation
-import de.reservationbear.eist.db.entity.RestaurantTable
-import de.reservationbear.eist.exceptionhandler.ApiException
-import de.reservationbear.eist.service.MailService
 import de.reservationbear.eist.service.ReservationService
 import de.reservationbear.eist.service.RestaurantService
 import de.reservationbear.eist.service.TableService
 import org.springframework.core.io.Resource
-import org.springframework.data.domain.Pageable.unpaged
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
-import java.net.URL
 import java.sql.Timestamp
-import java.time.Instant
-import java.time.temporal.ChronoUnit
 import java.util.*
-import java.util.regex.Pattern
 import java.util.stream.Collectors
 import javax.servlet.http.HttpServletRequest
 
@@ -165,7 +157,8 @@ class ReservationController(
         @PathVariable("id") id: UUID
     ): ResponseEntity<ReservationMapper> {
 
-        val removedReservation: Reservation = reservationService.deleteReservation(id)
+        val removedReservation: Reservation =
+            reservationService.deleteReservation(id, "\"Reservation has been canceled by user")
 
         return ResponseEntity.ok(
             ReservationMapper(

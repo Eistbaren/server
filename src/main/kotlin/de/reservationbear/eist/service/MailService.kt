@@ -40,22 +40,22 @@ class MailService(
      *
      * @param userEmail         mail address from the user
      * @param userName          name of the user
-     * @param reservationId     id of the corresponding reservation
+     * @param reservation       the corresponding reservation
      * @param confirmationToken confirmation token for confirming the mail
      */
     fun sendConfirmationMail(
         userEmail: String,
         userName: String,
         url: URL,
-        reservationId: UUID,
+        reservation: Reservation,
         confirmationToken: UUID
     ) {
         confirmationMailPattern.sendMail(
             userEmail,
             userName,
             url,
-            reservationId,
-            confirmationToken,
+            reservation,
+            confirmationToken
         )
     }
 

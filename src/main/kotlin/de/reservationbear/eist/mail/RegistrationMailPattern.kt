@@ -22,15 +22,11 @@ class RegistrationMailPattern(val mailSender: MailSender) {
      * @param reservation       reservation
      */
     fun sendMail(mailAddress: String, name: String, url: URL, reservation: Reservation) {
-        //No such endpoint - do we want to approve mail addresses?
         val link: String = if (url.port == -1) {
             "${url.host}/reservation-details/${reservation.id}"
         } else {
             "${url.host + ":" + url.port}/reservation-details/${reservation.id}"
         }
-
-        //List of Emojis for Title
-        //val icons = arrayOf("🍚", "🥗", "🍕", "🍔", "🍝", "🍰", "🧇", "🌮", "🥙", "🍣", "🥗", "🍺", "🍹", "🍷")
 
         val type: RestaurantType =
             reservation.restaurantTables?.stream()?.findFirst()?.get()?.restaurant?.type ?: RestaurantType.GERMAN
@@ -39,7 +35,7 @@ class RegistrationMailPattern(val mailSender: MailSender) {
             mailAddress,
             buildEmail(name.split(" ")[0], link),
             "$icon Confirmation of your reservation (${reservation.id})",
-            reservation.id
+            reservation
         )
     }
 

@@ -26,7 +26,7 @@ class CancellationMailPattern(val mailSender: MailSender) {
             mailAddress,
             buildEmail(name.split(" ")[0], cancellationReason),
             "❌ Reservation cancellation (${reservation.id})",
-            reservation.id
+            reservation
         )
     }
 

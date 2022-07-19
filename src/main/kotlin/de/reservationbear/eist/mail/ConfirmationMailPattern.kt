@@ -1,6 +1,7 @@
 //Source: https://www.youtube.com/watch?v=QwQuro7ekvc
 package de.reservationbear.eist.mail
 
+import de.reservationbear.eist.db.entity.Reservation
 import org.springframework.stereotype.Service
 import java.net.URL
 import java.util.*
@@ -18,21 +19,21 @@ class ConfirmationMailPattern(val mailSender: MailSender) {
      * @param mailAddress   Address for Mail
      * @param name          name of the recipient
      * @param url           url for the dashboard
-     * @param reservationId id of the reservation
+     * @param reservation   reservation
      * @param token         token for confirm a reservation
      */
-    fun sendMail(mailAddress: String, name: String, url: URL, reservationId: UUID, token: UUID) {
+    fun sendMail(mailAddress: String, name: String, url: URL, reservation: Reservation, token: UUID) {
         //Link for confirmation side
         val link: String = if (url.port == -1) {
-            "${url.host}/reservation-details/${reservationId}?confirmationToken=${token}"
+            "${url.host}/reservation-details/${reservation.id}?confirmationToken=${token}"
         } else {
-            "${url.host + ":" + url.port}/reservation-details/${reservationId}?confirmationToken=${token}"
+            "${url.host + ":" + url.port}/reservation-details/${reservation.id}?confirmationToken=${token}"
         }
         mailSender.send(
             mailAddress,
             buildEmail(name.split(" ")[0], link),
-            "✅ Confirmation of your reservation (${reservationId})",
-            reservationId
+            "✅ Confirmation of your reservation (${reservation.id})",
+            reservation
         )
     }
 
