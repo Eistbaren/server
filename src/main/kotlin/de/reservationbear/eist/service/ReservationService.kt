@@ -62,11 +62,16 @@ class ReservationService(
         val restaurant = reservation.restaurantTables.stream().findFirst().get().restaurant
 
         //Catch reservation outside of business hours
+
         if (reservation.reservationFrom.toLocalDateTime().hour * 60 + reservation.reservationFrom.toLocalDateTime().minute <
             restaurant.openingHours!!.timeslotFrom.toLocalDateTime().hour * 60 + restaurant.openingHours.timeslotFrom.toLocalDateTime().minute ||
             reservation.reservationFrom.toLocalDateTime().hour * 60 + reservation.reservationFrom.toLocalDateTime().minute >
-            restaurant.openingHours.timeslotTo.toLocalDateTime().hour * 60 + restaurant.openingHours.timeslotTo.toLocalDateTime().minute ||
-            reservation.reservationTo.toLocalDateTime().hour * 60 + reservation.reservationTo.toLocalDateTime().minute <
+            restaurant.openingHours.timeslotTo.toLocalDateTime().hour * 60 + restaurant.openingHours.timeslotTo.toLocalDateTime().minute
+        ) {
+            throw ApiException("Reservation cannot be outside of the opening hours", 400)
+        }
+
+        if (reservation.reservationTo.toLocalDateTime().hour * 60 + reservation.reservationTo.toLocalDateTime().minute <
             restaurant.openingHours.timeslotFrom.toLocalDateTime().hour * 60 + restaurant.openingHours.timeslotFrom.toLocalDateTime().minute ||
             reservation.reservationTo.toLocalDateTime().hour * 60 + reservation.reservationTo.toLocalDateTime().minute >
             restaurant.openingHours.timeslotTo.toLocalDateTime().hour * 60 + restaurant.openingHours.timeslotTo.toLocalDateTime().minute
@@ -179,9 +184,20 @@ class ReservationService(
         Timestamp.from(Instant.now().plus(12, ChronoUnit.HOURS))
     )
 
+    /**
+     * Returns all reservations that are not confirmed yet and are in the next 12 hours
+     *
+     * @return a list of reservations
+     */
     fun getReservationsForDeletion(): List<Reservation>? =
         db.findAllReservationsForRemove(Timestamp.from(Instant.now().plus(12, ChronoUnit.HOURS)))
 
+    /**
+     * Returns a resource (ICS File) from the reservation with the given id
+     *
+     * @param uuid id of the reservation
+     * @return ICS-Resource
+     */
     fun getICSResource(uuid: UUID): ByteArrayResource {
         val reservation: Reservation = getReservation(uuid)
         return getICS(reservation)
