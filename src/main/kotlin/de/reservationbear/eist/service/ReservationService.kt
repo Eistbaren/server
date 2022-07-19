@@ -37,7 +37,6 @@ class ReservationService(
      * @return the saved reservation
      */
     fun saveReservation(reservation: Reservation): Reservation {
-
         //Catch reservation with empty table
         if (reservation.restaurantTables == null || reservation.restaurantTables.isEmpty()) {
             throw ApiException("Tablelist cannot be null or error", 400)
@@ -105,15 +104,17 @@ class ReservationService(
             }
         }
 
+        val exists: Boolean = reservation.id?.let{db.existsById(it)} ?: false
         val insertedReservation = db.save(reservation)
 
-        mailService.sendRegistrationMail(
-            insertedReservation.userEmail,
-            insertedReservation.userName,
-            URL(insertedReservation.urlFromRequest),
-            insertedReservation
-        )
-
+        if(!exists){
+            mailService.sendRegistrationMail(
+                insertedReservation.userEmail,
+                insertedReservation.userName,
+                URL(insertedReservation.urlFromRequest),
+                insertedReservation
+            )
+        }
         return insertedReservation
     }
 
