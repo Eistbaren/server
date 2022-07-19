@@ -38,7 +38,6 @@ class ReservationService(
      */
     fun saveReservation(reservation: Reservation): Reservation {
 
-
         //Catch reservation with empty table
         if (reservation.restaurantTables == null || reservation.restaurantTables.isEmpty()) {
             throw ApiException("Tablelist cannot be null or error", 400)
@@ -62,7 +61,6 @@ class ReservationService(
         val restaurant = reservation.restaurantTables.stream().findFirst().get().restaurant
 
         //Catch reservation outside of business hours
-
         if (reservation.reservationFrom.toLocalDateTime().hour * 60 + reservation.reservationFrom.toLocalDateTime().minute <
             restaurant.openingHours!!.timeslotFrom.toLocalDateTime().hour * 60 + restaurant.openingHours.timeslotFrom.toLocalDateTime().minute ||
             reservation.reservationFrom.toLocalDateTime().hour * 60 + reservation.reservationFrom.toLocalDateTime().minute >
