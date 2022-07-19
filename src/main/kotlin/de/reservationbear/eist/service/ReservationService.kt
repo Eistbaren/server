@@ -37,54 +37,17 @@ class ReservationService(
      * @return the saved reservation
      */
     fun saveReservation(reservation: Reservation): Reservation {
-        //Catch reservation with empty table
-        if (reservation.restaurantTables == null || reservation.restaurantTables.isEmpty()) {
-            throw ApiException("Tablelist cannot be null or error", 400)
-        }
+        checkValidityOfReservationToSave(reservation);
 
-        //Catch reservation where due date is lower than 12 hours
-        if (reservation.reservationFrom < Timestamp.from(Instant.now().plus(12, ChronoUnit.HOURS))) {
-            throw ApiException("Reservation must be booked at least 12 hours before", 400)
-        }
-
-        //Catch reservation where to is greater then from
-        if (reservation.reservationFrom > reservation.reservationTo) {
-            throw ApiException("Reservation from cannot be greater than to", 400)
-        }
-
-        //Catch invalid name
-        if (reservation.userName.split(" ").size < 2) {
-            throw ApiException("Every name must contain a firstname and a lastname", 400)
-        }
-
-        val restaurant = reservation.restaurantTables.stream().findFirst().get().restaurant
-
-        //Catch reservation outside of business hours
-        if (reservation.reservationFrom.toLocalDateTime().hour * 60 + reservation.reservationFrom.toLocalDateTime().minute <
-            restaurant.openingHours!!.timeslotFrom.toLocalDateTime().hour * 60 + restaurant.openingHours.timeslotFrom.toLocalDateTime().minute ||
-            reservation.reservationFrom.toLocalDateTime().hour * 60 + reservation.reservationFrom.toLocalDateTime().minute >
-            restaurant.openingHours.timeslotTo.toLocalDateTime().hour * 60 + restaurant.openingHours.timeslotTo.toLocalDateTime().minute
-        ) {
-            throw ApiException("Reservation cannot be outside of the opening hours", 400)
-        }
-
-        if (reservation.reservationTo.toLocalDateTime().hour * 60 + reservation.reservationTo.toLocalDateTime().minute <
-            restaurant.openingHours.timeslotFrom.toLocalDateTime().hour * 60 + restaurant.openingHours.timeslotFrom.toLocalDateTime().minute ||
-            reservation.reservationTo.toLocalDateTime().hour * 60 + reservation.reservationTo.toLocalDateTime().minute >
-            restaurant.openingHours.timeslotTo.toLocalDateTime().hour * 60 + restaurant.openingHours.timeslotTo.toLocalDateTime().minute
-        ) {
-            throw ApiException("Reservation cannot be outside of the opening hours", 400)
-        }
-
-        //Catch invalid Email-Address
+        // Catch invalid Email-Address
         val regex = "^\\S+@\\S+\\.\\S+\$"
         val matcher = Pattern.compile(regex).matcher(reservation.userEmail)
         if (!matcher.matches()) {
             throw ApiException("E-Mail is invalid", 400)
         }
 
-        //Catch if table is booked at the same time
-        val restaurantId = reservation.restaurantTables.stream().findFirst().get().restaurant.id
+        // Catch if table is booked at the same time
+        val restaurantId = reservation.restaurantTables!!.stream().findFirst().get().restaurant.id
         val reservedTables: HashSet<RestaurantTable>? = restaurantService.findReservationsInTimeframeOfRestaurant(
             restaurantId,
             reservation.reservationFrom,
@@ -98,16 +61,16 @@ class ReservationService(
 
         if (reservedTables != null) {
             for (table in reservedTables) {
-                if (reservation.restaurantTables.contains(table)) {
+                if (reservation.restaurantTables!!.contains(table)) {
                     throw ApiException("Table is already reserved", 400)
                 }
             }
         }
 
-        val exists: Boolean = reservation.id?.let{db.existsById(it)} ?: false
+        val exists: Boolean = reservation.id?.let { db.existsById(it) } ?: false
         val insertedReservation = db.save(reservation)
 
-        if(!exists){
+        if (!exists) {
             mailService.sendRegistrationMail(
                 insertedReservation.userEmail,
                 insertedReservation.userName,
@@ -116,6 +79,43 @@ class ReservationService(
             )
         }
         return insertedReservation
+    }
+
+    private fun checkValidityOfReservationToSave(reservation: Reservation) {
+        if (reservation.restaurantTables == null || reservation.restaurantTables.isEmpty())
+            throw ApiException("Tablelist cannot be null or error", 400)
+
+
+        // Catch reservation where due date is lower than 12 hours
+        if (reservation.reservationFrom < Timestamp.from(Instant.now().plus(12, ChronoUnit.HOURS)))
+            throw ApiException("Reservation must be booked at least 12 hours before", 400)
+
+        if (reservation.reservationFrom > reservation.reservationTo)
+            throw ApiException("Reservation from cannot be greater than to", 400)
+
+
+        // Catch invalid name
+        if (reservation.userName.split(" ").size < 2)
+            throw ApiException("Every name must contain a firstname and a lastname", 400)
+
+        val restaurant = reservation.restaurantTables.stream().findFirst().get().restaurant
+
+        // Catch reservation outside of business hours
+        if (reservation.reservationFrom.toLocalDateTime().hour * 60 + reservation.reservationFrom.toLocalDateTime().minute <
+            restaurant.openingHours!!.timeslotFrom.toLocalDateTime().hour * 60 + restaurant.openingHours.timeslotFrom.toLocalDateTime().minute ||
+            reservation.reservationFrom.toLocalDateTime().hour * 60 + reservation.reservationFrom.toLocalDateTime().minute >
+            restaurant.openingHours.timeslotTo.toLocalDateTime().hour * 60 + restaurant.openingHours.timeslotTo.toLocalDateTime().minute
+        )
+            throw ApiException("Reservation cannot be outside of the opening hours", 400)
+
+
+        if (reservation.reservationTo.toLocalDateTime().hour * 60 + reservation.reservationTo.toLocalDateTime().minute <
+            restaurant.openingHours.timeslotFrom.toLocalDateTime().hour * 60 + restaurant.openingHours.timeslotFrom.toLocalDateTime().minute ||
+            reservation.reservationTo.toLocalDateTime().hour * 60 + reservation.reservationTo.toLocalDateTime().minute >
+            restaurant.openingHours.timeslotTo.toLocalDateTime().hour * 60 + restaurant.openingHours.timeslotTo.toLocalDateTime().minute
+        ) {
+            throw ApiException("Reservation cannot be outside of the opening hours", 400)
+        }
     }
 
     /**
