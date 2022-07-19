@@ -59,6 +59,21 @@ class ReservationService(
             throw ApiException("Every name must contain a firstname and a lastname", 400)
         }
 
+        val restaurant = reservation.restaurantTables.stream().findFirst().get().restaurant
+
+        //Catch reservation outside of business hours
+        if (reservation.reservationFrom.toLocalDateTime().hour * 60 + reservation.reservationFrom.toLocalDateTime().minute <
+            restaurant.openingHours!!.timeslotFrom.toLocalDateTime().hour * 60 + restaurant.openingHours.timeslotFrom.toLocalDateTime().minute ||
+            reservation.reservationFrom.toLocalDateTime().hour * 60 + reservation.reservationFrom.toLocalDateTime().minute >
+            restaurant.openingHours.timeslotTo.toLocalDateTime().hour * 60 + restaurant.openingHours.timeslotTo.toLocalDateTime().minute ||
+            reservation.reservationTo.toLocalDateTime().hour * 60 + reservation.reservationTo.toLocalDateTime().minute <
+            restaurant.openingHours.timeslotFrom.toLocalDateTime().hour * 60 + restaurant.openingHours.timeslotFrom.toLocalDateTime().minute ||
+            reservation.reservationTo.toLocalDateTime().hour * 60 + reservation.reservationTo.toLocalDateTime().minute >
+            restaurant.openingHours.timeslotTo.toLocalDateTime().hour * 60 + restaurant.openingHours.timeslotTo.toLocalDateTime().minute
+        ) {
+            throw ApiException("Reservation cannot be outside of the opening hours", 400)
+        }
+
         //Catch invalid Email-Address
         val regex = "^\\S+@\\S+\\.\\S+\$"
         val matcher = Pattern.compile(regex).matcher(reservation.userEmail)
@@ -164,9 +179,10 @@ class ReservationService(
         Timestamp.from(Instant.now().plus(12, ChronoUnit.HOURS))
     )
 
-    fun getReservationsForDeletion(): List<Reservation>? = db.findAllReservationsForRemove(Timestamp.from(Instant.now().plus(12, ChronoUnit.HOURS)))
+    fun getReservationsForDeletion(): List<Reservation>? =
+        db.findAllReservationsForRemove(Timestamp.from(Instant.now().plus(12, ChronoUnit.HOURS)))
 
-    fun getICSResource(uuid: UUID) : ByteArrayResource {
+    fun getICSResource(uuid: UUID): ByteArrayResource {
         val reservation: Reservation = getReservation(uuid)
         return getICS(reservation)
     }
