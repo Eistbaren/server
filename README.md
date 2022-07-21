@@ -13,5 +13,35 @@
   </a>
 </p>
 
-Server of the Reservation-Bear. 🐻‍❄️  
-Hosted at [api.reservation-bear.de](https://api.reservation-bear.de).
+Server of the Reservation-Bear. 🐻‍❄️
+Hosted at [reservation-bear.de](https://reservation-bear.de).
+
+
+## Run server
+
+Choose one of these options and then the server should be running under http://localhost:8080
+
+#### Run with docker-compose (recommended)
+
+```sh
+# To build locally use --build instead of --no-build
+docker-compose up --no-build
+```
+
+#### Run image with docker
+```sh
+docker run -p 8080:8080 ghcr.io/eistbaren/server:latest
+```
+
+#### Run using gradle
+
+```sh
+./gradlew bootRun
+```
+
+#### Build jar using gradle and run jar
+
+```sh
+./gradlew bootJar
+java -jar build/libs/eist-0.0.1-SNAPSHOT.jar
+```
