@@ -79,9 +79,12 @@ class StaticContentFilter : Filter {
         } else if (isServerFile) {
             resourceToResponse(path.removePrefix("/serverFile/"), response)
         } else if (isH2Console) {
-            filterChain.doFilter(request, response);
+            filterChain.doFilter(request, response)
         } else if (isClientFile) {
             path = path.removePrefix("/")
+            if (path.endsWith(".svg")) {
+                response.contentType = "image/svg+xml"
+            }
             resourceToResponse("static/dist/$path", response)
         }
         // Handle '/'-case
