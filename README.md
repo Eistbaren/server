@@ -16,7 +16,6 @@
 Server of the Reservation-Bear. 🐻‍❄️
 Hosted at [reservation-bear.de](https://reservation-bear.de).
 
-
 ## Run server
 
 Choose one of these options and then the server should be running under http://localhost:8080
