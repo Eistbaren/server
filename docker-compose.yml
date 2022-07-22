@@ -1,6 +1,8 @@
 version: "3"
 services:
   reservation-bear:
+    image: ghcr.io/eistbaren/server:latest
+    platform: linux/amd64
     build:
       context: .
     ports: 
