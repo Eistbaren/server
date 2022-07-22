@@ -68,10 +68,10 @@ class ReservationService(
             }
         }
 
-        val reservationEmail = db.findById(reservation.id?: UUID.randomUUID())
+        val reservationEmailAlreadyInDatabase = db.findById(reservation.id?: UUID.randomUUID())
 
         try {
-            if (reservationEmail.isEmpty) {
+            if (reservationEmailAlreadyInDatabase.isEmpty) {
                 mailService.sendRegistrationMail(
                     reservation.userEmail,
                     reservation.userName,
@@ -80,7 +80,7 @@ class ReservationService(
                 )
             }
         } catch (e: AuthenticationFailedException) {
-            throw ApiException("Could not send registration mail - something seems wrong with your Mail-Settings", 500)
+            throw ApiException("Could not send registration mail - invalid mail-settings", 500)
         }
 
         return db.save(reservation)
