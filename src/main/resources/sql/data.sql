@@ -5031,7 +5031,7 @@ values ('069f72db-2157-43de-8e88-21661b518512', '069f72db-2157-43de-8e88-21661b5
 insert into comment(rating, comment, name, RESTAURANT_ID)
 values (5, 'The chicken was stunning! Would visit again.', 'Jack', '069f72db-2157-43de-8e88-21661b518200');
 insert into comment(rating, comment, name, RESTAURANT_ID)
-values (3, 'The lasagna was okay. The queue was quite long..', 'Charlotte', '069f72db-2157-43de-8e88-21661b518200');
+values (3, 'The lasagna was okay. The queue was quite long.', 'Charlotte', '069f72db-2157-43de-8e88-21661b518200');
 insert into comment(rating, comment, name, RESTAURANT_ID)
 values (4, 'The wok was great! Kitchen chef and team were very friendly.', 'Luis',
         '069f72db-2157-43de-8e88-21661b518200');
