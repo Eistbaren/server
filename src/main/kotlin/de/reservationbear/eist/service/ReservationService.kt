@@ -20,6 +20,7 @@ import java.time.temporal.ChronoUnit
 import java.util.*
 import java.util.regex.Pattern
 import java.util.stream.Collectors
+import javax.mail.AuthenticationFailedException
 
 
 /**
@@ -37,7 +38,7 @@ class ReservationService(
      * @return the saved reservation
      */
     fun saveReservation(reservation: Reservation): Reservation {
-        checkValidityOfReservationToSave(reservation);
+        checkValidityOfReservationToSave(reservation)
 
         // Catch invalid Email-Address
         val regex = "^\\S+@\\S+\\.\\S+\$"
@@ -78,8 +79,8 @@ class ReservationService(
                     reservation
                 )
             }
-        } catch (e: Exception) {
-            throw ApiException("Could not send registration mail", 500)
+        } catch (e: AuthenticationFailedException) {
+            throw ApiException("Could not send registration mail - something seems wrong with your Mail-Settings", 500)
         }
 
         return db.save(reservation)
