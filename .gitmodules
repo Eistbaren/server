@@ -3,4 +3,4 @@
 	url = https://github.com/Eistbaren/client
 [submodule "documentation"]
 	path = documentation
-	url = git@github.com:Eistbaren/models.git
+	url = https://github.com/Eistbaren/models
