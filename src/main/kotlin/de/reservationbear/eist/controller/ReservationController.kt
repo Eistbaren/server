@@ -158,7 +158,7 @@ class ReservationController(
     ): ResponseEntity<ReservationMapper> {
 
         val removedReservation: Reservation =
-            reservationService.deleteReservation(id, "\"Reservation has been canceled by user")
+            reservationService.deleteReservation(id, "Reservation has been canceled by user")
 
         return ResponseEntity.ok(
             ReservationMapper(
