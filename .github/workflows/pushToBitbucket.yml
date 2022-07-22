@@ -50,6 +50,7 @@ jobs:
           # We don't want to push the client as a submodule
           rm -rf ./github/.gitmodules
           rm -rf ./github/client/.git
+          rm -rf ./github/documentation/.git
 
       - name: Commit and push bitbucket repo
         run: |
