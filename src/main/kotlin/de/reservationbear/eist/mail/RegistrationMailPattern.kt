@@ -18,7 +18,7 @@ class RegistrationMailPattern(val mailSender: MailSender) {
      *
      * @param mailAddress       Address for Mail
      * @param name              name of the recipient
-     * @param url           url for the dashboard
+     * @param url               url for the dashboard
      * @param reservation       reservation
      */
     fun sendMail(mailAddress: String, name: String, url: URL, reservation: Reservation) {
