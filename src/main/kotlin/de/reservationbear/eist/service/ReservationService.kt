@@ -61,24 +61,28 @@ class ReservationService(
 
         if (reservedTables != null) {
             for (table in reservedTables) {
-                if (reservation.restaurantTables!!.contains(table)) {
+                if (reservation.restaurantTables.contains(table)) {
                     throw ApiException("Table is already reserved", 400)
                 }
             }
         }
 
-        val exists: Boolean = reservation.id?.let { db.existsById(it) } ?: false
-        val insertedReservation = db.save(reservation)
+        val reservationEmail = db.findById(reservation.id?: UUID.randomUUID())
 
-        if (!exists) {
-            mailService.sendRegistrationMail(
-                insertedReservation.userEmail,
-                insertedReservation.userName,
-                URL(insertedReservation.urlFromRequest),
-                insertedReservation
-            )
+        try {
+            if (reservationEmail.isEmpty) {
+                mailService.sendRegistrationMail(
+                    reservation.userEmail,
+                    reservation.userName,
+                    URL(reservation.urlFromRequest),
+                    reservation
+                )
+            }
+        } catch (e: Exception) {
+            throw ApiException("Could not send registration mail", 500)
         }
-        return insertedReservation
+
+        return db.save(reservation)
     }
 
     private fun checkValidityOfReservationToSave(reservation: Reservation) {
